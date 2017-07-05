@@ -20,12 +20,14 @@ We rely on internal vendoring for all of our packages, so there's no need to use
 
 #### Build
 
-Compiling the main Evergreen processes is done by simply running `./build.sh`, which will compile them into the `bin` directory.
+Compiling the main Evergreen processes is done by simply running `make build`, which will compile them into the `bin` directory.
 
 Cross-compiling the agent is a little trickier. 
 Cross-compilation requires building Go from source (see above).
 You must then run `go run vendor/src/github.com/laher/goxc/goxc.go -t` to set up your tool chain before any cross compilation can take place.
-After this is done, run `./build_agent.sh`, which will compile the agent for all of our supported platforms.
+After this is done, run `make agents clis`, which will compile the agent and command-line tools for all of our supported platforms.
+
+You can also run `make dist` to create a tarball of all the available artifacts.
 
 
 ## Configure and Run
@@ -85,7 +87,7 @@ in the root of the config file.
 If the `superusers` field does not exist, all logged in users will have superuser privileges.
 
 #### The Evergreen Processes
-Running `build.sh` will generate binaries for `evergreen_ui_server`, `evergreen_api_server`, and `evergreen_runner`. 
+Running `make build` will generate binaries for `evergreen_ui_server`, `evergreen_api_server`, and `evergreen_runner`. 
 Once your config file is in order, you start these processes *from the root of the evergreen git repository* with
 ```bash
 export EVGHOME=`pwd`
