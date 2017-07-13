@@ -39,7 +39,7 @@ Defaults may be changed at any time by editing your `~/.evergreen.yml` file.
 Advanced Patch Tips
 --
 
-#####Multiple Defaults
+##### Multiple Defaults
 While the `evergreen` program has no built-in method of saving multiple configurations of defaults for a project, you can easily mimic this functionality by using multiple local evergreen configurations.
 The command line tool allows you to pass in a specific config file with `--config`:
 ```bash
@@ -83,7 +83,7 @@ projects:
 for running basic compile/unit tasks for a variety of platforms with `evergreen --config compile.yml patch`.
 This setup also makes it easy to do scripting for nice, automatic patch generation.
 
-#####Git Diff
+##### Git Diff
 Extra args to the `git diff` command used to generate your patch may be specified by appending them after `--`.  For example, to generate a patch relative to the previous commit:
 
       evergreen patch -- HEAD~1
@@ -130,7 +130,7 @@ cd ~/projects/module-project-directory
 evergreen set-module -i <patch_id> -m <module-name>
 ```
 
-#####Validating changes to config files
+##### Validating changes to config files
 
 When editing yaml project files, you can verify that the file will work correctly after committing by checking it with the "validate" command.
 
