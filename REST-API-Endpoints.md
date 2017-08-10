@@ -23,7 +23,7 @@ Evergreen REST API v1
 
 Most of the these REST endpoints do not require authentication to access.
 However, if the task, build, version, etc. that you are attempting to access is part of a private project, auth information is required to access.
-Attempts to load private pages with a public REST call receive a 302 FOUND response.
+Attempts to load private pages with a public REST call receive a 302 FOUND response. The V2 REST routes will return a 404 if no authentication headers are sent, or if the user is invalid.
 
 The simplest way to do this is to use your `user` and `api_key` fields from the Settings page.
 Authenticated REST access requires setting two headers, `Auth-Username` and `Api-Key`.
