@@ -251,7 +251,7 @@ Every task has some expansions available by default:
 * `${task_name}` is the name of the task
 * `${execution}` is the execution number of the task (how many times is has been reset)
 * `${build_id}` is the id of the build the task belongs to
-* `${build_variant}` is the name of the build the task belongs to
+* `${build_variant}` is the name of the build variant the task belongs to
 * `${version_id}` is the id of the task's version
 * `${workdir}` is the distro's working directory
 * `${revision}` is the git sha for the tested revision
