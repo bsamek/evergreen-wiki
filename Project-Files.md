@@ -182,7 +182,7 @@ timeout:
 ```
 
 You can customize the points at which the "timeout" conditions are triggered.
-To cause a task to stop (and fail) if it doesn't complete within an allotted time, set the key `exec_timeout_secs` on the project or task to the maximum allowed length of execution time. This timeout defaults to *6 hours*. `exec_timeout_secs`can only be set on the project or on a task. It cannot be set on functions.
+To cause a task to stop (and fail) if it doesn't complete within an allotted time, set the key `exec_timeout_secs` on the project or task to the maximum allowed length of execution time. This timeout defaults to 6 hours. `exec_timeout_secs`can only be set on the project or on a task. It cannot be set on functions.
 
 You may also force a specific command to trigger a failure if it does not appear to generate any output on `stdout`/`stderr` for more than a certain threshold, using the `timeout_secs` setting on the command. As long as the command does not appear to be idle it will be allowed to continue, but if it does not write any output for longer than `timeout_secs` then the timeout handler will be triggered.
 
@@ -207,9 +207,6 @@ tasks:
         script: |
           sleep 1000
 ```
-
-
-exec_timeout_secs
 
 ### Expansions
 
