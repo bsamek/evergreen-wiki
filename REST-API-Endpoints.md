@@ -549,12 +549,12 @@ groupby | string | tasks   | Determines how to key into the task status. For `ta
 
 Name    | Type   | Description
 ------- | ------ | -----------
-project | string | The project name.
+project_id | string | The project name.
 
 
 ##### Request
 
-    curl https://evergreen.example.com//rest/v1/tasks/compile/history?project=sample
+    curl https://evergreen.example.com//rest/v1/tasks/compile/history?project_id=sample
 
 ##### Response
 
