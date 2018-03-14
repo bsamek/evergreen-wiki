@@ -1,7 +1,7 @@
 Evergreen REST API v1
 ----------
 
-*Note*: For the REST v2 API documentation, please see [usage.rst](https://github.com/evergreen-ci/evergreen/blob/master/rest/usage.rst).
+*Note*: For the REST v2 API documentation, please see [REST V2 Usage](https://github.com/evergreen-ci/evergreen/wiki/REST-V2-Usage).
 
 ### Contents
 
