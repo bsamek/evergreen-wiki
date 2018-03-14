@@ -734,19 +734,19 @@ buildvariants:
       - name: "example_task_group"
 ```
 Parameters:
-*`setup_group`: commands to run prior to running this task group
-*`teardown_group`: commands to run after running this task group
-*`setup_task`: commands to run prior to running each task
-*`teardown_task`: commands to run after running each task
-*`max_hosts`: number of hosts across which to distribute the tasks in this group. This defaults to 1. Values less than 1 or greater than 10 should be a validation error. There will be a validation warning if maxhosts is greater than 50% the number of tasks.
-*`timeout` timeout handler which will be called instead of the top-level timeout handler. If it is not present, the top-level timeout handler will run if a top-level timeout handler exists.
+* `setup_group`: commands to run prior to running this task group
+* `teardown_group`: commands to run after running this task group
+* `setup_task`: commands to run prior to running each task
+* `teardown_task`: commands to run after running each task
+* `max_hosts`: number of hosts across which to distribute the tasks in this group. This defaults to 1. Values less than 1 or greater than 10 should be a validation error. There will be a validation warning if maxhosts is greater than 50% the number of tasks.
+* `timeout` timeout handler which will be called instead of the top-level timeout handler. If it is not present, the top-level timeout handler will run if a top-level timeout handler exists.
 
 The following constraints apply:
 * Tasks can appear in multiple task groups. However, no task can be assigned to a build variant more than once.
 * Task groups are specified on variants by name. It is an error to define a task group with the same name as a task.
-* Some operations may not be permitted within the “teardown_group” phase, such as “attach.results” or “attach.artifacts”. 
+* Some operations may not be permitted within the “teardown_group” phase, such as “attach.results” or “attach.artifacts”.
 * Tasks within a task group will be dispatched in order declared.
-* Any task (including members of task groups), can depend on specific tasks within a task group using the existing dependency system. 
+* Any task (including members of task groups), can depend on specific tasks within a task group using the existing dependency system.
 
 Tasks in the same task group on the same build variant will run sequentially on
 hosts, bypassing the “pre” and “post” tasks in the evergreen.yaml. Tasks in a
