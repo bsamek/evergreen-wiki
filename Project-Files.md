@@ -690,6 +690,69 @@ tasks:
     patch_optional: true
 ```
 
+### Task Groups
+Tasks in project configurations can be grouped within a task_group. A task_group
+contains arguments to set up and tear down both the entire group and each test.
+These are instead of the top-level pre and post arguments for the yaml file. An
+additional argument specifies the number of hosts on which to run this
+task_group.
+
+```yaml
+task_groups:
+  - name: example_task_group
+    max_hosts: 2
+    setup_group:
+      - command: shell.exec
+            params:
+            script: |
+              "echo setup_group"
+    teardown_group:
+      - command: shell.exec
+        params:
+        script: |git
+          "echo teardown_group"
+    setup_task:
+      - command: shell.exec
+        params:
+        script: |
+          "echo setup_group"
+    teardown_task:
+      - command: shell.exec
+        params:
+        script: |
+          "echo setup_group"
+    tasks:
+      - name: example_task_1
+      - name: example_task_2
+
+buildvariants:
+  - name: ubuntu1604
+    display_name: Ubuntu 16.04
+    run_on:
+      - ubuntu1604-test
+    tasks:
+      - name: "example_task_group"
+```
+Parameters:
+*`setup_group`: commands to run prior to running this task group
+*`teardown_group`: commands to run after running this task group
+*`setup_task`: commands to run prior to running each task
+*`teardown_task`: commands to run after running each task
+*`max_hosts`: number of hosts across which to distribute the tasks in this group. This defaults to 1. Values less than 1 or greater than 10 should be a validation error. There will be a validation warning if maxhosts is greater than 50% the number of tasks.
+*`timeout` timeout handler which will be called instead of the top-level timeout handler. If it is not present, the top-level timeout handler will run if a top-level timeout handler exists.
+
+The following constraints apply:
+* Tasks can appear in multiple task groups. However, no task can be assigned to a build variant more than once.
+* Task groups are specified on variants by name. It is an error to define a task group with the same name as a task.
+* Some operations may not be permitted within the “teardown_group” phase, such as “attach.results” or “attach.artifacts”. 
+* Tasks within a task group will be dispatched in order declared.
+* Any task (including members of task groups), can depend on specific tasks within a task group using the existing dependency system. 
+
+Tasks in the same task group on the same build variant will run sequentially on
+hosts, bypassing the “pre” and “post” tasks in the evergreen.yaml. Tasks in a
+group will be displayed as separate tasks. Users can use display tasks if they
+wish to group the task group tasks.
+
 ### Ignoring Changes to Certain Files
 Some commits to your repository don't need to be tested.
 The obvious examples here would be documentation or configuration files for other Evergreen projects—changes to README.md don't need to trigger your builds.
