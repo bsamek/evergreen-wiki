@@ -739,7 +739,7 @@ Parameters:
 * `setup_task`: commands to run prior to running each task
 * `teardown_task`: commands to run after running each task
 * `max_hosts`: number of hosts across which to distribute the tasks in this group. This defaults to 1. Values less than 1 or greater than 10 should be a validation error. There will be a validation warning if maxhosts is greater than 50% the number of tasks.
-* `timeout` timeout handler which will be called instead of the top-level timeout handler. If it is not present, the top-level timeout handler will run if a top-level timeout handler exists.
+* `timeout`: timeout handler which will be called instead of the top-level timeout handler. If it is not present, the top-level timeout handler will run if a top-level timeout handler exists.
 
 The following constraints apply:
 * Tasks can appear in multiple task groups. However, no task can be assigned to a build variant more than once.
