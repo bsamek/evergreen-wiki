@@ -1,25 +1,5 @@
 This page is a glossary of Evergreen's supported task commands.
 
-#### shell.exec
-This command runs a shell script.
-
-```yaml
-- command: shell.exec
-  params:
-    working_dir: src
-    script: |
-      echo "this is a 2nd command in the function!"
-      ls
-```
-
-Parameters:
-* `script`: the script to run 
-* `working_dir`: the directory to execute the shell script in
-* `background`: if set to true, does not wait for the script to exit before running the next commands
-* `silent`: if set to true, does not log any shell output during execution; useful to avoid leaking sensitive info
-* `continue_on_err`: if set to true, causes command to exit with success regardless of the script's exit code
-* `system_log`: if set to true, the script's output will be written to the task's system logs, instead of inline with logs from the test execution.
-
 #### git.get_project
 This command clones the tracked project repository into a given directory, and checks out the revision associated with the task. Also applies patches to the source after cloning it, if the task was created by a patch submission.
 
@@ -64,7 +44,7 @@ Parameters:
 * `local_files_include_filter`: used in place of local_file, an array of gitignore file globs. All files that are matched - ones that would be ignored by gitignore - are included in the put.
 
 #### s3.put with multiple files
-Using the s3.put command in this uploads multiple files to an s3 bucket. 
+Using the s3.put command in this uploads multiple files to an s3 bucket.
 ```yaml
 - command: s3.put
   params:
@@ -88,7 +68,7 @@ E.g. In a preceding shell.exec command, run  `go test -v > result.suite`
 
 ```yaml
 - command: gotest.parse_files
-  params: 
+  params:
     files: ["src/*.suite"]
 ```
 
@@ -140,3 +120,134 @@ Parameters:
 * `file`: a .xml file to parse and upload. A filepath glob can also be supplied to collect results from multiple files.
 
 
+#### generate.tasks
+This command creates functions, tasks, and variants from a user-provided JSON file.
+* generate.tasks cannot be called more than once per static variant.
+* generate.tasks cannot be called from a dynamic variant.
+* generate.tasks cannot redefine functions, tasks, or variants. generate.tasks may only append new functions, tasks, and variants. It is a validation error to modify an existing static or dynamic function, task, or variant, or to define one twice in the JSON document passed to the command. It is legal to specify a variant multiple times in order to add additional tasks to the variant, as long as no other variant metadata is changed.
+* The calls to generate.tasks may not in aggregate in a single version generate more than 100 variants or more than 1000 tasks.
+
+```yaml
+- command: generate.tasks
+  params:
+    files:
+      - example.json
+```
+
+Parameters:
+* `files`: the JSON file to generate tasks from
+
+```json
+{
+    "functions": {
+        "echo-hi": {
+            "command": "shell.exec",
+            "params": {
+                "script": "echo \"hi\"\n"
+            }
+        }
+    },
+    "tasks": [
+        {
+            "commands": [
+                {
+                    "command": "git.get_project",
+                    "params": {
+                        "directory": "src"
+                    }
+                },
+                {
+                    "func": "echo-hi"
+                }
+            ],
+            "name": "test"
+        }
+    ],
+    "buildvariants": [
+        {
+            "tasks": [
+                {
+                    "name": "test"
+                }
+            ],
+            "display_name": "Ubuntu 16.04",
+            "run_on": [
+                "ubuntu1604-test"
+            ],
+            "name": "ubuntu1604"
+        }
+    ]
+}
+```
+
+#### attach.artifacts
+This command allows users to add files to the task page without using the `s3.put` command.
+
+```yaml
+- command: attach.artifacts
+  params:
+    files:
+      - example.json
+```
+
+```json
+[
+    {
+      "name": "example_filename",
+      "link": "example_link",
+      "visibility": "private",
+      "ignore_for_fetch": false
+    }
+  ]
+```
+
+#### subprocess.exec
+The subprocess.exec command runs a shell command.
+
+```yaml
+- command: subprocess.exec
+  params:
+    working_dir: "src"
+    env_vars:
+      FOO: bar
+      BAZ: qux
+    binary: "command"
+    args:
+      - "arg1"
+      - "arg2"
+```
+
+Parameters:
+* `binary`: a binary to run
+* `args`: a list of arguments to the binary
+* `env`: a slice of environment variables and their values 
+* `command`: a command string (cannot use with `binary` or `args`)
+* `background`: if true, immediately return to caller
+* `silent`: do not log output of command
+* `system_log`: write output to system logs instead of task logs
+* `working_dir`: working directory to start shell in
+* `ignore_standard_out`: if true, do not log standard out
+* `ignore_standard_error`: if true, do not log standard error
+* `redirect_standard_error_to_output`: if true, redirect standard error to standard out
+* `continue_on_error`: if true, do not mark task as failed if command fails
+
+
+#### shell.exec
+This command runs a shell script.
+
+```yaml
+- command: shell.exec
+  params:
+    working_dir: src
+    script: |
+      echo "this is a 2nd command in the function!"
+      ls
+```
+
+Parameters:
+* `script`: the script to run
+* `working_dir`: the directory to execute the shell script in
+* `background`: if set to true, does not wait for the script to exit before running the next commands
+* `silent`: if set to true, does not log any shell output during execution; useful to avoid leaking sensitive info
+* `continue_on_err`: if set to true, causes command to exit with success regardless of the script's exit code
+* `system_log`: if set to true, the script's output will be written to the task's system logs, instead of inline with logs from the test execution.
