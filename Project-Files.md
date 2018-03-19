@@ -703,9 +703,9 @@ task_groups:
     max_hosts: 2
     setup_group:
       - command: shell.exec
-            params:
-            script: |
-              "echo setup_group"
+        params:
+        script: |
+          "echo setup_group"
     teardown_group:
       - command: shell.exec
         params:
