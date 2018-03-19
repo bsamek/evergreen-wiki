@@ -709,7 +709,7 @@ task_groups:
     teardown_group:
       - command: shell.exec
         params:
-        script: |git
+        script:
           "echo teardown_group"
     setup_task:
       - command: shell.exec
