@@ -404,6 +404,9 @@ Get Tests From A Task
    * - status       
      - string   
      - Optional. A status of test to limit the results to.
+   * - execution
+     - int
+     - Optional. The 0-based number corresponding to the execution of the task. Defaults to 0, meaning the first time the task was run.
 
 Host
 ----
