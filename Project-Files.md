@@ -352,6 +352,33 @@ For example:
 * `.cool !.primary` would return all items that are tagged "cool" and NOT tagged "primary"
 * `*` would return all items
 
+### Display Tasks
+
+Evergreen provides a way of grouping tasks into a single logical unit called a
+display task. These units are displayed in the UI as a single task. Only display
+tasks, not their execution tasks, are available to schedule patches against.
+Individual tasks in a display task are visible on the task page. Display task
+pages do not include any logs, though execution tasks' test results render on
+the display task's page. Users can restart the entire display task but not a
+subset of its execution tasks.
+
+To create a display task, list its name and its execution tasks in a
+`display_tasks` array in the variant definition. The execution tasks must be
+present in the `tasks` array.
+
+```yaml
+  - name: lint-variant
+    display_name: Lint
+    run_on:
+      - archlinux
+    tasks:
+      - name: ".lint"
+    display_tasks:
+      - name: lint
+        execution_tasks:
+        - ".lint"
+```
+
 ### Matrix Variant Definition
 
 Evergreen provides a format for defining a wide range of variants based on a combination of matrix axes.
