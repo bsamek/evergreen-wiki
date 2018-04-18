@@ -181,7 +181,7 @@ Parameters:
 ```
 
 #### attach.artifacts
-This command allows users to add files to the task page without using the `s3.put` command.
+This command allows users to add files to the "Files" section of the task page without using the `s3.put` command. Suppose you uploaded a file to https://example.com/this-is-my-file. You can then add a link to Files element on the task page by:
 
 ```yaml
 - command: attach.artifacts
@@ -192,14 +192,15 @@ This command allows users to add files to the task page without using the `s3.pu
 
 ```json
 [
-    {
-      "name": "example_filename",
-      "link": "example_link",
-      "visibility": "private",
-      "ignore_for_fetch": false
-    }
-  ]
+  {
+    "name": "my-file",
+    "link": "https://example.com/this-is-my-file",
+    "visibility": "public"
+  }
+]
 ```
+
+An additional "ignore_for_fetch" parameter controls whether the file will be downloaded when spawning a host from the spawn link on a test page.
 
 #### subprocess.exec
 The subprocess.exec command runs a shell command.
