@@ -252,3 +252,18 @@ Parameters:
 * `silent`: if set to true, does not log any shell output during execution; useful to avoid leaking sensitive info
 * `continue_on_err`: if set to true, causes command to exit with success regardless of the script's exit code
 * `system_log`: if set to true, the script's output will be written to the task's system logs, instead of inline with logs from the test execution.
+
+#### timeout.update
+This command runs a shell script.
+
+```yaml
+      - command: timeout.update
+        params:
+          exec_timeout_secs: ${my_exec_timeout_secs}
+          timeout_secs: ${my_timeout_secs}
+```
+
+Parameters:
+* `exec_timeout_secs`: set `exec_timeout_secs` dynamically, may be int, string, or expansion
+* `timeout_secs`: set `timeout_secs` dynamically, may be int, string, or expansion
+Both parameters are optional. If not set, the task will use the definition from the project config.
