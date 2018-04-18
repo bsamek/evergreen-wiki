@@ -264,6 +264,7 @@ This command sets `exec_timeout_secs` or `timeout_secs` of a task from within th
 ```
 
 Parameters:
-* `exec_timeout_secs`: set `exec_timeout_secs` dynamically, may be int, string, or expansion
-* `timeout_secs`: set `timeout_secs` dynamically, may be int, string, or expansion
+* `exec_timeout_secs`: set `exec_timeout_secs` for the task. May be int, string, or expansion
+* `timeout_secs`: set `timeout_secs` for the task. May be int, string, or expansion
+
 Both parameters are optional. If not set, the task will use the definition from the project config.
