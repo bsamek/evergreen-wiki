@@ -181,7 +181,7 @@ Parameters:
 ```
 
 #### attach.artifacts
-This command allows users to add files to the "Files" section of the task page without using the `s3.put` command. Suppose you uploaded a file to https://example.com/this-is-my-file. You can then add a link to Files element on the task page by:
+This command allows users to add files to the "Files" section of the task page without using the `s3.put` command. Suppose you uploaded a file to https://example.com/this-is-my-file in your task. For instance, you might be using boto in a Python script. You can then add a link to the Files element on the task page by:
 
 ```yaml
 - command: attach.artifacts
