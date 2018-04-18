@@ -254,7 +254,7 @@ Parameters:
 * `system_log`: if set to true, the script's output will be written to the task's system logs, instead of inline with logs from the test execution.
 
 #### timeout.update
-This command runs a shell script.
+This command sets `exec_timeout_secs` or `timeout_secs` of a task from within that task.
 
 ```yaml
       - command: timeout.update
