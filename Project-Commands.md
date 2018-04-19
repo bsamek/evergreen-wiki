@@ -197,24 +197,6 @@ Parameters:
 - command: manifest.load
 ```
 
-#### s3Copy.copy
-`s3Copy.copy` copies files from one s3 location to another
-
-```yaml
-- command: s3Copy.copy
-  params:
-    aws_key: ${aws_key}
-    aws_secret: ${aws_secret}
-    s3_copy_files:
-        - {'source': {'path': '${push_path}-STAGE/${push_name}/mongodb-${push_name}-${push_arch}-${suffix}-${task_id}.${ext|tgz}', 'bucket': 'build-push-testing'},
-           'destination': {'path': '${push_path}/mongodb-${push_name}-${push_arch}-${suffix}.${ext|tgz}', 'bucket': '${push_bucket}'}}
-```
-
-Parameters:
-* `aws_key`: your AWS key (use expansions to keep this a secret)
-* `aws_secret`: your AWS secret (use expansions to keep this a secret)
-* `s3_copy_files`: a map of `source` (`bucket` and `path`), `destination`, `buildvariants` (a list of strings), `display_name`, and `optional` (suppresses errors)
-
 #### s3.get
 `s3.get` downloads a file from Amazon s3.
 
@@ -283,6 +265,44 @@ Using the s3.put command in this uploads multiple files to an s3 bucket.
 ```
 Each file is displayed in evergreen as the file's name prefixed with the `display_name` field. Each file is uploaded to a path made of the local file's name, in this case whatever matches the `*.tgz`, prefixed with what is set as the `remote_file` field. The filter uses the same specification as gitignore when matching files. In this way, all files that would be marked to be ignored in a gitignore containing the lines `slow_tests/coverate/*.tgz` and `fast_tests/coverate/*.tgz` are uploaded to the s3 bucket.
 
+#### s3Copy.copy
+`s3Copy.copy` copies files from one s3 location to another
+
+```yaml
+- command: s3Copy.copy
+  params:
+    aws_key: ${aws_key}
+    aws_secret: ${aws_secret}
+    s3_copy_files:
+        - {'source': {'path': '${push_path}-STAGE/${push_name}/mongodb-${push_name}-${push_arch}-${suffix}-${task_id}.${ext|tgz}', 'bucket': 'build-push-testing'},
+           'destination': {'path': '${push_path}/mongodb-${push_name}-${push_arch}-${suffix}.${ext|tgz}', 'bucket': '${push_bucket}'}}
+```
+
+Parameters:
+* `aws_key`: your AWS key (use expansions to keep this a secret)
+* `aws_secret`: your AWS secret (use expansions to keep this a secret)
+* `s3_copy_files`: a map of `source` (`bucket` and `path`), `destination`, `buildvariants` (a list of strings), `display_name`, and `optional` (suppresses errors)
+
+#### shell.exec
+This command runs a shell script.
+
+```yaml
+- command: shell.exec
+  params:
+    working_dir: src
+    script: |
+      echo "this is a 2nd command in the function!"
+      ls
+```
+
+Parameters:
+* `script`: the script to run
+* `working_dir`: the directory to execute the shell script in
+* `background`: if set to true, does not wait for the script to exit before running the next commands
+* `silent`: if set to true, does not log any shell output during execution; useful to avoid leaking sensitive info
+* `continue_on_err`: if set to true, causes command to exit with success regardless of the script's exit code
+* `system_log`: if set to true, the script's output will be written to the task's system logs, instead of inline with logs from the test execution.
+
 #### subprocess.exec
 The subprocess.exec command runs a shell command.
 
@@ -313,26 +333,6 @@ Parameters:
 * `redirect_standard_error_to_output`: if true, redirect standard error to standard out
 * `continue_on_error`: if true, do not mark task as failed if command fails
 
-
-#### shell.exec
-This command runs a shell script.
-
-```yaml
-- command: shell.exec
-  params:
-    working_dir: src
-    script: |
-      echo "this is a 2nd command in the function!"
-      ls
-```
-
-Parameters:
-* `script`: the script to run
-* `working_dir`: the directory to execute the shell script in
-* `background`: if set to true, does not wait for the script to exit before running the next commands
-* `silent`: if set to true, does not log any shell output during execution; useful to avoid leaking sensitive info
-* `continue_on_err`: if set to true, causes command to exit with success regardless of the script's exit code
-* `system_log`: if set to true, the script's output will be written to the task's system logs, instead of inline with logs from the test execution.
 
 #### timeout.update
 This command sets `exec_timeout_secs` or `timeout_secs` of a task from within that task.
