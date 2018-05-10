@@ -5,8 +5,9 @@ Evergreen can notify you based on the outcome of your patches. To enable these, 
 1. Enter your Github Username (so we can identify which commits you make)
 2. Optionally, enter your Slack username (if you want to be notified on Slack)
 3. Under Notification Settings, select the Slack or Email next to "Patch Finish".
+4. Click save!
 
-For all new patches you create in the future, you'll receive an email.
+For all new patches you create in the future (including Github Pull Requests), you'll receive an email or slack message.
 
 # Project Admin Notifications
 Project administrators may enable certain notifications at the project level:
