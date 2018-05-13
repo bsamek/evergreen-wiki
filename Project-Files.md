@@ -250,11 +250,17 @@ Every task has some expansions available by default:
 * `${build_id}` is the id of the build the task belongs to
 * `${build_variant}` is the name of the build variant the task belongs to
 * `${version_id}` is the id of the task's version
-* `${workdir}` is the distro's working directory
+* `${workdir}` is the task's working directory
 * `${revision}` is the git sha for the tested revision
 * `${project}` is the project identifier the task belongs to
 * `${branch_name}` is the name of the branch being tested by the project
-
+* `${distro_id}` is name of the distro the task is running on
+* `${created_at}` is the time the version was created
+* `${revision_order_id}` is Evergreen's internal revision order number, which increments on each commit, and includes the patch author name in patches
+* `${github_pr_number}` is the number assigned by GitHub to the PR
+* `${github_org}` is the GitHub organization for the repo in which this PR appears
+* `${github_repo}` is the GitHub repo in which the PR appears
+* `${github_author}` is the GitHub username of the creator of the PR
 
 ### Task Tags
 Most projects have some implicit grouping at every layer.
