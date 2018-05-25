@@ -100,6 +100,19 @@ Parameters:
 * `file`: filename for a yaml file containing expansion updates
 * `ignore_missing_file`: do not error if the file is missing
 
+#### expansions.write
+`expansions.write` writes the task's expansions to a file
+
+```yaml
+- command: expansions.write
+  params:
+    file: expansions.yaml
+```
+
+Parameters:
+* `file`: filename to write expansions to
+* `redacted`: include redacted project variables, defaults to false
+
 #### generate.tasks
 This command creates functions, tasks, and variants from a user-provided JSON file.
 * generate.tasks cannot be called more than once per static variant.
