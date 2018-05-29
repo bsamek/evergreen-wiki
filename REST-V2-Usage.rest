@@ -5,6 +5,11 @@ Rest V2 Usage
 General Functionality
 =====================
 
+A note on authentication
+------------------------
+
+Many of the these REST endpoints do not require authentication to access, but some do. These will return a 404 if no authentication headers are sent, if the username is invalid, or if the API key is incorrect. Use the "user" and "api_key" fields from the https://evergreen.mongodb.com/settings page to set two headers, `Auth-Username` and `Api-Key`.
+
 
 Content Type and Communication
 ------------------------------
