@@ -86,18 +86,6 @@ superusers: ["name1", "name2", "name3"]
 in the root of the config file. 
 If the `superusers` field does not exist, all logged in users will have superuser privileges.
 
-#### The Evergreen Processes
-Running `make build` will generate binaries for `evergreen_ui_server`, `evergreen_api_server`, and `evergreen_runner`. 
-Once your config file is in order, you start these processes *from the root of the evergreen git repository* with
-```bash
-export EVGHOME=`pwd`
-bin/evergreen_ui_server -conf path/to/config.yml
-bin/evergreen_api_server -conf path/to/config.yml
-bin/evergreen_runner -conf path/to/config.yml
-```
-
-With these processes running, you can continue setting up your distros and projects through the Evergreen UI.
-
 ##### Projects
 
 First, Evergreen needs to know what codebases to test.
