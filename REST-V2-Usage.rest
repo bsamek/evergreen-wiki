@@ -327,7 +327,7 @@ Change A Task's Execution Status
 Test
 ----
 
- A test is a sub-operation of a task performed by Evergreen. 
+A test is a sub-operation of a task performed by Evergreen. 
 
 Objects
 ~~~~~~~
@@ -416,7 +416,7 @@ Get Tests From A Task
 Host
 ----
 
- The hosts resource defines a running machine instance in Evergreen.
+The hosts resource defines a running machine instance in Evergreen.
 
 Objects
 ~~~~~~~
@@ -617,7 +617,7 @@ Extend the Expiration of Host with Given Host ID
 Patch
 -----
 
- A patch is a manually initiated version submitted to test local changes.
+A patch is a manually initiated version submitted to test local changes.
 
 Objects
 ~~~~~~~
@@ -791,7 +791,7 @@ Change Patch Status
 Build
 -----
 
- The build resource represents the combination of a version and a buildvariant.
+The build resource represents the combination of a version and a buildvariant.
 
 Objects
 ~~~~~~~
@@ -917,7 +917,7 @@ Change Build Status
 Version
 -------
 
- A version is a commit in a project.
+A version is a commit in a project.
 
 Objects
 ~~~~~~~
@@ -1005,7 +1005,7 @@ Get Builds From A Version
 Project
 -------
 
- A project corresponds to a single branch of a repository.
+A project corresponds to a single branch of a repository.
 
 Objects
 ~~~~~~~
@@ -1103,7 +1103,7 @@ Fetch all Projects
 DistroCost
 ----------
 
- A distro cost represents cost data and other relevant information regarding the distro for the cost reporting project.
+A distro cost represents cost data and other relevant information regarding the distro for the cost reporting project.
 
 Objects
 ~~~~~~~
@@ -1157,7 +1157,7 @@ Fetch Distro Cost By Distro ID
 TaskCost
 ----------
 
- A task cost represents cost data and other relevant information regarding the task for the cost reporting project.
+A task cost represents cost data and other relevant information regarding the task for the cost reporting project.
 
 Objects
 ~~~~~~~
@@ -1223,7 +1223,7 @@ Fetch Task Cost By ProjectID
 VersionCost
 -----------
 
- A version cost represents cost data and other relevant information regarding the version for the cost reporting project.
+A version cost represents cost data and other relevant information regarding the version for the cost reporting project.
 
 Objects
 ~~~~~~~
