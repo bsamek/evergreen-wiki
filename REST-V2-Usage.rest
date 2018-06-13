@@ -43,13 +43,13 @@ query, access to them is populated in a 'Links' HTTP header. This header has the
 Dates
 -----
 
- Date fields are returned and accepted in ISO-8601 UTC extended format. They contain 
+Date fields are returned and accepted in ISO-8601 UTC extended format. They contain 
 3 fractional seconds with a ‘dot’ separator. 
 
 Empty Fields
 ------------
 
- A returned object will always contain its complete list of fields. Any field 
+A returned object will always contain its complete list of fields. Any field 
 that does not have an associated value will be filled with JSON's null value. 
 
 Resources
@@ -61,7 +61,7 @@ queried endpoint.
 Task
 ----
 
- The task is a basic unit of work understood by evergreen. They usually comprise 
+The task is a basic unit of work understood by evergreen. They usually comprise 
 a suite of tests or generation of a set of artifacts. 
 
 Objects
