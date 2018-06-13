@@ -13,12 +13,12 @@ Many of the these REST endpoints do not require authentication to access, but so
 
 Content Type and Communication
 ------------------------------
- The API accepts and returns all results in JSON. Some resources also allow 
+The API accepts and returns all results in JSON. Some resources also allow 
 URL parameters to provide additional specificity to a request.
 
 Errors
 ------
- When an error is encountered during a request, the API returns a JSON 
+When an error is encountered during a request, the API returns a JSON 
 object with the HTTP status code and a message describing the error of the form:
 
 ::
@@ -30,7 +30,7 @@ object with the HTTP status code and a message describing the error of the form:
 
 Pagination
 ----------
- API Routes that fetch many objects return them in a JSON array and support paging 
+API Routes that fetch many objects return them in a JSON array and support paging 
 through subsets of the total result set. When there are additional results for the 
 query, access to them is populated in a 'Links' HTTP header. This header has the form: 
 
