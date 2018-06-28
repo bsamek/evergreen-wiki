@@ -28,12 +28,12 @@ However, if the task, build, version, etc. that you are attempting to access is 
 Attempts to load private pages with a public REST call receive a 302 FOUND response. The V2 REST routes will return a 404 if no authentication headers are sent, or if the user is invalid.
 
 The simplest way to do this is to use your `user` and `api_key` fields from the Settings page.
-Authenticated REST access requires setting two headers, `Auth-Username` and `Api-Key`.
+Authenticated REST access requires setting two headers, `Api-User` and `Api-Key`.
 
 ##### Example
 
 ```bash
-    curl -H Auth-Username:my.name -H Api-Key:21312mykey12312 https://evergreen.example.com/rest/v1/projects/my_private_project
+    curl -H Api-User:my.name -H Api-Key:21312mykey12312 https://evergreen.example.com/rest/v1/projects/my_private_project
 ```
 #### Retrieve a list of active project IDs
 
@@ -280,7 +280,7 @@ activated | bool | **Optional**. Activates the version when `true`, and deactiva
 
 ##### Request
 
-    curl -X PATCH https://evergreen.example.com/rest/v1/versions/mongodb_mongo_master_d477da53e119b207de45880434ccef1e47084652 -d '{"activated": false}' -H Auth-Username:my.name -H Api-Key:21312mykey12312
+    curl -X PATCH https://evergreen.example.com/rest/v1/versions/mongodb_mongo_master_d477da53e119b207de45880434ccef1e47084652 -d '{"activated": false}' -H Api-User:my.name -H Api-Key:21312mykey12312
 
 ##### Response
 
