@@ -32,11 +32,11 @@ Pagination
 ----------
 API Routes that fetch many objects return them in a JSON array and support paging 
 through subsets of the total result set. When there are additional results for the 
-query, access to them is populated in a 'Links' HTTP header. This header has the form: 
+query, access to them is populated in a `Link HTTP header <https://www.w3.org/wiki/LinkHeader>`_. This header has the form: 
 
 ::
 
- "Links" : <http://<EVERGREEN_HOST>/rest/v2/path/to/resource?start_at=<pagination_key>&limit=<objects_per_page>; rel="next"
+ "Link" : <http://<EVERGREEN_HOST>/rest/v2/path/to/resource?start_at=<pagination_key>&limit=<objects_per_page>; rel="next"
 
  <http://<EVERGREEN_HOST>/rest/v2/path/to/resource?start_at=<pagination_key>&limit=<objects_per_page>; rel="prev"
 
