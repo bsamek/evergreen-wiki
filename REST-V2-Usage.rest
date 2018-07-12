@@ -2,6 +2,10 @@
 Rest V2 Usage
 =============
 
+.. contents:: `Table of contents`
+   :depth: 2
+   :local:
+
 General Functionality
 =====================
 
