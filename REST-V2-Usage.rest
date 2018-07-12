@@ -1088,7 +1088,7 @@ Fetch all Projects
 
  GET /projects
 
- Returns a paginated list of all projects
+Returns a paginated list of all projects
 
 .. list-table:: **Parameters**
   :widths: 25 10 55
@@ -1103,6 +1103,41 @@ Fetch all Projects
    * - limit
      - int
      - Optional. The number of projects to be returned per page of pagination. Defaults to 100
+
+Distro
+------
+
+A distro is an Evergreen host type. This isn't necessarily a Linux distribution -
+Mac and Windows host types are other possibilities.
+
+Objects
+~~~~~~~
+
+.. list-table:: **Distro**
+  :widths: 25 10 55
+  :header-rows: 1
+  
+  * - Name
+    - Type
+    - Description
+  * - ``name``
+    - string
+    - Evergreen distro name
+  * - ``user_spawn_allowed``
+    - bool
+    - Whether hosts of this distro can be spawned by users
+
+Endpoints
+~~~~~~~~~
+
+Get Defined Distros
+
+::
+
+ GET /distros
+
+Fetches distros defined in the system.
+
 
 DistroCost
 ----------
@@ -1142,7 +1177,7 @@ Fetch Distro Cost By Distro ID
 
  GET /cost/distro/<distro_id>
 
- Fetches distro cost associated with the specific distro filtered by time range
+Fetches distro cost associated with the specific distro filtered by time range
 
 .. list-table:: **Parameters**
   :widths: 25 10 55
@@ -1202,7 +1237,7 @@ Fetch Task Cost By ProjectID
 
  GET /cost/project/<project_id>/tasks
 
- Returns a paginated list of all tasks associated with a specific project filtered by time range
+Returns a paginated list of all tasks associated with a specific project filtered by time range
 
 .. list-table:: **Parameters**
   :widths: 25 10 55
