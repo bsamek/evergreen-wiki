@@ -391,7 +391,7 @@ Get Tests From A Task
 
  GET /tasks/<task_id>/tests
 
- Fetches a paginated list of tests that ran as part of the given task 
+Fetches a paginated list of tests that ran as part of the given task 
 
 .. list-table:: **Parameters**
    :widths: 25 10 55
@@ -498,7 +498,7 @@ Fetch All Hosts
 
  GET /hosts
 
- Returns a paginated list of all hosts in Evergreen
+Returns a paginated list of all hosts in Evergreen
 
 .. list-table:: **Parameters**
    :widths: 25 10 55
@@ -772,7 +772,7 @@ Change Patch Status
 
  PATCH /patches/<patch_id>
 
- Sets the priority and activation status of a single patch to the input values
+Sets the priority and activation status of a single patch to the input values
 
 .. list-table:: **Parameters**
    :widths: 25 10 55
@@ -898,7 +898,7 @@ Change Build Status
 
  PATCH /builds/<build_id>
 
- Sets the priority and activation status of a single build to the input values
+Sets the priority and activation status of a single build to the input values
 
 .. list-table:: **Parameters**
   :widths: 25 10 55
