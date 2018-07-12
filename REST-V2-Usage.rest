@@ -526,6 +526,31 @@ Fetch Host By ID
 
 Fetches a single host using its ID
 
+
+Spawn a Host
+````````````
+
+::
+
+ POST /hosts
+
+Spawns a host. The host must be of a distro which is spawnable by users
+(see `Distro`_).
+
+.. list-table:: **Parameters**
+  :widths: 25 10 55
+  :header-rows: 1
+
+  * - Name
+    - Type
+    - Description
+  * - ``distro``
+    - string
+    - `Distro`_ name to spawn
+  * - ``keyname``
+    - string
+    - `Key`_ name to use
+
 Terminate Host with Given Host ID
 `````````````````````````````````
 
@@ -1289,8 +1314,8 @@ Fetch Version Cost By VersionID
 
 Fetches version cost associated with the specific version
 
-Keys
-----
+Key
+---
 
 Objects
 ~~~~~~~
