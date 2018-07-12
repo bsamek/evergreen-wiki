@@ -208,7 +208,7 @@ List Tasks By Build
 
  GET /builds/<build_id>/tasks
 
- List all tasks within a specific build.
+List all tasks within a specific build.
 
 .. list-table:: **Parameters**
    :widths: 25 10 55
@@ -234,7 +234,7 @@ List Tasks By Project And Commit
 
  GET /project/<project_name>/versions/<commit_hash>/tasks
 
- List all tasks within a commit of a given project
+List all tasks within a commit of a given project
 
 .. list-table:: **Parameters**
    :widths: 25 10 55
@@ -258,7 +258,7 @@ Get A Single Task
 
  GET /tasks/<task_id>
 
- Fetch a single task using its ID
+Fetch a single task using its ID
 
 .. list-table:: **Parameters**
    :widths: 25 10 55
@@ -277,7 +277,7 @@ Restart A Task
 
  POST /tasks/<task_id>/restart
 
- Restarts the task of the given ID. Can only be performed if the task is in progress.
+Restarts the task of the given ID. Can only be performed if the task is in progress.
 
 Abort A Task
 ````````````
@@ -286,7 +286,7 @@ Abort A Task
 
  POST /tasks/<task_id>/abort
 
- Abort the task of the given ID. Can only be performed if the task is in progress.
+Abort the task of the given ID. Can only be performed if the task is in progress.
 
 Change A Task's Execution Status
 ````````````````````````````````
@@ -312,11 +312,11 @@ Change A Task's Execution Status
      - The priority of this task's execution. Limited to 100 for non-superusers
 
 
- For example, to set activate the task and set its status priority to 100, add 
- the following JSON to the request body:
+For example, to set activate the task and set its status priority to 100, add 
+the following JSON to the request body:
 
 
- ::
+::
 
  {
    "activated": true,
@@ -524,7 +524,7 @@ Fetch Host By ID
 
  GET /hosts/<host_id>
 
- Fetches a single host using its ID
+Fetches a single host using its ID
 
 Terminate Host with Given Host ID
 `````````````````````````````````
@@ -533,20 +533,20 @@ Terminate Host with Given Host ID
 
  POST /hosts/<host_id>/terminate
 
- Immediately terminate a single host with given ID. Users may only terminate hosts which
- were created by them, unless the user is a super-user.
+Immediately terminate a single host with given ID. Users may only terminate hosts which
+were created by them, unless the user is a super-user.
 
- Hosts which have not been initialised yet will be marked as Terminated.
+Hosts which have not been initialised yet will be marked as Terminated.
 
- Trying to terminate a host which has already been terminated will result in an error.
+Trying to terminate a host which has already been terminated will result in an error.
 
- All other host statuses will result in an attempt to terminate using the provider's
- API
+All other host statuses will result in an attempt to terminate using the provider's
+API
 
- A response code of 200 OK indicates that the host was successfully terminated
+A response code of 200 OK indicates that the host was successfully terminated
 
- All other response codes indicate errors; the response body can be parsed as
- a rest.APIError
+All other response codes indicate errors; the response body can be parsed as
+a rest.APIError
 
 Change RDP Password of Host with Given Host ID
 ``````````````````````````````````````````````
@@ -555,18 +555,18 @@ Change RDP Password of Host with Given Host ID
 
  POST /hosts/<host_id>/change_password
 
- Immediately changes the RDP password of a Windows host with a given ID. Users
- may only change passwords for hosts which were created by them, unless the
- user is a super-user.
+Immediately changes the RDP password of a Windows host with a given ID. Users
+may only change passwords for hosts which were created by them, unless the
+user is a super-user.
 
- A response code of 200 OK indicates that the host's password was successfully
- terminated
+A response code of 200 OK indicates that the host's password was successfully
+terminated
 
- Attempting to set the RDP password of a host that is not a Windows host or
- host that is not running will result in an error.
+Attempting to set the RDP password of a host that is not a Windows host or
+host that is not running will result in an error.
 
- All other response codes indicate errors; the response body can be parsed as
- a rest.APIError
+All other response codes indicate errors; the response body can be parsed as
+a rest.APIError
 
 .. list-table:: **Change Password**
    :widths: 25 10 55
@@ -588,20 +588,20 @@ Extend the Expiration of Host with Given Host ID
 
  POST /hosts/<host_id>/extend_expiration
 
- Extend the expiration time of a host with a given ID. Users may only
- extend expirations for hosts which were created by them, unless the user is a
- super-user
+Extend the expiration time of a host with a given ID. Users may only
+extend expirations for hosts which were created by them, unless the user is a
+super-user
 
- The expiration date of a host may not be more than 1 week in the future.
+The expiration date of a host may not be more than 1 week in the future.
 
- A response code of 200 OK indicates that the host's expiration was successfully
- extended.
+A response code of 200 OK indicates that the host's expiration was successfully
+extended.
 
- Attempt to extend the expiration time of a terminated host will result in an
- error
+Attempt to extend the expiration time of a terminated host will result in an
+error
 
- All other response codes indicate errors; the response body can be parsed as
- a rest.APIError
+All other response codes indicate errors; the response body can be parsed as
+a rest.APIError
 
 .. list-table:: **Extend Expiration**
    :widths: 25 10 55
@@ -699,7 +699,7 @@ Fetch Patches By Project
 
  GET /projects/<project_id>/patches
 
- Returns a paginated list of all patches associated with a specific project
+Returns a paginated list of all patches associated with a specific project
 
 .. list-table:: **Parameters**
    :widths: 25 10 55
@@ -722,7 +722,7 @@ Fetch Patches By User
 
  GET /users/<user_id>/patches
 
- Returns a paginated list of all patches associated with a specific user
+Returns a paginated list of all patches associated with a specific user
 
 .. list-table:: **Parameters**
   :widths: 25 10 55
@@ -745,7 +745,7 @@ Fetch Patch By Id
 
  GET /projects/<project_id>/patches
 
- Fetch a single patch using its ID
+Fetch a single patch using its ID
 
 Abort a Patch
 `````````````
@@ -754,7 +754,7 @@ Abort a Patch
 
  POST /patches/<patch_id>/abort
 
- Aborts a single patch using its ID and returns the patch
+Aborts a single patch using its ID and returns the patch
 
 Restart a Patch
 ```````````````
@@ -763,7 +763,7 @@ Restart a Patch
 
  POST /patches/<patch_id>/restart
 
- Restarts a single patch using its ID then returns the patch
+Restarts a single patch using its ID then returns the patch
 
 Change Patch Status
 ```````````````````
@@ -871,7 +871,7 @@ Fetch Build By Id
 
  GET /builds/<build_id>
 
- Fetches a single build using its ID
+Fetches a single build using its ID
 
 Abort a Build
 `````````````
@@ -880,7 +880,7 @@ Abort a Build
 
  POST /builds/<build_id>/abort
 
- Aborts a single build using its ID then returns the build
+Aborts a single build using its ID then returns the build
 
 Restart a Build
 ```````````````
@@ -889,7 +889,7 @@ Restart a Build
 
  POST /builds/<build_id>/restart
 
- Restarts a single build using its ID then returns the build
+Restarts a single build using its ID then returns the build
 
 Change Build Status
 ```````````````````
@@ -973,7 +973,7 @@ Fetch Version By Id
 
  GET /versions/<version_id>
 
- Fetches a single version using its ID
+Fetches a single version using its ID
 
 Abort a Version
 ```````````````
@@ -982,7 +982,7 @@ Abort a Version
 
  POST /versions/<version_id>/abort
 
- Aborts a single version using its ID then returns the version
+Aborts a single version using its ID then returns the version
 
 Restart a Version
 `````````````````
@@ -991,7 +991,7 @@ Restart a Version
 
  POST /versions/<version_id>/restart
 
- Restarts a single version using its ID then returns the version
+Restarts a single version using its ID then returns the version
 
 Get Builds From A Version
 `````````````````````````
@@ -1000,7 +1000,7 @@ Get Builds From A Version
 
  GET /versions/<version_id>/builds
 
- Fetches a list of builds associated with a version
+Fetches a list of builds associated with a version
 
 Project
 -------
@@ -1287,7 +1287,7 @@ Fetch Version Cost By VersionID
 
  GET /cost/version/<version_id>
 
- Fetches version cost associated with the specific version
+Fetches version cost associated with the specific version
 
 Keys
 ----
@@ -1319,10 +1319,10 @@ Fetch Current User's SSH Public Keys
 
  GET /keys
 
- Fetch the SSH public keys of the current user (as determined by the
- Api-User and Api-Key headers) as an array of Key objects.
+Fetch the SSH public keys of the current user (as determined by the
+Api-User and Api-Key headers) as an array of Key objects.
 
- If the user has no public keys, expect: []
+If the user has no public keys, expect: []
 
 Add a Public Key to the Current User
 ````````````````````````````````````
@@ -1331,20 +1331,20 @@ Add a Public Key to the Current User
 
  POST /keys
 
- Add a single public key to the current user (as determined by the
- Api-User and Api-Key headers) as a Key object. If you attempt to insert a key
- with a duplicate name, it will fail
+Add a single public key to the current user (as determined by the
+Api-User and Api-Key headers) as a Key object. If you attempt to insert a key
+with a duplicate name, it will fail
 
- Both name and key must not be empty strings, nor strings consisting entirely
- of whitespace
+Both name and key must not be empty strings, nor strings consisting entirely
+of whitespace
 
- If the key was successfully inserted, the server will return HTTP status code
- 200 OK
+If the key was successfully inserted, the server will return HTTP status code
+200 OK
 
- If the a key with the supplied name already exists, the key will not be added,
- and the route will return status code 400 Bad Request.
+If the a key with the supplied name already exists, the key will not be added,
+and the route will return status code 400 Bad Request.
 
- Any other status code indicates that the key was not successfully added.
+Any other status code indicates that the key was not successfully added.
 
 Delete A Specified Public Key from the Current User
 ```````````````````````````````````````````````````
@@ -1353,16 +1353,16 @@ Delete A Specified Public Key from the Current User
 
  DELETE /keys/{key_name}
 
- Delete the SSH public key with name '{key_name}' from the current user (as
- determined by the Api-User and Api-Key headers).
+Delete the SSH public key with name '{key_name}' from the current user (as
+determined by the Api-User and Api-Key headers).
 
- If a public key with name '{key_name}' was successfully deleted, HTTP
- status code 200 OK will be returned.
+If a public key with name '{key_name}' was successfully deleted, HTTP
+status code 200 OK will be returned.
 
- If a public key with name '{key_name}' does not exist, HTTP status code 400
- Bad Request will be returned.
+If a public key with name '{key_name}' does not exist, HTTP status code 400
+Bad Request will be returned.
 
- Any other code indicates that the public key was not deleted
+Any other code indicates that the public key was not deleted
 
 Status
 ------
@@ -1428,4 +1428,4 @@ Fetch CLI Client Version
 
  GET /status/cli_version
 
- Fetch the CLI update manifest from the server
+Fetch the CLI update manifest from the server
