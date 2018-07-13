@@ -1125,6 +1125,30 @@ Returns a paginated list of all projects
      - int
      - Optional. The number of projects to be returned per page of pagination. Defaults to 100
 
+Get Recent Versions For A Project
+`````````````````````````````````
+
+::
+
+ GET /projects/<project_id>/recent_versions
+
+
+Returns a paginated list of recent versions for a project
+
+.. list-table:: **Parameters**
+  :widths: 25 10 55
+  :header-rows: 1
+
+   * - Name
+     - Type
+     - Description
+   * - offset
+     - string
+     - Optional. Zero-based offset to return results from.
+   * - limit
+     - int
+     - Optional. The number of versions to be returned per page of pagination. Defaults to 10
+
 Distro
 ------
 
