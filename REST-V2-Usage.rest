@@ -263,6 +263,7 @@ Fetch a single task using its ID
 .. list-table:: **Parameters**
    :widths: 25 10 55
    :header-rows: 1
+
    * - Name
      - Type
      - Description
@@ -538,18 +539,18 @@ Spawns a host. The host must be of a distro which is spawnable by users
 (see `Distro`_).
 
 .. list-table:: **Parameters**
-  :widths: 25 10 55
-  :header-rows: 1
+   :widths: 25 10 55
+   :header-rows: 1
 
-  * - Name
-    - Type
-    - Description
-  * - ``distro``
-    - string
-    - `Distro`_ name to spawn
-  * - ``keyname``
-    - string
-    - `Key`_ name to use
+   * - Name
+     - Type
+     - Description
+   * - ``distro``
+     - string
+     - `Distro`_ name to spawn
+   * - ``keyname``
+     - string
+     - `Key`_ name to use
 
 Terminate Host with Given Host ID
 `````````````````````````````````
@@ -750,8 +751,8 @@ Fetch Patches By User
 Returns a paginated list of all patches associated with a specific user
 
 .. list-table:: **Parameters**
-  :widths: 25 10 55
-  :header-rows: 1
+   :widths: 25 10 55
+   :header-rows: 1
 
    * - Name
      - Type
@@ -926,8 +927,8 @@ Change Build Status
 Sets the priority and activation status of a single build to the input values
 
 .. list-table:: **Parameters**
-  :widths: 25 10 55
-  :header-rows: 1
+   :widths: 25 10 55
+   :header-rows: 1
 
    * - Name
      - Type
@@ -948,45 +949,45 @@ Objects
 ~~~~~~~
 
 .. list-table:: **Version**
-  :widths: 25 10 55
-  :header-rows: 1
+   :widths: 25 10 55
+   :header-rows: 1
 
-  * - Name
-    - Type
-    - Description
-  * - ``create_time``
-    - time
-    - Time that the version was first created
-  * - ``start_time``
-    - time
-    - Time at which tasks associated with this version started running
-  * - ``finish_time``
-    - time
-    - Time at which tasks associated with this version finished running
-  * - ``revision``
-    - string
-    - The version control identifier
-  * - ``author``
-    - string
-    - Author of the version
-  * - ``author_email``
-    - string
-    - Email of the author of the version
-  * - ``message``
-    - string
-    - Message left with the commit
-  * - ``status``
-    - string
-    - The status of the version
-  * - ``repo``
-    - string
-    - The github repository where the commit was made
-  * - ``branch``
-    - string
-    - The version control branch where the commit was made
-  * - ``build_variants_status``
-    - []buildDetail
-    - List of documents of the associated build variant and the build id
+   * - Name
+     - Type
+     - Description
+   * - ``create_time``
+     - time
+     - Time that the version was first created
+   * - ``start_time``
+     - time
+     - Time at which tasks associated with this version started running
+   * - ``finish_time``
+     - time
+     - Time at which tasks associated with this version finished running
+   * - ``revision``
+     - string
+     - The version control identifier
+   * - ``author``
+     - string
+     - Author of the version
+   * - ``author_email``
+     - string
+     - Email of the author of the version
+   * - ``message``
+     - string
+     - Message left with the commit
+   * - ``status``
+     - string
+     - The status of the version
+   * - ``repo``
+     - string
+     - The github repository where the commit was made
+   * - ``branch``
+     - string
+     - The version control branch where the commit was made
+   * - ``build_variants_status``
+     - []buildDetail
+     - List of documents of the associated build variant and the build id
 
 Endpoints
 ~~~~~~~~~
@@ -1030,14 +1031,14 @@ Fetches a list of builds associated with a version
 Project
 -------
 
-A project corresponds to a single branch of a repository.
+A project corresponds to a single repository.
 
 Objects
 ~~~~~~~
 
 .. list-table:: **Project**
-  :widths: 25 10 55
-  :header-rows: 1
+   :widths: 25 10 55
+   :header-rows: 1
 
    * - Name
      - Type
@@ -1086,8 +1087,8 @@ Objects
      - Map of project variables
 
 .. list-table:: **Alert Config**
-  :widths: 25 10 55
-  :header-rows: 1
+   :widths: 25 10 55
+   :header-rows: 1
 
    * - Name
      - Type
@@ -1112,8 +1113,8 @@ Fetch all Projects
 Returns a paginated list of all projects
 
 .. list-table:: **Parameters**
-  :widths: 25 10 55
-  :header-rows: 1
+   :widths: 25 10 55
+   :header-rows: 1
 
    * - Name
      - Type
@@ -1136,14 +1137,14 @@ Get Recent Versions For A Project
 Returns a paginated list of recent versions for a project
 
 .. list-table:: **Parameters**
-  :widths: 25 10 55
-  :header-rows: 1
+   :widths: 25 10 55
+   :header-rows: 1
 
    * - Name
      - Type
      - Description
    * - offset
-     - string
+     - int
      - Optional. Zero-based offset to return results from.
    * - limit
      - int
@@ -1159,18 +1160,18 @@ Objects
 ~~~~~~~
 
 .. list-table:: **Distro**
-  :widths: 25 10 55
+   :widths: 25 10 55
   :header-rows: 1
-  
-  * - Name
-    - Type
-    - Description
-  * - ``name``
-    - string
-    - Evergreen distro name
-  * - ``user_spawn_allowed``
-    - bool
-    - Whether hosts of this distro can be spawned by users
+   
+   * - Name
+     - Type
+     - Description
+   * - ``name``
+     - string
+     - Evergreen distro name
+   * - ``user_spawn_allowed``
+     - bool
+     - Whether hosts of this distro can be spawned by users
 
 Endpoints
 ~~~~~~~~~
@@ -1193,24 +1194,24 @@ Objects
 ~~~~~~~
 
 .. list-table:: **DistroCost**
-  :widths: 25 10 55
-  :header-rows: 1
+   :widths: 25 10 55
+   :header-rows: 1
 
-  * - Name
-    - Type
-    - Description
-  * - ``distro_id``
-    - string
-    - The identifier of the distro
-  * - ``sum_time_taken``
-    - time.Duration
-    - Aggregated duration of tasks belonging to the distro
-  * - ``provider``
-    - string
-    - The cloud provider for the distro
-  * - ``instance_type``
-    - string
-    - The type of the instance on which the distro runs 
+   * - Name
+     - Type
+     - Description
+   * - ``distro_id``
+     - string
+     - The identifier of the distro
+   * - ``sum_time_taken``
+     - time.Duration
+     - Aggregated duration of tasks belonging to the distro
+   * - ``provider``
+     - string
+     - The cloud provider for the distro
+   * - ``instance_type``
+     - string
+     - The type of the instance on which the distro runs 
 
 Endpoints
 ~~~~~~~~~
@@ -1225,18 +1226,18 @@ Fetch Distro Cost By Distro ID
 Fetches distro cost associated with the specific distro filtered by time range
 
 .. list-table:: **Parameters**
-  :widths: 25 10 55
-  :header-rows: 1
+   :widths: 25 10 55
+   :header-rows: 1
 
-  * - Name
-    - Type
-    - Description
-  * - ``starttime``
-    - string
-    - Lower bound of the time range
-  * - ``duration``
-    - string
-    - Duration of the time range
+   * - Name
+     - Type
+     - Description
+   * - ``starttime``
+     - string
+     - Lower bound of the time range
+   * - ``duration``
+     - string
+     - Duration of the time range
 
 TaskCost
 ----------
@@ -1247,30 +1248,30 @@ Objects
 ~~~~~~~
 
 .. list-table:: **TaskCost**
-  :widths: 25 10 55
-  :header-rows: 1
+   :widths: 25 10 55
+   :header-rows: 1
 
-  * - Name
-    - Type
-    - Description
-  * - ``task_id``
-    - string
-    - The identifier of the task
-  * - ``display_name``
-    - string
-    - Name of this task displayed in the UI
-  * - ``distro``             
-    - string         
-    - Identifier of the distro that this task runs on
-  * - ``build_variant``         
-    - string         
-    - Name of the build variant that this task runs on
-  * - ``time_taken``
-    - time.Duration
-    - Number of milliseconds this task took during execution
-  * - ``githash``
-    - string
-    - The version control identifier associated with this task
+   * - Name
+     - Type
+     - Description
+   * - ``task_id``
+     - string
+     - The identifier of the task
+   * - ``display_name``
+     - string
+     - Name of this task displayed in the UI
+   * - ``distro``             
+     - string         
+     - Identifier of the distro that this task runs on
+   * - ``build_variant``         
+     - string         
+     - Name of the build variant that this task runs on
+   * - ``time_taken``
+     - time.Duration
+     - Number of milliseconds this task took during execution
+   * - ``githash``
+     - string
+     - The version control identifier associated with this task
 
 Endpoints
 ~~~~~~~~~
@@ -1285,24 +1286,24 @@ Fetch Task Cost By ProjectID
 Returns a paginated list of all tasks associated with a specific project filtered by time range
 
 .. list-table:: **Parameters**
-  :widths: 25 10 55
-  :header-rows: 1
+   :widths: 25 10 55
+   :header-rows: 1
 
-  * - Name
-    - Type
-    - Description
-  * - ``starttime``
-    - string
-    - Lower bound of the time range
-  * - ``duration``
-    - string
-    - Duration of the time range
-  * - ``start_at``    
-    - string   
-    - Optional. The identifier of the task to start at in the pagination
-  * - ``limit``       
-    - int   
-    - Optional. The number of tasks to be returned per page of pagination. Defaults to 100
+   * - Name
+     - Type
+     - Description
+   * - ``starttime``
+     - string
+     - Lower bound of the time range
+   * - ``duration``
+     - string
+     - Duration of the time range
+   * - ``start_at``    
+     - string   
+     - Optional. The identifier of the task to start at in the pagination
+   * - ``limit``       
+     - int   
+     - Optional. The number of tasks to be returned per page of pagination. Defaults to 100
 
 VersionCost
 -----------
@@ -1313,18 +1314,18 @@ Objects
 ~~~~~~~
 
 .. list-table:: **VersionCost**
-  :widths: 25 10 55
-  :header-rows: 1
+   :widths: 25 10 55
+   :header-rows: 1
 
-  * - Name
-    - Type
-    - Description
-  * - ``version_id``
-    - string
-    - The identifier of the version
-  * - ``sum_time_taken``
-    - time.Duration
-    - Aggregated duration of tasks belonging to the version
+   * - Name
+     - Type
+     - Description
+   * - ``version_id``
+     - string
+     - The identifier of the version
+   * - ``sum_time_taken``
+     - time.Duration
+     - Aggregated duration of tasks belonging to the version
 
 Endpoints
 ~~~~~~~~~
