@@ -1479,3 +1479,6 @@ Fetch CLI Client Version
  GET /status/cli_version
 
 Fetch the CLI update manifest from the server
+
+
+If you cannot find an endpoint, it may not be documented here. Check the defined endpoints in evergreen source: https://github.com/evergreen-ci/evergreen/blob/master/rest/route/service.go
