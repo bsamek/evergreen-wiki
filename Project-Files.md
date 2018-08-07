@@ -755,8 +755,8 @@ task_groups:
         script: |
           "echo setup_group"
     tasks:
-      - name: example_task_1
-      - name: example_task_2
+      - example_task_1
+      - example_task_2
 
 buildvariants:
   - name: ubuntu1604
