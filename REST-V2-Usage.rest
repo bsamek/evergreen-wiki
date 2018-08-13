@@ -518,6 +518,32 @@ Returns a paginated list of all hosts in Evergreen
      - string   
      - Optional. A status of host to limit the results to
 
+Fetch Hosts Spawned By User
+```````````````````````````
+
+::
+
+ GET /users/<user_id>/hosts
+
+Returns a list of hosts spawned by the given user.
+
+.. list-table:: **Parameters**
+   :widths: 25 10 55
+   :header-rows: 1
+
+   * - Name        
+     - Type           
+     - Description
+   * - start_at     
+     - string   
+     - Optional. The identifier of the host to start at in the pagination
+   * - limit       
+     - int   
+     - Optional. The number of hosts to be returned per page of pagination. Defaults to 100
+   * - status       
+     - string   
+     - Optional. A status of host to limit the results to
+
 Fetch Host By ID
 ````````````````
 
