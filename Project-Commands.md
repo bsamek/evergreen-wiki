@@ -219,10 +219,10 @@ Parameters:
 * `aws_secret_access_key` - AWS secret key. May set to use a non-default account. Must set if `aws_access_key_id` is set.
 * `distro` - Evergreen distro to start. Must set `ami` or `distro` but must not set both.
 * `ebs_block_device` - list of the following parameters:
- * `device_name` - name of EBS device
- * `ebs_iops` - EBS provisioned IOPS.
- * `ebs_size` - Size of EBS volume in GB.
- * `ebs_snapshot_id` - EBS snapshot ID to mount.
+  * `device_name` - name of EBS device
+  * `ebs_iops` - EBS provisioned IOPS.
+  * `ebs_size` - Size of EBS volume in GB.
+  * `ebs_snapshot_id` - EBS snapshot ID to mount.
 * `instance_type` - EC2 instance type. Must set if `ami` is set. May set if `distro` is set, which will override the value from the distro configuration.
 * `key_name` - EC2 Key name. Must set if `aws_access_key_id` or `aws_secret_access_key` is set. Must not set otherwise.
 * `num_hosts` - Number of hosts to start, 1 <= `num_hosts` <= 10. Defaults to 1.
