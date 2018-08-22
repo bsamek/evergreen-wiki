@@ -239,7 +239,7 @@ Parameters:
 * `vpc_id` - EC2 VPC. Must set if `ami` is set. May set if `distro` is set, which will override the value from the distro configuration.
 
 #### host.list
-`host.list` gets information about hosts created by `host.create`
+`host.list` gets information about hosts created by `host.create`.
 
 ```yaml
 - command: host.list
