@@ -203,6 +203,59 @@ E.g. In a preceding shell.exec command, run  `go test -v > result.suite`
 Parameters:
 * `files`: a list of files (or blobs) to parse and upload
 
+#### host.create
+`host.create` starts a host from a task.
+
+```yaml
+- command: host.create
+  params:
+    provider: ec2
+    distro: rhel70-small
+```
+
+Parameters:
+* `ami` - EC2 AMI to start. Must set `ami` or `distro` but must not set both.
+* `aws_access_key_id` - AWS access key ID. May set to use a non-default account. Must set if `aws_secret_access_key` is set.
+* `aws_secret_access_key` - AWS secret key. May set to use a non-default account. Must set if `aws_access_key_id` is set.
+* `distro` - Evergreen distro to start. Must set `ami` or `distro` but must not set both.
+* `ebs_block_device` - list of the following parameters:
+ * `device_name` - name of EBS device
+ * `ebs_iops` - EBS provisioned IOPS.
+ * `ebs_size` - Size of EBS volume in GB.
+ * `ebs_snapshot_id` - EBS snapshot ID to mount.
+* `instance_type` - EC2 instance type. Must set if `ami` is set. May set if `distro` is set, which will override the value from the distro configuration.
+* `key_name` - EC2 Key name. Must set if `aws_access_key_id` or `aws_secret_access_key` is set. Must not set otherwise.
+* `num_hosts` - Number of hosts to start, 1 <= `num_hosts` <= 10. Defaults to 1.
+* `provider` - Cloud provider. Must set `ec2.` We intend to support other providers as future work.
+* `region` - EC2 region. Default is the same as Evergreen’s default.
+* `retries` - How many times Evergreen should try to create this host in EC2 before giving up. Evergreen will wait 1 minute between retries.
+* `scope` - When Evergreen will tear down the host, i.e., when either the task or build is finished. Must be either `task` or `build`. Defaults to `task` if not set.
+* `security_group_ids` - List of security groups. Must set if `ami` is set. May set if `distro` is set, which will override the value from the distro configuration.
+* `spot` - Spawn a spot instance if `true.` Defaults to `false`.
+* `subnet_id` - Subnet ID for the VPC. Must be set if `ami` is set.
+* `timeout_setup_secs` - Stop waiting for hosts to be ready when spawning. Must be 60 <= `timeout_setup_secs` <= 3600 (1 hour). Default to 600 (10 minutes).
+* `timeout_teardown_secs` - Even if the task or build has not finished, tear down this host after this many seconds. Must be 60 <= `timeout_teardown_secs` <= 604800 (7 days). Default to 21600 (6 hours).
+* `userdata_file` - Path to file to load as EC2 user data on boot. May set if `distro` is set, which will override the value from the distro configuration.
+* `vpc_id` - EC2 VPC. Must set if `ami` is set. May set if `distro` is set, which will override the value from the distro configuration.
+
+#### host.list
+`host.list` gets information about hosts created by `host.create`
+
+```yaml
+- command: host.list
+  params:
+    wait: true
+    timeout_seconds: 300
+    num_hosts: 1
+```
+
+Parameters:
+* `num_hosts` - if `wait` is set, the number of hosts to wait to be running before the command returns
+* `path` - path to file to write host info to
+* `silent` - if true, do not log host info to the task logs
+* `timeout_seconds` - time to wait for `num_hosts` to be running
+* `wait` - if set, wait `timeout_seconds` for `num_hosts` to be running
+
 #### manifest.load
 `manifest.load` updates the project's expansions with the manifest, if it exists.
 
