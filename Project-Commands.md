@@ -262,11 +262,11 @@ If the `path` directive is specified, then the contents of the file contain a JS
 - `instance_id`: The unique identifier of the EC2 instance
 
 ```json
- [
-     {
+[
+    {
         "dns_name": "ec2-52-91-50-29.compute-1.amazonaws.com",
         "instance_id": "i-096d6766961314cd5"
-     }
+    }
 ]
 ```
 
