@@ -256,6 +256,20 @@ Parameters:
 * `timeout_seconds` - time to wait for `num_hosts` to be running
 * `wait` - if set, wait `timeout_seconds` for `num_hosts` to be running
 
+If the `path` directive is specified, then the contents of the file contain a JSON formatted list of objects. Each object contains the following keys:
+
+- `dns_name`: The FQDN of the EC2 instance
+- `instance_id`: The unique identifier of the EC2 instance
+
+```json
+ [
+     {
+        "dns_name": "ec2-52-91-50-29.compute-1.amazonaws.com",
+        "instance_id": "i-096d6766961314cd5"
+     }
+]
+```
+
 #### manifest.load
 `manifest.load` updates the project's expansions with the manifest, if it exists.
 
