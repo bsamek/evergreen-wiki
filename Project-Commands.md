@@ -390,7 +390,7 @@ The subprocess.exec command runs a shell command.
 - command: subprocess.exec
   params:
     working_dir: "src"
-    env_vars:
+    env:
       FOO: bar
       BAZ: qux
     binary: "command"
