@@ -238,6 +238,80 @@ Parameters:
 * `userdata_file` - Path to file to load as EC2 user data on boot. May set if `distro` is set, which will override the value from the distro configuration.
 * `vpc_id` - EC2 VPC. Must set if `ami` is set. May set if `distro` is set, which will override the value from the distro configuration.
 
+## Required IAM Policies for `host.create`
+
+If creating an Elastic Compute Cloud (EC2) instance using an Amazon Machine Image (AMI), then the user must specify the list of security groups the EC2 instance inherits, the subnet ID, and the VPC ID. The IAM policy statement for the user creating the EC2 instance *must* have the following read-only permissions:
+
+- `ec2:DescribeImages`
+- `ec2:DescribeSecurityGroups`
+- `ec2:DescribeSubnets`
+- `ec2:DescribeVpcs`
+
+If the policy statement does not honor these permissions, then the instance fails to create.
+
+Refer to [IAM Policies for Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html) for more information.
+
+## Checking SSH Availability for Spawn Hosts
+
+Certain instances require more time for SSH access to become available. If the user plans to execute commands on the remote host, then waiting for SSH access to become available is mandatory. Below is an Evergreen function that probes for SSH connectivity:
+
+```yaml
+functions:
+  # Check SSH availability
+  ssh-ready:
+    command: shell.exec
+    params:
+      script: |
+        user=${admin_user_name}
+        hostname=$(tr -d '"[]{}' < buildhost-configuration/hosts.yml | cut -d , -f 1 | awk -F : '{print $2}')
+        identity_file=~/.ssh/mcipacker.pem
+
+        attempts=0
+        connection_attempts=${connection_attempts|25}
+
+        # Check for remote connectivity
+        while ! ssh \
+          -i "$identity_file" \
+          -o ConnectTimeout=10 \
+          -o ForwardAgent=yes \
+          -o IdentitiesOnly=yes \
+          -o StrictHostKeyChecking=no \
+          "$(printf "%s@%s" "$user" "$hostname")" \
+          exit 2> /dev/null
+        do
+          [ "$attempts" -ge "$connection_attempts" ] && exit 1
+          ((attempts++))
+          printf "SSH connection attempt %d/%d failed. Retrying...\n" "$attempts" "$connection_attempts"
+          # sleep for Permission denied (publickey) errors
+          sleep 10
+        done
+      shell: bash
+
+tasks:
+  - name: test
+    commands:
+      - command: host.create
+        params:
+          ami: ${ami}
+          aws_access_key_id: ${aws_access_key_id}
+          aws_secret_access_key: ${aws_secret_access_key}
+          instance_type: ${instance_type|m3.medium}
+          key_name: ${key_name}
+          provider: ec2
+          security_group_ids:
+            - ${security_group_id}
+          subnet_id: ${subnet_id}
+          vpc_id: ${vpc_id}
+      - command: host.list
+        params:
+          num_hosts: 1
+          path: buildhost-configuration/hosts.yml
+          timeout_seconds: 600
+          wait: true
+      - func: ssh-ready
+      - func: other-tasks
+```
+
 #### host.list
 `host.list` gets information about hosts created by `host.create`.
 
