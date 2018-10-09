@@ -499,7 +499,7 @@ This command sets `exec_timeout_secs` or `timeout_secs` of a task from within th
 ```
 
 Parameters:
-* `exec_timeout_secs`: set `exec_timeout_secs` for the task. May be int, string, or expansion
-* `timeout_secs`: set `timeout_secs` for the task. May be int, string, or expansion
+* `exec_timeout_secs`: set `exec_timeout_secs` for the task, which is the maximum amount of time the task may run. May be int, string, or expansion
+* `timeout_secs`: set `timeout_secs` for the task, which is the maximum amount of time that can elapse without any output on stdout. May be int, string, or expansion
 
 Both parameters are optional. If not set, the task will use the definition from the project config.
