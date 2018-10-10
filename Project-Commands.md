@@ -457,6 +457,10 @@ Parameters:
 * `continue_on_err`: if set to true, causes command to exit with success regardless of the script's exit code
 * `system_log`: if set to true, the script's output will be written to the task's system logs, instead of inline with logs from the test execution.
 * `shell`: shell to use. Defaults to sh if not set
+* `ignore_standard_out`: if true, discards output sent to stdout
+* `ignore_standard_error`: if true, discards output sent to stderr
+* `redirect_standard_error_to_output`: if true, sends stderr to stdout. Can be used to synchronize these 2 streams
+* `ignore_standard_error`: if true, will continue running the task even if this command fails. Otherwise failure of this command will cause the task to fail
 
 #### subprocess.exec
 The subprocess.exec command runs a shell command.
