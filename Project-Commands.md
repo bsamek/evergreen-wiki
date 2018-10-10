@@ -460,7 +460,7 @@ Parameters:
 * `ignore_standard_out`: if true, discards output sent to stdout
 * `ignore_standard_error`: if true, discards output sent to stderr
 * `redirect_standard_error_to_output`: if true, sends stderr to stdout. Can be used to synchronize these 2 streams
-* `ignore_standard_error`: if true, will continue running the task even if this command fails. Otherwise failure of this command will cause the task to fail
+* `continue_on_err`: if true, will continue running the task even if this command fails. Otherwise failure of this command will cause the task to fail
 
 #### subprocess.exec
 The subprocess.exec command runs a shell command.
