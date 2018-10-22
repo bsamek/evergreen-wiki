@@ -1508,3 +1508,15 @@ Fetch the CLI update manifest from the server
 
 
 If you cannot find an endpoint, it may not be documented here. Check the defined endpoints in evergreen source: https://github.com/evergreen-ci/evergreen/blob/master/rest/route/service.go
+
+Status Message
+--------------
+
+::
+
+  GET /admin/banner
+
+  {
+    "banner": "Evergreen is currently unable to pick up new commits or process pull requests due to a GitHub outage",
+    "theme": "warning"
+  }
