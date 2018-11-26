@@ -1520,3 +1520,204 @@ Status Message
     "banner": "Evergreen is currently unable to pick up new commits or process pull requests due to a GitHub outage",
     "theme": "warning"
   }
+
+TestStats
+----------
+
+Test stats are aggregated test execution statistics for a given project. The statistics can be grouped by time period and by test, task, variant, distro combinations.
+
+Objects
+~~~~~~~
+
+.. list-table:: **TestStats**
+   :widths: 25 10 55
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Description
+   * - ``test_file``
+     - string
+     - The test file
+   * - ``task_name``
+     - string
+     - Name of the task the test ran under. Omitted if the grouping does not include the task.
+   * - ``variant``         
+     - string         
+     - Name of the build variant the test ran on. Omitted if the grouping does not include the build variant.
+   * - ``distro``             
+     - string         
+     - Identifier of the distro that the test ran on. Omitted if the grouping does not include the distro.
+   * - ``date``
+     - string
+     - The start date ("YYYY-MM-DD" UTC day) of the period the statistics cover.
+   * - ``num_pass``
+     - int
+     - The number of times the test grouping passed during the target period.
+   * - ``num_fail``
+     - int
+     - The number of times the test grouping failed during the target period.
+   * - ``avg_duration_success``
+     - float
+     - The average duration, in seconds, of tests that passed during the target period.
+
+Endpoints
+~~~~~~~~~
+
+Fetch the Test Stats for a project
+``````````````````````````````
+
+::
+
+ GET /project/<project_id>/test_stats
+
+Returns a paginated list of test stats associated with a specific project filtered and grouped according to the query parameters.
+
+.. list-table:: **Parameters**
+   :widths: 15 20 55
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Description
+   * - ``after_date``
+     - string
+     - The start date (included) of the targeted time interval. The format is "YYYY-MM-DD". The date is UTC.
+   * - ``before_date``
+     - string
+     - The end date (excluded) of the targeted time interval. The format is "YYYY-MM-DD". The date is UTC.
+   * - ``group_num_days``
+     - int
+     - Optional. Indicates that the statistics should be aggregated by groups of ``group_num_days`` days. The first group will start on ``after_date``, the last group will end on the day preceding ``before_date`` and may have less than ``group_num_days`` days. Defaults to 1.
+   * - ``requesters``
+     - []string or comma separated strings
+     - Optional. The requesters that triggered the test execution. Accepted values are ``mainline``, ``patch``, ``trigger``, and ``adhoc``. Defaults to ``mainline``.
+   * - ``tests``
+     - []string or comma separated strings
+     - Optional if ``tasks`` is specified. The test files to include in the statistics.
+   * - ``tasks``
+     - []string or comma separated strings
+     - Optional if ``tests`` is specified. The tasks to include in the statistics.
+   * - ``variants``
+     - []string or comma separated strings
+     - Optional. The build variants to include in the statistics.
+   * - ``distros``
+     - []string or comma separated strings
+     - Optional. The distros to include in the statistics.
+   * - ``group_by``
+     - string
+     - Optional. How to group the results. Accepted values are ``test_task_variant``, ``test_task``, ``test``. By default the results are not grouped, i.e. are returned by combination of test + task + variant + distro.
+   * - ``sort``
+     - string
+     - Optional. The order in which the results are returned. Accepted values are ``earliest`` and ``latest``. Defaults to ``earliest``.
+   * - ``start_at``
+     - string
+     - Optional. The identifier of the test stats to start at in the pagination
+   * - ``limit``       
+     - int   
+     - Optional. The number of test stats to be returned per page of pagination. Defaults to 1000.
+
+TaskStats
+----------
+
+Task stats are aggregated task execution statistics for a given project. The statistics can be grouped by time period and by task, variant, distro combinations.
+
+Objects
+~~~~~~~
+
+.. list-table:: **TaskStats**
+   :widths: 25 10 55
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Description
+   * - ``task_name``
+     - string
+     - Name of the task the test ran under.
+   * - ``variant``         
+     - string         
+     - Name of the build variant the task ran on. Omitted if the grouping does not include the build variant.
+   * - ``distro``             
+     - string         
+     - Identifier of the distro that the task ran on. Omitted if the grouping does not include the distro.
+   * - ``date``
+     - string
+     - The start date ("YYYY-MM-DD" UTC day) of the period the statistics cover.
+   * - ``num_success``
+     - int
+     - The number of times the task was successful during the target period.
+   * - ``num_failed``
+     - int
+     - The number of times the task failed during the target period.
+   * - ``num_total``
+     - int
+     - The number of times the task ran during the target period.
+   * - ``num_timeout``
+     - int
+     - The number of times the task ended on a timeout during the target period.
+   * - ``num_test_failed``
+     - int
+     - The number of times the task failed with a failure of type `test` during the target period.
+   * - ``num_system_failed``
+     - int
+     - The number of times the task failed with a failure of type `system` during the target period.
+   * - ``num_setup_failed``
+     - int
+     - The number of times the task failed with a failure of type `setup` during the target period.
+   * - ``avg_duration_success``
+     - float
+     - The average duration, in seconds, of the tasks that passed during the target period.
+
+Endpoints
+~~~~~~~~~
+
+Fetch the Task Stats for a project
+``````````````````````````````
+
+::
+
+ GET /project/<project_id>/task_stats
+
+Returns a paginated list of task stats associated with a specific project filtered and grouped according to the query parameters.
+
+.. list-table:: **Parameters**
+   :widths: 15 20 55
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Description
+   * - ``after_date``
+     - string
+     - The start date (included) of the targeted time interval. The format is "YYYY-MM-DD". The date is UTC.
+   * - ``before_date``
+     - string
+     - The end date (excluded) of the targeted time interval. The format is "YYYY-MM-DD". The date is UTC.
+   * - ``group_num_days``
+     - int
+     - Optional. Indicates that the statistics should be aggregated by groups of ``group_num_days`` days. The first group will start on ``after_date``, the last group will end on the day preceding ``before_date`` and may have less than ``group_num_days`` days. Defaults to 1.
+   * - ``requesters``
+     - []string or comma separated strings
+     - Optional. The requesters that triggered the task execution. Accepted values are ``mainline``, ``patch``, ``trigger``, and ``adhoc``. Defaults to ``mainline``.
+   * - ``tasks``
+     - []string or comma separated strings
+     - The tasks to include in the statistics.
+   * - ``variants``
+     - []string or comma separated strings
+     - Optional. The build variants to include in the statistics.
+   * - ``distros``
+     - []string or comma separated strings
+     - Optional. The distros to include in the statistics.
+   * - ``group_by``
+     - string
+     - Optional. How to group the results. Accepted values are ``task_variant``, ``task``. By default the results are not grouped, i.e. are returned by combination of task + variant + distro.
+   * - ``sort``
+     - string
+     - Optional. The order in which the results are returned. Accepted values are ``earliest`` and ``latest``. Defaults to ``earliest``.
+   * - ``start_at``
+     - string
+     - Optional. The identifier of the task stats to start at in the pagination
+   * - ``limit``       
+     - int   
+     - Optional. The number of task stats to be returned per page of pagination. Defaults to 1000.
