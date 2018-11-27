@@ -1,13 +1,7 @@
-# Installation
-
-In its current alpha state, installing evergreen can be a confusing process.
-Rest assured that once it is up and running, there will be very little configuration and maintenance for the end user.
-
 ## Requirements
 
 ##### Install Go From Source
-One of Evergreen's most defining features is its reliance on Go's cross compilation support.
-In the current release, Go 1.4, cross compilation requires installing Go from source, which you can do by following the instructions [here](https://golang.org/doc/install/source).
+One of Evergreen's most defining features is its reliance on Go's cross compilation support. Install it [here](https://golang.org/doc/install/source).
 
 #### Install MongoDB
 Evergreen was built by the developers of MongoDB, so it's no surprise that Evergreen relies on MongoDB for all of its back-end storage needs.
@@ -16,25 +10,19 @@ Instructions on install MongoDB are [here](http://docs.mongodb.org/manual/instal
 #### Clone the Repo
 Clone the `evergreen-ci/evergreen` repo using git.
 
-We rely on internal vendoring for all of our packages, so there's no need to use `go get` in order to get a copy.
+We rely on internal vendoring for all of our packages, so there's no need to use `go get` in order to get a copy, though doing so also works. After doing so, make sure the EVGHOME environment variable is set to the directory where Evergreen is cloned.
 
 #### Build
 
-Compiling the main Evergreen processes is done by simply running `make build`, which will compile them into the `bin` directory.
+Compiling the main Evergreen executable is done by simply running `make build`, which will compile them into the `clients` directory.
 
-Cross-compiling the agent is a little trickier. 
-Cross-compilation requires building Go from source (see above).
-You must then run `go run vendor/src/github.com/laher/goxc/goxc.go -t` to set up your tool chain before any cross compilation can take place.
-After this is done, run `make agents clis`, which will compile the agent and command-line tools for all of our supported platforms.
-
-You can also run `make dist` to create a tarball of all the available artifacts.
+Cross-compiling both the agent and web app can be done with the `make dist` target to create a tarball of all the available artifacts.
 
 
 ## Configure and Run
 
 Now the fun part.
-If any of these directions are confusing or don't seem to work, please [file a GitHub issue](https://github.com/evergreen-ci/evergreen/issues) for this repo;
-making Evergreen setup easy and well-documented is the main goal driving our 1.0.0 beta release.
+If any of these directions are confusing or don't seem to work, please [file a GitHub issue](https://github.com/evergreen-ci/evergreen/issues) for this repo.
 
 #### Config Files
 
@@ -48,7 +36,8 @@ If you are just trying Evergreen out, feel free to remove the https configuratio
 Evergreen supports multiple methods of user authentication
  1. Naive Config File Settings
  2. Atlassian Crowd
- 3. GitHub OAuth (*Coming Soon*)
+ 3. GitHub OAuth
+ 4. LDAP
 
 If you're just getting stared with Evergreen, we recommend using our naive config-based auth.
 Setting up the naive authentication requires adding a user configuration like this
@@ -107,7 +96,7 @@ save capital letters and spaces for the project's Display Name)
  * `Owner`: the GitHub owner of a project (e.g. "mongodb")
  * `Repo Name`: the GitHub repository name (e.g. "mongo-tools")
 
-The variables section let's you define project-level expansions. 
+The variables section lets you define project-level expansions. 
 You shouldn't have to add any special variables to run the sample repository.
 Click Save Changes.
 
