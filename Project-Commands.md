@@ -246,6 +246,7 @@ If creating an Elastic Compute Cloud (EC2) instance using an Amazon Machine Imag
 - `ec2:DescribeSecurityGroups`
 - `ec2:DescribeSubnets`
 - `ec2:DescribeVpcs`
+- `pricing:GetProducts`
 
 If the policy statement does not honor these permissions, then the instance fails to create.
 
