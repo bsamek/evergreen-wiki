@@ -1,5 +1,20 @@
 This page is a glossary of Evergreen's supported task commands.
 
+#### archive.targz_extract
+`archive.targz_extract` extracts files from a gzipped tarball.
+
+```yaml
+- command: archive.targz_extract
+  params:
+    path: "jstests.tgz"
+    destination: "src/jstestfuzz"
+```
+
+Parameters:
+* `path`: the path to the tarball
+* `destination`: the target directory
+* `exclude_files`: a list of filename [blobs](https://golang.org/pkg/path/filepath/#Match) to exclude
+
 #### archive.targz_pack
 `archive.targz_pack` creates a gzipped tarball.
 
@@ -16,7 +31,7 @@ Parameters:
 * `target`: the tgz file that will be created
 * `source_dir`: the directory to compress
 * `include`: a list of filename blobs to include
-* `exclude_files`: a list of filename blobs to exclude
+* `exclude_files`: a list of filename [blobs](https://golang.org/pkg/path/filepath/#Match) to exclude
 
 #### attach.artifacts
 This command allows users to add files to the "Files" section of the task page without using the `s3.put` command. Suppose you uploaded a file to https://example.com/this-is-my-file in your task. For instance, you might be using boto in a Python script. You can then add a link to the Files element on the task page by:
