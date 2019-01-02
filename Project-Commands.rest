@@ -14,9 +14,11 @@ archive.targz_extract
        path: "jstests.tgz"
        destination: "src/jstestfuzz"
 
-Parameters: \* ``path``: the path to the tarball \* ``destination``: the
-target directory \* ``exclude_files``: a list of filename
-`blobs <https://golang.org/pkg/path/filepath/#Match>`__ to exclude
+Parameters:
+ 
+-  ``path``: the path to the tarball 
+-  ``destination``: the target directory 
+-  ``exclude_files``: a list of filename `blobs <https://golang.org/pkg/path/filepath/#Match>`__ to exclude
 
 archive.targz_pack
 ^^^^^^^^^^^^^^^^^^
@@ -32,10 +34,12 @@ archive.targz_pack
        include:
          - "out/*.js"
 
-Parameters: \* ``target``: the tgz file that will be created \*
-``source_dir``: the directory to compress \* ``include``: a list of
-filename blobs to include \* ``exclude_files``: a list of filename
-`blobs <https://golang.org/pkg/path/filepath/#Match>`__ to exclude
+Parameters:
+ 
+-  ``target``: the tgz file that will be created 
+- ``source_dir``: the directory to compress 
+-  ``include``: a list of filename blobs to include 
+-  ``exclude_files``: a list of filename `blobs <https://golang.org/pkg/path/filepath/#Match>`__ to exclude
 
 attach.artifacts
 ^^^^^^^^^^^^^^^^
@@ -99,7 +103,9 @@ The format is as follows:
      params:
        file_location: src/report.json
 
-Parameters: \* ``file_location``: a .json file to parse and upload
+Parameters:
+ 
+-  ``file_location``: a .json file to parse and upload
 
 attach.xunit_results
 ^^^^^^^^^^^^^^^^^^^^
@@ -113,8 +119,9 @@ API server.
      params:
        file: src/results.xml
 
-Parameters: \* ``file``: a .xml file to parse and upload. A filepath
-glob can also be supplied to collect results from multiple files.
+Parameters:
+ 
+-  ``file``: a .xml file to parse and upload. A filepath glob can also be supplied to collect results from multiple files.
 
 expansions.update
 ^^^^^^^^^^^^^^^^^
@@ -128,9 +135,11 @@ expansions.update
        ignore_missing_file: true
        file: src/ec2_artifacts.yml
 
-Parameters: \* ``updates``: key-value pairs for updating the task’s
-parameters \* ``file``: filename for a yaml file containing expansion
-updates \* ``ignore_missing_file``: do not error if the file is missing
+Parameters:
+ 
+-  ``updates``: key-value pairs for updating the task’s parameters 
+-  ``file``: filename for a yaml file containing expansion updates 
+-  ``ignore_missing_file``: do not error if the file is missing
 
 expansions.write
 ^^^^^^^^^^^^^^^^
@@ -143,22 +152,28 @@ expansions.write
      params:
        file: expansions.yaml
 
-Parameters: \* ``file``: filename to write expansions to \*
-``redacted``: include redacted project variables, defaults to false
+Parameters:
+ 
+-  ``file``: filename to write expansions to 
+- ``redacted``: include redacted project variables, defaults to false
 
 generate.tasks
 ^^^^^^^^^^^^^^
 
 This command creates functions, tasks, and variants from a user-provided
-JSON file. \* generate.tasks cannot be called more than once per static
-variant. \* generate.tasks cannot be called from a dynamic variant. \*
+JSON file. 
+-  generate.tasks cannot be called more than once per static
+variant. 
+-  generate.tasks cannot be called from a dynamic variant. 
+- 
 generate.tasks cannot redefine functions, tasks, or variants.
 generate.tasks may only append new functions, tasks, and variants. It is
 a validation error to modify an existing static or dynamic function,
 task, or variant, or to define one twice in the JSON document passed to
 the command. It is legal to specify a variant multiple times in order to
 add additional tasks to the variant, as long as no other variant
-metadata is changed. \* The calls to generate.tasks may not in aggregate
+metadata is changed. 
+-  The calls to generate.tasks may not in aggregate
 in a single version generate more than 100 variants or more than 1000
 tasks.
 
@@ -169,7 +184,9 @@ tasks.
        files:
          - example.json
 
-Parameters: \* ``files``: the JSON file to generate tasks from
+Parameters:
+ 
+-  ``files``: the JSON file to generate tasks from
 
 .. code:: json
 
@@ -231,7 +248,9 @@ your GitHub ssh keys are set up in your target distros.
      params:
        directory: src
 
-Parameters: \* ``dir``: the directory to clone into
+Parameters:
+ 
+-  ``dir``: the directory to clone into
 
 gotest.parse_files
 ^^^^^^^^^^^^^^^^^^
@@ -249,7 +268,9 @@ E.g. In a preceding shell.exec command, run
      params:
        files: ["src/*.suite"]
 
-Parameters: \* ``files``: a list of files (or blobs) to parse and upload
+Parameters:
+ 
+-  ``files``: a list of files (or blobs) to parse and upload
 
 host.create
 ^^^^^^^^^^^
@@ -263,44 +284,31 @@ host.create
        provider: ec2
        distro: rhel70-small
 
-Parameters: \* ``ami`` - EC2 AMI to start. Must set ``ami`` or
-``distro`` but must not set both. \* ``aws_access_key_id`` - AWS access
-key ID. May set to use a non-default account. Must set if
-``aws_secret_access_key`` is set. \* ``aws_secret_access_key`` - AWS
-secret key. May set to use a non-default account. Must set if
-``aws_access_key_id`` is set. \* ``distro`` - Evergreen distro to start.
-Must set ``ami`` or ``distro`` but must not set both. \*
-``ebs_block_device`` - list of the following parameters: \*
-``device_name`` - name of EBS device \* ``ebs_iops`` - EBS provisioned
-IOPS. \* ``ebs_size`` - Size of EBS volume in GB. \* ``ebs_snapshot_id``
-- EBS snapshot ID to mount. \* ``instance_type`` - EC2 instance type.
-Must set if ``ami`` is set. May set if ``distro`` is set, which will
-override the value from the distro configuration. \* ``key_name`` - EC2
-Key name. Must set if ``aws_access_key_id`` or ``aws_secret_access_key``
-is set. Must not set otherwise. \* ``num_hosts`` - Number of hosts to
-start, 1 <= ``num_hosts`` <= 10. Defaults to 1. \* ``provider`` - Cloud
-provider. Must set ``ec2.`` We intend to support other providers as
-future work. \* ``region`` - EC2 region. Default is the same as
-Evergreen’s default. \* ``retries`` - How many times Evergreen should
-try to create this host in EC2 before giving up. Evergreen will wait 1
-minute between retries. \* ``scope`` - When Evergreen will tear down the
-host, i.e., when either the task or build is finished. Must be either
-``task`` or ``build``. Defaults to ``task`` if not set. \*
-``security_group_ids`` - List of security groups. Must set if ``ami`` is
-set. May set if ``distro`` is set, which will override the value from
-the distro configuration. \* ``spot`` - Spawn a spot instance if
-``true.`` Defaults to ``false``. \* ``subnet_id`` - Subnet ID for the
-VPC. Must be set if ``ami`` is set. \* ``timeout_setup_secs`` - Stop
-waiting for hosts to be ready when spawning. Must be 60 <=
-``timeout_setup_secs`` <= 3600 (1 hour). Default to 600 (10 minutes). \*
-``timeout_teardown_secs`` - Even if the task or build has not finished,
-tear down this host after this many seconds. Must be 60 <=
-``timeout_teardown_secs`` <= 604800 (7 days). Default to 21600 (6
-hours). \* ``userdata_file`` - Path to file to load as EC2 user data on
-boot. May set if ``distro`` is set, which will override the value from
-the distro configuration. \* ``vpc_id`` - EC2 VPC. Must set if ``ami``
-is set. May set if ``distro`` is set, which will override the value from
-the distro configuration.
+Parameters:
+ 
+-  ``ami`` - EC2 AMI to start. Must set ``ami`` or ``distro`` but must not set both. 
+-  ``aws_access_key_id`` - AWS access key ID. May set to use a non-default account. Must set if ``aws_secret_access_key`` is set. 
+-  ``aws_secret_access_key`` - AWS secret key. May set to use a non-default account. Must set if ``aws_access_key_id`` is set. 
+-  ``distro`` - Evergreen distro to start. Must set ``ami`` or ``distro`` but must not set both. 
+- ``ebs_block_device`` - list of the following parameters: 
+- ``device_name`` - name of EBS device 
+-  ``ebs_iops`` - EBS provisioned IOPS. 
+-  ``ebs_size`` - Size of EBS volume in GB. 
+-  ``ebs_snapshot_id`` - EBS snapshot ID to mount. 
+-  ``instance_type`` - EC2 instance type. Must set if ``ami`` is set. May set if ``distro`` is set, which will override the value from the distro configuration. 
+-  ``key_name`` - EC2 Key name. Must set if ``aws_access_key_id`` or ``aws_secret_access_key`` is set. Must not set otherwise. 
+-  ``num_hosts`` - Number of hosts to start, 1 <= ``num_hosts`` <= 10. Defaults to 1. 
+-  ``provider`` - Cloud provider. Must set ``ec2.`` We intend to support other providers as future work. 
+-  ``region`` - EC2 region. Default is the same as Evergreen’s default. 
+-  ``retries`` - How many times Evergreen should try to create this host in EC2 before giving up. Evergreen will wait 1 minute between retries. 
+-  ``scope`` - When Evergreen will tear down the host, i.e., when either the task or build is finished. Must be either ``task`` or ``build``. Defaults to ``task`` if not set. 
+- ``security_group_ids`` - List of security groups. Must set if ``ami`` is set. May set if ``distro`` is set, which will override the value from the distro configuration. 
+-  ``spot`` - Spawn a spot instance if ``true.`` Defaults to ``false``. 
+-  ``subnet_id`` - Subnet ID for the VPC. Must be set if ``ami`` is set. 
+-  ``timeout_setup_secs`` - Stop waiting for hosts to be ready when spawning. Must be 60 <= ``timeout_setup_secs`` <= 3600 (1 hour). Default to 600 (10 minutes). 
+- ``timeout_teardown_secs`` - Even if the task or build has not finished, tear down this host after this many seconds. Must be 60 <= ``timeout_teardown_secs`` <= 604800 (7 days). Default to 21600 (6 hours). 
+-  ``userdata_file`` - Path to file to load as EC2 user data on boot. May set if ``distro`` is set, which will override the value from the distro configuration. 
+-  ``vpc_id`` - EC2 VPC. Must set if ``ami`` is set. May set if ``distro`` is set, which will override the value from the distro configuration.
 
 Required IAM Policies for ``host.create``
 -----------------------------------------
@@ -402,12 +410,13 @@ host.list
        timeout_seconds: 300
        num_hosts: 1
 
-Parameters: \* ``num_hosts`` - if ``wait`` is set, the number of hosts
-to wait to be running before the command returns \* ``path`` - path to
-file to write host info to \* ``silent`` - if true, do not log host info
-to the task logs \* ``timeout_seconds`` - time to wait for ``num_hosts``
-to be running \* ``wait`` - if set, wait ``timeout_seconds`` for
-``num_hosts`` to be running
+Parameters:
+ 
+-  ``num_hosts`` - if ``wait`` is set, the number of hosts to wait to be running before the command returns 
+-  ``path`` - path to file to write host info to 
+-  ``silent`` - if true, do not log host info to the task logs 
+-  ``timeout_seconds`` - time to wait for ``num_hosts`` to be running 
+-  ``wait`` - if set, wait ``timeout_seconds`` for ``num_hosts`` to be running
 
 If the ``path`` directive is specified, then the contents of the file
 contain a JSON formatted list of objects. Each object contains the
@@ -450,14 +459,15 @@ s3.get
        bucket: mciuploads
        local_file: src/mongo-binaries.tgz
 
-Parameters: \* ``aws_key``: your AWS key (use expansions to keep this a
-secret) \* ``aws_secret``: your AWS secret (use expansions to keep this
-a secret) \* ``local_file``: the local file to save, do not use with
-``extract_to`` \* ``extract_to``: the local directory to extract to, do
-not use with ``local_file`` \* ``remote_file``: the ec2 path to get the
-file from \* ``bucket``: the ec2 bucket to use \* ``build_variants``:
-list of buildvariants to run the command for, if missing/empty will run
-for all
+Parameters:
+ 
+-  ``aws_key``: your AWS key (use expansions to keep this a secret) 
+-  ``aws_secret``: your AWS secret (use expansions to keep this a secret) 
+-  ``local_file``: the local file to save, do not use with ``extract_to`` 
+-  ``extract_to``: the local directory to extract to, do not use with ``local_file`` 
+-  ``remote_file``: the ec2 path to get the file from 
+-  ``bucket``: the ec2 bucket to use 
+-  ``build_variants``: list of buildvariants to run the command for, if missing/empty will run for all
 
 s3.put
 ^^^^^^
@@ -478,18 +488,18 @@ distribution.
        content_type: ${content_type|application/x-gzip}
        display_name: Binaries
 
-Parameters: \* ``aws_key``: your AWS key (use expansions to keep this a
-secret) \* ``aws_secret``: your AWS secret (use expansions to keep this
-a secret) \* ``local_file``: the local file to post \* ``remote_file``:
-the ec2 path to post the file to \* ``bucket``: the ec2 bucket to use \*
-``permissions``: the ec2 permissions string to upload with \*
-``content_type``: the MIME type of the file \* ``optional``: boolean to
-indicate if failure to find or upload this file will result in a task
-failure. Not compatible with local_files_include_filter. \*
-``display_name``: the display string for the file in the Evergreen UI \*
-``local_files_include_filter``: used in place of local_file, an array of
-gitignore file globs. All files that are matched - ones that would be
-ignored by gitignore - are included in the put.
+Parameters:
+ 
+-  ``aws_key``: your AWS key (use expansions to keep this a secret) 
+-  ``aws_secret``: your AWS secret (use expansions to keep this a secret) 
+-  ``local_file``: the local file to post
+-  ``remote_file``: the ec2 path to post the file to
+-  ``bucket``: the ec2 bucket to use 
+- ``permissions``: the ec2 permissions string to upload with 
+- ``content_type``: the MIME type of the file 
+-  ``optional``: boolean to indicate if failure to find or upload this file will result in a task failure. Not compatible with local_files_include_filter. 
+- ``display_name``: the display string for the file in the Evergreen UI 
+- ``local_files_include_filter``: used in place of local_file, an array of gitignore file globs. All files that are matched - ones that would be ignored by gitignore - are included in the put.
 
 s3.put with multiple files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -535,11 +545,11 @@ s3Copy.copy
            - {'source': {'path': '${push_path}-STAGE/${push_name}/mongodb-${push_name}-${push_arch}-${suffix}-${task_id}.${ext|tgz}', 'bucket': 'build-push-testing'},
               'destination': {'path': '${push_path}/mongodb-${push_name}-${push_arch}-${suffix}.${ext|tgz}', 'bucket': '${push_bucket}'}}
 
-Parameters: \* ``aws_key``: your AWS key (use expansions to keep this a
-secret) \* ``aws_secret``: your AWS secret (use expansions to keep this
-a secret) \* ``s3_copy_files``: a map of ``source`` (``bucket`` and
-``path``), ``destination``, ``buildvariants`` (a list of strings),
-``display_name``, and ``optional`` (suppresses errors)
+Parameters:
+ 
+-  ``aws_key``: your AWS key (use expansions to keep this a secret) 
+-  ``aws_secret``: your AWS secret (use expansions to keep this a secret) 
+-  ``s3_copy_files``: a map of ``source`` (``bucket`` and ``path``), ``destination``, ``buildvariants`` (a list of strings), ``display_name``, and ``optional`` (suppresses errors)
 
 shell.exec
 ^^^^^^^^^^
@@ -555,21 +565,18 @@ This command runs a shell script.
          echo "this is a 2nd command in the function!"
          ls
 
-Parameters: \* ``script``: the script to run \* ``working_dir``: the
-directory to execute the shell script in \* ``background``: if set to
-true, does not wait for the script to exit before running the next
-commands \* ``silent``: if set to true, does not log any shell output
-during execution; useful to avoid leaking sensitive info \*
-``continue_on_err``: if set to true, causes command to exit with success
-regardless of the script’s exit code \* ``system_log``: if set to true,
-the script’s output will be written to the task’s system logs, instead
-of inline with logs from the test execution. \* ``shell``: shell to use.
-Defaults to sh if not set. Note that this is usually bash but is dash on
-Debian, so it’s good to explicitly pass this parameter \*
-``ignore_standard_out``: if true, discards output sent to stdout \*
-``ignore_standard_error``: if true, discards output sent to stderr \*
-``redirect_standard_error_to_output``: if true, sends stderr to stdout.
-Can be used to synchronize these 2 streams
+Parameters:
+ 
+-  ``script``: the script to run 
+-  ``working_dir``: the directory to execute the shell script in 
+-  ``background``: if set to true, does not wait for the script to exit before running the next commands 
+-  ``silent``: if set to true, does not log any shell output during execution; useful to avoid leaking sensitive info 
+- ``continue_on_err``: if set to true, causes command to exit with success regardless of the script’s exit code 
+-  ``system_log``: if set to true, the script’s output will be written to the task’s system logs, instead of inline with logs from the test execution. 
+-  ``shell``: shell to use. Defaults to sh if not set. Note that this is usually bash but is dash on Debian, so it’s good to explicitly pass this parameter 
+- ``ignore_standard_out``: if true, discards output sent to stdout 
+- ``ignore_standard_error``: if true, discards output sent to stderr 
+- ``redirect_standard_error_to_output``: if true, sends stderr to stdout. Can be used to synchronize these 2 streams
 
 subprocess.exec
 ^^^^^^^^^^^^^^^
@@ -589,17 +596,20 @@ The subprocess.exec command runs a shell command.
          - "arg1"
          - "arg2"
 
-Parameters: \* ``binary``: a binary to run \* ``args``: a list of
-arguments to the binary \* ``env``: a slice of environment variables and
-their values \* ``command``: a command string (cannot use with
-``binary`` or ``args``) \* ``background``: if true, immediately return
-to caller \* ``silent``: do not log output of command \* ``system_log``:
-write output to system logs instead of task logs \* ``working_dir``:
-working directory to start shell in \* ``ignore_standard_out``: if true,
-do not log standard out \* ``ignore_standard_error``: if true, do not
-log standard error \* ``redirect_standard_error_to_output``: if true,
-redirect standard error to standard out \* ``continue_on_error``: if
-true, do not mark task as failed if command fails
+Parameters:
+ 
+-  ``binary``: a binary to run 
+-  ``args``: a list of arguments to the binary 
+-  ``env``: a slice of environment variables and their values 
+-  ``command``: a command string (cannot use with ``binary`` or ``args``) 
+-  ``background``: if true, immediately return to caller 
+-  ``silent``: do not log output of command 
+-  ``system_log``: write output to system logs instead of task logs 
+-  ``working_dir``: working directory to start shell in 
+-  ``ignore_standard_out``: if true, do not log standard out 
+-  ``ignore_standard_error``: if true, do not log standard error 
+-  ``redirect_standard_error_to_output``: if true, redirect standard error to standard out 
+-  ``continue_on_error``: if true, do not mark task as failed if command fails
 
 timeout.update
 ^^^^^^^^^^^^^^
@@ -614,11 +624,10 @@ from within that task.
              exec_timeout_secs: ${my_exec_timeout_secs}
              timeout_secs: ${my_timeout_secs}
 
-Parameters: \* ``exec_timeout_secs``: set ``exec_timeout_secs`` for the
-task, which is the maximum amount of time the task may run. May be int,
-string, or expansion \* ``timeout_secs``: set ``timeout_secs`` for the
-task, which is the maximum amount of time that can elapse without any
-output on stdout. May be int, string, or expansion
+Parameters:
+ 
+-  ``exec_timeout_secs``: set ``exec_timeout_secs`` for the task, which is the maximum amount of time the task may run. May be int, string, or expansion 
+-  ``timeout_secs``: set ``timeout_secs`` for the task, which is the maximum amount of time that can elapse without any output on stdout. May be int, string, or expansion
 
 Both parameters are optional. If not set, the task will use the
 definition from the project config.
