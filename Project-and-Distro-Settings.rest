@@ -88,6 +88,24 @@ file via an expansion.
 
 [[images/vars.png]]
 
+Inter-project dependencies
+''''''''''''''''''''''''''
+
+Users can specify that commits to another project (the "upstream" project) 
+will triggers builds in their project (the "downstream" project). Configure
+triggers in the downstream project from the project configuration page. Click
+"NEW TRIGGER".
+
+Options:
+
+- Project: The upstream project.
+- Date cutoff: Do not trigger a downstream build if a user manually schedules a build older than this number of days.
+- Level: Trigger based on either a task or a build completing.
+- Variant and task regexes: Trigger based on these variants (if build-level) or variants and tasks (if task-level) completing.
+- Command: If you would like to use `generate.tasks`, specify a command to run in your project to generate the JSON document to pass to `generate.tasks`. Only a command or a definition file may be specified.
+- Definition file: The path to the downstream project's config file. This may be the same as the main project configuration file but does not have to be.
+- Alias: Run a subset of tasks by specifying an alias. Otherwise, all tasks run.
+
 Distro Settings
 ^^^^^^^^^^^^^^^
 
