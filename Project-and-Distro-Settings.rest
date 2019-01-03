@@ -80,14 +80,6 @@ commit passes.
 
 [[images/schedule.png]]
 
-Alerts
-''''''
-
-Admins can set up email alerts for different events by adding an action
-and inputting the email address to send the email alert to.
-
-[[images/alerts.png]]
-
 Variables
 '''''''''
 
