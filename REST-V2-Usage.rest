@@ -1569,7 +1569,7 @@ Fetch the Test Stats for a project
 
 ::
 
- GET /project/<project_id>/test_stats
+ GET /projects/<project_id>/test_stats
 
 Returns a paginated list of test stats associated with a specific project filtered and grouped according to the query parameters.
 
