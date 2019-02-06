@@ -247,11 +247,22 @@ your GitHub ssh keys are set up in your target distros.
    - command: git.get_project
      params:
        directory: src
+       revisions:
+         example: ${example_rev}
 
 Parameters:
  
 -  ``dir``: the directory to clone into
+-  ``revisions``: for each module include revision as ``<module_name> : ${<module_name>_rev}``
 
+The parameters for each module are: 
+
+-  ``name``: the name of the module
+-   ``repo``: the repo of the module
+-   ``prefix``: the path to the modules, if applicable
+-   ``ref``: must be a commit hash, takes precedence over the ``branch`` parameter if both specified
+-   ``branch``: must be the name of branch, commit hashes `are not accepted`
+  
 gotest.parse_files
 ^^^^^^^^^^^^^^^^^^
 
