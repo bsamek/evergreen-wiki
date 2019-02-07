@@ -250,6 +250,15 @@ your GitHub ssh keys are set up in your target distros.
        revisions:
          example: ${example_rev} # or <hash>
 
+.. code:: yaml
+
+   - modules: 
+     - name: example
+       repo: git@github.com:10gen/mongo-example-modules.git
+       prefix: src/mongo/db/modules
+       ref: 12341a65256ff78b6d15ab79a1c7088443b9abcd
+       branch: master
+
 Parameters:
  
 -  ``dir``: the directory to clone into
