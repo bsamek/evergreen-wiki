@@ -253,7 +253,7 @@ your GitHub ssh keys are set up in your target distros.
 Parameters:
  
 -  ``dir``: the directory to clone into
--  ``revisions``: For commit builds, each module should be passed as ``<module_name> : ${<module_name>_rev}``. For patch builds, the hash must be passed directly as ``<module_name> : <hash>``.
+-  ``revisions``: For commit builds, each module should be passed as ``<module_name> : ${<module_name>_rev}``. For patch builds, the hash must be passed directly as ``<module_name> : <hash>``. Note that this means that for patch builds, editing the "modules" section of the project config will not change the checked out hash.
 
 The parameters for each module are: 
 
