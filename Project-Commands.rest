@@ -311,13 +311,14 @@ Parameters:
 -  ``ami`` - EC2 AMI to start. Must set ``ami`` or ``distro`` but must not set both. 
 -  ``aws_access_key_id`` - AWS access key ID. May set to use a non-default account. Must set if ``aws_secret_access_key`` is set. 
 -  ``aws_secret_access_key`` - AWS secret key. May set to use a non-default account. Must set if ``aws_access_key_id`` is set. 
--  ``distro`` - Evergreen distro to start. Must set ``ami`` or ``distro`` but must not set both. 
-- ``ebs_block_device`` - list of the following parameters: 
 - ``device_name`` - name of EBS device 
+-  ``distro`` - Evergreen distro to start. Must set ``ami`` or ``distro`` but must not set both. 
+-  ``ebs_block_device`` - list of the following parameters: 
 -  ``ebs_iops`` - EBS provisioned IOPS. 
 -  ``ebs_size`` - Size of EBS volume in GB. 
 -  ``ebs_snapshot_id`` - EBS snapshot ID to mount. 
 -  ``instance_type`` - EC2 instance type. Must set if ``ami`` is set. May set if ``distro`` is set, which will override the value from the distro configuration. 
+- ``ipv6``- Set to true if instance should have `only` an IPv6 address, rather than a public IPv4 address.
 -  ``key_name`` - EC2 Key name. Must set if ``aws_access_key_id`` or ``aws_secret_access_key`` is set. Must not set otherwise. 
 -  ``num_hosts`` - Number of hosts to start, 1 <= ``num_hosts`` <= 10. Defaults to 1. 
 -  ``provider`` - Cloud provider. Must set ``ec2.`` We intend to support other providers as future work. 
@@ -444,7 +445,8 @@ If the ``path`` directive is specified, then the contents of the file
 contain a JSON formatted list of objects. Each object contains the
 following keys:
 
--  ``dns_name``: The FQDN of the EC2 instance
+-  ``dns_name``: The FQDN of the EC2 instance (if IPv6 instance, this will not be populated)
+-  ``ip_address``: the IP address of the EC2 instance (currently implemented for IPv6)
 -  ``instance_id``: The unique identifier of the EC2 instance
 
 .. code:: json
@@ -453,8 +455,12 @@ following keys:
        {
            "dns_name": "ec2-52-91-50-29.compute-1.amazonaws.com",
            "instance_id": "i-096d6766961314cd5"
+       },
+       {
+           "ip_address": "abcd:1234:459c:2d00:cfe4:843b:1d60:8e47",
+           "instance_id": "i-106d6766961312a14"
        }
-   ]
+   ] 
 
 manifest.load
 ^^^^^^^^^^^^^
