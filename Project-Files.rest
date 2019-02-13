@@ -896,6 +896,7 @@ of hosts on which to run this task_group.
        tasks:
          - example_task_1
          - example_task_2
+         - .example_tag
 
    buildvariants:
      - name: ubuntu1604
