@@ -122,7 +122,7 @@ API server.
 Parameters:
  
 -  ``file``: a .xml file to parse and upload. A filepath glob can also be supplied to collect results from multiple files.
-- ``files``: a list .xml file to parse and upload. Filepath globs can also be supplied to collect results from multiple files.
+- ``files``: a list .xml files to parse and upload. Filepath globs can also be supplied to collect results from multiple files.
 
 expansions.update
 ^^^^^^^^^^^^^^^^^
