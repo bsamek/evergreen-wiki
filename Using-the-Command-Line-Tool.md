@@ -195,6 +195,8 @@ evergreen last-green -p mci -v ubuntu
 
 ```
 
+#### Commit Queue
+The command `evergreen commit-queue` contains subcommands for interacting with the commit queue. See [Commit Queue CLI](https://github.com/evergreen-ci/evergreen/wiki/Commit-Queue#cli).
 
 ### Server Side (for Evergreen admins)
 
