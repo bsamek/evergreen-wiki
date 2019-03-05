@@ -1,19 +1,21 @@
 # Trigger
 # Set-Module
 # Notifications
+Patch notifications for merge test patches are delivered according users' notification settings. Merge status is also posted to the PR once the item is received.
 # Configuration
 # CLI
-The Evergreen CLI exposed two subcommands under `evergreen commit-queue` to interact with the commit queue 
+The Evergreen CLI exposes two subcommands under `evergreen commit-queue` to interact with the commit queue 
 ## List
 List the items on one project's queue.
 Arguments:
 * `--project PROJECT, -p PROJECT` list the queue of PROJECT
 ## Delete
-Delete an item from a queue
+Delete an item from a queue. Must be a super user or project admin.
 Arguments:
 * `--project PROJECT, -p PROJECT` delete from the queue of PROJECT
 * `--item ITEM, -i ITEM` delete the ITEM specified
-
+# Administration
+Superusers can
 # FAQ
 > The merge test failed. How do I resubmit?
 
