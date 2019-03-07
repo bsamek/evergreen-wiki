@@ -41,10 +41,6 @@ Fix the PR and type another triggering comment.
 
 Check your PR's position in the queue with the CLI. Evergreen checks the head of the queue about once a minute.
 
-> The PR at the head of the queue has been there forever.
-
-If the head of the queue is blocking, use the CLI to delete the item from the queue and resubmit the PR to the queue.
-
 > My project's branch is protected and only signed commits can be merged. Can I use the commit queue?
 
 Yes. As long as all the commits in the PR are signed GitHub will do the right thing.
