@@ -1,17 +1,28 @@
 # Trigger
+Add a PR to the commit queue by adding a comment on the PR: `evergreen merge` 
 # Set-Module
+Add other PRs for repos defined as modules in the project's configuration file with the `--module module1:1234` option to the `evergreen merge` comment. When the test passes all the PRs will be merged. The option can be repeated for multiple modules. For instance: 
+> `evergreen merge --module module1:1234 --module module2:2345`
+
+The module can only be set when initially adding the main PR to the commit queue since it is immediately finalized.
+
 # Notifications
-Patch notifications for merge test patches are delivered according users' notification settings. Merge status is also posted to the PR once the item is received.
+Patch notifications for merge test patches are delivered according users' notification settings. Merge status is also posted to the PR (GitHub status checks) at the following milestones:
+* the PR is received
+* the merge test has begun
+* the merge test passed/failed
+* the merge failed
 # Configuration
 # CLI
 The Evergreen CLI exposes two subcommands under `evergreen commit-queue` to interact with the commit queue 
 ## List
 List the items on one project's queue.
-Arguments:
+### Options
 * `--project PROJECT, -p PROJECT` list the queue of PROJECT
 ## Delete
 Delete an item from a queue. Must be a super user or project admin.
-Arguments:
+If the PR is already picked up by the commit queue it will not be aborted.
+### Options
 * `--project PROJECT, -p PROJECT` delete from the queue of PROJECT
 * `--item ITEM, -i ITEM` delete the ITEM specified
 # Administration
