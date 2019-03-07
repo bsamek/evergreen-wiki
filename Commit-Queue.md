@@ -1,7 +1,7 @@
 # Trigger
 Add a PR to the commit queue by adding a comment on the PR: `evergreen merge` 
 # Set-Module
-Add other PRs for repos defined as modules in the project's configuration file with the `--module module1:1234` option to the `evergreen merge` comment. When the test passes all the PRs will be merged. The option can be repeated for multiple modules. For instance: 
+Add other PRs for repos defined as modules in the project's configuration file with the `--module MODULE:PR` option to the `evergreen merge` comment. When the test passes all the PRs will be merged. The option can be repeated for multiple modules. For instance: 
 > `evergreen merge --module module1:1234 --module module2:2345`
 
 The module can only be set when initially adding the main PR to the commit queue since the test is immediately finalized.
