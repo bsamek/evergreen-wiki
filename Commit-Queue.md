@@ -1,3 +1,5 @@
+The commit queue tests changes and then merges them only if the tests pass.
+
 # Trigger
 Add a PR to the commit queue by adding a comment on the PR: `evergreen merge` 
 # Set-Module
