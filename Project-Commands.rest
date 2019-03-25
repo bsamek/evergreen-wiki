@@ -578,7 +578,7 @@ Parameters:
  
 -  ``aws_key``: your AWS key (use expansions to keep this a secret) 
 -  ``aws_secret``: your AWS secret (use expansions to keep this a secret) 
--  ``s3_copy_files``: a map of ``source`` (``bucket`` and ``path``), ``destination``, ``buildvariants`` (a list of strings), ``display_name``, and ``optional`` (suppresses errors)
+-  ``s3_copy_files``: a map of ``source`` (``bucket`` and ``path``), ``destination``, ``build_variants`` (a list of strings), ``display_name``, and ``optional`` (suppresses errors)
 
 shell.exec
 ^^^^^^^^^^
