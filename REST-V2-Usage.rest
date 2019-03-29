@@ -232,7 +232,7 @@ List Tasks By Project And Commit
 
 ::
 
- GET /project/<project_name>/versions/<commit_hash>/tasks
+ GET /projects/<project_name>/revisions/<commit_hash>/tasks
 
 List all tasks within a commit of a given project
 
