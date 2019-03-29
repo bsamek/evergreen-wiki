@@ -638,7 +638,7 @@ Parameters:
 -  ``ignore_standard_out``: if true, do not log standard out 
 -  ``ignore_standard_error``: if true, do not log standard error 
 -  ``redirect_standard_error_to_output``: if true, redirect standard error to standard out 
--  ``continue_on_error``: if true, do not mark task as failed if command fails
+-  ``continue_on_err``: if true, do not mark task as failed if command fails
 
 timeout.update
 ^^^^^^^^^^^^^^
