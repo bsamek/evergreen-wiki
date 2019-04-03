@@ -162,21 +162,12 @@ generate.tasks
 ^^^^^^^^^^^^^^
 
 This command creates functions, tasks, and variants from a user-provided
-JSON file. 
--  generate.tasks cannot be called more than once per static
-variant. 
--  generate.tasks cannot be called from a dynamic variant. 
-- 
-generate.tasks cannot redefine functions, tasks, or variants.
-generate.tasks may only append new functions, tasks, and variants. It is
-a validation error to modify an existing static or dynamic function,
-task, or variant, or to define one twice in the JSON document passed to
-the command. It is legal to specify a variant multiple times in order to
-add additional tasks to the variant, as long as no other variant
-metadata is changed. 
--  The calls to generate.tasks may not in aggregate
-in a single version generate more than 100 variants or more than 1000
-tasks.
+JSON file. Consider using https://github.com/evergreen-ci/shrub or https://github.com/evergreen-ci/shrub.py to create the JSON file.
+
+- generate.tasks cannot be called more than once per static variant. 
+- generate.tasks cannot be called from a dynamic variant. 
+- generate.tasks cannot redefine functions, tasks, or variants. generate.tasks may only append new functions, tasks, and variants. It is a validation error to modify an existing static or dynamic function, task, or variant, or to define one twice in the JSON document passed to the command. It is legal to specify a variant multiple times in order to add additional tasks to the variant, as long as no other variant metadata is changed. 
+-  The calls to generate.tasks may not in aggregate in a single version generate more than 100 variants or more than 1000 tasks.
 
 .. code:: yaml
 
