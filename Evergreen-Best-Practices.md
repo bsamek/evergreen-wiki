@@ -1,4 +1,4 @@
-**In general, use subprocess.exec instead of shell.exec**
+**In general, use subprocess.exec instead of shell.exec, and avoid inline shell scripts:**
 
 The reasons to prefer subprocess.exec include
 1. Evergreen uses expansions with the same syntax as shell expansions.
