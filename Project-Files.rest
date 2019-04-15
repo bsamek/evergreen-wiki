@@ -1011,3 +1011,36 @@ YAML as a format has some built-in support for defining variables and
 using them. You might notice the use of node anchors and references in
 some of our project code. For a quick example, see:
 http://en.wikipedia.org/wiki/YAML#Reference
+
+Command Types
+"""""""""""""
+
+Evergreen tasks can fail with different colors. By default failing tasks
+turn red, but there are 3 different modes.
+
+-  ``test``: red
+-  ``system``: purple
+-  ``setup``: lavender
+
+In general you should use purple to indicate that something has gone wrong
+with the host running the task, since Evergreen will also use this color. You 
+can use lavender to indicate something has gone wrong with test setup, or 
+with some external service that the task depends on.
+
+You can set the default at the top of the config file.
+
+.. code:: yaml
+
+  command_type: system
+
+You can set the failure mode of individual commands.
+
+.. code:: yaml
+
+ - command: shell.exec
+      type: test
+
+Note that although you cannot conditionally make a command fail different colors,
+you can hack this by having a command write to a file based on its exit status,
+and then subsequent commands with different types can exit non-zero conditionally 
+based on the contents of that file.
