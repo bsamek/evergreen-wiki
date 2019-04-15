@@ -1012,8 +1012,8 @@ using them. You might notice the use of node anchors and references in
 some of our project code. For a quick example, see:
 http://en.wikipedia.org/wiki/YAML#Reference
 
-Command Types
-"""""""""""""
+Command Failure Colors
+""""""""""""""""""""""
 
 Evergreen tasks can fail with different colors. By default failing tasks
 turn red, but there are 3 different modes.
