@@ -858,6 +858,9 @@ automatically added.
      - name: D
        patch_optional: true
 
+In addition to "name" and "status", "depends_on" clauses also support a 
+"variant" field, which allows cross-variant dependencies.
+
 Task Groups
 """""""""""
 
