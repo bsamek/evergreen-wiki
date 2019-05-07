@@ -162,7 +162,13 @@ generate.tasks
 ^^^^^^^^^^^^^^
 
 This command creates functions, tasks, and variants from a user-provided
-JSON file. Consider using https://github.com/evergreen-ci/shrub or https://github.com/evergreen-ci/shrub.py to create the JSON file.
+JSON file. Consider using one of the following tools to create the JSON file:
+
+- https://github.com/evergreen-ci/shrub
+- https://github.com/evergreen-ci/shrub.py
+- https://github.com/evergreen-ci/shrub.ts
+
+Notes:
 
 - generate.tasks cannot be called more than once per static variant. 
 - generate.tasks cannot be called from a dynamic variant. 
