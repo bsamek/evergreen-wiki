@@ -464,8 +464,8 @@ following keys:
 -  ``ip_address``: the IP address of the EC2 instance (currently implemented for IPv6).
 -  ``instance_id``: The unique identifier of the EC2 instance.
 
-- ``host_id``: The ID for the Docker container.
-- ``parent_id``: The ID for the parent of the Docker container (may be given as the parent host's tag, i.e. original ID).
+- ``host_id``: The unique identifier of the Docker container.
+- ``parent_id``: The unique identifier of the parent of the Docker container (may be given as the parent host's tag, i.e. evergreen-assigned ID).
 - ``image``: The image used for the Docker container. 
 - ``command``: The command run on the Docker container.
 
