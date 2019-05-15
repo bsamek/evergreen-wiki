@@ -30,6 +30,12 @@ And _every_ task or variant can be specified by using the "all" keyword:
 evergreen patch -v all -t all
 ```
 
+Working Tree Changes
+---
+By default patches will include only committed changes, not changes in Git's working tree or index. To include changes from the working tree use the `--uncommitted, -u` flag or set a default by inserting `patch_uncommitted_changes: true` in the `~/.evergreen.yml` file.
+
+Defaults
+---
 *NOTE:* The first time you run a patch, you'll be asked if you want to set the given parameters as your default project and variants.
 After setting defaults, you can omit the flags and the default values will be used, so that just running `evergreen patch` will work.
 
