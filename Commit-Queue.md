@@ -46,3 +46,7 @@ Check your PR's position in the queue with the CLI. Evergreen checks the head of
 > My project's branch is protected and only signed commits can be merged. Can I use the commit queue?
 
 Yes. As long as all the commits in the PR are signed GitHub will do the right thing.
+
+> What will the commit message be with the squash merge strategy?
+
+The commit message is the title of the PR with the PR number appended to the end.
