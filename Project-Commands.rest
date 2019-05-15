@@ -464,7 +464,7 @@ following keys:
 -  ``ip_address``: the IP address of the EC2 instance (currently implemented for IPv6).
 -  ``instance_id``: The unique identifier of the EC2 instance.
 
-- ``host_id``: The ID for the container.
+- ``host_id``: The ID for the Docker container.
 - ``parent_id``: The ID for the parent of the Docker container (may be given as the parent host's tag, i.e. original ID).
 - ``image``: The image used for the Docker container. 
 - ``command``: The command run on the Docker container.
@@ -480,6 +480,12 @@ following keys:
            "ip_address": "abcd:1234:459c:2d00:cfe4:843b:1d60:8e47",
            "instance_id": "i-106d6766961312a14"
        }
+       {
+           "host_id": "container-7919139205343971456",
+           "parent_id": "evg-archlinux-parent-20190513171239-2182711601109995555",
+           "image": "hello-world",
+           "command": "/hello"
+     }
    ] 
 
 manifest.load
