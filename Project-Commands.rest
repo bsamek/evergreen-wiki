@@ -306,7 +306,7 @@ host.create
 
 Agent Parameters:
 
--  ``num_hosts`` - Number of hosts to start, 1 <= ``num_hosts`` <= 10. Defaults to 1. 
+-  ``num_hosts`` - Number of hosts to start, 1 <= ``num_hosts`` <= 10. Defaults to 1 (must be 1 if provider is Docker). 
 -  ``provider`` - Cloud provider. Must set ``ec2`` or ``docker``. We intend to support other providers as future work. 
 -  ``retries`` - How many times Evergreen should try to create this host in EC2 before giving up. Evergreen will wait 1 minute between retries. 
 -  ``scope`` - When Evergreen will tear down the host, i.e., when either the task or build is finished. Must be either ``task`` or ``build``. Defaults to ``task`` if not set. 
@@ -460,9 +460,14 @@ If the ``path`` directive is specified, then the contents of the file
 contain a JSON formatted list of objects. Each object contains the
 following keys:
 
--  ``dns_name``: The FQDN of the EC2 instance (if IPv6 instance, this will not be populated)
--  ``ip_address``: the IP address of the EC2 instance (currently implemented for IPv6)
--  ``instance_id``: The unique identifier of the EC2 instance
+-  ``dns_name``: The FQDN of the EC2 instance (if IPv6 instance, this will not be populated).
+-  ``ip_address``: the IP address of the EC2 instance (currently implemented for IPv6).
+-  ``instance_id``: The unique identifier of the EC2 instance.
+
+- ``host_id``: The ID for the container.
+- ``parent_id``: The ID for the parent of the Docker container (may be given as the parent host's tag, i.e. original ID).
+- ``image``: The image used for the Docker container. 
+- ``command``: The command run on the Docker container.
 
 .. code:: json
 
