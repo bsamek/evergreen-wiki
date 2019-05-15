@@ -305,6 +305,7 @@ host.create
        distro: rhel70-small
 
 Agent Parameters:
+
 -  ``num_hosts`` - Number of hosts to start, 1 <= ``num_hosts`` <= 10. Defaults to 1. 
 -  ``provider`` - Cloud provider. Must set ``ec2`` or ``docker``. We intend to support other providers as future work. 
 -  ``retries`` - How many times Evergreen should try to create this host in EC2 before giving up. Evergreen will wait 1 minute between retries. 
@@ -313,6 +314,7 @@ Agent Parameters:
 - ``timeout_teardown_secs`` - Even if the task or build has not finished, tear down this host after this many seconds. Must be 60 <= ``timeout_teardown_secs`` <= 604800 (7 days). Default to 21600 (6 hours). 
 
 EC2 Parameters: 
+
 -  ``ami`` - EC2 AMI to start. Must set ``ami`` or ``distro`` but must not set both. 
 -  ``aws_access_key_id`` - AWS access key ID. May set to use a non-default account. Must set if ``aws_secret_access_key`` is set. 
 -  ``aws_secret_access_key`` - AWS secret key. May set to use a non-default account. Must set if ``aws_access_key_id`` is set. 
@@ -333,6 +335,7 @@ EC2 Parameters:
 -  ``vpc_id`` - EC2 VPC. Must set if ``ami`` is set. May set if ``distro`` is set, which will override the value from the distro configuration.
 
 Docker Parameters: 
+
 - ``background`` - Set to wait for logs in the background, rather than blocking. Default is true. 
 - ``container_wait_timeout_secs`` - Time to wait for the container to finish running the given command. Must be <= 3600 (1 hour). Default to 600 (10 minutes). 
 - ``command`` - Required. The command to run on the container. Does not not support shell interpolation. 
