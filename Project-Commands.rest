@@ -266,7 +266,7 @@ The parameters for each module are:
 
 -  ``name``: the name of the module
 -   ``repo``: the repo of the module
--   ``prefix``: the subdirectory to clone the repository in. It will be the repository name as a top-level directory in `dir` if omitted
+-   ``prefix``: the subdirectory to clone the repository in. It will be the repository name as a top-level directory in ``dir`` if omitted
 -   ``ref``: must be a commit hash, takes precedence over the ``branch`` parameter if both specified
 -   ``branch``: must be the name of branch, commit hashes `are not accepted`
 
