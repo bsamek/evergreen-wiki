@@ -554,6 +554,7 @@ Parameters:
 -  ``optional``: boolean to indicate if failure to find or upload this file will result in a task failure. Not compatible with local_files_include_filter. 
 - ``display_name``: the display string for the file in the Evergreen UI 
 - ``local_files_include_filter``: used in place of local_file, an array of gitignore file globs. All files that are matched - ones that would be ignored by gitignore - are included in the put.
+- ``local_files_include_filter_prefix``: an optional path to start processing the LocalFilesIncludeFilter, relative to the working directory.
 
 s3.put with multiple files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
