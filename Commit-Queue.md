@@ -5,8 +5,19 @@ Gating every merge on a green build means the tracked branch is guaranteed to al
 * No one bases their work on broken code.
 * Every commit on the mainline branch is potentially releasable/deployable.
 
-# The Queue
-Incoming changes to an Evergreen project's tracked branch are enqueued, one queue per project. When a changeset comes to the head of the queue tests are run against a test merge commit and if the tests pass the merge commit is committed.
+# Workflow
+1. Changes are ready to be introduced to the repo.
+
+[[images/repo_tree.png]]
+
+2. The changes are added to the commit queue.
+
+
+3. When the changes come to the head of the queue a test merge commit is created and tests are run against the merge commit.
+ 
+[[images/merge_test.png]]
+
+4. If the tests pass the merge commit is pushed to GitHub.
 
 # Trigger
 Add a PR to the commit queue by adding a comment on the PR: `evergreen merge` 
