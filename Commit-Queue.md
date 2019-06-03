@@ -1,4 +1,12 @@
-The commit queue tests changes and then merges them only if the tests pass.
+Evergreen's commit queue merges changes after the merged code has passed a set of tests.
+
+# Rationale 
+Gating every merge on a green build means the tracked branch is guaranteed to always be green. This way: 
+* No one bases their work on broken code.
+* Every commit on the mainline branch is potentially releasable/deployable.
+
+# The Queue
+Incoming changes to an Evergreen project's tracked branch are enqueued, one queue per project. When a changeset comes to the head of the queue tests are run against a test merge commit and if the tests pass the merge commit is committed.
 
 # Trigger
 Add a PR to the commit queue by adding a comment on the PR: `evergreen merge` 
