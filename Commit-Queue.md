@@ -43,7 +43,10 @@ The module can only be set when initially adding the main PR to the commit queue
 ## CLI
 For projects using other code review tools, changes can be uploaded to Evergreen using the `evergreen commit-queue` subcommands in the Evergreen CLI. 
 ### Trigger
-Changes are added to the queue with the sub-command `evergreen commit-queue merge`.
+`evergreen commit-queue merge --project <project_id> --message <message>`
+
+Enqueue changes on a project's commit queue.
+
 #### Options
 * `--message [message], -m [message]`
 
@@ -58,7 +61,9 @@ Upload the changes, but don't begin to test the changes. Used in conjunction wit
 Enqueue changes previously uploaded and paused. [ID] is the patch ID printed to the console when uploading the paused (unfinalized) patch.
 
 ### Set-Module
-The `evergreen commit-queue set-module` command adds changes to a project module.
+`evergreen commit-queue set-module --patch <id> --module <module>` 
+
+Add changes to a project module.
 
 #### Options
 * `--patch [ID], --id [ID], -i [ID]` 
@@ -87,16 +92,30 @@ Project admins configure the commit queue through the [Projects page](https://ev
 
 # Queue Monitoring
 The Evergreen CLI exposes two subcommands under `evergreen commit-queue` to monitor the commit queue 
+
 ## List
+`evergreen commit-queue list --project <project_id>`
+
 List the items on one project's queue.
+
 ### Options
 * `--project PROJECT, -p PROJECT` list the queue of PROJECT
+
 ## Delete
+`evergreen commit-queue delete --project <project_id> --item <item>`
+
 Delete an item from a queue. Must be the user who uploaded the item or a project admin.
 If the item is already picked up by the commit queue it will not be aborted.
+
 ### Options
-* `--project PROJECT, -p PROJECT` delete from the queue of PROJECT
-* `--item ITEM, -i ITEM` delete the ITEM specified
+* `--project PROJECT, -p PROJECT`
+
+delete from the queue of PROJECT
+
+* `--item ITEM, -i ITEM` 
+
+delete the ITEM specified. 
+Item is the PR number in PR mode and patch ID in CLI mode
 
 # FAQ
 > Can I restart a failed task in a commit queue test?
