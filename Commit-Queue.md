@@ -23,9 +23,12 @@ Gating every merge on a green build means the tracked branch is guaranteed to al
 # Modes of Operation
 The commit queue runs in two modes which are configured on a per project basis: PR and CLI.
 ## PR
-If the project uses GitHub pull requests for code review, the commit queue integrates with the PR workflow. When the PR is approved and ready to be merged, changes are added to the queue through the PR and commit queue feedback is provided as status checks through the PR.
+For projects that use GitHub pull requests for code review, the commit queue integrates with the PR workflow. When the PR is approved and ready to be merged, changes are added to the queue through the PR and commit queue feedback is provided in status checks on the PR.
 ### Trigger
 Add a PR to the commit queue by adding a comment on the PR: `evergreen merge` 
+
+[[images/comment.png]]
+
 ### Feedback
 Evergreen sends a status to the PR when the changes are enqueued, when the merge test has begun, and when the merge test is complete. Once the merge test has begun, the status links to the version.
 
@@ -39,7 +42,7 @@ Add other PRs for repos defined as modules in the project's configuration file w
 The module can only be set when initially adding the main PR to the commit queue since the test is immediately finalized.
 
 ## CLI
-For projects using other tools for code review, changes can be uploaded to Evergreen with the Evergreen CLI.
+For projects using other code review tools, changes can be uploaded to Evergreen using the `evergreen commit-queue` subcommands in the Evergreen CLI. 
 ### Trigger
 Changes are added to the queue with the sub-command `evergreen commit-queue merge`.
 #### Options
@@ -53,10 +56,28 @@ Upload the changes, but don't begin to test the changes. Used in conjunction wit
 
 * `--identifier [ID]`
 
-Enqueue changes previously uploaded and paused. [ID] is the patch ID printed to the console when uploading the unfinalized patch.
+Enqueue changes previously uploaded and paused. [ID] is the patch ID printed to the console when uploading the paused (unfinalized) patch.
 
 ### Set-Module
 The `evergreen commit-queue set-module` command adds changes to a project module.
+
+#### Options
+* `--patch [ID], --id [ID], -i [ID]` 
+
+Add to patch ID created with `evergreen commit-queue merge --pause`
+
+* `--module [module], -m [module]`
+
+Module name as defined in the project configuration file.
+
+# Notifications
+Sign up for notifications on commit queue milestones on the [Notifications page](https://evergreen.mongodb.com/notifications).
+
+[[images/notifications.png]]
+
+Milestones include:
+* Changes reached the head of the queue and merge test has begun.
+* Merge test passed/failed
 
 # Configuration
 Project admins configure the commit queue through the [Projects page](https://evergreen.mongodb.com/projects) in the Evergreen UI. On a per project basis they can
@@ -65,32 +86,36 @@ Project admins configure the commit queue through the [Projects page](https://ev
 * Add/remove patch definitions for tests to be run against PRs (tags or variant and task regexes)
 * Choose the commit queue mode (CLI or PR)
 
-# CLI
-The Evergreen CLI exposes two subcommands under `evergreen commit-queue` to interact with the commit queue 
+# Queue Monitoring
+The Evergreen CLI exposes two subcommands under `evergreen commit-queue` to monitor the commit queue 
 ## List
 List the items on one project's queue.
 ### Options
 * `--project PROJECT, -p PROJECT` list the queue of PROJECT
 ## Delete
 Delete an item from a queue. Must be the user who uploaded the item or a project admin.
-If the PR is already picked up by the commit queue it will not be aborted.
+If the item is already picked up by the commit queue it will not be aborted.
 ### Options
 * `--project PROJECT, -p PROJECT` delete from the queue of PROJECT
 * `--item ITEM, -i ITEM` delete the ITEM specified
 
 # FAQ
+> Can I restart a failed task in a commit queue test?
+
+Please don't. Instead, add the item to the queue again.
+
 > The merge test for a PR failed.  How do I resubmit?
 
 Fix the PR and type another triggering comment.
 
-> The commit queue hasn't picked up my PR for a while.
+> The commit queue hasn't picked up my changes for a while.
 
-Check your PR's position in the queue with the CLI. Evergreen checks the head of the queue about once a minute.
+Check your position in the queue with the CLI. Evergreen checks the head of each queue about once a minute.
 
 > My project's branch is protected and only signed commits can be merged. Can I use the commit queue?
 
-Yes. As long as all the commits in the PR are signed GitHub will do the right thing.
+It depends: it works for PR mode, but not CLI mode.
 
 > What will the commit message be with the squash merge strategy?
 
-The commit message is the title of the PR with the PR number appended to the end.
+For PR mode, the commit message is the title of the PR with the PR number appended to the end. In CLI mode the message is specified with the `--message` option, or the branch name by default.
