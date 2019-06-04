@@ -36,7 +36,8 @@ Evergreen sends a status to the PR when the changes are enqueued, when the merge
 
 ### Set-Module
 Add other PRs for repos defined as modules in the project's configuration file with the `--module MODULE:PR` option to the `evergreen merge` comment. When the test passes all the PRs will be merged. The option can be repeated for multiple modules. For instance: 
-> `evergreen merge --module module1:1234 --module module2:2345`
+
+[[images/set-module_comment.png]]
 
 The module can only be set when initially adding the main PR to the commit queue since the test is immediately finalized.
 
