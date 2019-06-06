@@ -46,7 +46,7 @@ For projects using other code review tools, changes can be uploaded to Evergreen
 ### Trigger
 `evergreen commit-queue merge --project <project_id> --message <message>`
 
-Enqueue changes on a project's commit queue.
+Enqueue the branch checked out in Git on the project's commit queue to be merged into the project's tracked branch.
 
 #### Options
 * `--message [message], -m [message]`
@@ -60,6 +60,9 @@ Upload the changes, but don't begin to test the changes. Used in conjunction wit
 * `--identifier [ID]`
 
 Enqueue changes previously uploaded and paused. [ID] is the patch ID printed to the console when uploading the paused (unfinalized) patch.
+
+### Feedback
+The merge is performed by a "Commit Queue Merge" task added to the patch by the commit queue.
 
 ### Set-Module
 `evergreen commit-queue set-module --patch <id> --module <module>` 
