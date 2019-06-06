@@ -62,7 +62,9 @@ Upload the changes, but don't begin to test the changes. Used in conjunction wit
 Enqueue changes previously uploaded and paused. [ID] is the patch ID printed to the console when uploading the paused (unfinalized) patch.
 
 ### Feedback
-The merge is performed by a "Commit Queue Merge" task added to the patch by the commit queue.
+The merge is performed by a "Commit Queue Merge" task added to the patch when the changes reach the head of the queue.
+
+[[images/merge_task.png]]
 
 ### Set-Module
 `evergreen commit-queue set-module --patch <id> --module <module>` 
