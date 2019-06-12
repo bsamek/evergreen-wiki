@@ -80,6 +80,19 @@ Add to patch ID created with `evergreen commit-queue merge --pause`
 
 Module name as defined in the project configuration file.
 
+#### Workflow
+1. Upload the main changes to Evergreen. Retain the patch ID printed to the console.
+
+`evergreen commit-queue merge --pause ...`
+
+2. For each module to be merged, add the module to the patch
+
+`evergreen commit-queue set-module --id <id> ...`
+
+3. Enqueue the changes on the commit queue
+
+`evergreen commit-queue merge --identifier <id> ...`
+
 # Notifications
 Adjust your notifications on commit queue milestones on the [Notifications page](https://evergreen.mongodb.com/notifications).
 
