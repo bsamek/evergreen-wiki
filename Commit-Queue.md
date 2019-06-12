@@ -1,7 +1,7 @@
-Evergreen's commit queue merges changes after the merged code has passed a set of tests.
+Evergreen's commit queue merges changes after the code has passed a set of tests.
 
 # Rationale 
-Gating every merge on a green build means the tracked branch is guaranteed to always be green. This way: 
+Gating every merge on a green build means every commit on the tracked branch had a green build. This way: 
 * No one bases their work on broken code.
 * Every commit on the mainline branch is potentially releasable/deployable.
 
@@ -21,7 +21,7 @@ Gating every merge on a green build means the tracked branch is guaranteed to al
 4. If the tests pass the merge commit is pushed to GitHub.
 
 # Modes of Operation
-The commit queue runs in two modes which are configured on a per project basis: PR and CLI.
+The commit queue runs in two modes which are configured on a per project basis: PR or CLI.
 ## PR
 For projects that use GitHub pull requests for code review, the commit queue integrates with the PR workflow. When the PR is approved and ready to be merged, changes are added to the queue through the PR and commit queue feedback is provided in status checks on the PR.
 ### Trigger
@@ -81,7 +81,7 @@ Add to patch ID created with `evergreen commit-queue merge --pause`
 Module name as defined in the project configuration file.
 
 # Notifications
-Sign up for notifications on commit queue milestones on the [Notifications page](https://evergreen.mongodb.com/notifications).
+Adjust your notifications on commit queue milestones on the [Notifications page](https://evergreen.mongodb.com/notifications).
 
 [[images/notifications.png]]
 
