@@ -57,7 +57,7 @@ Set the commit message for the merge commit pushed to GitHub. Default is the nam
 
 Upload the changes, but don't begin to test the changes. Used in conjunction with `evergreen commit-queue set-module` when the changes include corresponding changes to a module.
 
-* `--identifier [ID]`
+* `--resume [ID]`
 
 Enqueue changes previously uploaded and paused. [ID] is the patch ID printed to the console when uploading the paused (unfinalized) patch.
 
@@ -91,7 +91,7 @@ Module name as defined in the project configuration file.
 
 3. Enqueue the changes on the commit queue
 
-`evergreen commit-queue merge --identifier <id> ...`
+`evergreen commit-queue merge --resume <id> ...`
 
 # Notifications
 Adjust your notifications on commit queue milestones on the [Notifications page](https://evergreen.mongodb.com/notifications).
