@@ -80,7 +80,7 @@ Add to patch ID created with `evergreen commit-queue merge --pause`
 
 Module name as defined in the project configuration file.
 
-#### Workflow
+#### CLI Set-Module Workflow
 1. Upload the main changes to Evergreen. Retain the patch ID printed to the console.
 
 `evergreen commit-queue merge --pause ...`
