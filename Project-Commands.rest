@@ -71,6 +71,9 @@ An additional “ignore_for_fetch” parameter controls whether the file
 will be downloaded when spawning a host from the spawn link on a test
 page.
 
+- ``files``: an array of gitignore file globs. All files that are matched - ones that would be ignored by gitignore - are included.
+- ``prefix``: an optional path to start processing the Files, relative to the working directory.
+
 attach.results
 ^^^^^^^^^^^^^^
 
