@@ -1069,12 +1069,21 @@ Objects
    * - Name
      - Type
      - Description
+   * - admins
+     - []string
+     - Usernames of project admins
    * - batch_time
      - int
      - Unique identifier of a specific patch
    * - branch_name
      - string
      - Name of branch
+   * - commit_queue
+     - CommitQueueParams
+     - Options for commit queue
+   * - deactivate_previous
+     - bool
+     - List of identifiers of tasks used in this patch
    * - display_name
      - string
      - Project name displayed to users
@@ -1084,9 +1093,18 @@ Objects
    * - identifier
      - string
      - Internal evergreen identifier for project
+   * - notify_on_failure
+     - bool
+     - Notify original committer (or admins) when build fails
    * - owner_name
      - string
      - Owner of project repository
+   * - patching_disabled
+     - bool
+     - Disable patching
+   * - pr_testing_enabled
+     - bool
+     - Enable github pull request testing
    * - private
      - bool
      - A user must be logged in to view private projects
@@ -1096,35 +1114,33 @@ Objects
    * - repo_name
      - string
      - Repository name
+   * - repo_kind
+     - string
+     - Type of repo
    * - tracked
      - bool
      - Whether the project is discoverable in the UI
-   * - alert_settings
-     - map[string][]alertConfig
-     - Map of alert triggers to list of corresponding configs
-   * - deactivate_previous
+   * - tracks_push_events
      - bool
-     - List of identifiers of tasks used in this patch
-   * - admins
-     - []string
-     - Usernames of project admins
-   * - vars
-     - map[string][string]
-     - Map of project variables
+     - Track push events
 
-.. list-table:: **Alert Config**
+
+.. list-table:: **CommitQueueParams**
    :widths: 25 10 55
    :header-rows: 1
 
    * - Name
      - Type
      - Description
-   * - provider
+   * - enabled
+     - bool
+     - Enable/disable the commit queue
+   * - merge_method
      - string
-     - Name of alert provider
-   * - settings
-     - map[string]string
-     - Settings defined for this alert config
+     - method of merging (squash, merge, rebase)
+   * - patch_type
+     - string
+     - type of patch (PR, CLI)
 
 Endpoints
 ~~~~~~~~~
