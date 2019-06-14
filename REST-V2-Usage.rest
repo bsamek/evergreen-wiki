@@ -1123,6 +1123,9 @@ Objects
    * - tracks_push_events
      - bool
      - Track push events
+  *  - triggers
+     - []TriggerDefinition
+     - a list of triggers for the project
 
 
 .. list-table:: **CommitQueueParams**
@@ -1141,6 +1144,40 @@ Objects
    * - patch_type
      - string
      - type of patch (PR, CLI)
+
+
+.. list-table:: **TriggersDefinition**
+   :widths: 25 10 55
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Description
+   * - definition_id
+     - string
+     - unique ID
+   * - project
+     - string
+     - project ID
+   * - level
+     - string
+     - build or task 
+   * - variant_regex
+     - string
+     - matching variants will trigger a build
+   * - task_regex
+     - string
+     - matching tasks will trigger a build
+   * - status
+     - string
+     - status to trigger for (or "*")
+   * - config_file
+     - string
+     - definition file
+   * - command
+     - string
+     - shell command that creates task json file
+
 
 Endpoints
 ~~~~~~~~~
