@@ -1205,6 +1205,57 @@ Returns a paginated list of all projects
      - int
      - Optional. The number of projects to be returned per page of pagination. Defaults to 100
 
+Get A Project
+``````````````````
+
+::
+
+ GET /projects/<project_id>
+
+Returns the project (restricted to project admins).
+
+Modify A Project
+``````````````````
+
+::
+
+ PATCH /projects/<project_id>
+
+Modify an existing project (restricted to project admins). 
+If enabling the project, will attempt to enable webhooks, and enable PR testing and the commit queue if specified.
+
+.. list-table:: **Parameters**
+   :widths: 25 10 55
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Description
+   * - revision
+     - string
+     - Optional. Changes the base revision for the branch, and runs the repotracker.
+
+Copy a Project
+`````````````
+
+::
+
+ POST /projects/<project_id>/copy
+
+Restricted to admins of the original project.
+Create a new project that is identical to indicated project--this project is initially disabled (PR testing and CommitQueue also initially disabled). Project variables and aliases also copied. Returns the new project.
+
+.. list-table:: **Parameters**
+   :widths: 25 10 55
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Description
+   * - new_project
+     - string
+     - Required. Unique identifier for the copied project.
+
 Get Recent Versions For A Project
 `````````````````````````````````
 
@@ -1228,6 +1279,55 @@ Returns a paginated list of recent versions for a project
    * - limit
      - int
      - Optional. The number of versions to be returned per page of pagination. Defaults to 10
+
+Project Variables
+-----------------
+
+Variables are associated with a particular project. If private, then the value itself will be redacted.
+
+Objects
+~~~~~~~
+
+.. list-table:: **ProjectVars**
+   :widths: 25 10 55
+  :header-rows: 1
+   
+   * - Name
+     - Type
+     - Description
+   * - ``vars``
+     - map[string]string
+     - Map of the variable to its value (if private, value is redacted)
+   * - ``private_vars``
+     - map[string]bool
+     - Indicates whether that variable should be private.
+   * - ``vars_to_delete``
+     - []string
+     - Only used to remove existing variables.
+
+Endpoints
+~~~~~~~~~
+
+Get Variables By Project
+`````````````````````````
+
+::
+
+ GET /projects/<project_id>/variables
+
+Returns a ProjectVars object for the given project.
+
+Upsert Variables By Project
+``````````````````````````````
+
+::
+
+ PATCH /projects/<project_id>/variables
+
+The body of the request is a project variables object, to either create variables for the project, or update the existing variables. This returns the updated variables object.
+
+
+
 
 Distro
 ------
@@ -1256,6 +1356,7 @@ Endpoints
 ~~~~~~~~~
 
 Get Defined Distros
+```````````````````
 
 ::
 
