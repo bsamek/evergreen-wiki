@@ -354,18 +354,12 @@ Docker Parameters:
 Required IAM Policies for ``host.create``
 -----------------------------------------
 
-If creating an Elastic Compute Cloud (EC2) instance using an Amazon
-Machine Image (AMI), then the user must specify the list of security
-groups the EC2 instance inherits, the subnet ID, and the VPC ID. The IAM
-policy statement for the user creating the EC2 instance *must* have the
-following read-only permissions:
+To create an on-demand host, the user must have the following permissions:
 
--  ``ec2:DescribeImages``
+-  ``ec2:CreateTags``
 -  ``ec2:DescribeInstances``
 -  ``ec2:RunInstances``
--  ``ec2:DescribeSecurityGroups``
--  ``ec2:DescribeSubnets``
--  ``ec2:DescribeVpcs``
+-  ``ec2:TerminateInstances``
 -  ``pricing:GetProducts``
 
 If the policy statement does not honor these permissions, then the
