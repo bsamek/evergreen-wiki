@@ -362,13 +362,6 @@ To create an on-demand host, the user must have the following permissions:
 -  ``ec2:TerminateInstances``
 -  ``pricing:GetProducts``
 
-If the policy statement does not honor these permissions, then the
-instance fails to create.
-
-Refer to `IAM Policies for Amazon
-EC2 <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html>`__
-for more information.
-
 Checking SSH Availability for Spawn Hosts
 -----------------------------------------
 
