@@ -1062,6 +1062,7 @@ A project corresponds to a single repository.
 Objects
 ~~~~~~~
 
+
 .. list-table:: **Project**
    :widths: 25 10 55
    :header-rows: 1
@@ -1123,9 +1124,24 @@ Objects
    * - tracks_push_events
      - bool
      - Track push events
-  *  - triggers
+   * - revision
+     - string
+     - Only used when modifying projects to change the base revision and run the repotracker.
+   * - triggers
      - []TriggerDefinition
      - a list of triggers for the project
+   * - aliases
+     - []APIProjectAlias
+     - a list of aliases for the project
+   * - variables
+     - ProjectVars
+     - project variables information
+   * - subscriptions
+     - []Subscription
+     - a list of subscriptions for the project
+   * - delete_subscriptions
+     - []string
+     - subscription IDs. Will delete these subscriptions when given.
 
 
 .. list-table:: **CommitQueueParams**
@@ -1179,6 +1195,103 @@ Objects
      - shell command that creates task json file
 
 
+.. list-table:: **ProjectAlias**
+   :widths: 25 10 55
+   :header-rows: 1
+   
+   * - Name
+     - Type
+     - Description
+   * - _id
+     - string
+     - The id for the alias. If the alias should be deleted, this must be given.
+   * - alias
+     - string
+     - Required. Alias to use with the CLI. May be specified multiple times.
+   * - variant
+     - string
+     - Required. Variant regex for alias.
+   * - task
+     - string
+     - Task regex for alias. Will use the union of task and tags. Either task or tags required.
+   * - tags
+     - []string
+     - Tags for alias. Will use the union of task and tags. Either task or tags required.
+   * - delete
+     - bool
+     - If the given alias for the project should be deleted, set this to true.
+
+
+.. list-table:: **ProjectVars**
+   :widths: 25 10 55
+   :header-rows: 1
+   
+   * - Name
+     - Type
+     - Description
+   * - vars
+     - map[string]string
+     - Map of the variable to its value (if private, value is redacted)
+   * - private_vars
+     - map[string]bool
+     - Indicates whether that variable should be private.
+   * - vars_to_delete
+     - []string
+     - Only used to remove existing variables.
+
+
+.. list-table:: **Subscription**
+   :widths: 25 10 55
+   :header-rows: 1
+   
+   * - Name
+     - Type
+     - Description
+   * - id
+     - string
+   * - resource_type
+     - string
+   * - trigger
+     - string
+   * - selectors
+     - []Selector
+   * - regex_selector
+     - []Selector
+   * - subscriber
+     - Subscriber
+   * - owner_type
+     - string
+     - For projects, this will always be "project"
+   * - owner
+     - string
+     - The project ID
+   * - trigger_data
+     - map[string]string
+
+
+.. list-table:: **Selector**
+   :widths: 25 10
+   :header-rows: 1
+   
+   * - Name
+     - Type
+   * - type
+     - string
+   * - data
+     - string
+
+
+.. list-table:: **Subscriber**
+   :widths: 25 10
+   :header-rows: 1
+   
+   * - Name
+     - Type
+   * - type
+     - string
+   * - target
+     - interface{}
+
 Endpoints
 ~~~~~~~~~
 
@@ -1189,7 +1302,7 @@ Fetch all Projects
 
  GET /projects
 
-Returns a paginated list of all projects
+Returns a paginated list of all projects. Note aliases, variables, and subscriptions may not be populated.
 
 .. list-table:: **Parameters**
    :widths: 25 10 55
@@ -1223,17 +1336,6 @@ Modify A Project
 
 Modify an existing project (restricted to project admins). 
 If enabling the project, will attempt to enable webhooks, and enable PR testing and the commit queue if specified.
-
-.. list-table:: **Parameters**
-   :widths: 25 10 55
-   :header-rows: 1
-
-   * - Name
-     - Type
-     - Description
-   * - revision
-     - string
-     - Optional. Changes the base revision for the branch, and runs the repotracker.
 
 Copy a Project
 `````````````
@@ -1280,54 +1382,14 @@ Returns a paginated list of recent versions for a project
      - int
      - Optional. The number of versions to be returned per page of pagination. Defaults to 10
 
-Project Variables
------------------
-
-Variables are associated with a particular project. If private, then the value itself will be redacted.
-
-Objects
-~~~~~~~
-
-.. list-table:: **ProjectVars**
-   :widths: 25 10 55
-  :header-rows: 1
-   
-   * - Name
-     - Type
-     - Description
-   * - ``vars``
-     - map[string]string
-     - Map of the variable to its value (if private, value is redacted)
-   * - ``private_vars``
-     - map[string]bool
-     - Indicates whether that variable should be private.
-   * - ``vars_to_delete``
-     - []string
-     - Only used to remove existing variables.
-
-Endpoints
-~~~~~~~~~
-
-Get Variables By Project
-`````````````````````````
+Put A Project
+``````````````````
 
 ::
 
- GET /projects/<project_id>/variables
+ PUT /projects/<project_id>
 
-Returns a ProjectVars object for the given project.
-
-Upsert Variables By Project
-``````````````````````````````
-
-::
-
- PATCH /projects/<project_id>/variables
-
-The body of the request is a project variables object, to either create variables for the project, or update the existing variables. This returns the updated variables object.
-
-
-
+Create a new project with the given project ID. Restricted to super users.
 
 Distro
 ------
