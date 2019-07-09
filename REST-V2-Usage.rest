@@ -1325,7 +1325,7 @@ Get A Project
 
  GET /projects/<project_id>
 
-Returns the project (restricted to project admins).
+Returns the project (restricted to project admins). Includes variables, aliases, and subscriptions.
 
 Modify A Project
 ``````````````````
