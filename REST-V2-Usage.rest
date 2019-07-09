@@ -1345,7 +1345,7 @@ Copy a Project
  POST /projects/<project_id>/copy
 
 Restricted to admins of the original project.
-Create a new project that is identical to indicated project--this project is initially disabled (PR testing and CommitQueue also initially disabled). Project variables and aliases also copied. Returns the new project.
+Create a new project that is identical to indicated project--this project is initially disabled (PR testing and CommitQueue also initially disabled). Project variables, aliases, and subscriptions also copied. Returns the new project (but not variables/aliases/subscriptions).
 
 .. list-table:: **Parameters**
    :widths: 25 10 55
