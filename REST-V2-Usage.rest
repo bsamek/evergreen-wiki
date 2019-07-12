@@ -1073,6 +1073,9 @@ Objects
    * - admins
      - []string
      - Usernames of project admins
+   * - delete_admins
+     - []string
+     - Usernames of project admins to remove
    * - batch_time
      - int
      - Unique identifier of a specific patch
