@@ -1237,7 +1237,7 @@ Objects
      - Map of the variable to its value (if private, value is redacted)
    * - private_vars
      - map[string]bool
-     - Indicates whether that variable should be private.
+     - Indicates whether that variable should be private. (NOTE: once a variable has been set to private this cannot be undone)
    * - vars_to_delete
      - []string
      - Only used to remove existing variables.
