@@ -83,7 +83,7 @@ Endpoint
 Description
 ~~~~~~~~~~~
 
-To modify the project, make a request to the endpoint with a JSON object as the body (using the json tags given in the project object descriptions). The result of a successful PATCH will be a 200 status. To see the modified project, make a request to `GET /projects/<project_id>`. 
+To modify the project, make a request to the endpoint with a JSON object as the body (using the project object descriptions on the REST V2 Usage wiki page). The result of a successful PATCH will be a 200 status. To see the modified project, make a request to ``GET /projects/<project_id>``. 
 
 For example, to enable the commit queue the body would be:
 
