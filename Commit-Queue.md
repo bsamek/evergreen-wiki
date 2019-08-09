@@ -44,14 +44,14 @@ The module can only be set when initially adding the main PR to the commit queue
 ## CLI
 For projects using other code review tools, changes can be uploaded to Evergreen using the `evergreen commit-queue` subcommands in the Evergreen CLI. 
 ### Trigger
-`evergreen commit-queue merge --project <project_id> --message <message>`
+`evergreen commit-queue merge --project <project_id>`
 
 Enqueue the branch checked out in Git on the project's commit queue to be merged into the project's tracked branch.
 
 #### Options
 * `--message [message], -m [message]`
 
-Set the commit message for the merge commit pushed to GitHub. Default is the name of the checked out branch.
+Set the commit message for the merge commit pushed to GitHub. Default is the name the commit on the branch.
 
 * `--pause`
 
@@ -155,4 +155,4 @@ It depends: it works for PR mode, but not CLI mode.
 
 > What will the commit message be with the squash merge strategy?
 
-For PR mode, the commit message is the title of the PR with the PR number appended to the end. In CLI mode the message is specified with the `--message` option, or the branch name by default.
+For PR mode, the commit message is the title of the PR with the PR number appended to the end. In CLI mode the message is specified with the `--message` option, or the commit message name by default.
