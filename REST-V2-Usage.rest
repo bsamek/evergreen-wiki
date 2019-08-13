@@ -1071,8 +1071,9 @@ Objects
      - Type
      - Description
    * - admins
-     - []string
-     - Usernames of project admins
+     - []string or null
+     - Usernames of project admins. Can be null for some projects
+       (`EVG-6598 <https://jira.mongodb.org/browse/EVG-6598>`_).
    * - delete_admins
      - []string
      - Usernames of project admins to remove
