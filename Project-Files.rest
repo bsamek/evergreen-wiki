@@ -253,6 +253,15 @@ Example:
            script: |
              sleep 1000
 
+By default, a command failing during the ``pre`` step will not cause the entire task to fail. If you want to enforce that failures during ``pre`` cause the task to fail, set the field ``pre_error_fails_task`` to true.
+
+.. code:: yaml
+
+   exec_timeout_secs: 60
+   pre_error_fails_task: true
+   pre:
+     - ...
+
 Expansions
 """"""""""
 
