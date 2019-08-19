@@ -156,3 +156,7 @@ It depends: it works for PR mode, but not CLI mode.
 > What will the commit message be with the squash merge strategy?
 
 For PR mode, the commit message is the title of the PR with the PR number appended to the end. In CLI mode the message is specified with the `--message` option, or the commit message name by default.
+
+> What if GitHub is not associated my commits with my GitHub account?
+
+Ensure 'firstname.lastname@mongodb.com' is in your list of email addresses in your GitHub settings (https://github.com/settings/emails).
