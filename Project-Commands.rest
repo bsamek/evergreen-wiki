@@ -488,8 +488,11 @@ json.send
 This command saves JSON-formatted task data, typically used with the performance plugin.
 
 Parameters:
+
 -  ``file``: the JSON file to save to Evergreen's DB
+
 -  ``name``: name of the file you're saving, typically a test name
+
 
 There is no schema enforced for the file itself - it is simply parsed as JSON and then saved as BSON.
 
