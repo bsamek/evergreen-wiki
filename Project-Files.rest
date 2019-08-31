@@ -736,7 +736,7 @@ variants that build without C extensions.
 
 The ``if`` field of a rule takes a matrix selector, similar to the
 matrix ``exclude_spec`` field. Any matrix variants that are contained by
-the selector will ave the rules applied. In the example above, the
+the selector will have the rules applied. In the example above, the
 variant ``{"os":"windows", "c-extensions": "false", "python": "2.6"}``
 will match the rule, but
 ``{"os":"linux", "c-extensions": "false", "python": "2.6"}`` will not,
