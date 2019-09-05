@@ -123,6 +123,7 @@ To finalize a patch:
 ```
 evergreen finalize-patch -i <patch_id>
 ```
+Finalizing a patch actually creates and schedules and tasks. Before this the patch only exists as a patch "intent". You can finalize a patch either by passing --finalize or -f or by clicking the "Schedule Patch" button in the UI of an un-finalized patch.
 
 
 
@@ -132,6 +133,7 @@ To add changes to a module on top of an existing  patch:
 cd ~/projects/module-project-directory
 evergreen set-module -i <patch_id> -m <module-name>
 ```
+Note: `set-module` must be run before finalizing the patch.
 
 ##### Validating changes to config files
 
