@@ -154,11 +154,13 @@ and what expansions it uses.
      - name: failing_test
      - name: timeout_test
 
-Fields: \* ``name``: an identification string for the variant \*
-``display_name``: how the variant is displayed in the Evergreen UI \*
-``run_on``: a list of acceptable distros to run the variant on (usually
-of length 1) \* ``expansions``: a set of key-value expansion pairs \*
-``tasks``: a list of tasks to run
+Fields:
+
+* ``name``: an identification string for the variant
+* ``display_name``: how the variant is displayed in the Evergreen UI
+* ``run_on``: a list of acceptable distros to run the variant on (usually of length 1)
+* ``expansions``: a set of key-value expansion pairs
+* ``tasks``: a list of tasks to run
 
 Additionally, an item in the ``tasks`` list can be of the form
 
