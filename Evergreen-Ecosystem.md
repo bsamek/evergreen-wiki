@@ -1,4 +1,5 @@
-Evergreen Ecosystem
+This is a list of libraries which Evergreen depends on and other tools and services 
+which Evergreen tasks may use or interact with.
 
 * [amboy](https://github.com/mongodb/amboy) provides distributed worker queues.
   In Evergreen the unit work on runs in these queues is called a job in order to
