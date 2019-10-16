@@ -41,7 +41,9 @@ which Evergreen tasks may use or interact with.
   handling. In addition to the things you would expect, it also implements
   senders to third-party services, like Splunk, which allows Evergreen to have
   pluggable logging to these services. Other logging/messaging back-ends 
-  include: logkeeper, sumologic, splunk, email, jira tickets, github comments. 
+  include: logkeeper, sumologic, splunk, email, jira tickets, github comments.
+* [jasper](https://github.com/mongodb/jasper) is a library for managing processes.
+  This is used for executing processes on app servers as well as on hosts.
 * [lobster](https://github.com/evergreen-ci/lobster) is React-based log viewer.
 * [logkeeper](https://github.com/evergreen-ci/logkeeper) is a service for
   storing test logs in a MongoDB database.
