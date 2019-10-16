@@ -339,6 +339,8 @@ Every task has some expansions available by default:
    this PR appears
 -  ``${github_repo}`` is the GitHub repo in which the PR appears
 -  ``${github_author}`` is the GitHub username of the creator of the PR
+-  ``${is_commit_queue}`` is the string "true" if this is a CLI commit queue task
+-  ``${commit_message}`` is the commit message if this is a CLI commit queue task
 
 Task Tags
 """""""""
