@@ -11,7 +11,7 @@ You can pass environment variables to subprocess.exec if you'd like to pass expa
 ### Use [task tags](https://github.com/evergreen-ci/evergreen/wiki/Project-Files#task-tags) to reduce repetition in your Evergreen configuration file ###
 
 ### Be cautious about Evergreen's expansion syntax ###
-Evergreen chose an expansion syntax that unfortunately conflicts with bash. This means that you cannot do something like this:
+Evergreen chose an expansion syntax that unfortunately conflicts with bash. This means that you cannot do something like this.
 
 ```bash
 # WRONG
