@@ -118,3 +118,22 @@ To add/delete variables and specify which are private:
     }
 }
 ```
+
+Copy an Existing Project
+----------------------------------
+
+Endpoint
+~~~~~~~~~
+
+``POST /projects/<project_id>/copy``
+
+Description
+~~~~~~~~~~~
+
+To copy a project to a new project, this is the route you would use. To define the new project's name (which is required), the JSON body would be of the form:
+```
+{
+    "new_project": "project_2"
+}
+```
+This route will return the new project but this will not include variables/aliases/subscriptions--to see this, GET the new project.
