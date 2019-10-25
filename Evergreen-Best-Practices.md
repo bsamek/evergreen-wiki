@@ -9,3 +9,19 @@ The reasons to prefer subprocess.exec include:
 You can pass environment variables to subprocess.exec if you'd like to pass expansions. It's a good idea to avoid shell.exec as much as possible.
 
 ### Use [task tags](https://github.com/evergreen-ci/evergreen/wiki/Project-Files#task-tags) to reduce repetition in your Evergreen configuration file ###
+
+### Be cautious about Evergreen's expansion syntax ###
+Evergreen chose an expansion syntax that unfortunately conflicts with bash. This means that you cannot do something like this:
+
+```bash
+# WRONG
+export foo=bar
+echo ${foo}
+```
+
+Evergreen will first look for an expansion called foo and will substitute that expansion, or, if it doesn't exist, the empty string. You must drop the curly braces if you would like to use a bash variable.
+
+```bash
+export foo=bar
+echo $foo
+```
