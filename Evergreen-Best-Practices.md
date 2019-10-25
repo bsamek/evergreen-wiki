@@ -26,7 +26,7 @@ export foo=bar
 echo ${foo}
 ```
 
-Evergreen will first look for an expansion called foo and will substitute that expansion, or, if it doesn't exist, the empty string. You must drop the curly braces if you would like to use a bash variable.
+Evergreen will first look for an expansion called `foo` and will substitute that expansion, or, if it doesn't exist, the empty string. You must drop the curly braces if you would like to use a bash variable.
 
 ```bash
 export foo=bar
