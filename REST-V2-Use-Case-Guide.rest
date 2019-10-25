@@ -136,4 +136,4 @@ To copy a project to a new project, this is the route you would use. To define t
     "new_project": "project_2"
 }
 ```
-This route will return the new project but this will not include variables/aliases/subscriptions--to see this, GET the new project.
+This route will return the new project but this will not include variables/aliases/subscriptions; to see this, GET the new project.
