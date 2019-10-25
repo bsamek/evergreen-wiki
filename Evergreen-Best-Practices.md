@@ -10,7 +10,7 @@ The reasons to prefer subprocess.exec include:
 
 You can pass environment variables to subprocess.exec if you'd like to pass expansions. It's a good idea to avoid shell.exec as much as possible.
 
-### task tags ###
+### Task Tags ###
 
 Use [task tags](https://github.com/evergreen-ci/evergreen/wiki/Project-Files#task-tags) to reduce repetition in your Evergreen configuration file.
 
