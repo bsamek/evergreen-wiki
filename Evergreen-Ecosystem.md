@@ -24,7 +24,9 @@ which Evergreen tasks may use or interact with.
   generate package repositories and build packages. It hosts command-line tools 
   versioned independently of Evergreen, including poplar (sending and collecting 
   performance data), and jasper (managing processes), and grip (sending logs to 
-  logkeeper, splunk, or cedar). 
+  logkeeper, splunk, or cedar).
+* [evergreen](https://github.com/evergreen-ci/evergreen) is the continuous
+  integration system at the center of this ecosystem.
 * [evergreen.js](https://github.com/evergreen-ci/evergreen.js) is a JavaScript
   client library for Evergreen's API.
 * [evergreen.py](https://github.com/evergreen-ci/evergreen.py) is a Python
