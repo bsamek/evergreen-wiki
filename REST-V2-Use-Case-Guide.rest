@@ -130,10 +130,8 @@ Endpoint
 Description
 ~~~~~~~~~~~
 
-To copy a project to a new project, this is the route you would use. To define the new project's name (which is required), the JSON body would be of the form:
+To copy a project to a new project, this is the route you would use. To define the new project's name (which is required), we would include a query parameter, for example:
 ```
-{
-    "new_project": "project_2"
-}
+projects/my_first_project/copy?new_project=my_second_project
 ```
 This route will return the new project but this will not include variables/aliases/subscriptions; to see this, GET the new project.
