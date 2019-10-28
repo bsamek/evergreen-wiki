@@ -1346,21 +1346,12 @@ Copy a Project
 
 ::
 
- POST /projects/<project_id>/copy
+ POST /projects/<project_id>/copy?new_project=<new_project_id>
 
 Restricted to admins of the original project.
-Create a new project that is identical to indicated project--this project is initially disabled (PR testing and CommitQueue also initially disabled). Project variables, aliases, and subscriptions also copied. Returns the new project (but not variables/aliases/subscriptions).
+Create a new project that is identical to indicated project--this project is initially disabled (PR testing and CommitQueue also initially disabled). The unique identifier is passed to the query parameter ``new_project`` and is required.
 
-.. list-table:: **Parameters**
-   :widths: 25 10 55
-   :header-rows: 1
-
-   * - Name
-     - Type
-     - Description
-   * - new_project
-     - string
-     - Required. Unique identifier for the copied project.
+Project variables, aliases, and subscriptions also copied. Returns the new project (but not variables/aliases/subscriptions).
 
 Get Recent Versions For A Project
 `````````````````````````````````
