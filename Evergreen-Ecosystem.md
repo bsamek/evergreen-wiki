@@ -34,9 +34,7 @@ which Evergreen tasks may use or interact with.
   client library for Evergreen's API.
 * [ftdc](https://github.com/mongodb/ftdc) is a library that provides a Go 
   implementation for reading and generating compressed timeseries bson data 
-  in the same format as MongoDB's diagnostic data package. Also includes 
-  [bsonx](https://godoc.org/github.com/mongodb/ftdc/bsonx), which provides 
-  idiomatic methods for interacting with BSON documents in Go code. This library 
+  in the same format as MongoDB's diagnostic data package. This library 
   is used to capture and interact with performance data in Cedar and poplar. 
 * [gimlet](https://github.com/evergreen-ci/gimlet) is a library for creating
   HTTP APIs. This is Evergreen's HTTP middleware.
