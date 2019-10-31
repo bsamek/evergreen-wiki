@@ -48,6 +48,8 @@ which Evergreen tasks may use or interact with.
 * [lobster](https://github.com/evergreen-ci/lobster) is React-based log viewer.
 * [logkeeper](https://github.com/evergreen-ci/logkeeper) is a service for
   storing test logs in a MongoDB database.
+* [mrpc](https://github.com/evergreen-ci/mrpc) a mongodb rpc protocol implementation
+  for producing arbitrary services that mongodb clients can use.
 * [pail](https://github.com/evergreen-ci/pail) is a library for interacting
   with blob-storage systems like s3. Includes a common abstraction with 
   implementations for GridFS and local file systems. 
