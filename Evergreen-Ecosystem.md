@@ -28,6 +28,8 @@ which Evergreen tasks may use or interact with.
   logkeeper, splunk, or cedar).
 * [evergreen](https://github.com/evergreen-ci/evergreen) is the continuous
   integration system at the center of this ecosystem.
+* [evergreen.el](https://github.com/mongodb/evergreen.el) is an Emacs package for
+  interacting with the Evergreen CLI.
 * [evergreen.js](https://github.com/evergreen-ci/evergreen.js) is a JavaScript
   client library for Evergreen's API.
 * [evergreen.py](https://github.com/evergreen-ci/evergreen.py) is a Python
