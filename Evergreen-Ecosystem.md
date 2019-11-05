@@ -1,7 +1,7 @@
 This is a list of libraries which Evergreen depends on and other tools and services
 which Evergreen tasks may use or interact with.
 
-# Libraries (Go)
+## Libraries (Go)
 * [anser](https://github.com/mongodb/anser) is a data migration tool for managing
   schema evolution in MongoDB databases and Go applications. Relies on amboy
   for orchestration and ftdc/bsonx for bson manipulation. Additionally provides a
@@ -54,7 +54,7 @@ which Evergreen tasks may use or interact with.
 * [timber](https://github.com/evergreen-ci/timber) is the client library for
   cedar. It gives agents the ability to send task data somewhere for processing.
 
-# Applications (Go)
+## Applications (Go)
 * [curator](https://github.com/mongodb/curator) is a command-line tool we use to
   generate package repositories and build packages. It hosts command-line tools
   versioned independently of Evergreen, including poplar (sending and collecting
@@ -63,7 +63,7 @@ which Evergreen tasks may use or interact with.
 * [evergreen](https://github.com/evergreen-ci/evergreen) is the continuous
   integration system at the center of this ecosystem.
 
-# Libraries (Python, JS, Emacs)
+## Libraries (Python, JS, Emacs)
 * [shrub.py](https://github.com/evergreen-ci/shrub.py) is a Python library for
   generating Evergreen configuration files.
 * [evergreen.el](https://github.com/mongodb/evergreen.el) is an Emacs package for
