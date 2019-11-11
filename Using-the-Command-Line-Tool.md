@@ -158,7 +158,48 @@ evergreen evaluate <path-to-yaml-project-file>
 
 Flags `--tasks` and `--variants` can be added to only show expanded tasks and variants, respectively.
 
-### Other Commands
+Basic Host Usage
+--
+Evergreen Spawn Hosts can now be managed from the command line, and this can be explored via the command line `--help` arguments. 
+
+### Attaching an EBS Volume
+
+To create a new EBS volume: 
+```
+evergreen volume create --size <size> --type <default=gp2> --zone <default=us-east-1a> 
+```
+While the Availability Zone does have a default, this must be in the _same zone as the host_. If you don't know your host's availability zone, this can be found easily at `evergreen host list --mine`. 
+
+To attach the volume to your host (assuming the same availability zone), use:
+```
+evergreen host attach --host <host_id> --volume <volume_id>
+```
+If you forget your volume ID, you can find this with `evergreen volume list`. If the volume is already attached, you will see a host ID given with this volume, and a volume can only have one host. 
+
+A volume can only be deleted if detached, so removing a volume would for example be: 
+``` 
+evergreen host detach --host <host_id> --volume <volume_id>
+evergreen volume delete --id <volume_id>
+```
+
+### Modify Hosts
+
+Tags can be modified for hosts using the following syntax:
+```
+evergreen host modify --tag KEY=VALUE
+evergreen --delete-tag KEY
+```
+Note these tags cannot overwrite Evergreen tags. 
+
+Hosts can be set to never expire using the `--no-expire` tag (although each user has a limit for these kinds of hosts). Hosts can be set to expire again using the `--expire` tag, which will set the host to expire in 24 hours (this can be extended using `--extend <hours>`. 
+
+
+### Stop/Start Host to Change Instance Type
+
+Instance type can only be changed if the host is stopped. Hosts can be stopped and started using `evergreen host start/stop --host <id> --wait <set-to-block>`. To change instance type, `host modify --type` (approved types can be configured from the admin settings). 
+
+Other Commands
+--
 
 #### Fetch
 
