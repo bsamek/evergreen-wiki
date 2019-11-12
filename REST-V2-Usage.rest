@@ -1127,7 +1127,7 @@ Objects
      - Whether the project is discoverable in the UI
    * - tracks_push_events
      - bool
-     - Track push events
+     - If true, repotracker is run on github push events. If false, repotracker is run periodically every few minutes.
    * - revision
      - string
      - Only used when modifying projects to change the base revision and run the repotracker.
