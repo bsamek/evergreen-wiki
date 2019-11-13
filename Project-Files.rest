@@ -319,7 +319,7 @@ Every task has some expansions available by default:
 -  ``${task_id}`` is the task’s unique id
 -  ``${task_name}`` is the name of the task
 -  ``${execution}`` is the execution number of the task (how many times
-   is has been reset)
+   it has been reset)
 -  ``${build_id}`` is the id of the build the task belongs to
 -  ``${build_variant}`` is the name of the build variant the task
    belongs to
