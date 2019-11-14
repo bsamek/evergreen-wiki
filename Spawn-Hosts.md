@@ -10,5 +10,6 @@ Only distros backed by a provider that supports dynamically spinning up new host
 
 Visit `/spawn` to view the spawn hosts control panel. Click on "Spawn Host" and choose the distro you want to spawn, and hoose the key you'd like to use (or provide a new one).
 
-Alternately, for a task that ran on a distro where spawning is enabled, you willl see a "Spawn..." link on its task page. Clicking it will pre-populate the spawn host page with a request to spawn a host of that distro, along with the option to fetch binaries and artifacts associated with the task (this can also be performed manually; see [fetch](https://github.com/evergreen-ci/evergreen/wiki/Using-the-Command-Line-Tool#fetch) in the evergreen command line tool documentation.
+Alternately, for a task that ran on a distro where spawning is enabled, you will see a "Spawn..." link on its task page. Clicking it will pre-populate the spawn host page with a request to spawn a host of that distro, along with the option to fetch binaries and artifacts associated with the task (this can also be performed manually; see [fetch](https://github.com/evergreen-ci/evergreen/wiki/Using-the-Command-Line-Tool#fetch) in the Evergreen command line tool documentation.
 
+EC2 spawn hosts can be stopped/started and modified from the Spawn Host page, or via the command line, which is documented in [Basic Host Usage](https://github.com/evergreen-ci/evergreen/wiki/Using-the-Command-Line-Tool#basic-host-usage) in the Evergreen command line tool documentation.
