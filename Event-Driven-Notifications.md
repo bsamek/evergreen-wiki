@@ -13,10 +13,10 @@ Evergreen can notify you based on the outcome of your patches. To enable these, 
 For all new patches you create in the future (including Github Pull Requests), you'll receive an email or slack message when the patch has completed.
 
 ## Spawn Host Outcome
-For your spawn hosts, you will receive notifications when the host is Running, Stopped, or Terminated.
+For your spawn hosts, you will receive notifications when a host is started, stopped, modified, or terminated.
 
 ## Spawn Host Expiration
-Receive notifications that your spawn host is going to expire soon, so you can update expiration accordingly if you don't want to lose th ehost.
+Receive notifications that your spawn host is going to expire soon, so you can update expiration accordingly if you don't want to lose the host.
 
 ## Commit Queue
 Receive notifications on the status of your commit queue items.
