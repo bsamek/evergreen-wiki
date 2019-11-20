@@ -1,23 +1,34 @@
 Evergreen has the ability to issue notifications based on events that happen in the system.
 
-# Patches
+# Notifications Setup
 Evergreen can notify you based on the outcome of your patches. To enable these, go to your [user profile](https://evergreen.mongodb.com/settings) and:
 1. Enter your Github Username (so we can identify which commits you make)
-2. Optionally, enter your Slack username (if you want to be notified on Slack). Your Slack username is available from https://YOUR_ORGANIZATION.slack.com/account/settings#username
-3. Under Notification Settings, select the Slack or Email next to "Patch Finish".
+2. Optionally, enter your Slack username (if you want to be notified on Slack). Your Slack username is available from https://YOUR_ORGANIZATION.slack.com/account/settings#username (This is NOT your slack display name.)
+3. Under Notification Settings, select the Slack or Email next to the notifications you'd like.
 4. Click save!
 
-For all new patches you create in the future (including Github Pull Requests), you'll receive an email or slack message.
+# Options for Notifications
 
-# Project Admin Notifications
-Project administrators may enable certain notifications at the project level:
+## Patch Finish
+For all new patches you create in the future (including Github Pull Requests), you'll receive an email or slack message when the patch has completed.
+
+## Spawn Host Outcome
+For your spawn hosts, you will receive notifications when the host is Running, Stopped, or Terminated.
+
+## Spawn Host Expiration
+Receive notifications that your spawn host is going to expire soon, so you can update expiration accordingly if you don't want to lose th ehost.
+
+## Commit Queue
+Receive notifications on the status of your commit queue items.
 
 ## Build Break Notifications
+Project Admins may enable this at the project level.
+
 When a task that was previously green (or is a new), becomes red or purple, a build-break notification will be issued. If the original committer can be identified, Evergreen will lookup their build-break notification settings, and follow that. 
 
 If we can't identify the original committer, Evergreen will notify project admins.
 
-# Filtering Emails and Webhooks
+## Filtering Emails and Webhooks
 Evergreen sets a handful of headers which can be used to filter emails or webhook posts.
 
 |          Header             | Meaning |
