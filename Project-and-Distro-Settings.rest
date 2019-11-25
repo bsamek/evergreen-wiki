@@ -38,7 +38,12 @@ The Project Settings file displays information about the Project itself,
 as well as configurable fields for managing your project
 
 There are two types of users that can view and edit these settings:
-Superusers and Project Admins. ##### General Project Settings If a
+Superusers and Project Admins. 
+
+General Project Settings
+''''''''''''''''''''''''
+
+If a
 Project Administrator wants Evergreen to discontinue or start tracking a
 project, it can be changed via the Enabled and Disabled radio buttons.
 The display name field corresponds to what users will see in the project
