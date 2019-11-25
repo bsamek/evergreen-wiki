@@ -120,11 +120,8 @@ worker pools were tasks execute. As a result much of the available
 configuration that controls how tasks execute occurs at the distro
 level.
 
-Options
-'''''''
-
-Scheduler
-`````````
+Scheduler Options
+'''''''''''''''''
 
 The process of scheduling tasks contains a number of distinct phases
 that all execute independently:
