@@ -114,3 +114,78 @@ can run tasks on. As a superuser or admin, one can also add new distro
 configurations to be used by other users.
 
 [[images/distros.png]]
+
+Distros describe machine configuration that run tasks as well as the
+worker pools were tasks execute. As a result much of the available
+configuration that controls how tasks execute occurs at the distro
+level.
+
+Options
+'''''''
+
+Scheduler
+`````````
+
+The process of scheduling tasks contains a number of distinct phases
+that all execute independently:
+
+#. *Task Finding* identifies all runable undispatched runnable tasks
+   for a disto. You can choose to include tasks which have unsatisfied
+   dependencies, if the task dispatcher supports having these tasks in
+   the queue. There are multiple implementations of the task finder in
+   evergreen, which use different approaches to returning these
+   queries. Evergreen typically uses the "Legacy" implementation in
+   production because it is the most stable, but the other
+   implementations are equivalent. 
+   
+#. *Task Planning* manages how tasks are ordered in the queue. There
+   are two implementations, Evergreen's Legacy implementation which
+   orders tasks using a short circuiting list of comparison operation,
+   and the "Tunable" implementation which uses a point-based
+   algorithim that makes it possible to tune the factors that impact
+   the ordering of a task. The tunable factors are:
+   
+   - Target time for the queue, or the number of minutes that the
+     queue should take. (This will move to the host allocator settings
+     after `EVG-703 <https://jira.mongodb.org/browse/EVG-703>`_). 
+   - *Patch Factor* how much to weight patches over non-patch
+     builds. For most workloads, privileging patches over mainline
+     builds will improve the throughput of your team to complete
+     requests, if patch builds are a prerequisite to committing.
+   - *Time in Queue* how much to weight tasks that have been waiting
+     for a long period of time over tasks that have entered the queue
+     more recently. This factor privileges older patches and newer
+     mainline tasks. Modifying this value may make it easier to meet
+     SLAs for task latency. 
+   - *Expected Runtime* how to weight longer tasks over shorter
+     tasks. Generally running longer tasks first will lead to higher
+     overall throughput, at the cost of increasing the latency for
+     first responses. 
+   - *Task Ordering* provides the operation to interleave patches and
+     mainline builds; however, you can opt prefer patches over
+     mainline tasks, at the risk of starving one or the other. 
+   - *Group Versions* typically evergreen will sort individual tasks
+     which allows tasks from different versions to run in parallel;
+     however, you can tell evergreen to group all tasks from a single
+     version in the queue together. 
+
+   If dependencies are included in the queue, the tunable planner is
+   the only implementation that can properly manage these
+   dependencies. 
+
+#. *Host Allocation* controls the how Evergreen starts new machines to
+   run hosts. The utilization-based implementation is aware of task
+   groups, is the most recent implementation, and works well. All
+   implementations have a slight over-allocation bias.
+
+#. *Task Dispatching* controls how Evergreen dispatches tasks to
+   hosts. There are three implementations:
+   
+   - legacy, is no longer used in production, and is deprecated.
+     
+   - revised, is the most stable implementation and has first-class
+     support for task groups, but does not support 
+     
+   - revised-with-dependencies, is a new scheduling system developed
+     with the tunable planner and is the only dispatcher that can
+     handle dependencies have not yet been satisfied.
