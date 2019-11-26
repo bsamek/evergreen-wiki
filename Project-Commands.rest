@@ -610,9 +610,9 @@ s3Copy.copy
 
 Parameters:
  
--  ``aws_key``: your AWS key (use expansions to keep this a secret) 
--  ``aws_secret``: your AWS secret (use expansions to keep this a secret) 
--  ``s3_copy_files``: a map of ``source`` (``bucket`` and ``path``), ``destination``, ``build_variants`` (a list of strings), ``display_name``, and ``optional`` (suppresses errors)
+- ``aws_key``: your AWS key (use expansions to keep this a secret) 
+- ``aws_secret``: your AWS secret (use expansions to keep this a secret) 
+- ``s3_copy_files``: a map of ``source`` (``bucket`` and ``path``), ``destination``, ``build_variants`` (a list of strings), ``display_name``, and ``optional`` (suppresses errors)
 
 shell.exec
 ^^^^^^^^^^
@@ -630,13 +630,13 @@ This command runs a shell script.
 
 Parameters:
  
--  ``script``: the script to run 
--  ``working_dir``: the directory to execute the shell script in 
--  ``background``: if set to true, does not wait for the script to exit before running the next commands 
--  ``silent``: if set to true, does not log any shell output during execution; useful to avoid leaking sensitive info 
+- ``script``: the script to run 
+- ``working_dir``: the directory to execute the shell script in 
+- ``background``: if set to true, does not wait for the script to exit before running the next commands 
+- ``silent``: if set to true, does not log any shell output during execution; useful to avoid leaking sensitive info 
 - ``continue_on_err``: if set to true, causes command to exit with success regardless of the script’s exit code 
--  ``system_log``: if set to true, the script’s output will be written to the task’s system logs, instead of inline with logs from the test execution. 
--  ``shell``: shell to use. Defaults to sh if not set. Note that this is usually bash but is dash on Debian, so it’s good to explicitly pass this parameter 
+- ``system_log``: if set to true, the script’s output will be written to the task’s system logs, instead of inline with logs from the test execution. 
+- ``shell``: shell to use. Defaults to sh if not set. Note that this is usually bash but is dash on Debian, so it’s good to explicitly pass this parameter 
 - ``ignore_standard_out``: if true, discards output sent to stdout 
 - ``ignore_standard_error``: if true, discards output sent to stderr 
 - ``redirect_standard_error_to_output``: if true, sends stderr to stdout. Can be used to synchronize these 2 streams
@@ -661,18 +661,21 @@ The subprocess.exec command runs a shell command.
 
 Parameters:
  
--  ``binary``: a binary to run 
--  ``args``: a list of arguments to the binary 
--  ``env``: a slice of environment variables and their values 
--  ``command``: a command string (cannot use with ``binary`` or ``args``) 
--  ``background``: if true, immediately return to caller 
--  ``silent``: do not log output of command 
--  ``system_log``: write output to system logs instead of task logs 
--  ``working_dir``: working directory to start shell in 
--  ``ignore_standard_out``: if true, do not log standard out 
--  ``ignore_standard_error``: if true, do not log standard error 
--  ``redirect_standard_error_to_output``: if true, redirect standard error to standard out 
--  ``continue_on_err``: if true, do not mark task as failed if command fails
+- ``binary``: a binary to run 
+- ``args``: a list of arguments to the binary 
+- ``env``: a slice of environment variables and their values 
+- ``command``: a command string (cannot use with ``binary`` or ``args``) 
+- ``background``: if true, immediately return to caller 
+- ``silent``: do not log output of command 
+- ``system_log``: write output to system logs instead of task logs 
+- ``working_dir``: working directory to start shell in 
+- ``ignore_standard_out``: if true, do not log standard out 
+- ``ignore_standard_error``: if true, do not log standard error 
+- ``redirect_standard_error_to_output``: if true, redirect standard error to standard out 
+- ``continue_on_err``: if true, do not mark task as failed if command fails
+- ``add_expansions_to_env``: when true, add all expansions to the command's environment.
+- ``include_expansions_in_env``: specify one or more expansions to include in the environment. If you specify an expansion that does not exist, it is ignored. 
+- ``add_to_path``: specify one or more paths which are prepended to the ``PATH`` environment variable. 
 
 timeout.update
 ^^^^^^^^^^^^^^
