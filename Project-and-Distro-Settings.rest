@@ -123,7 +123,7 @@ Options:
 - Patch Alias: Optional, you can specify an already-defined patch alias here to limit the tasks or variants that are run.
 - Message: Optional, this will be saved as the description of the version that ends up being created when the tasks are run.
 
-Note that there is currently not a good UI for seeing the results of these periodic builds, and `EVG-6494 <https://jira.mongodb.org/browse/EVG-6494>` is tracking adding this. For now, the recommended way to find out about the results of these is to add a notification subscription on the project settings page. In the notification popup, select "when any version finishes" with Build Initiator = Periodic Build.
+Note that there is currently not a good UI for seeing the results of these periodic builds, and `EVG-6494 <https://jira.mongodb.org/browse/EVG-6494>`_ is tracking adding this. For now, the recommended way to find out about the results of these is to add a notification subscription on the project settings page. In the notification popup, select "when any version finishes" with Build Initiator = Periodic Build.
 
 Distro Settings
 ^^^^^^^^^^^^^^^
