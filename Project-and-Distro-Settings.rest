@@ -111,6 +111,20 @@ Options:
 - Definition file: The path to the downstream project's config file. This may be the same as the main project configuration file but does not have to be.
 - Alias: Run a subset of tasks by specifying an alias. Otherwise, all tasks run.
 
+Periodic Builds
+''''''''''''''''''''''''''
+
+Evergreen has the capability to periodically run a set of tasks in the project on a cron. This section holds settings allowing you to specify what should be run periodically, and how often.
+
+Options:
+
+- Interval: Evergreen will run the specified tasks every X hours, with X being specified by this field. The first run will happen immediately after the settings are saved
+- Config File: The .yml file that defines tasks to run. This can be the same one that defines tasks for commits in the project, or a different one.
+- Patch Alias: Optional, you can specify an already-defined patch alias here to limit the tasks or variants that are run.
+- Message: Optional, this will be saved as the description of the version that ends up being created when the tasks are run.
+
+Note that there is currently not a good UI for seeing the results of these periodic builds, and `EVG-6494 <https://jira.mongodb.org/browse/EVG-6494>` is tracking adding this. For now, the recommended way to find out about the results of these is to add a notification subscription on the project settings page. In the notification popup, select "when any version finishes" with Build Initiator = Periodic Build.
+
 Distro Settings
 ^^^^^^^^^^^^^^^
 
