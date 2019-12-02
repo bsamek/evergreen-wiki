@@ -15,7 +15,6 @@ Your tests can run on any machine that Evergreen can cross-compile its agent for
  2. OSX
  3. Windows
  4. FreeBSD
- 5. Solaris
 
 on x86, amd64, and arm architectures.
 
