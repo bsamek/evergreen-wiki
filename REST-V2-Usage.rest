@@ -2119,7 +2119,8 @@ Objects
      - string
      - Optional. The email sender.
    * - ``recipients``
-     - []string     - The email recipient.
+     - []string
+     - The email recipient.
    * - ``subject``
      - string
      - Optional. The email subject.
