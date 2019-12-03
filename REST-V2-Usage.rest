@@ -2101,3 +2101,166 @@ Project is mongodb-mongo-master, task is lint. Assuming today is 2019-08-29 then
 
 
 .. |Wilson score interval with continuity correction| image:: https://wikimedia.org/api/rest_v1/media/math/render/svg/5dd0452ea2018ec009a6294014a8d7068ef7e39b
+
+Notifications
+-------------
+Create custom notifications for email, slack, JIRA comments, and JIRA issues.
+
+Objects
+~~~~~~~
+.. list-table:: **Email**
+   :widths: 25 10 55
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Description
+   * - ``from``
+     - string
+     - Optional. The email sender.
+   * - ``recipients``
+     - []string     - The email recipient.
+   * - ``subject``
+     - string
+     - Optional. The email subject.
+   * - ``body``
+     - string
+     - Optional. The email body.
+   * - ``is_plain_text``
+     - string
+     - Optional. Specifies the Content-Type of the email. If true, it will be "text/plain"; otherwise it is "text/html".
+   * - ``headers``
+     - map[string][]string
+     - Optional. Email headers.
+
+.. list-table:: **Slack**
+   :widths: 25 10 55
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Description
+   * - ``target``
+     - string
+     - Optional. The name of the recipient.
+   * - ``attachments``
+     - []SlackAttachment
+     - Optional. Array of attachments to a message.
+
+.. list-table:: **SlackAttachment**
+   :widths: 25 10 55
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Description
+   * - ``title``
+     - string
+     - Optional. The attachment title.
+   * - ``title_link``
+     - string
+     - Optional. A URL that turns the title into a link.
+   * - ``text``
+     - string
+     - If ``fallback`` is empty, this is required. The main body text of the attachment as plain text, or with markdown using ``mrkdwn_in``.
+   * - ``fallback``
+     - string
+     - If ``text`` is empty, this is required. A plain text summary of an attachment for clients that don't show formatted text (eg. IRC, mobile notifications).
+   * - ``mrkdwn_in``
+     - []string
+     - Optional. An array of fields that should be formatted with markdown.
+   * - ``color``
+     - string
+     - Optional. The message color. Can either be one of good (green), warning (yellow), danger (red), or any hex color code (eg. #439FE0).
+   * - ``author_name``
+     - string
+     - Optional. The display name of the author.
+   * - ``author_icon``
+     - string
+     - Optional. A URL that displays the author icon. Will only work if ``author_name`` is present.
+   * - ``fields``
+     - []SlackAttachmentField
+     - Optional. Array of SlackAttachmentFields that get displayed in a table-like format.
+
+.. list-table:: **SlackAttachmentField**
+   :widths: 25 10 55
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Description
+   * - ``title``
+     - string
+     - Optional. The field title.
+   * - ``value``
+     - string
+     - Optional. The field text. It can be formatted as plain text or with markdown by using ``mrkdwn_in``.
+   * - ``short``
+     - string
+     - Optional. Indicates whether the field object is short enough to be displayed side-by-side with other field objects.
+
+This corresponds with documentation for the `Slack API for attachments <https://api.slack.com/reference/messaging/attachments>`_.
+
+.. list-table:: **JIRA Issue**
+   :widths: 25 10 55
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Description
+   * - ``issue_key``
+     - string
+     - Optional.
+   * - ``project``
+     - string
+     - Optional. The project name.
+   * - ``summary``
+     - string
+     - Optional. The summary text.
+   * - ``description``
+     - string
+     - Optional. The issue description.
+   * - ``reporter``
+     - string
+     - Optional. The issue reporter.
+   * - ``assignee``
+     - string
+     - Optional. The issue assignee.
+   * - ``type``
+     - string
+     - Optional. The issue type.
+   * - ``components``
+     - string
+     - Optional. The project components.
+   * - ``labels``
+     - string
+     - Optional. The issue labels.
+   * - ``fields``
+     - map[string]interface{}
+     - Optional. Arbitrary map of custom field values.
+
+This corresponds with the documentation in the `JIRA API for creating issues <https://docs.atlassian.com/software/jira/docs/api/REST/7.6.1/#api/2/issue-createIssue>`_.
+
+.. list-table:: **JIRA Comment**
+   :widths: 25 10 55
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Description
+   * - ``issue_id``
+     - string
+     - Optional. The ID of the issue where the comment should be posted.
+   * - ``body``
+     - string
+     - Optional. The comment text.
+
+This corresponds with the documentation in the `JIRA API for adding comments <https://docs.atlassian.com/software/jira/docs/api/REST/7.6.1/#api/2/issue-addComment>`_.
+
+Endpoints
+~~~~~~~~~
+::
+
+ POST /notification/<type>
+
+The type can be "email", "slack", "jira_issue", or "jira_comment".
