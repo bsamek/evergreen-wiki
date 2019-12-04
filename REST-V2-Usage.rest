@@ -1014,6 +1014,9 @@ Objects
    * - ``build_variants_status``
      - []buildDetail
      - List of documents of the associated build variant and the build id
+   * - ``requester``
+     - string
+     - Version created by one of "patch_request", "github_pull_request", "gitter_request" (caused by git commit), "trigger_request", "merge_test", "ad_hoc"
 
 Endpoints
 ~~~~~~~~~
