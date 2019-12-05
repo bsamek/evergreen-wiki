@@ -265,6 +265,11 @@ By default, a command failing during the ``pre`` step will not cause the entire 
    pre:
      - ...
 
+Commit-Only and Patch-Only Tasks
+""""""""""""""""""""""""""""""""
+
+To cause a task to only run in commit builds, set ``patchable: false``. To cause a task to only run in patches, set ``patch_only: true``.
+
 Expansions
 """"""""""
 
