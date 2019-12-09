@@ -1389,6 +1389,41 @@ Put A Project
 
 Create a new project with the given project ID. Restricted to super users.
 
+Project Tags
+------------
+
+Endpoints
+~~~~~~~~~
+
+Fetch all Projects for a Tag
+``````````````````
+
+::
+
+ GET /projects/tag/<tag>
+
+Delete a Tag 
+``````````````````
+
+::
+
+ DELETE /projects/<project_id>/tag/<tag>
+
+Check if a Tag exists
+``````````````````
+
+::
+
+ GET /projects/<project_id>/tag/<tag>
+
+Add a Tag to a Project
+``````````````````
+
+::
+
+ POST /projects/<project_id>/tag/<tag>
+
+
 Distro
 ------
 
