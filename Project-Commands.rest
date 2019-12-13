@@ -681,9 +681,9 @@ Parameters:
 subprocess.scripting
 ^^^^^^^^^^^^^^^^^^^^
 
-The ``subprocess.scripting`` command runs a command in side of a scripting
+The ``subprocess.scripting`` command runs a command inside of a scripting
 environment/harness like a Python Virtual Environment or a GOPATH. It
-wraps `jasper's scripting harness' <https://godoc.org/github.com/mongodb/jasper/scripting>`_
+wraps `jasper's scripting harness <https://godoc.org/github.com/mongodb/jasper/scripting>`_
 and mirrors the ``subprocess.exec`` interface and behavior as closely
 as possible. 
 
@@ -703,7 +703,7 @@ as possible.
 Parameters: 
 
 - ``harness`` : specify the type of scripting harness to use. Use
-  ``python`` (defaults to python3), ``pytthon2``, ``golang``, or
+  ``python`` (defaults to python3), ``python2``, ``golang``, or
   ``roswell`` (common-lisp).
 - ``command``: the command line args, as a string to run in the
   environment. You can specify a command either as an argument or as a
@@ -734,7 +734,7 @@ Additional, execution parameters, common with ``subprocess.exec``:
 - ``ignore_standard_error``: if true, do not log standard error 
 - ``redirect_standard_error_to_output``: if true, redirect standard error to standard out 
 - ``continue_on_err``: if true, do not mark task as failed if command fails
-- ``add_expansions_to_env``: when true, add all expansions to the command's environment.
+- ``add_expansions_to_env``: if true, add all expansions to the command's environment.
 - ``include_expansions_in_env``: specify one or more expansions to include in the environment. If you specify an expansion that does not exist, it is ignored. 
 - ``add_to_path``: specify one or more paths which are prepended to the ``PATH`` environment variable. 
 
