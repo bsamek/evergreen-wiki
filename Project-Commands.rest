@@ -677,6 +677,59 @@ Parameters:
 - ``include_expansions_in_env``: specify one or more expansions to include in the environment. If you specify an expansion that does not exist, it is ignored. 
 - ``add_to_path``: specify one or more paths which are prepended to the ``PATH`` environment variable. 
 
+
+subprocess.scripting
+^^^^^^^^^^^^^^^^^^^^
+
+The ``subprocess.scripting`` command runs a command in side of a scripting
+environment/harness like a Python Virtual Environment or a GOPATH. It
+wraps `jasper's scripting harness' <https://godoc.org/github.com/mongodb/jasper/scripting`_
+and mirrors the ``subprocess.exec`` interface and behavior as closely
+as possible. 
+
+.. code:: yaml 
+   
+   - command: subprocess.scripting
+     params:
+     
+Parameters: 
+
+- ``harness`` : specify the type of scripting harness to use. Use
+  ``python`` (defaults to python3), ``pytthon2``, ``golang``, or
+  ``roswell`` (common-lisp).
+- ``command``: the command line args, as a string to run in the
+  environment. You can specify a command either as an argument or as a
+  command but not both.
+- ``args`` an argv list of strings to run as a command in the
+  environment. You can specify a command either as an argument or as a
+  command but not both.
+- ``cache_duration_secions``: the duration to cache the
+  configuration. Defaults to 10 minutes. Once the duration has
+  elapsed, Evergreen will reconfigure the environment. 
+- ``cleanup_harness``: By default, harnesses are not removed when the
+  command terminates, which means that multiple commands can reuse the
+  same environment, if they're identically configured. When this is
+  true, Evergreen cleans up the harness before the command executes. 
+- ``lock_file``: Specifies dependencies in a lock file
+  (e.g. ``requirements.txt``), if the harness supports it.
+- ``packages``: A list of packages that will be installed in the
+  environment. 
+- ``harness_path``: A path, within the working directory where the
+  harness will be located.
+
+Additional, execution parameters, common with ``subprocess.exec``: 
+
+- ``silent``: do not log output of command 
+- ``system_log``: write output to system logs instead of task logs 
+- ``working_dir``: working directory to start shell in 
+- ``ignore_standard_out``: if true, do not log standard out 
+- ``ignore_standard_error``: if true, do not log standard error 
+- ``redirect_standard_error_to_output``: if true, redirect standard error to standard out 
+- ``continue_on_err``: if true, do not mark task as failed if command fails
+- ``add_expansions_to_env``: when true, add all expansions to the command's environment.
+- ``include_expansions_in_env``: specify one or more expansions to include in the environment. If you specify an expansion that does not exist, it is ignored. 
+- ``add_to_path``: specify one or more paths which are prepended to the ``PATH`` environment variable. 
+
 timeout.update
 ^^^^^^^^^^^^^^
 
