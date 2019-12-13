@@ -683,7 +683,7 @@ subprocess.scripting
 
 The ``subprocess.scripting`` command runs a command in side of a scripting
 environment/harness like a Python Virtual Environment or a GOPATH. It
-wraps `jasper's scripting harness' <https://godoc.org/github.com/mongodb/jasper/scripting`_
+wraps `jasper's scripting harness' <https://godoc.org/github.com/mongodb/jasper/scripting>`_
 and mirrors the ``subprocess.exec`` interface and behavior as closely
 as possible. 
 
