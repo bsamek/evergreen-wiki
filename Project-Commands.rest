@@ -691,6 +691,14 @@ as possible.
    
    - command: subprocess.scripting
      params:
+       harness: "python"
+       packages:
+         - "pymongo"
+         - "pyyaml"
+       lock_file: ${workdir}/src/requirements.txt
+       command: "buildscripts/smoke.py --continue_on_error"
+       harness_path: ".venv"
+       
      
 Parameters: 
 
