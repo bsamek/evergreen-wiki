@@ -413,6 +413,9 @@ Fetches a paginated list of tests that ran as part of the given task
    * - execution
      - int
      - Optional. The 0-based number corresponding to the execution of the task. Defaults to 0, meaning the first time the task was run.
+   * - task_name
+     - string
+     - Optional. Only return tasks with the corresponding name.
 
 Host
 ----
@@ -1056,6 +1059,19 @@ Get Builds From A Version
  GET /versions/<version_id>/builds
 
 Fetches a list of builds associated with a version
+
+.. list-table:: **Parameters**
+   :widths: 25 10 55
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Description
+   * - variant
+     - string
+     - Optional. Only return the build with this variant (using Distro identifier).
+
+Returns a list of `Builds <https://github.com/evergreen-ci/evergreen/wiki/REST-V2-Usage#build>`_.
 
 Project
 -------
