@@ -3,7 +3,7 @@
 * **command**: A tasks runs one or more commands. There are separate commands to do things like run a program or upload a file to s3.
 * **display task**: A display task is a set of tasks grouped together in the UI by the project configuration.
 * **distro**: A distro is a set of hosts that runs tasks. A static distro is configured with a list of IP addresses, while a dynamic distro scales with demand.
-* **expansions**: Expansions are Evergreen- and user-specified variables that can be used in the project configuration file.
+* **expansions**: Expansions are Evergreen- and user-specified variables that can be used in the project configuration file. They can be set by the `expansions.update` command, in the variant, on the project page, and on the distro page.
 * **function**: Commands may be grouped together in functions.
 * **patch build**: A patch build is a version not triggered by a commit to a repository. It either runs tasks on a base commit plus some diff if submitted by the CLI or on a git branch if created by a GitHub pull request.
 * **project configuration file**: The project configuration file is a file parsed by Evergreen that defines commands, functions, build variants, and tasks.
