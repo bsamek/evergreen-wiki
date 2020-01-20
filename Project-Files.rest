@@ -169,7 +169,8 @@ Additionally, an item in the ``tasks`` list can be of the form
 
    tasks:
    - name: compile
-   - run_on: ubuntu1404-build
+     distros: 
+     - ubuntu1404-build
 
 allowing tasks within a build variant to be run on different distros.
 This is useful for optimizing tasks like compilations, that can benefit
