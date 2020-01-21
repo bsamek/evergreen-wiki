@@ -2331,5 +2331,28 @@ Returns a static list of project and distro permissions that can be granted to u
 ::
 
    {
-      test
+      projectPermissions: [
+        {
+          key: "permission_key",
+          name: "My Permission",
+          levels: [
+            {
+              description: "Edit this permission",
+              value: 10,
+            }
+          ]
+        }
+      ]
+    distroPermissions:[
+        {
+          key: "permission_key",
+          name: "My distro Permission",
+          levels: [
+            {
+              description: "Edit this permission",
+              value: 10,
+            }
+          ]
+        }
+      ]
    }
