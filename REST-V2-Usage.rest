@@ -2327,4 +2327,9 @@ Permissions
 
    GET /permissions
 
-Returns a ...
+Returns a static list of project and distro permissions that can be granted to users. The format is
+::
+
+   {
+      test
+   }
