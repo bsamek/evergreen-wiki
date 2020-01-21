@@ -2325,7 +2325,7 @@ Permissions
 
 ::
 
-  GET /permissions
+GET /permissions
    {
      "projectPermissions": [
        {
