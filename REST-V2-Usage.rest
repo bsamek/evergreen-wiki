@@ -2326,10 +2326,9 @@ Permissions
 ::
 
   GET /permissions
-
-{
-  "projectPermissions": [
-    {
+   {
+     "projectPermissions": [
+       {
       "key": "project_settings",
       "name": "Project Settings",
       "levels": [
