@@ -2319,3 +2319,121 @@ Endpoints
  POST /notification/<type>
 
 The type can be "email", "slack", "jira_issue", or "jira_comment".
+
+Permissions
+--------------
+
+::
+
+  GET /permissions
+
+{
+  "projectPermissions": [
+    {
+      "key": "project_settings",
+      "name": "Project Settings",
+      "levels": [
+        {
+          "description": "Edit project settings",
+          "value": 20
+        },
+        {
+          "description": "View project settings",
+          "value": 10
+        },
+        {
+          "description": "No project settings permissions",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "key": "project_tasks",
+      "name": "Tasks",
+      "levels": [
+        {
+          "description": "Full tasks permissions",
+          "value": 30
+        },
+        {
+          "description": "Basic modifications to tasks",
+          "value": 20
+        },
+        {
+          "description": "View tasks",
+          "value": 10
+        },
+        {
+          "description": "Not able to view or edit tasks",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "key": "project_patches",
+      "name": "Patches",
+      "levels": [
+        {
+          "description": "Submit and edit patches",
+          "value": 10
+        },
+        {
+          "description": "Not able to view or submit patches",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "key": "project_logs",
+      "name": "Logs",
+      "levels": [
+        {
+          "description": "View logs",
+          "value": 10
+        },
+        {
+          "description": "Not able to view logs",
+          "value": 0
+        }
+      ]
+    }
+  ],
+  "distroPermissions": [
+    {
+      "key": "distro_settings",
+      "name": "Distro Settings",
+      "levels": [
+        {
+          "description": "Edit distro settings",
+          "value": 20
+        },
+        {
+          "description": "View distro settings",
+          "value": 10
+        },
+        {
+          "description": "No distro settings permissions",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "key": "distro_hosts",
+      "name": "Distro Hosts",
+      "levels": [
+        {
+          "description": "Edit hosts",
+          "value": 20
+        },
+        {
+          "description": "View hosts",
+          "value": 10
+        },
+        {
+          "description": "No hosts permissions",
+          "value": 0
+        }
+      ]
+    }
+  ]
+}
