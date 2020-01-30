@@ -61,6 +61,14 @@ Upload the changes, but don't begin to test the changes. Used in conjunction wit
 
 Enqueue changes previously uploaded and paused. [ID] is the patch ID printed to the console when uploading the paused (unfinalized) patch.
 
+* `--commits [value], -c [value]`
+
+Pass in either a single commit hash, or a range `<commit_hash1>..<commit_hash2>` where `<commit_hash1>` is excluded from the range, and hash1 is an ancestor of hash2.
+
+* `--force` 
+
+Note that use of this flag is monitored. This flag forces the item to the front of the queue, to revert more quickly.
+
 ### Feedback
 The merge is performed by a "Commit Queue Merge" task added to the patch when the changes reach the head of the queue.
 
