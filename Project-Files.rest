@@ -162,7 +162,7 @@ Fields:
 * ``expansions``: a set of key-value expansion pairs
 * ``tasks``: a list of tasks to run
 * ``batchtime``: interval of time in minutes that Evergreen should wait before activating this variant. The default is set on the project settings page.
-* ``cron``: define with cron syntax (i.e. Min | Hour | DayOfMonth | Month | DayOfWeekOptional) when a variant should be activated: this also accepts descriptors such as `@daily` or `@every 2h` (reference `cron <https://godoc.org/github.com/robfig/cron>`_ for more examples). Cannot be combined with batchtime.
+* ``cron``: define with cron syntax (i.e. Min | Hour | DayOfMonth | Month | DayOfWeekOptional) when a variant should be activated: this also accepts descriptors such as `@daily` (reference `cron <https://godoc.org/github.com/robfig/cron>`_ for more examples). Cannot be combined with batchtime.
 
 Additionally, an item in the ``tasks`` list can be of the form
 
