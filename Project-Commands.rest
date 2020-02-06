@@ -527,8 +527,8 @@ Parameters:
 -  ``aws_secret``: your AWS secret (use expansions to keep this a secret) 
 -  ``local_file``: the local file to save, do not use with ``extract_to`` 
 -  ``extract_to``: the local directory to extract to, do not use with ``local_file`` 
--  ``remote_file``: the ec2 path to get the file from 
--  ``bucket``: the ec2 bucket to use 
+-  ``remote_file``: the S3 path to get the file from 
+-  ``bucket``: the S3 bucket to use 
 -  ``build_variants``: list of buildvariants to run the command for, if missing/empty will run for all
 
 s3.put
@@ -555,9 +555,9 @@ Parameters:
 -  ``aws_key``: your AWS key (use expansions to keep this a secret) 
 -  ``aws_secret``: your AWS secret (use expansions to keep this a secret) 
 -  ``local_file``: the local file to post
--  ``remote_file``: the ec2 path to post the file to
--  ``bucket``: the ec2 bucket to use 
-- ``permissions``: the ec2 permissions string to upload with 
+-  ``remote_file``: the S3 path to post the file to
+-  ``bucket``: the S3 bucket to use 
+- ``permissions``: the permissions string to upload with 
 - ``content_type``: the MIME type of the file 
 -  ``optional``: boolean to indicate if failure to find or upload this file will result in a task failure. Not compatible with local_files_include_filter. 
 - ``display_name``: the display string for the file in the Evergreen UI 
