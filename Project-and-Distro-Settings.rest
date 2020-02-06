@@ -93,6 +93,12 @@ file via an expansion.
 
 [[images/vars.png]]
 
+GitHub Pull Request Testing
+''''''''''''''''''''''''''
+Checking this box will have Evergreen automatically create a patch for each pull request opened in the repository as well as each subsequent push to each pull request. In order for this to work, you must fill out at least 1 row in the section titled "GitHub Patch Definitions," as those define what tasks will be run in this patch.
+
+For security reasons, commits by users outside of your organization will not automatically be run. A patch will still be created and must be manually authorized to run by a logged-in user.
+
 Inter-project dependencies
 ''''''''''''''''''''''''''
 
