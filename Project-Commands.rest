@@ -664,7 +664,7 @@ Parameters:
  
 - ``binary``: a binary to run 
 - ``args``: a list of arguments to the binary 
-- ``env``: a slice of environment variables and their values 
+- ``env``: a map of environment variables and their values 
 - ``command``: a command string (cannot use with ``binary`` or ``args``) 
 - ``background``: if true, immediately return to caller 
 - ``silent``: do not log output of command 
