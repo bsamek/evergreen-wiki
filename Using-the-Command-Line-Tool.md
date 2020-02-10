@@ -1,3 +1,7 @@
+.. contents:: `Table of contents`
+   :depth: 4
+   :local:
+
 How to set up and use the command-line tool
 ==
 
