@@ -1,6 +1,5 @@
-.. contents:: `Table of contents`
-   :depth: 4
-   :local:
+* auto-gen TOC:
+{:toc}
 
 How to set up and use the command-line tool
 ==
