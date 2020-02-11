@@ -351,6 +351,7 @@ Every task has some expansions available by default:
 -  ``${commit_message}`` is the commit message if this is a CLI commit queue task
 
 The following expansions are available if a task was triggered by an inter-project dependency:
+
 -  ``${trigger_event_identifier}`` is the ID of the task or build that initiated this trigger
 -  ``${trigger_event_type}`` will be "task" or "build," identifying what type of ID ``${trigger_event_identifier}`` is
 -  ``${trigger_status}`` is the task or build status of whatever initiated this trigger
