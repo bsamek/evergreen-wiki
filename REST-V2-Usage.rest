@@ -2369,3 +2369,22 @@ Returns a static list of project and distro permissions that can be granted to u
         }
       ]
    }
+
+Users
+--------------
+
+::
+
+   POST /users/<user_id>/permissions
+
+Grants the user specified by user_id the permissions in the request body. The format of the body is:
+::
+
+   {
+     "resource_type": "project",
+     "resources": ["project1", "project2"],
+     "permissions": {
+        "project_tasks: 30,
+        "project_patches": 10
+     }
+   }
