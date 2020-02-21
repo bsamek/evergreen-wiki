@@ -2377,7 +2377,7 @@ Users
 
    POST /users/<user_id>/permissions
 
-Grants the user specified by user_id the permissions in the request body. The format of the body is:
+Grants the user specified by user_id the permissions in the request body. Note that usage of this endpoint requires that the requesting user have security to modify roles. The format of the body is:
 ::
 
    {
