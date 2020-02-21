@@ -2388,3 +2388,7 @@ Grants the user specified by user_id the permissions in the request body. The fo
         "project_patches": 10
      }
    }
+
+* resource_type - the type of resources for which permission is granted. Must be one of "project", "distro", or "superuser"
+* resources - an array of strings representing what resources the access is for. For a resource_type of project, this will be a list of projects. For a resource_type of distro, this will be a list of distros.
+* permissions - an object whose keys are the permission keys returned by the /permissions endpoint above, and whose values are the levels of access to grant for that permission (also returned by the /permissions endpoint)
