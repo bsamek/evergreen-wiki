@@ -14,6 +14,9 @@ which Evergreen tasks may use or interact with.
   logkeeper, splunk, or cedar).
 * [evergreen](https://github.com/evergreen-ci/evergreen) is the continuous
   integration system at the center of this ecosystem.
+* [barque](https://github.com/evergreen-ci/barque) is a service that supports release
+  focusing initially on linux repository publishing, and eventually package signing, 
+  release metadata and process automation. 
 
 ## Libraries (Go)
 * [anser](https://github.com/mongodb/anser) is a data migration tool for managing
