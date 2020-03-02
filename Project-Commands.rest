@@ -712,7 +712,7 @@ Parameters:
 - ``args`` an argv list of strings to run as a command in the
   environment. You can specify a command either as an argument or as a
   command but not both.
-- ``cache_duration_secions``: the duration to cache the
+- ``cache_duration_secs``: the duration to cache the
   configuration. Defaults to 10 minutes. Once the duration has
   elapsed, Evergreen will reconfigure the environment. 
 - ``cleanup_harness``: By default, harnesses are not removed when the
