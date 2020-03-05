@@ -563,7 +563,7 @@ Parameters:
 - ``display_name``: the display string for the file in the Evergreen UI 
 - ``local_files_include_filter``: used in place of local_file, an array of gitignore file globs. All files that are matched - ones that would be ignored by gitignore - are included in the put.
 - ``local_files_include_filter_prefix``: an optional path to start processing the LocalFilesIncludeFilter, relative to the working directory.
--  ``visibility``: one of "private", which allows logged-in users to see the file; "public" (the default), which allows anyone to see the file; "signed", which displays a pre signed url, allowing logged-in users to see the file (even if it's private on s3); or "none", which hides the file from the UI for everybody.
+-  ``visibility``: one of "private", which allows logged-in users to see the file; "public" (the default), which allows anyone to see the file; "none", which hides the file from the UI for everybody; or "signed", which displays a pre signed url, allowing logged-in users to see the file (even if it's private on s3). Visibility: signed should not be combined with permissions: public-read or permissions: public-read-write". 
 
 s3.put with multiple files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
