@@ -2425,3 +2425,16 @@ Retrieves all permissions for the user. The format of the response is:
 
 * type - the type of resources for which the listed permissions apply. Will be "project", "distro", or "superuser"
 * permissions - an object whose keys are the resources for which the user has permissions. Note that these objects will often have many keys, since logged-in users have basic permissions to every project and distro. The values in the keys are objects representing the permissions that the user has for that resource, identical to the format of the permissions field in the POST /users/<user_id>/permissions API.
+
+::
+
+   DELETE /users/<user_id>/permissions
+
+Deletes all permissions of a given type for a user by deleting their roles of that type. Note that usage of this endpoint requires that the requesting user have security to modify roles. The format of the body is:
+::
+
+   {
+     "resource_type": "project"
+   }
+
+* resource_type - the type of resources for which to delete permissions. Must be one of "project", "distro", "superuser", or "all". "all" will revoke all permissions for the user
