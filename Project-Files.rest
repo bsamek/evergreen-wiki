@@ -158,10 +158,7 @@ Fields:
 
 * ``name``: an identification string for the variant
 * ``display_name``: how the variant is displayed in the Evergreen UI
-* ``run_on``: a list of acceptable distros to run tasks for that variant on. The first distro in the list is the primary distro. The others are secondary distros. Each distro has a primary queue, a queue of all tasks that have specified it as their primary distro, and a secondary queue, and a queue of tasks that have specified it as a 
-secondary distro. If the primary queue is non-empty, the distro will process that queue. If the primary queue is
-empty, the distro will process the secondary queue. If both queues are empty, idle hosts will eventually be
-terminated.
+* ``run_on``: a list of acceptable distros to run tasks for that variant on. The first distro in the list is the primary distro. The others are secondary distros. Each distro has a primary queue, a queue of all tasks that have specified it as their primary distro; and a secondary queue, a queue of tasks that have specified it as a secondary distro. If the primary queue is not empty, the distro will process that queue and ignore the secondary queue. If the primary queue is empty, the distro will process the secondary queue. If both queues are empty, idle hosts will eventually be terminated.
 * ``expansions``: a set of key-value expansion pairs
 * ``tasks``: a list of tasks to run
 * ``batchtime``: interval of time in minutes that Evergreen should wait before activating this variant. The default is set on the project settings page.
