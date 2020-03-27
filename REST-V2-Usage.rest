@@ -1381,7 +1381,7 @@ Copy Variables to an Existing Project
 
 Restricted to admins of the source project and the destination project. Copies variables from projectA to projectB.
 
-.. list-table:: **Parameters**
+.. list-table:: **CopyVariablesOptions**
    :widths: 25 10 55
    :header-rows: 1
 
