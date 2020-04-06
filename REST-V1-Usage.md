@@ -18,7 +18,6 @@ Evergreen REST API v1
   - [Retrieve the status of a particular build](#retrieve-the-status-of-a-particular-build)
   - [Retrieve info on a particular task](#retrieve-info-on-a-particular-task)
   - [Retrieve the status of a particular task](#retrieve-the-status-of-a-particular-task)
-  - [Retrieve the most recent revisions for a particular kind of task](#retrieve-the-most-recent-revisions-for-a-particular-kind-of-task)
 
 #### A note on authentication
 
@@ -538,74 +537,6 @@ groupby | string | tasks   | Determines how to key into the task status. For `ta
     },
     "jstests/aggregation/testSlave.js": { ... },
     ...
-  }
-}
-```
-
-#### Retrieve the most recent revisions for a particular kind of task
-
-    GET /rest/v1/tasks/{task_name}/history
-
-##### Parameters
-
-Name    | Type   | Description
-------- | ------ | -----------
-project_id | string | The project name.
-
-
-##### Request
-
-    curl https://evergreen.example.com//rest/v1/tasks/compile/history?project_id=sample
-
-##### Response
-
-```json
-{
-  "Tasks": [
-    {
-      "_id": "3585388b1591dfca47ac26a5b9a564ec8f138a5e",
-      "order": 4,
-      "tasks": [
-        {
-          "_id": "sample_osx_108_3585388b1591dfca47ac26a5b9a564ec8f138a5e_14_08_12_21_23_53_compile_osx_108",
-          "activated": true,
-          "build_variant": "osx-108",
-          "status": "undispatched",
-          "status_details": {},
-          "time_taken": 0
-        },
-        {
-          "_id": "sample_ubuntu_3585388b1591dfca47ac26a5b9a564ec8f138a5e_14_08_12_21_23_53_compile_ubuntu",
-          ...
-        },
-        ...
-      ]
-    },
-    {
-      "_id": "9b20d123699a8061ac9587784a6871cf58d4e78f",
-      ...
-    }
-  ],
-  "Versions": [
-    {
-      "id": "sample_3585388b1591dfca47ac26a5b9a564ec8f138a5e",
-      "create_time": "2014-08-12T21:23:53.555-04:00",
-      "start_time": "0001-01-01T00:00:00Z",
-      "finish_time": "0001-01-01T00:00:00Z",
-      "revision": "3585388b1591dfca47ac26a5b9a564ec8f138a5e",
-      "message": "dont print for timeouts",
-      "order": 4
-    },
-    {
-      "id": "sample_9b20d123699a8061ac9587784a6871cf58d4e78f",
-      ...
-    },
-    ...
-  ],
-  "FailedTests": {},
-  "Exhausted": {
-    "Before": true,
-    "After": true
   }
 }
 ```
