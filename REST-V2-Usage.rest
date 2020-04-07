@@ -2458,3 +2458,13 @@ Deletes all permissions of a given type for a user by deleting their roles of th
    }
 
 * resource_type - the type of resources for which to delete permissions. Must be one of "project", "distro", "superuser", or "all". "all" will revoke all permissions for the user
+
+::
+
+   POST /users/<user_id>/roles
+
+Adds the specified roles to the specified user. Attempting to add a duplicate role will result in an error. If you're unsure of what roles you want to add, you probably want to POST To /users/user_id/permissions instead. Note that usage of this endpoint requires that the requesting user have security to modify roles. The format of the body is:
+::
+
+   [ "role1", "role2" ]
+
