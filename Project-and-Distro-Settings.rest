@@ -43,16 +43,15 @@ Superusers and Project Admins.
 General Project Settings
 ''''''''''''''''''''''''
 
-If a
-Project Administrator wants Evergreen to discontinue or start tracking a
-project, it can be changed via the Enabled and Disabled radio buttons.
-The display name field corresponds to what users will see in the project
-dropdown on the navigation bar. Admins can change the location or name
-of the config file in the repository if they would like to have
-Evergreen run tests using a different project file located elsewhere, or
-if they move the config file. The batch time corresponds to the interval
-of time (in minutes) that Evergreen should wait in between activating
-the latest version.
+If a Project Administrator wants Evergreen to discontinue or start
+tracking a project, it can be changed via the Enabled and Disabled radio
+buttons.  The display name field corresponds to what users will see in
+the project dropdown on the navigation bar. Admins can change the
+location or name of the config file in the repository if they would like
+to have Evergreen run tests using a different project file located
+elsewhere, or if they move the config file. The batch time corresponds
+to the interval of time (in minutes) that Evergreen should wait in
+between activating the latest version.
 
 [[images/settings.png]]
 
@@ -95,11 +94,18 @@ file via an expansion.
 
 GitHub Pull Request Testing
 ''''''''''''''''''''''''''
-Checking this box will have Evergreen automatically create a patch for each pull request opened in the repository as well as each subsequent push to each pull request. In order for this to work, you must fill out at least 1 row in the section titled "GitHub Patch Definitions," as those define what tasks will be run in this patch.
 
-For security reasons, commits by users outside of your organization will not automatically be run. A patch will still be created and must be manually authorized to run by a logged-in user.
+Checking this box will have Evergreen automatically create a patch for
+each pull request opened in the repository as well as each subsequent
+push to each pull request. In order for this to work, you must fill out
+at least 1 row in the section titled "GitHub Patch Definitions," as
+those define what tasks will be run in this patch.
 
-Inter-project dependencies
+For security reasons, commits by users outside of your organization will
+not automatically be run. A patch will still be created and must be
+manually authorized to run by a logged-in user.
+
+Inter-project Dependencies
 ''''''''''''''''''''''''''
 
 Users can specify that commits to another project (the "upstream" project) 
@@ -110,26 +116,62 @@ triggers in the downstream project from the project configuration page. Click
 Options:
 
 - Project: The upstream project.
-- Date cutoff: Do not trigger a downstream build if a user manually schedules a build older than this number of days.
+
+- Date cutoff: Do not trigger a downstream build if a user manually
+  schedules a build older than this number of days.
+
 - Level: Trigger based on either a task or a build completing.
-- Variant and task regexes: Trigger based on these variants (if build-level) or variants and tasks (if task-level) completing.
-- Command: If you would like to use `generate.tasks`, specify a command to run in your project to generate the JSON document to pass to `generate.tasks`. Only a command or a definition file may be specified.
-- Definition file: The path to the downstream project's config file. This may be the same as the main project configuration file but does not have to be.
-- Alias: Run a subset of tasks by specifying an alias. Otherwise, all tasks run.
+
+- Variant and task regexes: Trigger based on these variants (if
+  build-level) or variants and tasks (if task-level) completing.
+
+- Command: If you would like to use `generate.tasks`, specify a command
+  to run in your project to generate the JSON document to pass to
+  `generate.tasks`. Only a command or a definition file may be
+  specified.
+
+- Definition file: The path to the downstream project's config
+  file. This may be the same as the main project configuration file but
+  does not have to be.
+
+- Alias: Run a subset of tasks by specifying an alias. Otherwise, all
+  tasks run.
 
 Periodic Builds
-''''''''''''''''''''''''''
+'''''''''''''''
 
-Evergreen has the capability to periodically run a set of tasks in the project on a cron. This section holds settings allowing you to specify what should be run periodically, and how often.
+Evergreen has the capability to periodically run a set of tasks in the
+project on a cron. This section holds settings allowing you to specify
+what should be run periodically, and how often.
 
 Options:
 
-- Interval: Evergreen will run the specified tasks every X hours, with X being specified by this field. The first run will happen immediately after the settings are saved
-- Config File: The .yml file that defines tasks to run. This can be the same one that defines tasks for commits in the project, or a different one.
-- Patch Alias: Optional, you can specify an already-defined patch alias here to limit the tasks or variants that are run.
-- Message: Optional, this will be saved as the description of the version that ends up being created when the tasks are run.
+- Interval: Evergreen will run the specified tasks every X hours, with X
+  being specified by this field. The first run will happen immediately
+  after the settings are saved
 
-Note that there is currently not a good UI for seeing the results of these periodic builds, and `EVG-6494 <https://jira.mongodb.org/browse/EVG-6494>`_ is tracking adding this. For now, the recommended way to find out about the results of these is to add a notification subscription on the project settings page. In the notification popup, select "when any version finishes" with Build Initiator = Periodic Build.
+- Config File: The .yml file that defines tasks to run. This can be the
+  same one that defines tasks for commits in the project, or a different
+  one.
+
+- Patch Alias: Optional, you can specify an already-defined patch alias
+  here to limit the tasks or variants that are run.
+
+- Message: Optional, this will be saved as the description of the
+  version that ends up being created when the tasks are run.
+
+Note that there is currently not a good UI for seeing the results of
+these periodic builds, and `EVG-6494
+<https://jira.mongodb.org/browse/EVG-6494>`_ is tracking adding
+this. For now, the recommended way to find out about the results of
+these is to add a notification subscription on the project settings
+page. In the notification popup, select "when any version finishes" with
+Build Initiator = Periodic Build.
+
+Workstation Setup
+'''''''''''''''''
+
+
 
 Distro Settings
 ^^^^^^^^^^^^^^^
@@ -170,22 +212,27 @@ that all execute independently:
    - Target time for the queue, or the number of minutes that the
      queue should take. (This will move to the host allocator settings
      after `EVG-703 <https://jira.mongodb.org/browse/EVG-703>`_). 
+
    - *Patch Factor* how much to weight patches over non-patch
      builds. For most workloads, privileging patches over mainline
      builds will improve the throughput of your team to complete
      requests, if patch builds are a prerequisite to committing.
+
    - *Time in Queue* how much to weight tasks that have been waiting
      for a long period of time over tasks that have entered the queue
      more recently. This factor privileges older patches and newer
      mainline tasks. Modifying this value may make it easier to meet
      SLAs for task latency. 
+
    - *Expected Runtime* how to weight longer tasks over shorter
      tasks. Generally running longer tasks first will lead to higher
      overall throughput, at the cost of increasing the latency for
      first responses. 
+
    - *Task Ordering* provides the operation to interleave patches and
      mainline builds; however, you can opt prefer patches over
      mainline tasks, at the risk of starving one or the other. 
+
    - *Group Versions* typically evergreen will sort individual tasks
      which allows tasks from different versions to run in parallel;
      however, you can tell evergreen to group all tasks from a single
