@@ -168,11 +168,6 @@ these is to add a notification subscription on the project settings
 page. In the notification popup, select "when any version finishes" with
 Build Initiator = Periodic Build.
 
-Workstation Setup
-'''''''''''''''''
-
-
-
 Distro Settings
 ^^^^^^^^^^^^^^^
 
