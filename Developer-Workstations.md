@@ -1,10 +1,8 @@
-# Workstations 
-
 ## Overview
 
 Evergreen provides a special class and configuration of spawn hosts for
 use as _virtual workstations_ to provide a cloud-managed developer
-environment similar to the evergreen's execution environment. These
+environment similar to Evergreen's execution environment. These
 workstations can use the same configuration as build hosts, but also have: 
 
 - a persistent volume attached to each image (by default at
@@ -18,24 +16,24 @@ workstations can use the same configuration as build hosts, but also have:
   the Evergreen application layer for a fully featured remote editing
   experience.
 
-- Evergreen supports a "non-expireable" spawn host which isn't
+- Evergreen supports an "unexpirable" spawn host which isn't
   subjected to the termination deadline of most spawn hosts. While
-  there is a global per-user limit for non-expireable hosts,
-  workstations will, by default 
+  there is a global per-user limit for unexpirable hosts,
+  workstations will, by default. 
   
 - Evergreen supports a start/stop mode for spawn hosts. This makes it
-  possible for users to change to using another instance type, though
+  possible for users to change to another instance type, though
   administrators must configure the allowable instance types. Users
   can also opt to stop hosts during vacations and other periods of
   known inactivity.
 
-Administrators need to configure workstation instances to incldue the
+Administrators need to configure workstation instances to include the
 [IDE](https://github.com/evergreen-ci/ide), and any other software
 required for development. There is no limit to the number of distinct
 workstation images available in the system. 
 
 Evergreen site and project administrators should provide specific
-documentation for using these wokstations in the course of normal
+documentation for using these workstations in the course of normal
 development.
 
 ## Project Setup 
@@ -48,16 +46,16 @@ systems.
 
 Project configuration include a "Workstation Setup" section where
 administrators declare a number of simple commands (and directory
-contexts,) that will run a project's setup. These commands are *not*
+contexts) that will run a project's setup. These commands are *not*
 shell interpolated, and are *not* meant to provision the development
 environment (e.g. install system packages or modify configuration
-files in `~/`.) Use these commands to clone a repository, generate
+files in `~/`). Use these commands to clone a repository, generate
 index files, and/or run a test build.
 
 As a prerequisite, users of the project setup *must* have configured
 their SSH keys with Github, with access to the Github repositories
 required for their project. The commands will assemble a clone
-operation for the project's core repository, when selected, but
+operation for the project's core repository when selected, but
 required modules or other repositories would need to be cloned
 directly in another command. 
 
@@ -65,13 +63,13 @@ The Evergreen CLI would resemble:
 
     evergreen host configure --project=evergreen --distro=ubuntu1804-workstation
 
-This will run the clone (if configured) and setup command's in the
+This will run the clone (if configured) and setup commands in the
 workstation distro's mounted volume directory
 `~/user_home/evergreen`. Directories will be created prior to execution.
 
 Commands that specify a directory will run as a sub-directory of the
 project directory. This allows a user to have multiple projects
-checked out in their persistant workspace. While this doesn't allow
+checked out in their persistent workspace. While this doesn't allow
 interaction between the setups of potentially similar projects, it
 greatly reduces the internal complexity of running setup.
 
