@@ -90,6 +90,10 @@ Variables
 Admins can store project variables that can be referenced in the config
 file via an expansion.
 
+Options:
+Checking **private** makes the variable redacted so the value won't be visible on the projects page or by API routes.
+Checking **redacted** ensures that the variable can only be used by commands that are guaranteed to not leak the values (currently this includes only s3.put1 and s3.get).
+
 [[images/vars.png]]
 
 GitHub Pull Request Testing
