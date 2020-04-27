@@ -599,7 +599,7 @@ s3.push
 
 This command supports the task sync feature, which allows users to upload and download their task directory to and from Amazon S3. It must be enabled in the project settings before it can be used.
 
-This command uploads the task directory (subject to any specified exclusions) to S3. This can later be used in dependent tasks using the s3.pull command. Users also have the option to inspect the task working directory after it has finished pushing (e.g. for debugging a failed task). Users can either pull the task working directory from S3 onto a spawn host (from the UI) or their local machines using `evergreen pull <https://github.com/evergreen-ci/evergreen/wiki/Using-the-Command-Line-Tool#pull>`__.
+This command uploads the task directory (subject to any specified exclusions) to S3. This can later be used in dependent tasks using the s3.pull command. Users also have the option to inspect the task working directory after it has finished pushing (e.g. for debugging a failed task). Users can either pull the task working directory from S3 onto a spawn host (from the UI) or their local machines (using `evergreen pull <https://github.com/evergreen-ci/evergreen/wiki/Using-the-Command-Line-Tool#pull>`__).
 
 The working directory is put in a private bucket shared between all projects. Any other logged in user can pull and view the directory contents of an s3.push command once it has been uploaded.
 
