@@ -618,10 +618,8 @@ command once it has been uploaded.
 
 Parameters:
  
--  ``max_retries``: Optional. The maximum number of times it will attempt to
-  push a file to S3.
-- ``exclude``: Optional. Specify files to exclude within the working directory
-  in `Google RE2 syntax <https://github.com/google/re2/wiki/Syntax>`.
+-  ``max_retries``: Optional. The maximum number of times it will attempt to push a file to S3.
+- ``exclude``: Optional. Specify files to exclude within the working directory in `Google RE2 syntax <https://github.com/google/re2/wiki/Syntax>`__.
 
 s3.pull
 ^^^^^^^
@@ -656,9 +654,8 @@ Parameters:
   directory that is not in the remote task sync directory will be deleted.
   Defaults to false.
 - ``exclude``: Optional. Specify files to exclude from the synced task directory
-  in `Google RE2 syntax <https://github.com/google/re2/wiki/Syntax>`.
--  ``max_retries``: Optional. The maximum number of times it will attempt to
-  pull a file from S3.
+  in `Google RE2 syntax <https://github.com/google/re2/wiki/Syntax>`__.
+-  ``max_retries``: Optional. The maximum number of times it will attempt to pull a file from S3.
 
 s3Copy.copy
 ^^^^^^^^^^^
