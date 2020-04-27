@@ -598,12 +598,13 @@ s3.push
 ^^^^^^^
 
 This command supports the task sync feature, which allows users to upload and
-download their task directory to and from Amazon S3. This command uploads the
-task directory (subject to any specified exclusions) to S3. This can later be
-used in dependent tasks using the s3.pull command. Users also have the option to
-pull the task working directory from S3 onto a spawn host or their local
-machines (e.g. for debugging a failed task). The inverse of this command is
-s3.pull.
+download their task directory to and from Amazon S3. It must be explicitly
+enabled in the project settings to be usable.
+
+This command uploads the task directory (subject to any specified exclusions) to
+S3. This can later be used in dependent tasks using the s3.pull command. Users
+also have the option to pull the task working directory from S3 onto a spawn host
+or their local machines (e.g. for debugging a failed task).
 
 The working directory is put in a private bucket shared between all projects.
 Any other logged in user can pull and view the directory contents of an s3.push
@@ -625,10 +626,12 @@ s3.pull
 ^^^^^^^
 
 This command helps support the task sync feature, which allows users to upload
-anddownload their task directory to and from Amazon S3. This command downloads the
-task directory from S3. It can only be used in a task which depends on a task that
-runs s3.push first and must explicitly specify the dependency using
-``depends_on``.
+and download their task directory to and from Amazon S3. It must be explicitly
+enabled in the project settings to be usable.
+
+This command downloads the task directory from S3. It can only be used in a task
+which depends on a task that runs s3.push first and must explicitly specify the
+dependency using ``depends_on``.
 
 .. code:: yaml
 
