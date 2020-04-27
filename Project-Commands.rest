@@ -597,7 +597,7 @@ uploaded to the s3 bucket.
 s3.push
 ^^^^^^^
 
-This command supports the "task sync" feature, which allows users to upload and
+This command supports the task sync feature, which allows users to upload and
 download their task directory to and from Amazon S3. This command uploads the
 task directory (subject to any specified exclusions) to S3. This can later be
 used in dependent tasks using the s3.pull command. Users also have the option to
@@ -624,10 +624,10 @@ Parameters:
 s3.pull
 ^^^^^^^
 
-This command supports the "task sync" feature, which allows users to upload and
-download their task directory to and from S3. This command downloads the task
-directory from S3. This command can only be used in a task which depends on a
-task that runs s3.push first and must explicitly specify the dependency using
+This command helps support the task sync feature, which allows users to upload
+anddownload their task directory to and from Amazon S3. This command downloads the
+task directory from S3. It can only be used in a task which depends on a task that
+runs s3.push first and must explicitly specify the dependency using
 ``depends_on``.
 
 .. code:: yaml
