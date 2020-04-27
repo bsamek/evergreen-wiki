@@ -104,6 +104,14 @@ Though keep in mind that the merge base must still exist in the canonical GitHub
 The `--` feature can also be used to pass flags to `git diff`.
 
 
+#### Task Sync
+The task sync feature allows you to upload and download a task's working directory to and from Amazon S3 at the end of a patched task. To specify which tasks you wish to sync, include the `--sync_variants` and `--sync_tasks` flags. For example:
+
+      evergreen patch -p <project_id> -t <task_id1> -t <task_id2> -v <variant1> --sync_tasks <task_id1> --sync_variants <variant1>
+
+There is an option to specify a task status for which the sync will run ('success' or 'failed') using `--sync_statuses`. A maximum timeout can be specified for the sync before it gets canceled using `--sync_timeout`.
+
+
 Operating on existing patches
 --
 
@@ -213,6 +221,17 @@ evergreen fetch -t <task-id> --source --artifacts
 ```
 
 Specify the optional `--dir` argument to choose the destination path where the data is fetched to; if omitted, it defaults to the current working directory.
+
+#### Pull
+
+The command `evergreen pull` can download the task directory contents of a synced task after an `s3.push <https://github.com/evergreen-ci/evergreen/wiki/Project-Commands#s3push>`__ command has finished or after a patched task that has requested task sync has completed.
+
+Example that downloads the artifacts for the given task ID and cloning its source:
+```
+evergreen pull --task <task_id>
+```
+
+Specify the optional `--dir` argument to choose the destination path; if omitted, it defaults to the current working directory.
  
 #### List
 
