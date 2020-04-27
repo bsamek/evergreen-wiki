@@ -597,18 +597,11 @@ uploaded to the s3 bucket.
 s3.push
 ^^^^^^^
 
-This command supports the task sync feature, which allows users to upload and
-download their task directory to and from Amazon S3. It must be explicitly
-enabled in the project settings to be usable.
+This command supports the task sync feature, which allows users to upload and download their task directory to and from Amazon S3. It must be enabled in the project settings before it can be used.
 
-This command uploads the task directory (subject to any specified exclusions) to
-S3. This can later be used in dependent tasks using the s3.pull command. Users
-also have the option to pull the task working directory from S3 onto a spawn host
-or their local machines (e.g. for debugging a failed task).
+This command uploads the task directory (subject to any specified exclusions) to S3. This can later be used in dependent tasks using the s3.pull command. Users also have the option to inspect the task working directory after it has finished pushing (e.g. for debugging a failed task). Users can either pull the task working directory from S3 onto a spawn host (from the UI) or their local machines using [evergreen pull](https://github.com/evergreen-ci/evergreen/wiki/Using-the-Command-Line-Tool#pull).
 
-The working directory is put in a private bucket shared between all projects.
-Any other logged in user can pull and view the directory contents of an s3.push
-command once it has been uploaded.
+The working directory is put in a private bucket shared between all projects. Any other logged in user can pull and view the directory contents of an s3.push command once it has been uploaded.
 
 .. code:: yaml
 
@@ -625,13 +618,9 @@ Parameters:
 s3.pull
 ^^^^^^^
 
-This command helps support the task sync feature, which allows users to upload
-and download their task directory to and from Amazon S3. It must be explicitly
-enabled in the project settings to be usable.
+This command helps support the task sync feature, which allows users to upload and download their task directory to and from Amazon S3. It must be enabled in the project settings before it can be used.
 
-This command downloads the task directory from S3. It can only be used in a task
-which depends on a task that runs s3.push first and must explicitly specify the
-dependency using ``depends_on``.
+This command downloads the task directory from S3. It can only be used in a task which depends on a task that runs s3.push first and must explicitly specify the dependency using ``depends_on``.
 
 .. code:: yaml
 
