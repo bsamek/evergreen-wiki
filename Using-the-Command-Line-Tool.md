@@ -224,7 +224,7 @@ Specify the optional `--dir` argument to choose the destination path where the d
 
 #### Pull
 
-The command `evergreen pull` can download the task directory contents of a synced task after an `s3.push <https://github.com/evergreen-ci/evergreen/wiki/Project-Commands#s3push>`__ command has finished or after a patched task that has requested task sync has completed.
+The command `evergreen pull` can download the task directory contents of a synced task after an [s3.push](https://github.com/evergreen-ci/evergreen/wiki/Project-Commands#s3push) command has finished or after a [patched task that has requested task sync](#task-sync) has completed.
 
 Example that downloads the artifacts for the given task ID and cloning its source:
 ```
