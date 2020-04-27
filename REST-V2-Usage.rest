@@ -2466,5 +2466,9 @@ Deletes all permissions of a given type for a user by deleting their roles of th
 Adds the specified roles to the specified user. Attempting to add a duplicate role will result in an error. If you're unsure of what roles you want to add, you probably want to POST To /users/user_id/permissions instead. Note that usage of this endpoint requires that the requesting user have security to modify roles. The format of the body is:
 ::
 
-   [ "role1", "role2" ]
-
+   {
+     "roles": [ "role1", "role2" ],
+     "create_user": true,
+   }
+* roles - the list of roles to add for the user
+* create_user - if true, will also create a shell user document for the user. By default, specifying a user that does not exist will error
