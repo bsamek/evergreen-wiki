@@ -105,11 +105,15 @@ The `--` feature can also be used to pass flags to `git diff`.
 
 
 #### Task Sync
-The task sync feature allows you to upload and download a task's working directory to and from Amazon S3 at the end of a patched task. To specify which tasks you wish to sync, include the `--sync_variants` and `--sync_tasks` flags. For example:
+The task sync feature allows you to upload and download a task's working directory to and from Amazon S3 at the end of a patched task. This can be useful for debugging since it allows you to see the exact files used in the task. In order to use this for patches, it must be enabled in the project settings.
+
+To specify which tasks you wish to sync, include the `--sync_variants` and `--sync_tasks` flags. For example:
 
       evergreen patch -p <project_id> -t <task_id1> -t <task_id2> -v <variant1> --sync_tasks <task_id1> --sync_variants <variant1>
 
-There is an option to specify a task status for which the sync will run ('success' or 'failed') using `--sync_statuses`. A maximum timeout can be specified for the sync before it gets canceled using `--sync_timeout`.
+There is an option to specify a task status for which the sync will run ("success" or "failed") using `--sync_statuses`. A maximum timeout can be specified for the sync before it gets canceled using `--sync_timeout`.
+
+Once the task finishes syncing, the task directory contents can be pulled into a spawn host by requesting it with the host or it can be manually pulled onto the local machine using [evergreen pull](#pull).
 
 
 Operating on existing patches
