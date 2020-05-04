@@ -19,16 +19,16 @@ which Evergreen tasks may use or interact with.
   integration system at the center of this ecosystem.
 
 ## Libraries (Go)
-* [anser](https://github.com/mongodb/anser) is a data migration tool for managing
-  schema evolution in MongoDB databases and Go applications. Relies on amboy
-  for orchestration and ftdc/bsonx for bson manipulation. Additionally provides a
-  compatibility layer for translating from the legacy mgo API to the new Go
-  Driver interface.
 * [amboy](https://github.com/mongodb/amboy) provides distributed worker queues.
   In Evergreen the unit work on runs in these queues is called a job in order to
   distinguish it from a task, which is a unit of work in an Evergreen project.
   Jobs are not visible to users, but they accomplish most of the work necessary
   for Evergreen to run, e.g., starting and provisioning hosts.
+* [anser](https://github.com/mongodb/anser) is a data migration tool for managing
+  schema evolution in MongoDB databases and Go applications. Relies on amboy
+  for orchestration and ftdc/bsonx for bson manipulation. Additionally provides a
+  compatibility layer for translating from the legacy mgo API to the new Go
+  Driver interface.
 * [aviation](https://github.com/evergreen-ci/aviation) is middleware for gRPC.
   It is similar to gimlet, Evergreen's HTTP middleware.
 * [birch](https://github.com/evergreen-ci/bich) is a library for building and manipulating bson documents.
@@ -67,11 +67,11 @@ which Evergreen tasks may use or interact with.
   cedar. It gives agents the ability to send task data somewhere for processing.
 
 ## Libraries (Python, JS, Emacs)
-* [shrub.py](https://github.com/evergreen-ci/shrub.py) is a Python library for
-  generating Evergreen configuration files.
 * [evergreen.el](https://github.com/mongodb/evergreen.el) is an Emacs package for
   interacting with the Evergreen CLI.
 * [evergreen.js](https://github.com/evergreen-ci/evergreen.js) is a JavaScript
   client library for Evergreen's API.
 * [evergreen.py](https://github.com/evergreen-ci/evergreen.py) is a Python
   client library for Evergreen's API.
+* [shrub.py](https://github.com/evergreen-ci/shrub.py) is a Python library for
+  generating Evergreen configuration files.
