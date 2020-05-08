@@ -766,9 +766,19 @@ Parameters:
 - ``command``: the command line args, as a string to run in the
   environment. You can specify a command either as an argument or as a
   command but not both.
-- ``args`` an argv list of strings to run as a command in the
+- ``args``: an argv list of strings to run as a command in the
   environment. You can specify a command either as an argument or as a
   command but not both.
+- ``test_dir``: the directory where tests should be run. This cannot be used
+  if command or args is set.
+- ``test_options``: the options that describe how the tests will execute in
+  the ``test_dir``. Behavior of these options depends on which harness is
+  used. Options within ``test_options``:
+    - ``name``: the name of the test.
+    - ``pattern``: filter names of tests to run based on this pattern.
+    - ``timeout``: the timeout (in seconds) for the tests to run.
+    - ``count``: the number of times the test should be run.
+    - ``args``: any additional arguments to the test binary.
 - ``cache_duration_secs``: the duration to cache the
   configuration. Defaults to 10 minutes. Once the duration has
   elapsed, Evergreen will reconfigure the environment. 
