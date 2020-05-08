@@ -776,7 +776,6 @@ Parameters:
   used. Options within ``test_options``:
     - ``name``: the name of the test.
     - ``pattern``: filter names of tests to run based on this pattern.
-    - ``timeout``: the timeout (in seconds) for the tests to run.
     - ``count``: the number of times the test should be run.
     - ``args``: any additional arguments to the test binary.
 - ``cache_duration_secs``: the duration to cache the
