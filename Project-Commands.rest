@@ -343,7 +343,7 @@ Docker Parameters:
 
 - ``background`` - Set to wait for logs in the background, rather than blocking. Default is true. 
 - ``container_wait_timeout_secs`` - Time to wait for the container to finish running the given command. Must be <= 3600 (1 hour). Default to 600 (10 minutes). 
-- ``command`` - Required. The command to run on the container. Does not not support shell interpolation. 
+- ``command`` - The command to run on the container. Does not not support shell interpolation. If not specified, will use the default entrypoint. 
 - ``distro`` - Required. The distro's container pool is used to find/create parents for the container.
 - ``image`` - Required. The image to use for the container. If image is a URL, then the image is imported, otherwise it is pulled. 
 - ``poll_frequency_secs`` - Check for running container and logs at this interval. Must be <= 60 (1 second). Default to 30.
