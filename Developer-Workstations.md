@@ -5,8 +5,8 @@ use as _virtual workstations_ to provide a cloud-managed developer
 environment similar to Evergreen's execution environment. These
 workstations can use the same configuration as build hosts, but also have: 
 
-- a persistent volume attached to each image (by default at
-  `/user_home` linked to `~/user_home`) that moves between
+- a persistent volume attached to each image (mounted at
+  `~`) that moves between
   instances, so users can upgrade by terminating their instance and
   starting a new one.
 
