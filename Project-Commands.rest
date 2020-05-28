@@ -342,6 +342,7 @@ EC2 Parameters:
 Docker Parameters: 
 
 - ``background`` - Set to wait for logs in the background, rather than blocking. Default is true. 
+- ``publish_ports`` - Set to make ports available by mapping container ports to ports on the Docker host. Default is false.
 - ``container_wait_timeout_secs`` - Time to wait for the container to finish running the given command. Must be <= 3600 (1 hour). Default to 600 (10 minutes). 
 - ``command`` - The command to run on the container. Does not not support shell interpolation. If not specified, will use the default entrypoint. 
 - ``distro`` - Required. The distro's container pool is used to find/create parents for the container.
@@ -454,14 +455,22 @@ If the ``path`` directive is specified, then the contents of the file
 contain a JSON formatted list of objects. Each object contains the
 following keys:
 
--  ``dns_name``: The FQDN of the EC2 instance (if IPv6 instance, this will not be populated).
--  ``ip_address``: the IP address of the EC2 instance (currently implemented for IPv6).
--  ``instance_id``: The unique identifier of the EC2 instance.
+For EC2, these keys represent the instance. For Docker, they represent the Docker host that the container is running on. 
 
-- ``host_id``: The unique identifier of the Docker container.
-- ``parent_id``: The unique identifier of the parent of the Docker container (may be given as the parent host's tag, i.e. evergreen-assigned ID).
-- ``image``: The image used for the Docker container. 
-- ``command``: The command run on the Docker container.
+-  ``dns_name``: The FQDN of the EC2 instance (if IPv6 instance, this will not be populated). 
+-  ``ip_address``: the IP address of the EC2 instance (currently implemented for IPv6).
+
+EC2 Only:
+
+-  ``instance_id``: The unique identifier of the EC2 instance. 
+
+Docker Only:
+
+- ``host_id``: The unique identifier of the container.
+- ``parent_id``: The unique identifier of the parent of the container (may be given as the parent host's tag, i.e. evergreen-assigned ID).
+- ``image``: The image used for the container. 
+- ``command``: The command run on the container.
+- ``port_bindings``: The map of docker ports (formatted ``<port>/<protocol>``) to ports on the container host. Only available if ``publish_ports`` was set for ``host.create``.
 
 .. code:: json
 
@@ -475,11 +484,20 @@ following keys:
            "instance_id": "i-106d6766961312a14"
        }
        {
+           "dns_name": "ec2-55-123-99-55.compute-1.amazonaws.com",
            "host_id": "container-7919139205343971456",
            "parent_id": "evg-archlinux-parent-20190513171239-2182711601109995555",
            "image": "hello-world",
-           "command": "/hello"
-     }
+           "command": "/hello",
+           "port_bindings": {
+               "4444/tcp": [
+                  "32769"
+               ],
+               "5900/tcp": [
+                  "32768"
+               ]
+            }
+       }
    ] 
 
 json.send
