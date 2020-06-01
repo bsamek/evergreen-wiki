@@ -49,10 +49,6 @@ For projects using other code review tools, changes can be uploaded to Evergreen
 Enqueue the branch checked out in Git on the project's commit queue to be merged into the project's tracked branch.
 
 #### Options
-* `--message [message], -m [message]`
-
-Set the commit message for the merge commit pushed to GitHub. Default is the name the commit on the branch.
-
 * `--pause`
 
 Upload the changes, but don't begin to test the changes. Used in conjunction with `evergreen commit-queue set-module` when the changes include corresponding changes to a module.
@@ -163,8 +159,4 @@ It depends: it works for PR mode, but not CLI mode.
 
 > What will the commit message be with the squash merge strategy?
 
-For PR mode, the commit message is the title of the PR with the PR number appended to the end. In CLI mode the message is specified with the `--message` option, or the commit message name by default.
-
-> What if GitHub is not associated my commits with my GitHub account?
-
-Ensure 'firstname.lastname@mongodb.com' is in your list of email addresses in your GitHub settings (https://github.com/settings/emails).
+For PR mode, the commit message is the title of the PR with the PR number appended to the end. In CLI mode the messages are copied from the commits in your local repo.
