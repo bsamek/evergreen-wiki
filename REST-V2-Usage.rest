@@ -1254,10 +1254,13 @@ Objects
      - Description
    * - vars
      - map[string]string
-     - Map of the variable to its value (if private, value is redacted)
+     - Map of the variable to its value (if private, value is not shown)
    * - private_vars
      - map[string]bool
-     - Indicates whether that variable should be private. (NOTE: once a variable has been set to private this cannot be undone)
+     - Indicates whether that variable should be private, i.e. the value will not be shown (NOTE: once a variable has been set to private this cannot be undone)
+   * - restricted_vars
+     - map[string]bool
+     - Indicates whether that variable should be restricted, i.e only used by commands that are guaranteed to not leak the values (currently s3.put and s3.get)
    * - vars_to_delete
      - []string
      - Only used to remove existing variables.
