@@ -110,6 +110,38 @@ For security reasons, commits by users outside of your organization will
 not automatically be run. A patch will still be created and must be
 manually authorized to run by a logged-in user.
 
+Trigger Versions From Git Tags
+''''''''''''''''''''''''''
+
+**This requires enabling Github webhooks!** 
+
+This allows for versions to be created from pushed git tags. 
+
+- The tag must be pushed after the commit has been merged to ensure that the waterfall version has already been created for the revision.
+- Versions are displayed on the waterfall page. 
+- The author of the version matches the author from the original waterfall version.
+- The version is titled "Triggered From Git Tag '<git tag>': <commit message for this revision>"
+- The expansion ``${triggered_by_git_tag}`` is set to the git tag that was pushed.
+
+**Configure what users are authorized to trigger versions from git tags for this project.** 
+
+Note that these should be Github users or bot names. If the person who pushed the tag is not listed for this project, then the tag will still be added to the existing version but no new version will be triggered.
+
+**Add aliases to determine what tasks will run.** 
+
+For each git tag, you may only define either the new file to use to define tasks/variants, or define task/variant regexes or tags.
+
+If you choose to define tasks/variants for your existing project config, you may set ``git_tag_only`` to true to ensure that certain tasks only run on git-tag-triggered versions.
+
+
+- If the git tag that is pushed matches no git tag regexes, then no version will be created.
+- If the tag matches only one alias, then it will either use the file or use the task/variants defined.
+- If the git tag that is pushed matches multiple git tag regexes, then:
+
+  - If one or more have a file defined, then this is ambiguous and no version will be created.
+  - If all have variant/tasks configured, the union of these will determine what variants/tasks are created.
+
+
 Inter-project Dependencies
 ''''''''''''''''''''''''''
 
