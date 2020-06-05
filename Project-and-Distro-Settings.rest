@@ -1,4 +1,4 @@
-.. contents:: `Project and distro settings`
+.. contents::
    :depth: 3
    :local:
 
