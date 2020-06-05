@@ -309,6 +309,16 @@ host.create
        provider: ec2
        distro: rhel70-small
 
+Parse From A File: 
+-  ``file`` - The name of a file containing all the parameters. 
+
+.. code:: yaml
+
+   - command: host.create
+     params:
+       file: src/host_params.yml 
+
+
 Agent Parameters:
 
 -  ``num_hosts`` - Number of hosts to start, 1 <= ``num_hosts`` <= 10. Defaults to 1 (must be 1 if provider is Docker). 
