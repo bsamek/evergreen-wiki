@@ -267,10 +267,14 @@ By default, a command failing during the ``pre`` step will not cause the entire 
    pre:
      - ...
 
-Commit-Only and Patch-Only Tasks
+Commit-Only, Patch-Only, and Git-Tag-Only Tasks
 """"""""""""""""""""""""""""""""
 
-To cause a task to only run in commit builds, set ``patchable: false``. To cause a task to only run in patches, set ``patch_only: true``.
+To cause a task to only run in commit builds, set ``patchable: false``.
+
+To cause a task to only run in patches, set ``patch_only: true``.
+
+To cause a task to only run in versions triggered from git tags, set ``git_tag_only: true``.
 
 Expansions
 """"""""""
@@ -347,6 +351,7 @@ Every task has some expansions available by default:
    this PR appears
 -  ``${github_repo}`` is the GitHub repo in which the PR appears
 -  ``${github_author}`` is the GitHub username of the creator of the PR
+-  ``${triggered_by_git_tag}`` is the name of the tag that triggered this version, if applicable
 -  ``${is_commit_queue}`` is the string "true" if this is a CLI commit queue task
 -  ``${commit_message}`` is the commit message if this is a CLI commit queue task
 
