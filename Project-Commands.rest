@@ -310,6 +310,7 @@ host.create
        distro: rhel70-small
 
 Parse From A File: 
+
 -  ``file`` - The name of a file containing all the parameters. 
 
 .. code:: yaml
