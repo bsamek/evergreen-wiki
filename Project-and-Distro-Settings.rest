@@ -120,6 +120,7 @@ This allows for versions to be created from pushed git tags if Github webhooks a
 - The author of the version matches the author from the original waterfall version.
 - The version is titled "Triggered From Git Tag '<git tag>': <commit message for this revision>"
 - The expansion ``${triggered_by_git_tag}`` is set to the git tag that was pushed.
+- If the revision exists for multiple projects, it will check if a version should be created for each project.
 
 1. **Configure what users are authorized to trigger versions from git tags for this project.** 
 
@@ -135,7 +136,6 @@ For each git tag, you may define either the new file to use to define tasks/vari
 
   - If one or more have a file defined, then this is ambiguous and no version will be created.
   - If all have variant/tasks configured, the union of these will determine what variants/tasks are created.
-
 
 Inter-project Dependencies
 ''''''''''''''''''''''''''
