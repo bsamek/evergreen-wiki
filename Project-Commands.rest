@@ -693,7 +693,7 @@ Parameters:
 shell.exec
 ^^^^^^^^^^
 
-This command runs a shell script.
+This command runs a shell script. The environment variable "CI" will be set to "true" in scripts originating from this command.
 
 .. code:: yaml
 
@@ -739,7 +739,7 @@ Parameters:
  
 - ``binary``: a binary to run 
 - ``args``: a list of arguments to the binary 
-- ``env``: a map of environment variables and their values 
+- ``env``: a map of environment variables and their values. Unless overridden, the environment variable "CI" will be set to "true"
 - ``command``: a command string (cannot use with ``binary`` or ``args``) 
 - ``background``: if true, immediately return to caller 
 - ``silent``: do not log output of command 
