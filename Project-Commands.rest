@@ -353,17 +353,18 @@ EC2 Parameters:
 Docker Parameters: 
 
 - ``background`` - Set to wait for logs in the background, rather than blocking. Default is true. 
-- ``publish_ports`` - Set to make ports available by mapping container ports to ports on the Docker host. Default is false.
 - ``container_wait_timeout_secs`` - Time to wait for the container to finish running the given command. Must be <= 3600 (1 hour). Default to 600 (10 minutes). 
 - ``command`` - The command to run on the container. Does not not support shell interpolation. If not specified, will use the default entrypoint. 
 - ``distro`` - Required. The distro's container pool is used to find/create parents for the container.
 - ``image`` - Required. The image to use for the container. If image is a URL, then the image is imported, otherwise it is pulled. 
 - ``poll_frequency_secs`` - Check for running container and logs at this interval. Must be <= 60 (1 second). Default to 30.
-- ``registry_name`` - Optional. The registry from which to pull/import the image. Defaults to Dockerhub.
-- ``registry_username`` - Optional. Username for the ``registry_name`` if it requires authentication. Must set if ``registry_password`` is set.
-- ``registry_password`` - Optional. Password for the ``registry_name`` if it requires authentication. Must set if ``registry_username`` is set. 
-- ``stdout_file_name`` - Optional. The file path to write stdout logs from the container. Default is <container_id>.out.log.
-- ``stderr_file_name`` - Optional. The file path to write stderr logs from the container. Default is <container_id>.err.log.
+- ``publish_ports`` - Set to make ports available by mapping container ports to ports on the Docker host. Default is false.
+- ``extra_hosts`` - Optional. This is a list of hosts to be added to /etc/hosts on the container (each should be of the form hostname:IP).
+- ``registry_name`` - The registry from which to pull/import the image. Defaults to Dockerhub.
+- ``registry_username`` - Username for the ``registry_name`` if it requires authentication. Must set if ``registry_password`` is set.
+- ``registry_password`` - Password for the ``registry_name`` if it requires authentication. Must set if ``registry_username`` is set. 
+- ``stdout_file_name`` - The file path to write stdout logs from the container. Default is <container_id>.out.log.
+- ``stderr_file_name`` - The file path to write stderr logs from the container. Default is <container_id>.err.log.
 
 Required IAM Policies for ``host.create``
 -----------------------------------------
