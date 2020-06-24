@@ -1328,7 +1328,7 @@ Fetch all Projects
 
  GET /projects
 
-Returns a paginated list of all projects. Note aliases, variables, and subscriptions may not be populated.
+Returns a paginated list of all projects. Any authenticated user can access this endpoint, so sensitive information such as variables are omitted.
 
 .. list-table:: **Parameters**
    :widths: 25 10 55
