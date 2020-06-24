@@ -324,8 +324,8 @@ Default Expansions
 
 Every task has some expansions available by default:
 
--  ``${is_patch}`` is “true” if the running task is a patch build, "" if
-   it is not
+-  ``${is_patch}`` is “true” if the running task is in a patch build and
+   undefined if it is not.
 -  ``${author}`` is the patch author’s username for patch tasks or the
    git commit author for git tasks
 -  ``${task_id}`` is the task’s unique id
