@@ -442,6 +442,8 @@ function that probes for SSH connectivity:
          - func: ssh-ready
          - func: other-tasks
 
+The mcipacker.pem key file was created by echoing the value of the ${__project_aws_ssh_key_value} expansion into the file. This expansion is set when the host is spawned.
+
 host.list
 ^^^^^^^^^
 
