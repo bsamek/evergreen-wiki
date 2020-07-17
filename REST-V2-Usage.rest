@@ -1073,6 +1073,8 @@ Fetches a list of builds associated with a version
 
 Returns a list of `Builds <https://github.com/evergreen-ci/evergreen/wiki/REST-V2-Usage#build>`_.
 
+Create a New Version
+`````````````````````````
 ::
 
  PUT /versions
@@ -1101,6 +1103,8 @@ Creates a version and optionally runs it, conceptually similar to a patch. The m
    * - config
      - string (yml)
      - Required. This is the yml config that will be used for defining tasks, variants, and functions. 
+
+Returns the version object that was created
 
 Project
 -------
