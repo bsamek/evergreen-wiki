@@ -1073,6 +1073,35 @@ Fetches a list of builds associated with a version
 
 Returns a list of `Builds <https://github.com/evergreen-ci/evergreen/wiki/REST-V2-Usage#build>`_.
 
+::
+
+ PUT /versions
+
+Creates a version and optionally runs it, conceptually similar to a patch. The main difference is that the config yml file is provided in the request, rather than retrieved from the repo.
+
+.. list-table:: **Parameters**
+   :widths: 25 10 55
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Description
+   * - project_id
+     - string
+     - Required. This is the project with which the version will be associated, and the code to test will be checked out from the project's branch.
+   * - message
+     - string
+     - Optional. A description of the version which will be displayed in the UI
+   * - activate
+     - boolean
+     - Optional. If true, the defined tasks will run immediately. Otherwise, the version will be created and can be activated in the UI
+   * - is_adhoc
+     - boolean
+     - Optional. If true, the version will be indicated as coming from an ad hoc source and will not display as if it were a patch or commit. If false, it will be assumed to be a commit.
+   * - config
+     - string (yml)
+     - Required. This is the yml config that will be used for defining tasks, variants, and functions. 
+
 Project
 -------
 
