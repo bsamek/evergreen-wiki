@@ -956,7 +956,7 @@ Parameters:
 -  ``teardown_group``: commands to run after running this task group 
 -  ``setup_task``: commands to run prior to running each task
 -  ``teardown_task``: commands to run after running each task 
--  ``max_hosts``: number of hosts across which to distribute the tasks in this group. This defaults to 1. Values less than 1 or greater than 10 should be a validation error. There will be a validation warning if maxhosts is greater than 50% the number of tasks. 
+-  ``max_hosts``: number of hosts across which to distribute the tasks in this group. This defaults to 1. Values less than 1 or greater than 10 should be a validation error. There will be a validation warning if maxhosts is greater than the number of tasks. 
 -  ``timeout``: timeout handler which will be called instead of the top-level timeout handler. If it is not present, the top-level timeout handler will run if a top-level timeout handler exists. 
 -  ``setup_group_can_fail_task``: if true, task will fail if setup group fails. Defaults to false.
 - ``setup_group_timeout_secs``: override default timeout for setup group. (This only fails task if ``setup_group_can_fail_task`` is also set.)
