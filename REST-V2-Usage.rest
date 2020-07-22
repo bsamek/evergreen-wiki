@@ -2533,7 +2533,7 @@ Offboard User
 
  POST /users/<user_id>/offboard_user
 
-Deletes running volumes and hosts for the user. This will only return an error if there is a problem deleting a host/volume that is _unexpirable_. Otherwise this returns the IDs of the hosts/volumes that are successfully terminated. The format of the response is:
+Deletes running volumes and hosts for the user. This will only return an error if there is a problem deleting a host/volume that is *unexpirable*. Otherwise this returns the IDs of the hosts/volumes that are successfully terminated. The format of the response is:
 The format of the body is:
 ::
 
