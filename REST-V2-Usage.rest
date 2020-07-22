@@ -2429,11 +2429,18 @@ Returns a static list of project and distro permissions that can be granted to u
 Users
 --------------
 
+Endpoints
+~~~~~~~~~
+
+Give Permissions to User
+```````````````````
+
 ::
 
    POST /users/<user_id>/permissions
 
 Grants the user specified by user_id the permissions in the request body. Note that usage of this endpoint requires that the requesting user have security to modify roles. The format of the body is:
+
 ::
 
    {
@@ -2448,6 +2455,9 @@ Grants the user specified by user_id the permissions in the request body. Note t
 * resource_type - the type of resources for which permission is granted. Must be one of "project", "distro", or "superuser"
 * resources - an array of strings representing what resources the access is for. For a resource_type of project, this will be a list of projects. For a resource_type of distro, this will be a list of distros.
 * permissions - an object whose keys are the permission keys returned by the /permissions endpoint above, and whose values are the levels of access to grant for that permission (also returned by the /permissions endpoint)
+
+Get User Permissions
+```````````````````
 
 ::
 
@@ -2482,6 +2492,9 @@ Retrieves all permissions for the user. The format of the response is:
 * type - the type of resources for which the listed permissions apply. Will be "project", "distro", or "superuser"
 * permissions - an object whose keys are the resources for which the user has permissions. Note that these objects will often have many keys, since logged-in users have basic permissions to every project and distro. The values in the keys are objects representing the permissions that the user has for that resource, identical to the format of the permissions field in the POST /users/<user_id>/permissions API.
 
+Delete User Permissions
+```````````````````
+
 ::
 
    DELETE /users/<user_id>/permissions
@@ -2494,6 +2507,9 @@ Deletes all permissions of a given type for a user by deleting their roles of th
    }
 
 * resource_type - the type of resources for which to delete permissions. Must be one of "project", "distro", "superuser", or "all". "all" will revoke all permissions for the user
+
+Give Roles to User
+```````````````````
 
 ::
 
@@ -2508,3 +2524,32 @@ Adds the specified roles to the specified user. Attempting to add a duplicate ro
    }
 * roles - the list of roles to add for the user
 * create_user - if true, will also create a shell user document for the user. By default, specifying a user that does not exist will error
+
+::
+
+Offboard User
+```````````````````
+::
+
+ POST /users/<user_id>/offboard_user
+
+Deletes running volumes and hosts for the user. This will only return an error if there is a problem deleting a host/volume that is _unexpirable_. Otherwise this returns the IDs of the hosts/volumes that are successfully terminated. The format of the response is:
+The format of the body is:
+::
+
+   {
+     "terminated_hosts": [ "i-12345", "i-abcd" ],
+     "terminated_volumes": ["volume-1"],
+   }
+
+
+.. list-table:: **Parameters**
+   :widths: 25 10 55
+   :header-rows: 1
+
+   * - Name        
+     - Type           
+     - Description
+   * - dry_run     
+     - bool
+     - If set to true, route returns the IDs of the hosts/volumes that will be terminated.
