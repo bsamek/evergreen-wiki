@@ -1495,7 +1495,7 @@ Checks a specified project alias in a specified project against an Evergreen con
      - Required. The ID of the version (commit or patch) from which to retrieve the configuration as well as the project ID
    * - alias
      - string
-     - Required. The name of the alias to test against the configuration
+     - Required. The name of the alias to test against the configuration. The special aliases __commit_queue, __github, and __git_tag can be used here
    * - include_deps
      - boolean
      - Optional. If true, will also select the tasks that are dependencies of the selected tasks, even if they do not match the alias definition. Defaults to false.
