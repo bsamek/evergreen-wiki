@@ -1189,6 +1189,9 @@ Objects
    * - aliases
      - []APIProjectAlias
      - a list of aliases for the project
+   * - tags
+     - []string
+     - a list of tags for the project
    * - variables
      - ProjectVars
      - project variables information
@@ -1395,6 +1398,7 @@ Modify A Project
 
 Modify an existing project (restricted to project admins). 
 If enabling the project, will attempt to enable webhooks, and enable PR testing and the commit queue if specified.
+For lists, if there is a complementary "delete" field,  then the former field indicates items to be added, while the "delete" field indicates items to be deleted. Otherwise, the given list will overwrite the original list.
 
 Copy a Project
 `````````````
