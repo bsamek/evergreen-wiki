@@ -141,6 +141,12 @@ expansions.update
        ignore_missing_file: true
        file: src/ec2_artifacts.yml
 
+   - command: expansions.update
+     params:
+       updates:
+       - key: artifact_url
+         value: http://s3/static-artifacts.tgz
+
 Parameters:
  
 -  ``updates``: key-value pairs for updating the task’s parameters 
