@@ -741,7 +741,7 @@ Parameters:
 subprocess.exec
 ^^^^^^^^^^^^^^^
 
-The subprocess.exec command runs a shell command.
+The subprocess.exec command runs a binary. On *nix, you can also run a `#!` script as if it were a binary.
 
 .. code:: yaml
 
