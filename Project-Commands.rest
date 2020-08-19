@@ -741,7 +741,7 @@ Parameters:
 subprocess.exec
 ^^^^^^^^^^^^^^^
 
-The subprocess.exec command runs a binary. On *nix, you can also run a `#!` script as if it were a binary.
+The subprocess.exec command executes a binary file. On a Unix-like OS, you can also run a `#!` script as if it were a binary. To get similar behavior on Windows, try `bash.exe -c yourScript.sh`.
 
 .. code:: yaml
 
