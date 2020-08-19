@@ -294,3 +294,15 @@ api:
 ```
 
 The "url" keys in each list item should contain the appropriate URL to the binary for each architecture. The "latest_revision" key should contain the githash that was used to build the binary. It should match the output of `evergreen version` for *all* the binaries at the URLs listed in order for auto-updates to be successful.
+
+### Notifications
+
+The Evergreen CLI has the ability to send slack and email notifications for scripting. These use Evergreen's account, so be cautious about rate limits or being marked as a spammer.
+
+```
+# Send a Slack message
+evergreen notify slack --target <#channel or @user> --msg <message>
+
+# Send an email
+evergreen notify --from <sender> --recipients <to> --subject <subject> --body <body>
+```
