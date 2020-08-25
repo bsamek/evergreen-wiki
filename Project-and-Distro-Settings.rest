@@ -200,6 +200,25 @@ these is to add a notification subscription on the project settings
 page. In the notification popup, select "when any version finishes" with
 Build Initiator = Periodic Build.
 
+Task Sync
+'''''''''
+
+Enabling this feature allows users to push and pull their task working
+directory to and from a remote store (S3). This can be done either using the
+`s3.push
+<https://github.com/evergreen-ci/evergreen/wiki/Project-Commands#s3-push>`_
+or `s3.pull
+<https://github.com/evergreen-ci/evergreen/wiki/Project-Commands#s3pull>`_
+project commands, or using it from `the CLI
+<https://github.com/evergreen-ci/evergreen/wiki/Using-the-Command-Line-Tool#task-sync>`_.
+
+Options:
+
+- Enable for Project Config Commands: Users can use task sync commands
+  in their Evergreen project config.
+
+- Enable for Tasks in Patches: Users can use task sync in their patches.
+
 Distro Settings
 ^^^^^^^^^^^^^^^
 
