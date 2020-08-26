@@ -802,6 +802,26 @@ Fetch Patch By Id
 
 Fetch a single patch using its ID
 
+Get Patch Diff
+``````````````
+
+::
+
+ GET /patches/<patch_id>/raw
+
+Fetch the raw diff for a patch
+
+.. list-table:: **Parameters**
+   :widths: 25 10 55
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Description
+   * - module
+     - string
+     - Optional. a module to get the diff for
+
 Abort a Patch
 `````````````
 
