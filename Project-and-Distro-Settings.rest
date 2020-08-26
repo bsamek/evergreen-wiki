@@ -71,8 +71,10 @@ Admins can set a project as private or public. A private project can
 only be seen by logged in users. A public project is viewable to those
 who are not logged in as well. To set a Project Administrator edit the
 Admin list (which can only be viewable by Superusers or Project Admins
-for the project) for the probject by adding the Evergreen username to
+for the project) for the project by adding the Evergreen username to
 the list and saving the project settings.
+
+Not pictured, the "Restricted Project" checkbox controls whether logged-in users have basic access to the project (able to view tasks and logs, able to submit patches). If checked, users will by default not have any access, and access must be manually granted through the REST API 
 
 [[images/admins.png]]
 
