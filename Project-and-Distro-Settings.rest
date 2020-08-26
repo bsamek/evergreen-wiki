@@ -74,7 +74,7 @@ Admin list (which can only be viewable by Superusers or Project Admins
 for the project) for the project by adding the Evergreen username to
 the list and saving the project settings.
 
-Not pictured, the "Restricted Project" checkbox controls whether logged-in users have basic access to the project (able to view tasks and logs, able to submit patches). If checked, users will by default not have any access, and access must be manually granted through the REST API 
+Not pictured, the "Restricted Project" checkbox controls whether logged-in users have basic access to the project (able to view tasks and logs, able to submit patches). If checked, users will by default not have any access, and access must be manually granted through the REST API/an external system. The default for this setting is to allow logged-in users to access this project.
 
 [[images/admins.png]]
 
