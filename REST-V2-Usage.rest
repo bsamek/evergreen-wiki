@@ -820,7 +820,7 @@ Fetch the raw diff for a patch
      - Description
    * - module
      - string
-     - Optional. a module to get the diff for
+     - Optional. A module to get the diff for. Returns the empty string when no patch exists for the module.
 
 Abort a Patch
 `````````````
