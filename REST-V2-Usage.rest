@@ -831,6 +831,45 @@ Abort a Patch
 
 Aborts a single patch using its ID and returns the patch
 
+Configure/Schedule a Patch
+```````````````
+
+::
+
+ POST /patches/<patch_id>/configure
+
+Update the list of tasks that the specified patch will run. This works both for initially specifying a patch's tasks, as well as for adding additional tasks to an already-scheduled patch.
+
+The request body should be in the following format:
+::
+ {
+   "description": "this is my patch",
+   "variants": [
+     {
+        "id": "variant-1",
+        "tasks": ["task1", task2"]
+     },
+     {
+        "id": "variant-2",
+        "tasks": ["task2", task3"]
+     }
+   ]
+ }
+
+.. list-table::
+   :widths: 25 10 55
+   :header-rows: 1
+
+   * - Name        
+     - Type           
+     - Description
+   * - description    
+     - string   
+     - Optional, if sent will update the patch's description
+   * - variants
+     - array of variant objects
+     - Required, these are the variants and tasks that the patch should run. Each variant object is of the format { "variant": "<variant name>", "tasks": ["task name"]. This field is analogous in syntax and usage to the "buildvariants" field in the project's evergreen.yml file. Names of display tasks can be specified in the tasks array and will work as one would expect. For an already-scheduled patch, any new tasks in this array will be created, and any existing tasks not in this array will be unscheduled.
+
 Restart a Patch
 ```````````````
 
