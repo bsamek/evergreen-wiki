@@ -1528,6 +1528,31 @@ Returns a paginated list of recent versions for a project
      - int
      - Optional. The number of versions to be returned per page of pagination. Defaults to 10
 
+
+Get Current Parameters For a Project
+`````````````````````````````````
+
+::
+
+ GET /projects/<project_id>/parameters
+
+
+Returns a list of parameters for the project.
+
+.. list-table:: **Parameter**
+   :widths: 25 10 55
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Description
+   * - key
+     - string
+     - The name of the parameter.
+   * - value
+     - string
+     - The default value of the parameter.
+
 Put A Project
 ``````````````````
 
