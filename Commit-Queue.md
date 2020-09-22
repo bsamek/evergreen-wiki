@@ -157,6 +157,11 @@ Check your position in the queue with the CLI. Evergreen checks the head of each
 
 It depends: it works for PR mode, but not CLI mode.
 
-> What will the commit message be with the squash merge strategy?
+> What will the commit message be?
 
-For PR mode, the commit message is the title of the PR with the PR number appended to the end. In CLI mode the messages are copied from the commits in your local repo.
+In PR mode it depends on the merge strategy: 
+ * squash: the commit message is the title of the PR with the PR number appended to the end.
+ * merge: the existing commit messages are preserved and the merge commit's message is the title of the PR with the PR number appended to the end.
+ * rebase: the existing commit messages are preserved.
+
+In CLI mode the commits are recreated from the commits in your local repo and will retain their messages.
