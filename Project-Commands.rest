@@ -633,7 +633,7 @@ Parameters:
 -  ``aws_secret``: your AWS secret (use expansions to keep this a secret) 
 -  ``local_file``: the local file to post
 -  ``remote_file``: the S3 path to post the file to
--  ``bucket``: the S3 bucket to use. Note: buckets created after Sept. 30, 2020 containing dots (".") will not attach the correct S3 URL to the task.
+-  ``bucket``: the S3 bucket to use. Note: buckets created after Sept. 30, 2020 containing dots (".") are not supported.
 - ``permissions``: the permissions string to upload with 
 - ``content_type``: the MIME type of the file 
 -  ``optional``: boolean to indicate if failure to find or upload this file will result in a task failure. Not compatible with local_files_include_filter. 
@@ -748,7 +748,7 @@ Parameters:
  
 - ``aws_key``: your AWS key (use expansions to keep this a secret) 
 - ``aws_secret``: your AWS secret (use expansions to keep this a secret) 
-- ``s3_copy_files``: a map of ``source`` (``bucket`` and ``path``), ``destination``, ``build_variants`` (a list of strings), ``display_name``, and ``optional`` (suppresses errors). Note: Note: destination buckets created after Sept. 30, 2020 containing dots (".") will not attach the correct S3 URL to the task.
+- ``s3_copy_files``: a map of ``source`` (``bucket`` and ``path``), ``destination``, ``build_variants`` (a list of strings), ``display_name``, and ``optional`` (suppresses errors). Note: destination buckets created after Sept. 30, 2020 containing dots (".") are not supported.
 
 shell.exec
 ^^^^^^^^^^
