@@ -130,7 +130,9 @@ Note that these should be Github users or bot names. If the person who pushed th
 
 2. **Add aliases to determine what tasks will run.** 
 
-For each git tag, you may define either the new file to use to define tasks/variants, or task/variant regexes or tags(if you choose to use the project's existing project config file, you can set ``git_tag_only`` to true for tasks you only want running on git-tag-triggered versions).
+For each git tag, you may define either a new file to use (i.e. to keep git-tag tasks and variants entirely separate from the main project config), or define task/variant regexes or tags to use with the existing project configuration.
+
+If you choose to use the project's existing project config file, you can set ``git_tag_only`` to true for tasks you only want running on git-tag-triggered versions, or ``allow_for_git_tags`` to false for tasks you don't want to run on git-tag-triggered versions).
 
 - If the git tag that is pushed matches no git tag regexes, then no version will be created.
 - If the tag matches only one alias, then it will either use the file or use the task/variants defined.
