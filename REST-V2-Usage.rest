@@ -271,6 +271,7 @@ Fetch a single task using its ID
      - any
      - Optional. Fetches previous executions of the task if they are available
 
+
 Restart A Task
 ``````````````
 
@@ -416,6 +417,76 @@ Fetches a paginated list of tests that ran as part of the given task
    * - task_name
      - string
      - Optional. Only return tasks with the corresponding name.
+
+Manifest
+----
+
+A manifest is a representation of the modules associated with a version.
+
+Objects
+~~~~~~~
+
+.. list-table:: **Manifest**
+   :widths: 25 10 55
+   :header-rows: 1
+
+   * - Name        
+     - Type           
+     - Description
+   * - _id     
+     - string  
+     - Identifier for the version.
+   * - revision
+     - string
+     - The revision of the version.
+   * - project
+     - string
+     - The project identifier for the version.
+   * - branch
+     - string
+     - The branch of the repository.
+   * - modules
+     - map[string]*Module
+     - Map from the Github repository name to the module's information.
+   * - is_base
+     - bool
+     - True if the version is a mainline build.
+
+.. list-table:: **Module**
+   :widths: 25 10 55
+   :header-rows: 1
+
+   * - Name        
+     - Type           
+     - Description
+   * - repo
+     - string
+     - The name of the repository.
+   * - branch
+     - string
+     - The branch of the repository.
+   * - revision
+     - string
+     - The revision of the head of the branch.
+   * - owner 
+     - string
+     - The owner of the repository.
+   * - url
+     - string
+     - The url to the GitHub API call to that specific commit.
+
+Endpoints
+~~~~~~~~~
+
+Get Manifest for Task
+`````````````````````
+
+::
+
+ GET /tasks/<task_id>/manifest
+
+Fetch the manifest for a task using the task ID.
+
 
 Host
 ----
