@@ -144,6 +144,7 @@ and what expansions it uses.
      - name: timeout_test
    - name: ubuntu
      display_name: Ubuntu
+     batchtime: 60
      run_on:
      - ubuntu1404-test
      expansions:
@@ -153,6 +154,7 @@ and what expansions it uses.
      - name: passing_test
      - name: failing_test
      - name: timeout_test
+       cron: @daily
 
 Fields:
 
@@ -160,8 +162,8 @@ Fields:
 * ``display_name``: how the variant is displayed in the Evergreen UI
 * ``run_on``: a list of acceptable distros to run tasks for that variant on. The first distro in the list is the primary distro. The others are secondary distros. Each distro has a primary queue, a queue of all tasks that have specified it as their primary distro; and a secondary queue, a queue of tasks that have specified it as a secondary distro. If the primary queue is not empty, the distro will process that queue and ignore the secondary queue. If the primary queue is empty, the distro will process the secondary queue. If both queues are empty, idle hosts will eventually be terminated.
 * ``expansions``: a set of key-value expansion pairs
-* ``tasks``: a list of tasks to run, using ``name``. This can also include batchtime/cron (defined below), which will overwrite all other defaults.
-* ``batchtime``: interval of time in minutes that Evergreen should wait before activating this variant. The default is set on the project settings page. NOTE that this is not yet supported for generated tasks/variants.
+* ``tasks``: a list of tasks to run, using ``name``. This can also include batchtime/cron (defined below), which will overwrite all other defaults (NOTE that this is not yet supported for generated tasks.)
+* ``batchtime``: interval of time in minutes that Evergreen should wait before activating this variant. The default is set on the project settings page. 
 * ``cron``: define with cron syntax (i.e. Min | Hour | DayOfMonth | Month | DayOfWeekOptional) when a variant should be activated (Cannot be combined with batchtime). This also accepts descriptors such as ``@daily`` (reference `cron <https://godoc.org/github.com/robfig/cron>`_ for more examples), but `does not accept intervals.` (i.e. ``@every <duration>``). 
 
 Additionally, an item in the ``tasks`` list can be of the form
