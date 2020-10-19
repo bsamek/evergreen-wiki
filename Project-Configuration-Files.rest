@@ -924,6 +924,29 @@ sequentially on hosts, bypassing the “pre” and “post” tasks in the
 evergreen.yaml. Tasks in a group will be displayed as separate tasks.
 Users can use display tasks if they wish to group the task group tasks.
 
+Task Dependencies
+"""""""""""""""""
+A task can be made to depend on other tasks by adding the depended on tasks to the task's depends_on field.
+The following additional parameters are available:
+
+- ``status`` - string (default: "success"). One of ["success", "failed", or "*"]. "*" includes any finished status as well as when the task is blocked.
+- ``patch_optional`` - boolean (default: false). If true the dependency will only exist when the depended on task is present in the version at the time the dependent task is created. The depended on task will not be automatically pulled in to the version.
+
+So, for example:
+
+.. code:: yaml
+
+   - name: my_dependent_task
+     depends_on:
+       - name: "must_succeed_first"
+         variant: "bv0"
+       - name: "must_run_or_block_first"
+         variant: "bv0"
+         status: "*"
+       - name: "must_succeed_first_if_present"
+         variant: "bv0"
+         patch_optional: true
+
 Ignoring Changes to Certain Files
 """""""""""""""""""""""""""""""""
 
