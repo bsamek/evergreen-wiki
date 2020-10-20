@@ -583,6 +583,30 @@ it exists.
 
    - command: manifest.load
 
+perf.send
+^^^^^^^^^^^^^^
+
+This command sends performance test data, as either JSON or YAML, to Cedar. Note that if the tests do not contain artifacts, the AWS information is not necessary.
+
+.. code:: yaml
+
+   - command: perf.send
+     params:
+       aws_key: ${aws_key}
+       aws_secret: ${aws_secret}
+       bucket: mciuploads
+       prefix: perf_reports
+       file: cedar_report.json
+
+Parameters:
+
+-  ``file``: the JSON or YAML file containing the test results, see https://github.com/evergeen-ci/poplar for more info.
+-  ``aws_key``: your AWS key (use expansions to keep this a secret) 
+-  ``aws_secret``: your AWS secret (use expansions to keep this a secret) 
+-  ``region``: AWS region of the bucket, defaults to us-east-1.
+-  ``bucket``: the S3 bucket to use.
+-  ``prefix``: prefix, if any, within the s3 bucket.
+
 s3.get
 ^^^^^^
 
