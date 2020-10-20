@@ -393,7 +393,7 @@ Get Tests From A Task
 
  GET /tasks/<task_id>/tests
 
-Fetches a paginated list of tests that ran as part of the given task 
+Fetches a paginated list of tests that ran as part of the given task. For a single test result, add ?test_name=<test_file> 
 
 .. list-table:: **Parameters**
    :widths: 25 10 55
