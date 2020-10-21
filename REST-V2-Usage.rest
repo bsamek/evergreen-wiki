@@ -393,7 +393,7 @@ Get Tests From A Task
 
  GET /tasks/<task_id>/tests
 
-Fetches a paginated list of tests that ran as part of the given task. For a single test result, add ?test_name=<test_file> 
+Fetches a paginated list of tests that ran as part of the given task. To filter the tasks, add the following parameters into the query string (reference `Pagination <https://github.com/evergreen-ci/evergreen/wiki/REST-V2-Usage#pagination>`_ to see this format).
 
 .. list-table:: **Parameters**
    :widths: 25 10 55
@@ -407,16 +407,16 @@ Fetches a paginated list of tests that ran as part of the given task. For a sing
      - Optional. The identifier of the test to start at in the pagination
    * - limit       
      - int   
-     - Optional. The number of tets to be returned per page of pagination. Defaults to 100
+     - Optional. The number of tests to be returned per page of pagination. Defaults to 100
    * - status       
      - string   
      - Optional. A status of test to limit the results to.
    * - execution
      - int
      - Optional. The 0-based number corresponding to the execution of the task. Defaults to 0, meaning the first time the task was run.
-   * - task_name
+   * - test_name
      - string
-     - Optional. Only return tasks with the corresponding name.
+     - Optional. Only return the test matching the name.
 
 Manifest
 ----
