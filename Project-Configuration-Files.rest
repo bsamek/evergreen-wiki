@@ -881,12 +881,12 @@ of hosts on which to run this task_group.
          - command: shell.exec
            params:
            script: |
-             "echo setup_group"
+             "echo setup_task"
        teardown_task:
          - command: shell.exec
            params:
            script: |
-             "echo setup_group"
+             "echo teardown_task"
        tasks:
          - example_task_1
          - example_task_2
