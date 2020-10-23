@@ -124,9 +124,11 @@ This allows for versions to be created from pushed git tags if Github webhooks a
 - The expansion ``${triggered_by_git_tag}`` is set to the git tag that was pushed.
 - If the revision exists for multiple projects, it will check if a version should be created for each project.
 
-1. **Configure what users are authorized to trigger versions with git tags for the project.** 
+1. **Configure what users/teams are authorized to trigger versions with git tags for the project.** 
 
-Note that these should be Github users or bot names. If the person who pushed the tag is not listed for this project, then the tag will still be added to the existing version but no new version will be triggered.
+For users, these should be Github users or bot names. For teams, this should be the slug for the team (for example, the team Evergreen Users would be evergreen-users), and any member in the team is authorized. Both teams and individual users can be configured. 
+
+If the person who pushed the tag is not authorized, then the tag will still be added to the existing version but no new version will be triggered.
 
 2. **Add aliases to determine what tasks will run.** 
 
