@@ -134,7 +134,7 @@ In order to tell Evergreen how to handle tests, you'll need to add a command at 
         files:
           - "gopath/src/github.com/evergreen-ci/evergreen/bin/output.*"
 
-If you specify one of these commands and there are no results to attach, the command will no-op by default. If you'd like the task to instead fail in this scenario, you can specify must_have_test_results: true in your task
+If you specify one of these commands and there are no results to attach, the command will no-op by default. If you'd like the task to instead fail in this scenario, you can specify ``must_have_test_results: true`` in your task
 
 Build Variants
 """"""""""""""
