@@ -121,6 +121,21 @@ Notice that the function reference can define a set of ``vars`` which
 are treated as expansions within the configuration of the commands in
 the function.
 
+Tests
+""""""""""""""
+As you've read above, a task is a single unit of work in Evergreen. A task may contain any number of logical tests. A test has a name, status, time taken, and associated logs, and each test displays in a table in the Evergreen UI. If your task runs tests, note that Evergreen does not automatically parse the results of the tests to display in the UI - you have to do a bit more configuration to tell it how to parse/attach the results.
+
+In order to tell Evergreen how to handle tests, you'll need to add a command at the end of your task which attaches test results. The Project Commands section of this wiki has a list of the commands available, each supporting a different format, with specific ones to accommodate common formats. For example, if your task runs some golang tests, adding the following command at the end of your task will parse and attach those test results:
+
+.. code:: yaml
+    - command: gotest.parse_files
+      type: system
+      params:
+        files:
+          - "gopath/src/github.com/evergreen-ci/evergreen/bin/output.*"
+
+If you specify one of these commands and there are no results to attach, the command will no-op by default. If you'd like the task to instead fail in this scenario, you can specify must_have_test_results: true in your task
+
 Build Variants
 """"""""""""""
 
