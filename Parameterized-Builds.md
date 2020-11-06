@@ -72,7 +72,7 @@ If using rest routes to view your patch, parameters will now be included in this
 ## Q&A
 
 
-If parameters override a private/restricted project variable, are they still private?*
+If parameters override a private/restricted project variable, are they still private?
 
 * Because parameters are defined in the project configuration or by the user, **parameters are not private**. This means that if a parameter is overriding a private or restricted project variable, this parameter value will not be private/restricted.
 
