@@ -140,6 +140,25 @@ delete from the queue of PROJECT
 delete the ITEM specified. 
 Item is the PR number in PR mode and patch ID in CLI mode
 
+# Backport
+Trivial backports can be automated with the commit queue. Create a backport patch to test the changes on the target branch, choosing the tasks necessary to validate the changes on the target branch. When the backport patch passes the changes are automatically added to the target branch's commit queue.
+
+## Creating a backport patch
+`evergreen commit-queue backport`
+
+### Options
+* `--backport-project, -b`
+
+Select the project corresponding to the target branch to backport onto.
+
+* `--alias, -a`, `--variants, -v`, `--tasks, -t`
+
+Specify the tasks to run in the backport patch.
+
+* `--commit-sha, -s`, `--existing-patch, -e` (mutually exclusive)
+
+Specify changes to backport. `--commit-sha` specifies a single commit to cherry-pick on top of the target project's tracked branch. `--existing-patch` is the id of an existing commit queue patch in another project to pull changes from.
+
 # FAQ
 > Can I restart a failed task in a commit queue test?
 
