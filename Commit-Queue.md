@@ -163,10 +163,6 @@ Specify the tasks to run in the backport patch.
 Specify changes to backport. `--commit-sha` specifies a single commit to cherry-pick on top of the target project's tracked branch. `--existing-patch` is the id of an existing commit queue patch in another project to pull changes from.
 
 # FAQ
-> Can I restart a failed task in a commit queue test?
-
-Please don't. Instead, add the item to the queue again.
-
 > The merge test for a PR failed.  How do I resubmit?
 
 Fix the PR and type another triggering comment.
