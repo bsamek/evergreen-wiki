@@ -36,11 +36,12 @@ By default patches will include only committed changes, not changes in Git's wor
 
 Defaults
 ---
-The first time you run a patch, you'll be asked if you want to set the given parameters as your default project and variants.
+The first time you run a patch, you'll be asked if you want to set the given inputs such as tasks or variants as the default for that project.
 After setting defaults, you can omit the flags and the default values will be used, so that just running `evergreen patch` will work.
 
 Defaults may be changed at any time by editing your `~/.evergreen.yml` file.
 
+Additionally, the default project for a directory is also tracked by the first successful patch or commit queue merge you perform in that directory. Symlinks are resolved to their absolute path. The defaults are maintained in the `~/.evergreen.yml` file, and the automatic defaulting can be disabled by setting disable_auto_defaulting to true.
 
 Advanced Patch Tips
 --
