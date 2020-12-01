@@ -156,6 +156,9 @@ Objects
      - [Task]
      - Optional. Contains previous executions of the task if they were
        requested, and available. May be empty.
+   * - ``parent_task_id``
+     - string
+     - Optional. The ID of the task's parent display task, if one exists
 
 
 .. list-table:: **Logs**
@@ -224,8 +227,11 @@ List all tasks within a specific build.
      - int
      - Optional. The number of tasks to be returned per page of pagination. Defaults to 100
    * - fetch_all_executions
-     - any
+     - boolean
      - Optional. Fetches previous executions of tasks if they are available
+   * - fetch_parent_ids
+     - boolean
+     - Optional. Fetches the parent display task ID for each returned execution task
 
 List Tasks By Project And Commit
 ````````````````````````````````
