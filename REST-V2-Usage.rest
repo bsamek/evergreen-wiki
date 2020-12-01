@@ -158,7 +158,7 @@ Objects
        requested, and available. May be empty.
    * - ``parent_task_id``
      - string
-     - Optional. The ID of the task's parent display task, if one exists
+     - Optional. The ID of the task's parent display task, if requested and available
 
 
 .. list-table:: **Logs**
