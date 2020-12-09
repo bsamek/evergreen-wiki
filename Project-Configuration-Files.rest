@@ -964,6 +964,20 @@ So, for example:
          variant: "bv0"
          patch_optional: true
 
+You can specify NOT with `!` and ALL with `*`. Multiple arguments are supported as a space-separated list. For example,
+
+.. code:: yaml
+
+  - name: push
+    depends_on:
+    - name: test
+      variant: "* !E"
+
+  - name: push
+    depends_on:
+    - name: test
+      variant: "A B C D"
+
 Ignoring Changes to Certain Files
 """""""""""""""""""""""""""""""""
 
