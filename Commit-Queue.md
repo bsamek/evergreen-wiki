@@ -42,7 +42,7 @@ Add other PRs for repos defined as modules in the project's configuration file w
 The module can only be set when initially adding the main PR to the commit queue since the test is immediately finalized.
 
 ### Commit Title and Message
-By default, the title of the pull request will be the title of the commit, and the commit message is empty. At the end of the `evergreen merge` comment, you can override this by passing `--title "This is my commit title" --message "This is the commit message"`. These flags have the -t and -m abbreviation, respectively.
+The title of the pull request will be the title of the commit. By default, the commit message will be whatever Github defaults as the commit message, which can be seen if you click the merge button in a PR (this is usually the titles of all commits concatenated, or blank if there is only 1 commit). The commit message can be overridden by typing text below your "evergreen merge" comment. Any text after a newline in the merge comment will be used as the commit message. 
 
 ## CLI
 For projects using other code review tools, changes can be uploaded to Evergreen using the `evergreen commit-queue` subcommands in the Evergreen CLI. 
