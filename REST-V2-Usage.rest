@@ -1786,6 +1786,24 @@ Returns a paginated list of recent versions for a project
      - Optional. The number of versions to be returned per page of pagination. Defaults to 10
 
 
+.. list-table:: **Response**
+   :widths: 25 10 55
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Description
+   * - rows
+     - object
+     - TODO
+   * - versions
+     - Array of Versions
+     - TODO
+   * - build_variants
+     - Array of strings
+     - TODO
+
+
 Get Current Parameters For a Project
 `````````````````````````````````
 
