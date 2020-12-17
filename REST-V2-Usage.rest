@@ -1795,13 +1795,13 @@ Returns a paginated list of recent versions for a project
      - Description
    * - rows
      - object
-     - TODO
+     - The keys of this object are build variant identifiers. The values are BuildList objects from below. These are the builds contained in the recent versions, but grouped by build variant rather than version.
    * - versions
      - Array of Versions
-     - TODO
+     - This array contains the recent versions for the requested project, in reverse chronological order.
    * - build_variants
      - Array of strings
-     - TODO
+     - The deduplicated display names for all the build variants in the rows parameter
 
 Objects
 ~~~~~~~
