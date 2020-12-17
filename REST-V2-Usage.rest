@@ -1803,6 +1803,23 @@ Returns a paginated list of recent versions for a project
      - Array of strings
      - TODO
 
+Objects
+~~~~~~~
+
+.. list-table:: **BuildList**
+   :widths: 25 10 55
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Description
+   * - ``build_variant``
+     - string
+     - the identifier of each of the build variant objects below (all are the same variant)
+   * - ``builds``
+     - object
+     - The keys of this object are build IDs. The values are the full build objects: https://github.com/evergreen-ci/evergreen/wiki/REST-V2-Usage#id12
+
 
 Get Current Parameters For a Project
 `````````````````````````````````
