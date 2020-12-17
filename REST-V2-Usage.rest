@@ -1797,7 +1797,7 @@ Returns a paginated list of recent versions for a project
      - object
      - The keys of this object are build variant identifiers. The values are BuildList objects from below. These are the builds contained in the recent versions, but grouped by build variant rather than version.
    * - versions
-     - Array of Versions
+     - Array of APIVersions objects
      - This array contains the recent versions for the requested project, in reverse chronological order.
    * - build_variants
      - Array of strings
@@ -1819,6 +1819,20 @@ Objects
    * - ``builds``
      - object
      - The keys of this object are build IDs. The values are the full build objects: https://github.com/evergreen-ci/evergreen/wiki/REST-V2-Usage#id12
+
+.. list-table:: **APIVersions**
+   :widths: 25 10 55
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Description
+   * - ``rolled_up``
+     - boolean
+     - if true, these are inactive versions
+   * - ``versions``
+     - Array of Version objects
+     - If rolled_up is true, this will contain multiple version objects, none of which ran any tasks. Otherwise, this will contain a single version object, of which at least 1 task ran
 
 
 Get Current Parameters For a Project
