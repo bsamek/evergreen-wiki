@@ -1487,9 +1487,6 @@ Objects
    * - repo_name
      - string
      - Repository name
-   * - repo_kind
-     - string
-     - Type of repo
    * - tracked
      - bool
      - Whether the project is discoverable in the UI
@@ -1505,9 +1502,6 @@ Objects
    * - aliases
      - []APIProjectAlias
      - a list of aliases for the project
-   * - tags
-     - []string
-     - a list of tags for the project
    * - variables
      - ProjectVars
      - project variables information
@@ -1894,41 +1888,6 @@ Checks a specified project alias in a specified project against an Evergreen con
      - boolean
      - Optional. If true, will also select the tasks that are dependencies of the selected tasks, even if they do not match the alias definition. Defaults to false.
 
-
-
-Project Tags
-------------
-
-Endpoints
-~~~~~~~~~
-
-Fetch all Projects for a Tag
-``````````````````
-
-::
-
- GET /projects/tag/<tag>
-
-Delete a Tag 
-``````````````````
-
-::
-
- DELETE /projects/<project_id>/tag/<tag>
-
-Check if a Tag exists
-``````````````````
-
-::
-
- GET /projects/<project_id>/tag/<tag>
-
-Add a Tag to a Project
-``````````````````
-
-::
-
- POST /projects/<project_id>/tag/<tag>
 
 
 Distro
