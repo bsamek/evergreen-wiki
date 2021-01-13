@@ -77,7 +77,7 @@ If parameters override a private/restricted project variable, are they still pri
 
 Can parameters be changed after a patch is finalized?
 
-* No, parameters are **not configurable** after the patch is finalized (i.e. after Schedule Patch is pressed, or `--finalize` is used when creating the patch from the CLI.
+* No, parameters are **not configurable** after the patch is finalized (i.e. after Schedule Patch is pressed, or `--finalize` is used when creating the patch from the CLI).
 
 There's another feature I'd like for parameters that doesn't exist. What should I do?
 
