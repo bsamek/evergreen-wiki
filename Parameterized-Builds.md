@@ -66,7 +66,7 @@ Parameters can also be retrieved with rest route [/projects/<project_id>/paramet
 
 ### Get Parameters for a Specific Patch
 
-If using rest routes to view your patch, parameters will now be included in this document. This will only include **user-defined** parameters, i.e. parameters defined in the project configuration will not be displayed (even if parameter defaults have been modified in the project YAML for this patch). 
+If using rest routes to view your patch, parameters will now be included in this document. This will only include **user-defined** parameters, i.e. parameters defined in the project configuration will not be displayed (even if parameter defaults have been modified in the project YAML for this patch). User-defined variables can also be seen from the patch page, and in the Reconfigure Tasks/Variants Parameters tab (although they will not be modifiable once the patch is scheduled).
 
 ## Q&A
 
@@ -78,8 +78,6 @@ If parameters override a private/restricted project variable, are they still pri
 Can parameters be changed after a patch is finalized?
 
 * No, parameters are **not configurable** after the patch is finalized (i.e. after Schedule Patch is pressed, or `--finalize` is used when creating the patch from the CLI.
-
-* Because parameters can't yet be added from the UI, this means parameters are currently also finalized after the patch is created (regardless of `--finalize` usage).
 
 There's another feature I'd like for parameters that doesn't exist. What should I do?
 
