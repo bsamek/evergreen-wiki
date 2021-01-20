@@ -927,6 +927,7 @@ Parameters:
 -  ``timeout``: timeout handler which will be called instead of the top-level timeout handler. If it is not present, the top-level timeout handler will run if a top-level timeout handler exists. 
 -  ``setup_group_can_fail_task``: if true, task will fail if setup group fails. Defaults to false.
 - ``setup_group_timeout_secs``: override default timeout for setup group. (This only fails task if ``setup_group_can_fail_task`` is also set.)
+- ``share_processes``: by default, processes and Docker state changes (e.g. containers, images, volumes) are cleaned up between each task's execution. If this is set to true, cleanup will be deferred until the task group is finished. Defaults to false.
 
 The following constraints apply: 
 
