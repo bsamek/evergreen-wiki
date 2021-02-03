@@ -374,6 +374,7 @@ Every task has some expansions available by default:
 -  ``${triggered_by_git_tag}`` is the name of the tag that triggered this version, if applicable
 -  ``${is_commit_queue}`` is the string "true" if this is a CLI commit queue task
 -  ``${commit_message}`` is the commit message if this is a CLI commit queue task
+-  ``${requester}`` is what triggered the task: patch, github_pr, github_tag, commit, trigger, commit_queue, or ad_hoc
 
 The following expansions are available if a task was triggered by an inter-project dependency:
 
