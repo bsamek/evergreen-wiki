@@ -797,6 +797,9 @@ Parameters:
  
 - ``script``: the script to run 
 - ``working_dir``: the directory to execute the shell script in 
+- ``env``: a map of environment variables and their values. Unless overridden, the environment variable "CI" will be set to "true" and "GOCACHE" will be set to a subdirectory within the working directory.
+- ``add_expansions_to_env``: when true, add all expansions to the shell's environment.
+- ``include_expansions_in_env``: specify one or more expansions to include in the environment. If you specify an expansion that does not exist, it is ignored.
 - ``background``: if set to true, does not wait for the script to exit before running the next commands 
 - ``silent``: if set to true, does not log any shell output during execution; useful to avoid leaking sensitive info 
 - ``continue_on_err``: if set to true, causes command to exit with success regardless of the script’s exit code 
@@ -828,7 +831,7 @@ Parameters:
  
 - ``binary``: a binary to run 
 - ``args``: a list of arguments to the binary 
-- ``env``: a map of environment variables and their values. Unless overridden, the environment variable "CI" will be set to "true"
+- ``env``: a map of environment variables and their values. Unless overridden, the environment variable "CI" will be set to "true" and "GOCACHE" will be set to a subdirectory within the working directory.
 - ``command``: a command string (cannot use with ``binary`` or ``args``), split on spaces for use as arguments--note that expansions will *not* be split on spaces; each expansion represents its own argument.
 - ``background``: if true, immediately return to caller 
 - ``silent``: do not log output of command 
