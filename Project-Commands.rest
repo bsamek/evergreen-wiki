@@ -531,6 +531,11 @@ Docker Only:
 - ``command``: The command run on the container.
 - ``port_bindings``: The map of docker ports (formatted ``<port>/<protocol>``) to ports on the container host. Only available if ``publish_ports`` was set for ``host.create``.
 
+If there's an error in host.create, these will be available from host.list in this form:
+
+- ``host_id``: The ID of the intent host we were trying to create (likely only useful for Evergreen team investigations)
+- ``error``: The error returned from host.create for this host
+
 .. code:: json
 
    [
