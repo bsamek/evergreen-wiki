@@ -206,7 +206,8 @@ Pre, Post, and Timeout
 """"""""""""""""""""""
 
 All projects can have a ``pre`` and ``post`` field which define a list
-of command to run at the start and end of every task. These are
+of command to run at the start and end of every task that isn't in a task group. 
+For task groups, setup_task and teardown_task will run instead. These are
 incredibly useful as a place for results commands or for cleanup and
 setup tasks.
 
@@ -921,10 +922,10 @@ of hosts on which to run this task_group.
 
 Parameters: 
 
--  ``setup_group``: commands to run prior to running this task group 
--  ``teardown_group``: commands to run after running this task group 
--  ``setup_task``: commands to run prior to running each task
--  ``teardown_task``: commands to run after running each task 
+-  ``setup_group``: commands to run prior to running this task group. Note that pre does not run for task group tasks.
+-  ``teardown_group``: commands to run after running this task group. Note that post does not run for task group tasks.
+-  ``setup_task``: commands to run prior to running each task. Note that pre does not run for task group tasks.
+-  ``teardown_task``: commands to run after running each task. Note that post does not run for task group tasks.
 -  ``max_hosts``: number of hosts across which to distribute the tasks in this group. This defaults to 1. Values less than 1 or greater than 10 should be a validation error. There will be a validation warning if maxhosts is greater than the number of tasks. 
 -  ``timeout``: timeout handler which will be called instead of the top-level timeout handler. If it is not present, the top-level timeout handler will run if a top-level timeout handler exists. 
 -  ``setup_group_can_fail_task``: if true, task will fail if setup group fails. Defaults to false.
@@ -940,8 +941,8 @@ The following constraints apply:
 -  Any task (including members of task groups), can depend on specific tasks within a task group using the existing dependency system.
 
 Tasks in the same task group on the same build variant will run
-sequentially on hosts, bypassing the “pre” and “post” tasks in the
-evergreen.yaml. Tasks in a group will be displayed as separate tasks.
+sequentially on hosts. They will not run pre or post, which are only run by tasks not in task groups. 
+Tasks in a group will be displayed as separate tasks.
 Users can use display tasks if they wish to group the task group tasks.
 
 Task Dependencies
