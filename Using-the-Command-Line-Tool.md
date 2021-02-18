@@ -30,6 +30,11 @@ And _every_ task or variant can be specified by using the "all" keyword:
 evergreen patch -v all -t all
 ```
 
+To use the same tasks and variants defined for the previous patch created for this project, you can use the `--reuse`` flag. If any tasks/variants were defined for the previous patch but do not exist for the new patch, they will not be added. Note also that aliases will not be re-calculated; this is so if an alias had been given to the previous patch but then the user chose to tweak the specific tasks/variants, the final configuration is the one that we reuse.
+```
+evergreen patch --reuse
+```
+
 Working Tree Changes
 ---
 By default patches will include only committed changes, not changes in Git's working tree or index. To include changes from the working tree use the `--uncommitted, -u` flag or set a default by inserting `patch_uncommitted_changes: true` in the `~/.evergreen.yml` file.
