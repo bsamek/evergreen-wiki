@@ -2911,7 +2911,7 @@ Offboard User
 
  POST /users/<user_id>/offboard_user
 
-Deletes running volumes and hosts for the user. This will only return an error if there is a problem deleting a host/volume that is *unexpirable*. Otherwise this returns the IDs of the hosts/volumes that are successfully terminated. NOTE that this route can take a long time, due to the nature of terminating, and might error with "Service is Unavailable" in the result of a timeout. It's recommended to check that the hosts/volumes were all successfully terminated by re-running with ``dry_run`` set to determine if all hosts were terminated.
+Deletes running volumes and hosts for the user, and removes the user as a project admin for any projects, if applicable. This will only return an error if there is a problem deleting a host/volume that is *unexpirable*. Otherwise this returns the IDs of the hosts/volumes that are successfully terminated. NOTE that this route can take a long time, due to the nature of terminating, and might error with "Service is Unavailable" in the result of a timeout. It's recommended to check that the hosts/volumes were all successfully terminated by re-running with ``dry_run`` set to determine if all hosts were terminated.
 
 The format of the response is:
 ::
