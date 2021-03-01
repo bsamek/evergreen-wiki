@@ -516,7 +516,7 @@ Send a Newly Created Ticket For a Task
 
  PUT /tasks/<task_id>/created_ticket 
 
-If a file ticket webhook is configured for a project, this endpoint should be used to let evergreen know when a ticket was filed for a task so that it can be stored and displayed to the user. The request body should include the ticket url and issue_key. Note that usage of this endpoint requires that the requesting user have security to modify task annotations. The user does not need to specify the source of the ticket, it will be added automatically. Example request body:  
+If a `file ticket webhook <https://github.com/evergreen-ci/evergreen/wiki/Webhooks#task-annotations-file-ticket-webhook>`_ is configured for a project, this endpoint should be used to let evergreen know when a ticket was filed for a task so that it can be stored and displayed to the user. The request body should include the ticket url and issue_key. Note that usage of this endpoint requires that the requesting user have security to modify task annotations. The user does not need to specify the source of the ticket, it will be added automatically. Example request body:  
 
 
 ::
