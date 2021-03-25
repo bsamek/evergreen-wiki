@@ -155,7 +155,7 @@ Inter-project Dependencies
 ''''''''''''''''''''''''''
 
 Users can specify that commits to another project (the "upstream" project) 
-will triggers builds in their project (the "downstream" project). Configure
+will trigger builds in their project (the "downstream" project). Configure
 triggers in the downstream project from the project configuration page. Click
 "NEW TRIGGER".
 
