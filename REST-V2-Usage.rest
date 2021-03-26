@@ -1779,7 +1779,7 @@ Get Versions For A Project
  GET /projects/<project_id>/versions
 
 
-Returns a paginated list of recent versions for a project. (This is not yet deployed.)
+Returns a paginated list of recent versions for a project.
 
 .. list-table:: **Parameters**
    :widths: 25 10 55
