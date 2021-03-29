@@ -12,7 +12,7 @@ You can pass environment variables to subprocess.exec if you'd like to pass expa
 
 ### Task Tags ###
 
-Use [task tags](https://github.com/evergreen-ci/evergreen/wiki/Project-Files#task-tags) to reduce repetition in your Evergreen configuration file.
+Use [task tags](https://github.com/evergreen-ci/evergreen/wiki/Project-Configuration-Files#task-tags) to reduce repetition in your Evergreen configuration file.
 
 ### Expansions ###
 
