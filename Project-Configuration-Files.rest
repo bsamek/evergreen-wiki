@@ -287,6 +287,18 @@ By default, a command failing during the ``pre`` step will not cause the entire 
    pre:
      - ...
 
+Early Host Termination
+""""""""""""""""""""""
+You can specify commands to be run in case that the host needs to be unexpectedly terminated. Currently, these commands are only called when AWS informs evergreen that a specific spot instance will be reclaimed. Commands specified here are not guaranteed to be run, and should complete well under 2 minutes.
+
+.. code:: yaml
+
+early_termination:
+- command: shell.exec
+  params:
+    script: "echo 'spot instance is being taken away'"
+
+
 Commit-Only, Patch-Only, and Git-Tag-Only Tasks
 """"""""""""""""""""""""""""""""
 
