@@ -293,10 +293,10 @@ You can specify commands to be run in case that the host needs to be unexpectedl
 
 .. code:: yaml
 
-early_termination:
-- command: shell.exec
-  params:
-    script: "echo 'spot instance is being taken away'"
+   early_termination:
+   - command: shell.exec
+     params:
+       script: "echo 'spot instance is being taken away'"
 
 
 Commit-Only, Patch-Only, and Git-Tag-Only Tasks
