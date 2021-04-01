@@ -281,12 +281,24 @@ The command `evergreen commit-queue` contains subcommands for interacting with t
 #### Buildlogger Fetch
 
 The command `evergreen buildlogger fetch` downloads logs from cedar buildlogger.
-To use it, specify the task id and execution from which you like to download logs. 
+To use it, specify the task id and execution from which you would like to download logs. 
+
+To download all logs of a task (including test logs):
 ```
 evergreen buildlogger fetch --task_id <task_id> --execution <execution>
 ```
-Additionally, you may specify `--test_name` to download a test log, rather than the task logs, from the given execution of the task id. Please note that test logs may not be in cedar buildlogger yet for some projects. Lastly, to isolate agent, task, or system logs when downloading task logs set `--proc_name` to `agent_log`, `task_log`, or `system_log`, respectively.
 
+To download task level logs:
+```
+evergreen buildlogger fetch --task_id <task_id> --execution <execution> --tags agent_log,task_log,system_log
+```
+You may request any combination of agent, task, or system logs by setting the corresponding names in `--tags`. They must be comma-separated if requesting more than one.
+
+To download test logs:
+```
+evergreen buildlogger fetch --task_id <task_id> --execution <execution> --test_name <test_name>
+```
+Please note that test logs may not be in cedar buildlogger yet for some projects.
 
 ### Server Side (for Evergreen admins)
 
