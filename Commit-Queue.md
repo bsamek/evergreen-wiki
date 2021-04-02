@@ -33,7 +33,7 @@ Add a PR to the commit queue by adding a comment on the PR: `evergreen merge`
 If successful, the PR will be merged with the PR title as the commit title. Any text after a newline in the "evergreen merge" comment will be added as the commit message.
 
 ### Feedback
-Evergreen sends a status to the PR when the changes are enqueued, when the merge test has begun, and when the merge test is complete. Once the merge test has begun, the status links to the version.
+Evergreen sends a status to the PR when the changes are enqueued, when the merge test has begun, and when the merge test is complete. Once the merge test has begun, the status links to the version. Note that because the commit queue merge is itself a Github check, you should omit the "evergreen/commitqueue" check from branch protection settings, if you require that checks pass before a PR can merge.
 
 [[images/github_status.png]]
 
