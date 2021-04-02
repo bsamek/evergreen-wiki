@@ -36,6 +36,7 @@ If successful, the PR will be merged with the PR title as the commit title. Any 
 Evergreen sends a status to the PR when the changes are enqueued, when the merge test has begun, and when the merge test is complete. Once the merge test has begun, the status links to the version. Note that because the commit queue merge is itself a Github check, you should omit the "evergreen/commitqueue" check from branch protection settings, if you require that checks pass before a PR can merge.
 
 [[images/github_status.png]]
+[[images/github_status_fail.png]]
 
 ### Set-Module
 Add other PRs for repos defined as modules in the project's configuration file with the `--module MODULE:PR` option to the `evergreen merge` comment, where MODULE is the name of a module defined in the evergreen.yml project configuration file and PR is the PR number in the module's repo. When the test passes all the PRs will be merged. The option can be repeated for multiple modules. For instance: 
