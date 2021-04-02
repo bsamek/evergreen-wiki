@@ -6,6 +6,7 @@ Gating every merge on a green build means every commit on the tracked branch had
 * Every commit on the mainline branch is potentially releasable/deployable.
 
 # Workflow
+The following is what logically happens, though Evergreen will parallelize tests for speed.
 1. Changes are ready to be introduced to the repo.
 
 [[images/repo_tree.png]]
@@ -14,11 +15,11 @@ Gating every merge on a green build means every commit on the tracked branch had
 
 [[images/queue.png]]
 
-3. When the changes come to the head of the queue a test merge commit is created and tests are run against the merge commit.
+3. When the changes come to the front of the queue, a set of tests are run on the changes.
  
 [[images/merge_test.png]]
 
-4. If the tests pass the merge commit is pushed to GitHub.
+4. If the tests pass, the merge commit is pushed to GitHub.
 
 # Modes of Operation
 The commit queue runs in two modes which are configured on a per project basis: PR or CLI.
