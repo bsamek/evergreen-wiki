@@ -22,13 +22,15 @@ The following is what logically happens, though Evergreen will parallelize tests
 4. If the tests pass, the merge commit is pushed to GitHub.
 
 # Modes of Operation
-The commit queue runs in two modes which are configured on a per project basis: PR or CLI.
+Changes can be added to the commit queue both from pull requests or the CLI.
 ## PR
 For projects that use GitHub pull requests for code review, the commit queue integrates with the PR workflow. When the PR is approved and ready to be merged, changes are added to the queue through the PR and commit queue feedback is provided in status checks on the PR.
 ### Trigger
 Add a PR to the commit queue by adding a comment on the PR: `evergreen merge` 
 
 [[images/comment.png]]
+
+If successful, the PR will be merged with the PR title as the commit title. Any text after a newline in the "evergreen merge" comment will be added as the commit message.
 
 ### Feedback
 Evergreen sends a status to the PR when the changes are enqueued, when the merge test has begun, and when the merge test is complete. Once the merge test has begun, the status links to the version.
