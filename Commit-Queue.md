@@ -67,7 +67,7 @@ Pass in either a single commit hash, or a range `<commit_hash1>..<commit_hash2>`
 
 * `--force` 
 
-Note that use of this flag is monitored. This flag forces the item to the front of the queue, to revert more quickly.
+This flag forces the item to the front of the queue. Use this sparingly and only for urgent scenarios, such as an urgent revert.
 
 ### Feedback
 The merge is performed by a "Commit Queue Merge" task added to the patch when the changes reach the head of the queue.
@@ -115,7 +115,6 @@ Project admins configure the commit queue through the [Projects page](https://ev
 * Enable and disabled the commit queue
 * Choose the [GitHub merge method](https://help.github.com/en/articles/about-merge-methods-on-github) (squash, merge, or rebase)
 * Add/remove patch definitions for tests to be run against PRs (tags or variant and task regexes)
-* Choose the commit queue mode (CLI or PR)
 
 # Queue Monitoring
 The Evergreen CLI exposes two subcommands under `evergreen commit-queue` to monitor the commit queue 
