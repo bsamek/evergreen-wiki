@@ -117,7 +117,8 @@ Project admins configure the commit queue through the [Projects page](https://ev
 * Add/remove patch definitions for tests to be run against PRs (tags or variant and task regexes)
 
 # Queue Monitoring
-The Evergreen CLI exposes two subcommands under `evergreen commit-queue` to monitor the commit queue 
+The commit queue for a specified project can be viewed in the [web UI](https://spruce.mongodb.com/commit-queue/mongodb-mongo-master)
+Additionally, the Evergreen CLI exposes two subcommands under `evergreen commit-queue` to monitor the commit queue 
 
 ## List
 `evergreen commit-queue list --project <project_id>`
@@ -141,7 +142,7 @@ delete from the queue of PROJECT
 * `--item ITEM, -i ITEM` 
 
 delete the ITEM specified. 
-Item is the PR number in PR mode and patch ID in CLI mode
+Item can be either the patch ID or PR number (if applicable)
 
 # Backport
 Trivial backports can be automated with the commit queue. Create a backport patch to test the changes on the target branch, choosing the tasks necessary to validate the changes on the target branch. When the backport patch passes the changes are automatically added to the target branch's commit queue.
@@ -165,7 +166,7 @@ Specify changes to backport. `--commit-sha` specifies a single commit to cherry-
 # FAQ
 > The merge test for a PR failed.  How do I resubmit?
 
-Fix the PR and type another triggering comment.
+Fix the PR and type another triggering comment. Do not restart the failing task.
 
 > The commit queue hasn't picked up my changes for a while.
 
@@ -173,13 +174,10 @@ Check your position in the queue with the CLI. Evergreen checks the head of each
 
 > My project's branch is protected and only signed commits can be merged. Can I use the commit queue?
 
-It depends: it works for PR mode, but not CLI mode.
+Yes, but only if you add to the commit queue from pull requests.
 
 > What will the commit message be?
 
-In PR mode it depends on the merge strategy: 
- * squash: the commit message is the title of the PR with the PR number appended to the end.
- * merge: the existing commit messages are preserved and the merge commit's message is the title of the PR with the PR number appended to the end.
- * rebase: the existing commit messages are preserved.
+For PRs, the commit message will be any text you type after the "evergreen merge" comment, separated by a newline. The commit title will always be the same as the PR title.
 
-In CLI mode the commits are recreated from the commits in your local repo and will retain their messages.
+If submitted by the CLI, the commits are recreated from the commits in your local repo and will retain their messages.
