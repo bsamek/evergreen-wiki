@@ -211,8 +211,8 @@ For task groups, setup_task and teardown_task will run instead. These are
 incredibly useful as a place for results commands or for cleanup and
 setup tasks.
 
-**NOTE:** failures in ``pre`` and ``post`` commands will be ignored, so
-only use commands you know will succeed.
+**NOTE:** failures in ``pre`` and ``post`` commands will be ignored by default,
+so only use commands you know will succeed. See ``pre_error_fails_task`` below.
 
 .. code:: yaml
 
