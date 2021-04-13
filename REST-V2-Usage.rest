@@ -2861,7 +2861,7 @@ Endpoints
 ~~~~~~~~~
 ::
 
- POST /notification/<type>
+ POST /notifications/<type>
 
 The type can be "email", "slack", "jira_issue", or "jira_comment".
 
