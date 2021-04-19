@@ -811,6 +811,7 @@ Parameters:
 - ``ignore_standard_out``: if true, discards output sent to stdout 
 - ``ignore_standard_error``: if true, discards output sent to stderr 
 - ``redirect_standard_error_to_output``: if true, sends stderr to stdout. Can be used to synchronize these 2 streams
+- ``exec_as_string``: if true, executes as "sh -c 'your script here'". By default, shell.exec runs sh then pipes your script to its stdin. Use this parameter if your script will be doing something that may change stdin, such as sshing
 
 subprocess.exec
 ^^^^^^^^^^^^^^^
