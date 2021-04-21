@@ -212,7 +212,7 @@ incredibly useful as a place for results commands or for cleanup and
 setup tasks.
 
 **NOTE:** failures in ``pre`` and ``post`` commands will be ignored by default,
-so only use commands you know will succeed. See ``pre_error_fails_task`` below. By default, commands in pre and post will time out after 15 minutes. You can override this behavior by setting ``callback_timeout_secs`` at the root level of the yaml config.
+so only use commands you know will succeed. See ``pre_error_fails_task`` below. By default, commands in pre and post will time out after 15 minutes. You can override this timeout by setting ``callback_timeout_secs`` at the root level of the yaml config.
 
 .. code:: yaml
 
