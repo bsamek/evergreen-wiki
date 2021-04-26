@@ -1805,10 +1805,13 @@ Returns a paginated list of recent versions for a project.
      - If set, will return some information for each build in the version.
    * - by_build_variant
      - string
-     - If set, will only include information for this build, and only return versions with this build activated.
+     - If set, will only include information for this build, and only return versions with this build activated. Must have ``include_builds`` set.
    * - include_tasks
      - bool
-     - If set, will return some information for each task in the included builds.
+     - If set, will return some information for each task in the included builds. This is only allowed if ``include_builds`` is set.
+   * - by_task
+     - string
+     - If set, will only include information for this task, and will only return versions with this task activated. Must have ``include_tasks`` set.
 
 
 .. list-table:: **Response**
