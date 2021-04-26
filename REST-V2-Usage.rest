@@ -1248,8 +1248,11 @@ Objects
      - string
      - The source of the patch, a commit or a patch
    * - status_counts
-     - object
+     - Object
      - Contains aggregated data about the statuses of tasks in this build. The keys of this object are statuses and the values are the number of tasks within this build in that status. Note that this field provides data that you can get yourself by querying tasks for this build.
+   * - task_cache
+     - Object
+     - Contains a subset of information about tasks for the build; this is not provided/accurate for most routes (`get versions for project <https://github.com/evergreen-ci/evergreen/wiki/REST-V2-Usage#get-versions-for-a-project>`_ is an exception).
 
 Endpoints
 ~~~~~~~~~
