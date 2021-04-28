@@ -401,6 +401,7 @@ The following expansions are available if a task was triggered by an inter-proje
 -  ``${trigger_repo_name}`` is Github repo name for the project that initiated this trigger
 -  ``${trigger_branch}`` is git branch for the project that initiated this trigger
 
+
 Task Tags
 """""""""
 
@@ -537,6 +538,17 @@ must be present in the ``tasks`` array.
          - name: lint
            execution_tasks:
            - ".lint"
+
+
+Stepback
+"""""""""
+
+Stepback is set to true if you want to stepback and test earlier commits in the case of a failing task. This can be set or unset at the top-level, and for individual tasks (in the task definition or for the task within a specific build variant).
+
+
+OOM Tracker
+"""""""""
+This is set to true at the top level if you'd like to enable the OOM Tracker for your project.
 
 Matrix Variant Definition
 """""""""""""""""""""""""
