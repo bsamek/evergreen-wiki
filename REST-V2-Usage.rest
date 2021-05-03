@@ -1716,7 +1716,7 @@ Get A Project
 
  GET /projects/<project_id>
 
-Returns the project (restricted to project admins). Includes variables, aliases, and subscriptions.
+Returns the project (restricted to project admins). Includes public variables, aliases, and subscriptions. NOTE that private variables are ALWAYS REDACTED. If you want to use this to copy project variables, see instead the "Copy Project Variables" route.
 
 Modify A Project
 ``````````````````
