@@ -1359,8 +1359,8 @@ Objects
      - string
      - Version created by one of "patch_request", "github_pull_request", "gitter_request" (caused by git commit), "trigger_request", "merge_test", "ad_hoc"
    * - ``activated``
-     - bool or null
-     - If a version has tasks that were activated. Will be null for versions created before this field was added
+     - boolean or null
+     -  Will be null for versions created before this field was added. 
 Endpoints
 ~~~~~~~~~
 
