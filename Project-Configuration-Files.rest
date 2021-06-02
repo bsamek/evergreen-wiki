@@ -49,6 +49,7 @@ For example, a couple of tasks might look like:
            directory: src
        - func: "compile and upload to s3"
    - name: passing_test
+     run_on: my_other_distro
      depends_on:
      - name: compile
      commands:
@@ -59,7 +60,8 @@ Notice that tasks contain:
 
 1. A name
 2. A set of dependencies on other tasks
-3. A list of commands and/or functions that tell Evergreen how to run it
+3. A distro or list of distros to run on (documented more under "Build Variants"). If run_on is set at the task level, it takes precedent over the default set for the buildvariant (unless run_on is explicitly defined for this task under a specific build variant). 
+4. A list of commands and/or functions that tell Evergreen how to run it
 
 Commands
 ^^^^^^^^
