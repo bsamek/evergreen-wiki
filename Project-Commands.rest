@@ -615,6 +615,20 @@ Parameters:
 -  ``bucket``: the S3 bucket to use.
 -  ``prefix``: prefix, if any, within the s3 bucket.
 
+downstream_expansions.set
+^^^^^^^^^^^^^^
+
+downstream_expansions.set is used by parent patches to pass key-value pairs to child patches. The command takes the key-value pairs written in the file and makes them available to the child patches. 
+
+.. code:: yaml
+
+   - command: downstream_expansions.set
+     params:
+       file: downstream_expansions.yaml
+Parameters:
+
+-  ``file``: filename to read the expansions from
+
 s3.get
 ^^^^^^
 
