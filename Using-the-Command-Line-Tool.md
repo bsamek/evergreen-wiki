@@ -251,6 +251,8 @@ The commands
 evergreen list --projects
 evergreen list --tasks -p <project_id>
 evergreen list --variants -p <project_id>
+evergreen list --patch-aliases -p <project_id>
+evergreen list --trigger-aliases -p <project_id>
 ```
 will all print lists to stdout.
 
