@@ -902,6 +902,9 @@ evaluated version of the project.
 
 Task Groups
 """""""""""
+Task groups pin groups of tasks to sets of hosts. When tasks run in a
+task group on a host, they run serially, and the task directory is not
+removed between tasks.
 
 Tasks in project configurations can be grouped within a task_group. A
 task_group contains arguments to set up and tear down both the entire
