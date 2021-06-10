@@ -1,3 +1,7 @@
+### Task Directory ##
+
+Evergreen creates a temporary task directory for each task. Commands by default execute in that directory. Evergreen will clean up that directory in between tasks unless explicit configured not to. Please don't write outside this directory, as Evergreen won't be able to delete the data your task has written.
+
 ### subprocess.exec ###
 
 In general, use [subprocess.exec](https://github.com/evergreen-ci/evergreen/wiki/Project-Commands#subprocess-exec) instead of shell.exec.
