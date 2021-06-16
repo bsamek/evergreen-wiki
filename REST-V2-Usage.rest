@@ -140,6 +140,9 @@ Objects
    * - ``status``                
      - string         
      - The current status of this task
+   * - ``display_status``
+     - string
+     - The status of this task that is displayed in the UI
    * - ``status_details``        
      - status_object  
      - Object containing additional information about the status
