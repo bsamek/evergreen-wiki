@@ -344,6 +344,8 @@ E.g. In a preceding shell.exec command, run
 Parameters:
  
 -  ``files``: a list of files (or blobs) to parse and upload
+-  ``optional_output``: boolean to indicate if having no files found will result in a task failure.
+
 
 host.create
 ^^^^^^^^^^^
