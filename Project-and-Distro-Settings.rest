@@ -136,7 +136,9 @@ This allows for versions to be created from pushed git tags if Github webhooks a
 
 1. **Configure what users/teams are authorized to trigger versions with git tags for the project.** 
 
-For users, these should be Github users or bot names. For teams, this should be the slug for the team (for example, the team Evergreen Users would be evergreen-users), and any member in the team is authorized. Both teams and individual users can be configured. 
+You can define this in a list on the project settings page. For users, these should be Github users or bot names. For teams, this should be the slug for the team (for example, the team Evergreen Users would be evergreen-users), and any member in the team is authorized. Both teams and individual users can be configured. 
+
+Alternatively, you can use Mana to give users permission to trigger git tag versions for the project; however the user will need to add their Github username to their `settings page <https://evergreen.mongodb.com/settings>`_ in order for us to connect the Github user to an Evergreen user.
 
 If the person who pushed the tag is not authorized, then the tag will still be added to the existing version but no new version will be triggered.
 
