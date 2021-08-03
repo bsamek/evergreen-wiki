@@ -454,6 +454,17 @@ Create or Update a New Task Annotation
 
 Creates a task annotation, or updates an existing task annotation, overwriting any existing fields that are included in the update. The annotation is created based on the annotation specified in the request body. Task execution must be provided for this endpoint, either in the request body or set as a url parameter.  If no task_execution is specified in the request body or in the url, a bad status error will be returned. Note that usage of this endpoint requires that the requesting user have security to modify task annotations. The user does not need to specify the source, it will be added automatically. Example request body:  
 
+.. list-table:: **Parameters**
+   :widths: 25 10 55
+   :header-rows: 1
+
+   * - Name        
+     - Type           
+     - Description
+   * - execution     
+     - int   
+     - Optional. Can be set in lieu of specifying task_execution in the request body.
+
 ::
 
    {
