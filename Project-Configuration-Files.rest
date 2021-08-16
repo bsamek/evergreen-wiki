@@ -215,7 +215,7 @@ incredibly useful as a place for results commands or for cleanup and
 setup tasks.
 
 **NOTE:** failures in ``pre`` and ``post`` commands will be ignored by default,
-so only use commands you know will succeed. See ``pre_error_fails_task`` below. By default, commands in pre and post will time out after 15 minutes. You can override this timeout by setting ``callback_timeout_secs`` at the root level of the yaml config.
+so only use commands you know will succeed. See ``pre_error_fails_task`` and ``post_error_fails_task`` below. By default, commands in pre and post will time out after 15 minutes. You can override this timeout by setting ``callback_timeout_secs`` at the root level of the yaml config.
 
 .. code:: yaml
 
@@ -281,7 +281,7 @@ Example:
            script: |
              sleep 1000
 
-By default, a command failing during the ``pre`` step will not cause the entire task to fail. If you want to enforce that failures during ``pre`` cause the task to fail, set the field ``pre_error_fails_task`` to true.
+By default, a command failing during the ``pre`` step will not cause the entire task to fail. If you want to enforce that failures during ``pre`` cause the task to fail, set the field ``pre_error_fails_task`` to true.  Likewise, setting the field ``post_error_fails_task`` to true will enforce that failures in ``post`` cause the task to fail.
 
 .. code:: yaml
 
