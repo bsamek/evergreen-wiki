@@ -361,6 +361,7 @@ Every task has some expansions available by default:
 
 -  ``${is_patch}`` is “true” if the running task is in a patch build and
    undefined if it is not.
+-  ``${is_stepback}`` is "true" if the running task was stepped back.
 -  ``${author}`` is the patch author’s username for patch tasks or the
    git commit author for git tasks
 -  ``${author_email}`` is the patch or the git commit authors email 
