@@ -2464,9 +2464,6 @@ Returns a paginated list of test stats associated with a specific project filter
    * - ``variants``
      - []string or comma separated strings
      - Optional. The build variants to include in the statistics.
-   * - ``distros``
-     - []string or comma separated strings
-     - Optional. The distros to include in the statistics.
    * - ``group_by``
      - string
      - Optional. How to group the results. Accepted values are ``test_task_variant``, ``test_task``, ``test``. By default the results are not grouped, i.e. are returned by combination of test + task + variant + distro.
