@@ -106,6 +106,13 @@ Options:
 
 [[images/vars.png]]
 
+Aliases 
+'''''''''
+
+Aliases can be used for patch testing, commit queue testing, Github PRs, github checks, git tag triggers, project triggers, and patch triggers.
+
+For most aliases, you must define a variant regex or tags, and a task regex or tags. The matching variants/tasks will be included for the alias. Tags should be listed as they are defined under the task definition (i.e. without the ".") and tag negation is also supported. Multiple tags should be comma-delimited. 
+
 GitHub Pull Request Testing
 ''''''''''''''''''''''''''
 
