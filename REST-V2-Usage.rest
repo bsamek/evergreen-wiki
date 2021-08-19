@@ -1800,7 +1800,7 @@ Get Versions For A Project
  GET /projects/<project_id>/versions
 
 
-Returns a paginated list of recent versions for a project.
+Returns a paginated list of recent versions for a project. Parameters should be passed into the JSON body (the route still accepts limit and start as query parameters to support legacy behavior).
 
 .. list-table:: **Parameters**
    :widths: 25 10 55
