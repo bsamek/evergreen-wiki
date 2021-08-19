@@ -1817,7 +1817,7 @@ Returns a paginated list of recent versions for a project.
      - Optional. The number of versions to be returned per page of pagination. Defaults to 10.
    * - start
      - int
-     - Optional. The revision order number to start after, for pagination.
+     - Optional. The version order number to start after, for pagination.
    * - requester
      - string
      - Returns versions for this requester only. Defaults to ``gitter_request``.
