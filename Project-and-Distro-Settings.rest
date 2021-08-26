@@ -129,7 +129,7 @@ manually authorized to run by a logged-in user.
 Trigger Versions With Git Tags
 ''''''''''''''''''''''''''
 
-This allows for versions to be created from pushed git tags if Github webhooks are enabled. 
+This allows for versions to be created from pushed git tags. 
 
 - The tag must be pushed after the commit has been merged to ensure that the waterfall version has already been created for the revision.
   
