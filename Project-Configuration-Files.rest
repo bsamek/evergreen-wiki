@@ -376,7 +376,7 @@ Every task has some expansions available by default:
 -  ``${workdir}`` is the task’s working directory
 -  ``${revision}`` is the git sha for the tested revision
 -  ``${project}`` is the project identifier the task belongs to 
-- ``${project_identifier}`` is the project identifier the task belongs to // we will be depreciating this, please use ``${project}``
+- ``${project_identifier}`` is the project identifier the task belongs to // we will be deprecating this, please use ``${project}``
 - ``${project_id}`` is the project ID the task belongs to (note that for later projects, this is the unique hash, whereas for earlier projects this is the same as ``${project}``. If you aren't sure which you are, you can check using this API route: ``https://evergreen.mongodb.com/rest/v2/<project_id>``)
 -  ``${branch_name}`` is the name of the branch being tested by the
    project
