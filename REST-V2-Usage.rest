@@ -2882,6 +2882,22 @@ Deletes all permissions of a given type for a user by deleting their roles of th
 
 * resource_type - the type of resources for which to delete permissions. Must be one of "project", "distro", "superuser", or "all". "all" will revoke all permissions for the user
 
+
+Get Users for Role
+```````````````````
+
+::
+
+   GET /roles/<role_id>/users
+
+Gets a list of users for the specified role. The format of the response is:
+::
+    {
+        "users": ["list", "of", "users"]
+    }
+::
+
+
 Give Roles to User
 ```````````````````
 
