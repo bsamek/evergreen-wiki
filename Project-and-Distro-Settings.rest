@@ -122,6 +122,12 @@ push to each pull request. In order for this to work, you must fill out
 at least 1 row in the section titled "GitHub Patch Definitions," as
 those define what tasks will be run in this patch.
 
+You can also automatically create a patch in a _different_ project for each pull 
+request opened in the repository as well as each subsequent push to each pull 
+request. To do that, add a trigger aliases to the "Github Trigger Alias" section.
+Before an alias can be added, it needs to be defined in the "Patch Trigger Aliases" 
+section. 
+
 For security reasons, commits by users outside of your organization will
 not automatically be run. A patch will still be created and must be
 manually authorized to run by a logged-in user.
@@ -198,6 +204,40 @@ Options:
 
 - Alias: Run a subset of tasks by specifying an alias. Otherwise, all
   tasks run.
+
+Inter-project Dependencies For Patch Builds. 
+''''''''''''''''''''''''''
+
+Users can create aliases that can be used in patch builds 
+(in the "upstream" project) to kick of a child patch (in 
+the "downstream" project). Create aliases in the upstream 
+project in the Patch Trigger Aliases section of the project 
+configuration page. Click "NEW ALIAS".
+
+Options:
+
+- Alias: The name of the alias.
+
+- Project: The downstream project.
+
+- Project: Optionally specify a module to apply changes to.
+
+- Wait on: You can have the child patch wait on a 
+  complete(success or failed), success, or failed status from
+  the parent. Otherwise the child patch will run immediately.
+
+- Patch alias, variant and task regexes:  Run a subset of tasks 
+  in the downstream project by specifying an alias or by specifying  
+  task and variant regexes. 
+
+Once the Patch alias is created, you can use it when creating a patch 
+build, either by appending  '--trigger-alias my_alias' to the evergreen 
+patch command when creating a patch via the CLI, or by selecting that alias 
+on the patch configure page on the new UI. The alias can also be added as a 
+Github Trigger Alias in the GitHub Pull Request Testing section to kick of a 
+child patch for each pull request opened in the repository as well as each 
+subsequent push to each pull request
+
 
 Periodic Builds
 '''''''''''''''
