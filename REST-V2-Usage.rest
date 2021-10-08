@@ -2873,7 +2873,7 @@ Get All User Permissions For Resource
 
    GET /users/permissions
 
-Retrieves all users with permissions for the resource, and their highest permissions, and returns this as a mapping. 
+Retrieves all users with permissions for the resource, and their highest permissions, and returns this as a mapping. This ignores basic permissions that are given to all users.
 
 The format of the body is:
 ::
