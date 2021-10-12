@@ -227,9 +227,10 @@ Merging Rules
 
 We will maintain the following merge rules:
 
-* Lists where order doesn’t matter can be defined across different yamls, but there cannot be duplicate keys within the merged lists (i.e. “naming conflicts”); this maintains our existing validation. Currently this includes tasks and task group names, parameter keys, module names, function names. Unordered lists that don’t need to consider naming conflicts include ignore and loggers.
-* Lists where order does matter cannot be defined for more than one yaml. Currently this includes pre, post, timeout, early termination.
-* Non-list values cannot be defined for more than one yaml. Currently this includes stepback, batchtime, pre error fails task, OOM tracker, display name, command type, and callback/exec timeout.
+* Lists where order doesn’t matter can be defined across different yamls, but there cannot be duplicate keys within the merged lists (i.e. “naming conflicts”); this maintains our existing validation. Examples: tasks and task group names, parameter keys, module names, function names. 
+* Unordered lists that don’t need to consider naming conflicts. Examples: ignore and loggers.
+* Lists where order does matter cannot be defined for more than one yaml. Examples: pre, post, timeout, early termination.
+* Non-list values cannot be defined for more than one yaml. Examples: stepback, batchtime, pre error fails task, OOM tracker, display name, command type, and callback/exec timeout.
 * It is illegal to define a build variant multiple times except to add additional tasks to it. That is, a build variant should only be defined once, but other files can include this build variant's definition in order to add more tasks to it. This is also how we merge generated variants.
 * Matrix definitions or axes cannot be defined for more than one yaml.
 
