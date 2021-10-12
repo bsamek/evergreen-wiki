@@ -163,9 +163,10 @@ Note: `set-module` must be run before finalizing the patch.
 ##### Validating changes to config files
 
 When editing yaml project files, you can verify that the file will work correctly after committing by checking it with the "validate" command.
+To validate local changes within modules, use the ``local_modules`` flag to list out module name and path pairs.
 
 ```
-evergreen validate <path-to-yaml-project-file>
+evergreen validate <path-to-yaml-project-file> -lm <module-name>=<path-to-yaml>
 ```
 
 The validation step will check for
@@ -174,6 +175,7 @@ The validation step will check for
    * logical errors, like duplicated variant or task names
    * invalid sets of parameters to commands
    * warning conditions such as referencing a distro pool that does not exist
+   * merging errors from include files
 
 Note: validation is server-side and requires a valid evergreen configuration file (by default located at ~/.evergreen.yml). If the configuration file exists but is not valid (malformed, references invalid hosts, invalid api key, etc.) the `evergreen validate` command [will exit with code 0, indicating success, even when the project file is invalid](https://jira.mongodb.org/browse/EVG-6417). The validation is likely not performed at all in this scenario. To check whether a project file is valid, verify that the process exited with code 0 and produced the output "<project file path> is valid".
 
