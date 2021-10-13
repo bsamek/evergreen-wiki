@@ -165,6 +165,8 @@ Note: `set-module` must be run before finalizing the patch.
 When editing yaml project files, you can verify that the file will work correctly after committing by checking it with the "validate" command.
 To validate local changes within modules, use the ``local_modules`` flag to list out module name and path pairs.
 
+Note: Must include a local path for includes that use a module.
+
 ```
 evergreen validate <path-to-yaml-project-file> -lm <module-name>=<path-to-yaml>
 ```
