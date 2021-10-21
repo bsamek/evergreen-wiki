@@ -240,6 +240,9 @@ Github Trigger Alias in the GitHub Pull Request Testing section to kick of a
 child patch for each pull request opened in the repository as well as each 
 subsequent push to each pull request.
 
+To pass information from the upstream patch to the downstream patch use 
+`downstream_expansions.set
+<https://github.com/evergreen-ci/evergreen/wiki/Project-Commands#downstream_expansionsset>`_
 
 Periodic Builds
 '''''''''''''''
