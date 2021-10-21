@@ -604,7 +604,9 @@ This is set to true at the top level if you'd like to enable the OOM Tracker for
 Matrix Variant Definition
 """""""""""""""""""""""""
 
-The matrix syntax is deprecated in favor of the `generate.tasks <https://github.com/evergreen-ci/evergreen/wiki/Project-Commands#generate-tasks>`_ command. It is typically incorrect to test a matrix, as a subset of the tasks is usually sufficient, e.g., all tasks one one variant, and a small subset of tasks on other variants. Evergreen is unlikely to do further development on matrix variant definitions. The documentation is here for completeness, but please do not add new matrix variant definitions.
+The matrix syntax is deprecated in favor of the `generate.tasks <https://github.com/evergreen-ci/evergreen/wiki/Project-Commands#generate-tasks>`_ command. **Evergreen is unlikely to do further development on matrix variant definitions.** The documentation is here for completeness, but please do not add new matrix variant definitions. It is typically incorrect to test a matrix, as a subset of the tasks is usually sufficient, e.g., all tasks one one variant, and a small subset of tasks on other variants. 
+
+
 
 Evergreen provides a format for defining a wide range of variants based
 on a combination of matrix axes. This is similar to configuration
