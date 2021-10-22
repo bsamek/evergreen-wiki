@@ -1899,9 +1899,9 @@ Restricted to superusers due to the fact it modifies ALL projects.
      - bool
      - If set to true, we don't complete the update
 
-If ``dry_run`` is set, the route doesn't update but returns a map of ``projectId`` to key that will be replaced.
+If ``dry_run`` is set, the route doesn't update but returns a map of ``projectId`` to a list of keys that will be replaced.
 
-if ``dry_run`` is not set, route returns a map of ``projectId`` to key that were replaced.
+if ``dry_run`` is not set, route returns a map of ``projectId`` to a list of keys that were replaced.
 
 Get Recent Versions For A Project (legacy)
 `````````````````````````````````
