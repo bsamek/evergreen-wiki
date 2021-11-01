@@ -422,7 +422,7 @@ Every task has some expansions available by default:
 -  ``${version_id}`` is the id of the task’s version
 -  ``${workdir}`` is the task’s working directory
 -  ``${revision}`` is the commit hash of the base commit of a patch
--  ``${github_commit}} is the commit hash of the commit that triggered the patch run
+-  ``${github_commit} is the commit hash of the commit that triggered the patch run
 -  ``${project}`` is the project identifier the task belongs to 
 - ``${project_identifier}`` is the project identifier the task belongs to // we will be deprecating this, please use ``${project}``
 - ``${project_id}`` is the project ID the task belongs to (note that for later projects, this is the unique hash, whereas for earlier projects this is the same as ``${project}``. If you aren't sure which you are, you can check using this API route: ``https://evergreen.mongodb.com/rest/v2/<project_id>``)
