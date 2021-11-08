@@ -228,6 +228,7 @@ Notes:
 - generate.tasks cannot be called from a dynamic variant. 
 - generate.tasks cannot redefine functions, tasks, or variants. generate.tasks may only append new functions, tasks, and variants. It is a validation error to modify an existing static or dynamic function, task, or variant, or to define one twice in the JSON document passed to the command. It is legal to specify a variant multiple times in order to add additional tasks to the variant, as long as no other variant metadata is changed. 
 -  The calls to generate.tasks may not in aggregate in a single version generate more than 100 variants or more than 1000 tasks.
+- Because generate.tasks retries on errors that aren't known to us, it may appear that your generate.tasks is hanging until timeout. There may be details of this in the task logs; please ask in #evergreen-users if you aren't sure what to do with a hanging generate.tasks.
 
 .. code:: yaml
 
