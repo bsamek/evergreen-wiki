@@ -592,7 +592,7 @@ There is no schema enforced for the file itself - it is simply parsed as JSON an
 keyval.inc
 ^^^^^^^^^^^^^^
 
-Do not use this command in your project. It exists to support legacy access to logkeeper and could be removed at any time.
+This command is deprecated. It exists to support legacy access to logkeeper and could be removed at any time.
 
 The keyval.inc command assigns a strictly monotonically increasing value into the destination parameter name. The value is only strictly monotonically increasing for the same key but will be strictly monotonically increasing across concurrent tasks running the command at the same time. From an implementation perspective, you can thinking of it as Evergreen running a {findAndModify, query: {key: key}, update: {$inc: {counter: 1}}} on its application database.
 
