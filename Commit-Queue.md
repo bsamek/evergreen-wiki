@@ -22,7 +22,7 @@ The following is what logically happens, though Evergreen will parallelize tests
 4. If the tests pass, the merge commit is pushed to GitHub.
 
 # Modes of Operation
-Changes can be added to the commit queue both from pull requests or the CLI.
+Changes can be added to the commit queue from pull requests, the CLI, or the UI.
 ## PR
 For projects that use GitHub pull requests for code review, the commit queue integrates with the PR workflow. When the PR is approved and ready to be merged, changes are added to the queue through the PR and commit queue feedback is provided in status checks on the PR.
 ### Trigger
@@ -100,6 +100,19 @@ Module name as defined in the project configuration file.
 3. Enqueue the changes on the commit queue
 
 `evergreen commit-queue merge --resume <id> ...`
+
+## UI
+
+You can enqueue a **successful** patch to the commit queue using the Add to Commit Queue button (assuming that you own the patch or are a project administrator).
+
+[[images/add_to_queue.png]]
+
+All commits in the patch will be squashed, unless the patch was created using `--preserve-commits`. In this case, the commits will be tested together but merged separately. The title of the testing patch will be "Commit Queue Merge: <commit 1> <- <commit 2>" and if merged successfully, each commit will be merged with the commit title (<commit 1> in the testing patch).
+
+[[images/enqueue_patch.png]]
+
+
+
 
 # Notifications
 Adjust your notifications on commit queue milestones on the [Notifications page](https://evergreen.mongodb.com/notifications).
