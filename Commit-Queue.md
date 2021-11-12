@@ -111,9 +111,6 @@ All commits in the patch will be squashed, unless the patch was created using `-
 
 [[images/enqueue_patch.png]]
 
-
-
-
 # Notifications
 Adjust your notifications on commit queue milestones on the [Notifications page](https://evergreen.mongodb.com/notifications).
 
