@@ -349,7 +349,7 @@ You can specify commands to be run in case that the host needs to be unexpectedl
        script: "echo 'spot instance is being taken away'"
 
 
-Commit-Only, Patch-Only, and Git-Tag-Only Tasks
+Limiting When a Task Will Run 
 """"""""""""""""""""""""""""""""
 
 To cause a task to only run in commit builds, set ``patchable: false``.
@@ -357,6 +357,8 @@ To cause a task to only run in commit builds, set ``patchable: false``.
 To cause a task to only run in patches, set ``patch_only: true``.
 
 To cause a task to only run in versions triggered from git tags, set ``git_tag_only: true``.
+
+To cause a task to not run at all, set ``disable: true``.
 
 Expansions
 """"""""""
