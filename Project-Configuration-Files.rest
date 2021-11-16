@@ -360,7 +360,7 @@ To cause a task to only run in versions triggered from git tags, set ``git_tag_o
 
 To cause a task to not run at all, set ``disable: true``.
 
-This behaves similarly to commenting out the task but will not trigger any validation errors.
+-  This behaves similarly to commenting out the task but will not trigger any validation errors.
 
 Expansions
 """"""""""
