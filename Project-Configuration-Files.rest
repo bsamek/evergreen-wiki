@@ -1027,6 +1027,7 @@ The following constraints apply:
 -  Some operations may not be permitted within the “teardown_group” phase, such as “attach.results” or “attach.artifacts”. 
 -  Tasks within a task group will be dispatched in order declared. 
 -  Any task (including members of task groups), can depend on specific tasks within a task group using the existing dependency system.
+-  ``Patchable``, ``PatchOnly``, ``Disable``, ``AllowForGitTag`` from project task will overwrite the taskgroup parameters. 
 
 Tasks in the same task group on the same build variant will run
 sequentially on hosts. They will not run pre or post, which are only run by tasks not in task groups. 
