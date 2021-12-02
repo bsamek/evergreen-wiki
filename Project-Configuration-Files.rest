@@ -1186,3 +1186,42 @@ Note that although you cannot conditionally make a command fail different colors
 you can hack this by having a command write to a file based on its exit status,
 and then subsequent commands with different types can exit non-zero conditionally 
 based on the contents of that file.
+
+Set Task Status within Task
+"""""""""""""""""""""""""""
+
+The following endpoint was created to give tasks the ability to define their task end status, rather than relying on hacky YAML tricks to use different failure types for the same command. This will not kill the current command, but will set the task status when the current command is complete (or when the task is complete, if ``should_continue`` is set).
+
+::
+
+ POST localhost:2285/task_status
+
+.. list-table:: **Parameters**
+   :widths: 25 10 55
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Description
+   * - status
+     - string
+     - Required. The overall task status. This can be "success" or "failed". If this is configured incorrectly, the task will system fail.
+   * - type
+     - string
+     - The failure type. This can be "setup", "system", or "test" (see above section for corresponding colors). Will default to the command's failure type.
+   * - desc
+     - string
+     - Provide details on the task failure. This is limited to 500 characters. Will default to the command's display name.
+   * - should_continue
+     - boolean
+     - Defaults to false. If set, will finish running the task before setting the status.
+
+Example in a command:
+
+.. code:: yaml
+
+  - command: shell.exec
+       params:
+          shell: bash
+          script: |
+            curl -d '{"status":"failed", "type":"setup", "desc":"this should be set"}' -H "Content-Type: application/json" -X POST localhost:2285/task_status
