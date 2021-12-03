@@ -8,7 +8,9 @@ Only distros backed by a provider that supports dynamically spinning up new host
 
 ### Spawning a Host
 
-Visit `/spawn` to view the spawn hosts control panel. Click on "Spawn Host" and choose the distro you want to spawn, and hoose the key you'd like to use (or provide a new one).
+Visit `/spawn` to view the spawn hosts control panel. Click on "Spawn Host" and choose the distro you want to spawn, and choose the key you'd like to use (or provide a new one).
+
+### Spawning a Host From a Task
 
 Alternately, for a task that ran on a distro where spawning is enabled, you will see a "Spawn..." or "Spawn Host" link on its task page. 
 
