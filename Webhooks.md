@@ -8,15 +8,9 @@ The file ticket button in the Task Annotations tab can be configured to call a c
 
 ### Settings Configuration
 
-To configure the file ticket webhook, add the following information to the build baron settings for your project: 
+To configure the file ticket webhook, add an endpoint and secret to the build baron plug section of your project settings page.
  
-```
-task_annotation_settings:
-    - Webhook:
-          - Endpoint:<yourString>
-          - Secret: <yourString: optional>
-```
-Coming soon: this will be configurable from the project settings page. 
+![image](https://user-images.githubusercontent.com/13104717/146819319-d45a58af-04da-4532-90b1-bae04307d76a.png)
 
 ### Data Format 
 
