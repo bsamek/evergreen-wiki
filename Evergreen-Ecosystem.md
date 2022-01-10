@@ -17,6 +17,8 @@ which Evergreen tasks may use or interact with.
   logkeeper, splunk, or cedar).
 * [evergreen](https://github.com/evergreen-ci/evergreen) is the continuous
   integration system at the center of this ecosystem.
+* [logkeeper](https://github.com/evergreen-ci/logkeeper) is a service for
+  storing test logs in a MongoDB database.
 
 ## Libraries (Go)
 * [amboy](https://github.com/mongodb/amboy) provides distributed worker queues.
@@ -52,8 +54,6 @@ which Evergreen tasks may use or interact with.
 * [juniper](https://github.com/evergreen-ci/juniper) is a library that contains
   gRPC protobuf files for Cedar.
 * [lobster](https://github.com/evergreen-ci/lobster) is React-based log viewer.
-* [logkeeper](https://github.com/evergreen-ci/logkeeper) is a service for
-  storing test logs in a MongoDB database.
 * [mrpc](https://github.com/evergreen-ci/mrpc) a mongodb rpc protocol implementation
   for producing arbitrary services that mongodb clients can use.
 * [pail](https://github.com/evergreen-ci/pail) is a library for interacting
