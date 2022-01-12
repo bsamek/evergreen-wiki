@@ -205,10 +205,10 @@ Advanced Features
 These features will help you do more complicated workloads with
 Evergreen.
 
-Includes
+Include
 """"""""
 
-Configuration files listed in ``includes`` will be merged with the main project configuration file. 
+Configuration files listed in ``include`` will be merged with the main project configuration file. 
 All top-level configuration files can define includes. This will accept a list
 of filenames and module names. If the include isn't given, we will only use the 
 main project configuration file. 
