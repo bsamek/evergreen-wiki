@@ -220,6 +220,8 @@ main project configuration file.
       - filename: small.yml # path to file inside the module's repo
         module: module_name
 
+Warning: YAML anchors currently not supported
+
 Merging Rules
 ^^^^^^^^^^^^^
 
