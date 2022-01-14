@@ -1186,7 +1186,7 @@ Sets the priority and activation status of a single patch to the input values
    * - priority
      - int
      - Optional. The priority to set the patch to
-   * - status
+   * - activated
      - bool
      - Optional. The activation status to set the patch to
 
