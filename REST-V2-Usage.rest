@@ -1318,9 +1318,9 @@ Sets the priority and activation status of a single build to the input values
    * - priority
      - int
      - Optional. The priority to set the build to
-   * - status
+   * - activated
      - bool
-     - Optional. The activation status to set the build to
+     - Optional. Set to true to activate, and false to deactivate the build.
 
 Version
 -------
