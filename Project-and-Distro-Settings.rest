@@ -385,46 +385,48 @@ Version Control
 
 Enabling version control for configurations on the project page will allow a number of the settings detailed above to also be specified in the project yaml, with the settings on the project page taking precedence.  If something is set for a given setting on the project page, it must be removed before a project's runtime configuration reflects what is defined in the project yaml.
 
+Below shows example configurations for these settings that can be included within the project yaml and the configuration structure associated with each setting.
+
 Aliases
 '''''''''''''''''
 
 .. code:: yaml
 
-patch_aliases:
-  - alias: "patch_alias_1"
-    variant: "^ubuntu1604$"
-    task: "^test.*$"
-    remote_path: ""
-    variant_tags: ["pr_check", "pr_check_all"]
-    tags: ["pr_check"]
+   patch_aliases:
+     - alias: "patch_alias_1"
+       variant: "^ubuntu1604$"
+       task: "^test.*$"
+       remote_path: ""
+       variant_tags: ["pr_check", "pr_check_all"]
+       tags: ["pr_check"]
 
-commit_queue_aliases:
-  - variant: "^ubuntu1604$"
-    task: "^smoke-test$"
-    remote_path: ""
-    variant_tags: []
-    tags: []
+   commit_queue_aliases:
+     - variant: "^ubuntu1604$"
+       task: "^smoke-test$"
+       remote_path: ""
+       variant_tags: []
+       tags: []
 
-github_pr_aliases:
-  - variant: "^lint$"
-    task: "^generate-lint$"
-    remote_path: ""
-    variant_tags: ["pr_check", "pr_check_all"]
-    tags: ["pr_check"]
+   github_pr_aliases:
+     - variant: "^lint$"
+       task: "^generate-lint$"
+       remote_path: ""
+       variant_tags: ["pr_check", "pr_check_all"]
+       tags: ["pr_check"]
 
-git_tag_aliases:
-  - variant: "^js$"
-    task: "E2E_Test"
-    remote_path: ""
-    variant_tags: ["pr_check_all"]
-    tags: ["pr_check"]
+   git_tag_aliases:
+     - variant: "^js$"
+       task: "E2E_Test"
+       remote_path: ""
+       variant_tags: ["pr_check_all"]
+       tags: ["pr_check"]
 
-github_checks_aliases:
-  - variant: "^ubuntu1604$"
-    task: "^test.*$"
-    remote_path: ""
-    variant_tags: []
-    tags: []
+   github_checks_aliases:
+    - variant: "^ubuntu1604$"
+      task: "^test.*$"
+      remote_path: ""
+      variant_tags: []
+      tags: []
 
 Commit Queue
 '''''''''''''''''
