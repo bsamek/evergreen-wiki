@@ -383,7 +383,7 @@ that all execute independently:
 Version Control
 ^^^^^^^^^^^^^^^
 
-Enabling version control for configurations on the project page will allow a number of the settings detailed above to also be specified in the project yaml, with the settings on the project page taking precedence.  If something is set for a given setting on the project page, it must be removed before a project's runtime configuration reflects what is defined in the project yaml.
+Enabling version control for configurations on the project page will allow a number of the settings detailed above to also be specified in the project yaml alongside the settings that are specified in `'Project Configuration Files' <https://github.com/evergreen-ci/evergreen/wiki/Project-Configuration-Files>`_. Settings defined on the project page will take precedence over those defined in the yaml.  If something is set for a given setting on the project page, it must be removed before a project's runtime configuration reflects what is defined in the project yaml.
 
 Below shows example configurations for these settings that can be included within the project yaml and the configuration structure associated with each setting.
 
