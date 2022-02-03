@@ -390,7 +390,7 @@ Below shows example configurations for these settings that can be included withi
 Aliases
 '''''''''''''''''
 
-`'Project Configuration Files' <https://github.com/evergreen-ci/evergreen/wiki/Project-Configuration-Files>`_
+`'Project Configuration Files' <https://github.com/evergreen-ci/evergreen/wiki/Project-and-Distro-Settings#aliases>`_
 
 .. code:: yaml
 
