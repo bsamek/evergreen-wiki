@@ -294,6 +294,18 @@ Options:
 
 - Enable for Tasks in Patches: Users can use task sync in their patches.
 
+Virtual Workstation Commands
+'''''''''
+
+Enabling this feature allows users to push and pull their task working
+directory to and from a remote store (S3).
+
+Options:
+
+- Enable Git Clone: A git clone will automatically be run on the defined project, i.e. "git clone -b v20210623 git@github.com:10gen/mms.git"
+
+- Commands: Specify commands to be run on the project in order using the setup CLI command from the workstation, allowing for an optional working subdirectory to be passed in.
+
 Distro Settings
 ^^^^^^^^^^^^^^^
 
