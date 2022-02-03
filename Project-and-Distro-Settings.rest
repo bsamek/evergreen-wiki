@@ -390,7 +390,7 @@ Below shows example configurations for these settings that can be included withi
 Aliases
 '''''''''''''''''
 
-`Setting definition <https://github.com/evergreen-ci/evergreen/wiki/Project-and-Distro-Settings#aliases>`_
+`View setting definition <https://github.com/evergreen-ci/evergreen/wiki/Project-and-Distro-Settings#aliases>`_
 
 .. code:: yaml
 
@@ -429,7 +429,7 @@ Aliases
 Scheduling Settings
 '''''''''''''''''
 
-`View setting definition <https://github.com/evergreen-ci/evergreen/wiki/Project-and-Distro-Settings#aliases>`_
+`View setting definition <https://github.com/evergreen-ci/evergreen/wiki/Project-and-Distro-Settings#scheduling-settings>`_
 
 
 .. code:: yaml
