@@ -390,7 +390,7 @@ Below shows example configurations for these settings that can be included withi
 Aliases
 '''''''''''''''''
 
-`'Project Configuration Files' <https://github.com/evergreen-ci/evergreen/wiki/Project-and-Distro-Settings#aliases>`_
+`Setting definition <https://github.com/evergreen-ci/evergreen/wiki/Project-and-Distro-Settings#aliases>`_
 
 .. code:: yaml
 
@@ -429,6 +429,9 @@ Aliases
 Scheduling Settings
 '''''''''''''''''
 
+`Setting definition <https://github.com/evergreen-ci/evergreen/wiki/Project-and-Distro-Settings#aliases>`_
+
+
 .. code:: yaml
 
    deactivate_previous: true
@@ -446,6 +449,9 @@ Virtual Workstation Commands
 Task Sync
 '''''''''''''''''
 
+`Setting definition <https://github.com/evergreen-ci/evergreen/wiki/Project-and-Distro-Settings#aliases>`_
+
+
 .. code:: yaml
 
    config_enabled: true
@@ -453,6 +459,9 @@ Task Sync
 
 Plugins
 '''''''''''''''''
+
+`Setting definition <https://github.com/evergreen-ci/evergreen/wiki/Project-and-Distro-Settings#aliases>`_
+
 
 .. code:: yaml
 
