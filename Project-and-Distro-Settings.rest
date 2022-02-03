@@ -324,7 +324,7 @@ Options:
 Task Annotation Settings
 '''''''''
 
-Configure the build baron to create build failure tickets under a specific project from a list of projects to search for failures. 
+Configure custom API integrations when generating build failure tickets. 
 
 Options:
 
