@@ -396,21 +396,18 @@ Aliases
      - alias: "patch_alias_1"
        variant: "^ubuntu1604$"
        task: "^test.*$"
-       remote_path: ""
        variant_tags: ["pr_check", "pr_check_all"]
        tags: ["pr_check"]
 
    commit_queue_aliases:
      - variant: "^ubuntu1604$"
        task: "^smoke-test$"
-       remote_path: ""
        variant_tags: []
        tags: []
 
    github_pr_aliases:
      - variant: "^lint$"
        task: "^generate-lint$"
-       remote_path: ""
        variant_tags: ["pr_check", "pr_check_all"]
        tags: ["pr_check"]
 
@@ -424,20 +421,8 @@ Aliases
    github_checks_aliases:
     - variant: "^ubuntu1604$"
       task: "^test.*$"
-      remote_path: ""
       variant_tags: []
       tags: []
-
-Commit Queue
-'''''''''''''''''
-
-.. code:: yaml
-
-   enabled: true
-   require_signed: false
-   merge_method: "squash"
-   message: "squashing commits..."
-
 
 Scheduling Settings
 '''''''''''''''''
