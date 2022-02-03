@@ -297,8 +297,7 @@ Options:
 Virtual Workstation Commands
 '''''''''
 
-Enabling this feature allows users to push and pull their task working
-directory to and from a remote store (S3).
+Users can specify custom commands to be run when setting up their virtual workstation.
 
 Options:
 
