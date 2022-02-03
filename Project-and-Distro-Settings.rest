@@ -429,7 +429,7 @@ Aliases
 Scheduling Settings
 '''''''''''''''''
 
-`Setting definition <https://github.com/evergreen-ci/evergreen/wiki/Project-and-Distro-Settings#aliases>`_
+`View setting definition <https://github.com/evergreen-ci/evergreen/wiki/Project-and-Distro-Settings#aliases>`_
 
 
 .. code:: yaml
@@ -438,6 +438,8 @@ Scheduling Settings
 
 Virtual Workstation Commands
 '''''''''''''''''
+
+`View setting definition <https://github.com/evergreen-ci/evergreen/wiki/Project-and-Distro-Settings#virtual-workstation>`_
 
 .. code:: yaml
 
@@ -449,7 +451,7 @@ Virtual Workstation Commands
 Task Sync
 '''''''''''''''''
 
-`Setting definition <https://github.com/evergreen-ci/evergreen/wiki/Project-and-Distro-Settings#aliases>`_
+`View setting definition <https://github.com/evergreen-ci/evergreen/wiki/Project-and-Distro-Settings#task-sync>`_
 
 
 .. code:: yaml
@@ -460,7 +462,7 @@ Task Sync
 Plugins
 '''''''''''''''''
 
-`Setting definition <https://github.com/evergreen-ci/evergreen/wiki/Project-and-Distro-Settings#aliases>`_
+`View setting definition <https://github.com/evergreen-ci/evergreen/wiki/Project-and-Distro-Settings#plugins>`_
 
 
 .. code:: yaml
