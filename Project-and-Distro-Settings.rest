@@ -305,6 +305,11 @@ Options:
 
 - Commands: Specify commands to be run on the project in order using the setup CLI command from the workstation, allowing for an optional working subdirectory to be passed in.
 
+Plugins
+'''''''''
+
+
+
 Distro Settings
 ^^^^^^^^^^^^^^^
 
@@ -450,7 +455,7 @@ Scheduling Settings
 Virtual Workstation Commands
 '''''''''''''''''
 
-`View setting definition <https://github.com/evergreen-ci/evergreen/wiki/Project-and-Distro-Settings#virtual-workstation>`_
+`View setting definition <https://github.com/evergreen-ci/evergreen/wiki/Project-and-Distro-Settings#virtual-workstation-commands>`_
 
 .. code:: yaml
 
