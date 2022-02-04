@@ -536,3 +536,6 @@ Task Annotation Settings
      jira_custom_fields:
      - field: "created_by"
        display_text: "owner"
+
+
+> :warning: **If you are using mobile browser**: Be very careful here!
