@@ -415,6 +415,10 @@ Objects
    * - source   
      - source_object  
      - The source of the edit
+   * - confidence_score     
+     - float32  
+     - The confidence score of the issue
+
 
 
 
