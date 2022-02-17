@@ -16,6 +16,8 @@ Parameters can be defined in multiple different places, and can overwrite existi
 
 * Project variables defined for the project (Only project admins have access to these).
 
+* Evergreen default expansions and build variant expansions.
+
 # Usage
 
 ### Project Config
