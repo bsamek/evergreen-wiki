@@ -743,6 +743,7 @@ Parameters:
 - ``permissions``: the permissions string to upload with 
 - ``content_type``: the MIME type of the file 
 -  ``optional``: boolean to indicate if failure to find or upload this file will result in a task failure. Not compatible with local_files_include_filter. 
+-  ``skip_existing``: boolean to indicate that files that already exist in s3 should be skipped.
 - ``display_name``: the display string for the file in the Evergreen UI 
 - ``local_files_include_filter``: used in place of local_file, an array of gitignore file globs. All files that are matched - ones that would be ignored by gitignore - are included in the put.
 - ``local_files_include_filter_prefix``: an optional path to start processing the LocalFilesIncludeFilter, relative to the working directory.
