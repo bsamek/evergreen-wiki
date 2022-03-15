@@ -541,7 +541,7 @@ Task Annotation Settings
 Periodic Builds
 '''''''''''''''''
 
-`View setting definition <https://github.com/evergreen-ci/evergreen/wiki/Project-and-Distro-Settings#task-annotation-settings>`_
+`View setting definition <https://github.com/evergreen-ci/evergreen/wiki/Project-and-Distro-Settings#periodic-builds>`_
 
 
 .. code:: yaml
