@@ -128,6 +128,9 @@ Objects
    * - ``host_id``               
      - string         
      - The ID of the host this task ran or is running on
+   * - ``tags``
+     - [string]
+     - List of tags defined for the task, if any
    * - ``execution``             
      - int            
      - The number of the execution of this particular task
@@ -1206,67 +1209,70 @@ Objects
    * - Name        
      - Type           
      - Description
-   * - project_id     
+   * - ``project_id``
      - string  
      - The identifier of the project this build represents
-   * - create_time   
+   * - ``create_time``   
      - time  
      - Time at which build was created
-   * - start_time       
+   * - ``start_time``       
      - time  
      - Time at which build started running tasks
-   * - finish_time  
+   * - ``finish_time``  
      - time  
      - Time at which build finished running all tasks
-   * - version  
+   * - ``version``  
      - string
      - The version this build is running tasks for
-   * - branch
+   * - ``branch``
      - string
      - The branch of project the build is running
-   * - gitspec
+   * - ``gitspec``
      - string
      - Hash of the revision on which this build is running
-   * - build_variant
+   * - ``build_variant``
      - string
      - Build distro and architecture information
-   * - status
+   * - ``status``
      - string
      - The status of the build
-   * - activated
+   * - ``tags``
+     - [string]
+     - List of tags defined for the build variant, if any
+   * - ``activated``
      - bool
      - Whether this build was manually initiated
-   * - activated_by
+   * - ``activated_by``
      - string
      - Who initiated the build
-   * - activated_time
+   * - ``activated_time``
      - time
      - When the build was initiated
-   * - order
+   * - ``order``
      - int
      - Incrementing counter of project's builds
-   * - tasks
-     - string[]
+   * - ``tasks``
+     - [string]
      - The tasks to be run on this build
-   * - time_taken_ms
+   * - ``time_taken_ms``
      - int
      - How long the build took to complete all tasks
-   * - display_name
+   * - ``display_name``
      - string
      - Displayed title of the build showing version and variant running
-   * - predicted_makespan_ms
+   * - ``predicted_makespan_ms``
      - int
      - Predicted makespan by the scheduler prior to execution
-   * - actual_makespan_ms
+   * - ``actual_makespan_ms``
      - int
      - Actual makespan measured during execution
-   * - origin
+   * - ``origin``
      - string
      - The source of the patch, a commit or a patch
-   * - status_counts
+   * - ``status_counts``
      - Object
      - Contains aggregated data about the statuses of tasks in this build. The keys of this object are statuses and the values are the number of tasks within this build in that status. Note that this field provides data that you can get yourself by querying tasks for this build.
-   * - task_cache
+   * - ``task_cache``
      - Object
      - Contains a subset of information about tasks for the build; this is not provided/accurate for most routes (`get versions for project <https://github.com/evergreen-ci/evergreen/wiki/REST-V2-Usage#get-versions-for-a-project>`_ is an exception).
 
