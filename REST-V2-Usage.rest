@@ -128,9 +128,6 @@ Objects
    * - ``host_id``               
      - string         
      - The ID of the host this task ran or is running on
-   * - ``restarts``              
-     - int            
-     - Number of times this task has been restarted
    * - ``execution``             
      - int            
      - The number of the execution of this particular task
