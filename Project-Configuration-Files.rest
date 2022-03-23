@@ -254,6 +254,13 @@ The validation step will check for
    * warning conditions such as referencing a distro pool that does not exist
    * merging errors from include files
 
+
+Version Control
+""""""""
+
+Projects configurations can now define some Project Page settings directly within the yaml, for better accessibility and version control. This is documented `here <https://github.com/evergreen-ci/evergreen/wiki/Project-and-Distro-Settings#version-control>`__. 
+
+
 Pre, Post, and Timeout
 """"""""""""""""""""""
 
