@@ -182,6 +182,9 @@ This command calls the aws assumeRole API and returns credentials as these expan
 - ``AWS_SESSION_TOKEN`` (not accessible by expansion.write)
 - ``AWS_ROLE_EXPIRATION``
 
+See `here <https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html>`__for more details on the assume role API.
+
+
 .. code:: yaml
 
    - command: ec2.assume_role
