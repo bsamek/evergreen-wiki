@@ -175,11 +175,12 @@ Parameters:
 ec2.assume_role
 ^^^^^^^^^^^^^^^
 
-This command calls the aws assumeRole API and returns credentials as these expansions. 
-``AWS_ACCESS_KEY_ID``
-``AWS_SECRET_ACCESS_KEY``
-``AWS_SESSION_TOKEN``
-``AWS_ROLE_EXPIRATION``
+This command calls the aws assumeRole API and returns credentials as these expansions:
+
+- ``AWS_ACCESS_KEY_ID`` (not accessible by expansion.write)
+- ``AWS_SECRET_ACCESS_KEY`` (not accessible by expansion.write)
+- ``AWS_SESSION_TOKEN`` (not accessible by expansion.write)
+- ``AWS_ROLE_EXPIRATION``
 
 .. code:: yaml
 
