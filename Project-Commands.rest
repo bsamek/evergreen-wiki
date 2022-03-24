@@ -172,6 +172,30 @@ Parameters:
 -  ``file``: a .xml file to parse and upload. A filepath glob can also be supplied to collect results from multiple files.
 - ``files``: a list .xml files to parse and upload. Filepath globs can also be supplied to collect results from multiple files.
 
+ec2.assume_role
+^^^^^^^^^^^^^^^
+
+This command calls the aws assumeRole API and returns credentials as these expansions. 
+``AWS_ACCESS_KEY_ID``
+``AWS_SECRET_ACCESS_KEY``
+``AWS_SESSION_TOKEN``
+``AWS_ROLE_EXPIRATION``
+
+.. code:: yaml
+
+   - command: ec2.assume_role
+     params:
+       role_arn: "aws_arn_123"
+
+
+Parameters:
+ 
+-  ``role_arn``: string ARN of the role you want to assume. (required)
+- ``external_id``: string of external ID that can be specified in the role.
+- ``policy``: string in JSON format that you want to use as an inline session policy.
+- ``duration_seconds``: int in seconds of how long the returned credentials will be valid. (default 900)
+
+
 expansions.update
 ^^^^^^^^^^^^^^^^^
 
