@@ -1743,6 +1743,20 @@ Get A Project
 Returns the project (restricted to project admins). Includes public variables, aliases, and subscriptions. 
 Note that private variables are *always redacted.* If you want to use this to copy project variables, see instead the "Copy Project Variables" route.
 
+.. list-table:: **Parameters**
+   :widths: 25 10 55
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Description
+   * - includeRepo
+     - bool
+     - Optional. Setting to true will return the merged result of project and repo level settings. Defaults to false
+   * - includeProjectConfig
+     - bool
+     - Optional. Setting to true will return the merged result of the project and the config properties set in the project YAML. Defaults to false
+
 Modify A Project
 ``````````````````
 
