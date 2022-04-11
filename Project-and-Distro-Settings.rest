@@ -535,16 +535,3 @@ Task Annotation Settings
      jira_custom_fields:
      - field: "created_by"
        display_text: "owner"
-
-Periodic Builds
-'''''''''''''''''
-
-`View setting definition <https://github.com/evergreen-ci/evergreen/wiki/Project-and-Distro-Settings#periodic-builds>`_
-
-
-.. code:: yaml
-
-   periodic_builds:
-     - config_file: evergreen.yml
-       interval_hours: 1
-       alias: my_task_alias
