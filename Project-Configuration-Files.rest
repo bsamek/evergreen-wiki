@@ -182,7 +182,7 @@ Fields:
 * ``run_on``: a list of acceptable distros to run tasks for that variant on. The first distro in the list is the primary distro. The others are secondary distros. Each distro has a primary queue, a queue of all tasks that have specified it as their primary distro; and a secondary queue, a queue of tasks that have specified it as a secondary distro. If the primary queue is not empty, the distro will process that queue and ignore the secondary queue. If the primary queue is empty, the distro will process the secondary queue. If both queues are empty, idle hosts will eventually be terminated.
 * ``expansions``: a set of key-value expansion pairs
 * ``tasks``: a list of tasks to run, using ``name``. This can also include batchtime/cron/activate (defined below), which will overwrite all other defaults.
-* ``batchtime``: interval of time in minutes that Evergreen should wait before activating this variant. The default is set on the project settings page. 
+* ``batchtime``: interval of time in minutes that Evergreen should wait before activating this variant. The default is set on the project settings page. This can also be set for individual tasks.
 * ``activate``: by default, we'll activate if the whole version is being activated or if batchtime specifies it should be activated. If we instead want to activate immediately, then set activate to true. If this should only activate when manually scheduled or by stepback/dependencies, set activate to false.
 * ``cron``: define with cron syntax (i.e. Min | Hour | DayOfMonth | Month | DayOfWeekOptional) when a variant should be activated (Cannot be combined with batchtime). This also accepts descriptors such as ``@daily`` (reference `cron <https://godoc.org/github.com/robfig/cron>`_ for more examples), but `does not accept intervals.` (i.e. ``@every <duration>``). 
 
@@ -371,6 +371,8 @@ To cause a task to not run at all, set ``disable: true``.
 
 -  This behaves similarly to commenting out the task but will not trigger any validation errors.
 -  Disabling its dependencies will still allow the task to run
+
+Can also set batchtime or cron on tasks or build variants, detailed `here <https://github.com/evergreen-ci/evergreen/wiki/Project-Configuration-Files#build-variants>`__. 
 
 Expansions
 """"""""""
