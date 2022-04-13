@@ -1922,44 +1922,6 @@ Returns a the last set number of completed tasks that exist for a given project.
      - If set, will only include tasks that have run on this build variant.
 
 
-.. list-table:: **Response**
-   :widths: 25 10 55
-   :header-rows: 1
-
-   * - Name
-     - Type
-     - Description
-   * - ``create_time``
-     - time
-     - Time that the version was first created
-   * - ``start_time``
-     - time
-     - Time at which tasks associated with this version started running
-   * - ``finish_time``
-     - time
-     - Time at which tasks associated with this version finished running
-   * - ``revision``
-     - string
-     - The version control identifier
-   * - ``author``
-     - string
-     - Author of the version
-   * - ``message``
-     - string
-     - Message left with the commit
-   * - ``status``
-     - string
-     - The status of the version
-   * - ``errors``
-     - []string
-     - List of errors creating the version
-   * - ``build_variants_status``
-     - []buildDetail
-     - List of documents of the associated build variant and the build id (this won't be populated if include_builds is set)
-   * - ``builds``
-     - []APIBuild
-     - List of builds for the version (only populated if include_builds is set). If include_tasks is set, then the task_cache is populated.
-
 Rotate Variables 
 `````````````````````````````````````````````
 
