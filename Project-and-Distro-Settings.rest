@@ -200,8 +200,8 @@ Options:
 - Alias: Run a subset of tasks by specifying an alias. Otherwise, all
   tasks run.
 
-Project Triggers For Patches
-''''''''''''''''''''''''''''
+Patch Trigger Aliases
+'''''''''''''''''''''
 
 Users can create aliases that can be used in patch builds 
 (in the "upstream" project) to kick of a child patch (in 
