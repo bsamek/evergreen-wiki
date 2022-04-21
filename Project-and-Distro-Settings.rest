@@ -270,6 +270,10 @@ these is to add a notification subscription on the project settings
 page. In the notification popup, select "when any version finishes" with
 Build Initiator = Periodic Build.
 
+Also note that periodic builds cannot currently be used to schedule tasks 
+for which you hope to use performance tooling, like performance monitoring charts. 
+Use a cron to schedule your tasks if you'd like to use performance tooling. 
+
 Task Sync
 '''''''''
 
