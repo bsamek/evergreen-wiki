@@ -501,8 +501,6 @@ Creates many new task annotations, or updates the annotation if it already exist
       {
         "tasks": [{"task_id": "t1", "execution":3}],
         "annotation": {
-          "task_id": "my_task_id",
-          "task_execution": 4321,
           "note": {
             "message": "this is a note about my_task_id's failure",
           },
@@ -512,7 +510,22 @@ Creates many new task annotations, or updates the annotation if it already exist
              "issue_key": "link-1234"
            },
           ]
-       }]
+        }
+      },
+      {
+        "tasks": [{"task_id": "t2", "execution":0}, {"task_id": "t2", "execution":1}],
+        "annotation": {
+          "note": {
+            "message": "this is a note about my_task_id's failure",
+          },
+          "issues":[
+           {
+             "url": "https://other-link.com",
+             "issue_key": "link-4567"
+           },
+          ]
+        }
+      }]
    }
 
 List Task Annotations By Build
