@@ -499,7 +499,7 @@ Creates many new task annotations, or updates the annotation if it already exist
    {
      "tasks_updates": [
       {
-        "tasks": [{"task_id": "t1", "execution":3}],
+        "task_data": [{"task_id": "t1", "execution":3}],
         "annotation": {
           "note": {
             "message": "this is a note about my_task_id's failure"
@@ -513,7 +513,7 @@ Creates many new task annotations, or updates the annotation if it already exist
         }
       },
       {
-        "tasks": [{"task_id": "t2", "execution":0}, {"task_id": "t2", "execution":1}],
+        "task_data": [{"task_id": "t2", "execution":0}, {"task_id": "t2", "execution":1}],
         "annotation": {
           "note": {
             "message": "this is a note about my_task_id's failure"
