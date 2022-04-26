@@ -502,13 +502,13 @@ Creates many new task annotations, or updates the annotation if it already exist
         "tasks": [{"task_id": "t1", "execution":3}],
         "annotation": {
           "note": {
-            "message": "this is a note about my_task_id's failure",
+            "message": "this is a note about my_task_id's failure"
           },
           "issues":[
            {
              "url": "https://link.com",
              "issue_key": "link-1234"
-           },
+           }
           ]
         }
       },
@@ -516,13 +516,13 @@ Creates many new task annotations, or updates the annotation if it already exist
         "tasks": [{"task_id": "t2", "execution":0}, {"task_id": "t2", "execution":1}],
         "annotation": {
           "note": {
-            "message": "this is a note about my_task_id's failure",
+            "message": "this is a note about my_task_id's failure"
           },
           "issues":[
            {
              "url": "https://other-link.com",
              "issue_key": "link-4567"
-           },
+           }
           ]
         }
       }]
