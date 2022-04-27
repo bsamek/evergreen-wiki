@@ -681,6 +681,26 @@ Fetches a paginated list of tests that ran as part of the given task. To filter 
      - string
      - Optional. Only return the test matching the name.
 
+Get The Test Count From A Task
+``````````````````````````````
+
+:: 
+
+ GET /tasks/<task_id>/tests/count
+
+Returns an integer representing the number of tests that ran as part of the given task.
+
+.. list-table:: **Parameters**
+   :widths: 25 10 55
+   :header-rows: 1
+
+   * - Name        
+     - Type           
+     - Description
+   * - execution
+     - int
+     - Optional. The 0-based number corresponding to the execution of the task. Defaults to 0, meaning the first time the task was run.
+
 Manifest
 ----
 
