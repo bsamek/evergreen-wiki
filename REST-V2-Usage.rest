@@ -680,6 +680,9 @@ Fetches a paginated list of tests that ran as part of the given task. To filter 
    * - test_name
      - string
      - Optional. Only return the test matching the name.
+   * - latest
+     - bool
+     - Optional. Return tests from the latest execution. Cannot be used with execution.
 
 Get The Test Count From A Task
 ``````````````````````````````
