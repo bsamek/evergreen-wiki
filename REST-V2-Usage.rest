@@ -485,6 +485,43 @@ Creates a task annotation, or updates an existing task annotation, overwriting a
      ]
    }
 
+Create or Update a New Task Annotation By Appending
+```````````````````````````
+
+::
+
+ PATCH tasks/{task_id}/annotation
+
+Creates a task annotation, or updates an existing task annotation, appending issues and suspected issues that are included in the update. A new annotation is created based if the annotation exists and if upsert is true. Task execution must be provided for this endpoint, either in the request body or set as a url parameter.  If no task_execution is specified in the request body or in the url, a bad status error will be returned. Note that usage of this endpoint requires that the requesting user have security to modify task annotations. The user does not need to specify the source, it will be added automatically. Example request body:  
+
+.. list-table:: **Parameters**
+   :widths: 25 10 55
+   :header-rows: 1
+
+   * - Name        
+     - Type           
+     - Description
+   * - execution     
+     - int   
+     - Optional. Can be set in lieu of specifying task_execution in the request body.
+   * - upsert     
+     - bool   
+     - Optional. Will create a new annotation if task annotation isn't found and upsert is true.
+::
+
+   {
+     "task_id": "my_task_id",
+     "task_execution": 4321,
+     "upsert": false,
+     "issues":[
+         {
+            "url": "https://link.com",
+            "issue_key": "link-1234"
+         },
+     ]
+   }
+
+
 Bulk Create or Update Many Task Annotations
 ```````````````````````````
 
