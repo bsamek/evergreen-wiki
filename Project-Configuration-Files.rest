@@ -201,7 +201,7 @@ from larger, more powerful machines.
 
 Version Controlled Project Settings
 --------------
-Project configurations can now version control some select project settings (e.g. aliases, plugins) directly within the yaml rather than on the project page UI, for better accessibility and maintainability. Read more `here <https://github.com/evergreen-ci/evergreen/wiki/Project-and-Distro-Settings#version-control>`__. 
+Project configurations can version control some select project settings (e.g. aliases, plugins) directly within the yaml rather than on the project page UI, for better accessibility and maintainability. Read more `here <https://github.com/evergreen-ci/evergreen/wiki/Project-and-Distro-Settings#version-control>`__. 
 
 Advanced Features
 -----------------
