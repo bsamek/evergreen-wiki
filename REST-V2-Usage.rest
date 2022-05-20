@@ -258,7 +258,12 @@ List all tasks within a commit of a given project
    * - limit       
      - int   
      - Optional. The number of tasks to be returned per page of pagination. Defaults to 100
-
+   * - variant     
+     - string   
+     - Optional. Only return tasks within this variant 
+   * - task_name     
+     - string   
+     - Optional. Only return tasks with this display name
 
 Get A Single Task
 `````````````````
