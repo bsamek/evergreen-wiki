@@ -1239,3 +1239,7 @@ Example in a command:
           shell: bash
           script: |
             curl -d '{"status":"failed", "type":"setup", "desc":"this should be set"}' -H "Content-Type: application/json" -X POST localhost:2285/task_status
+
+
+Version Controlled Project Settings
+--------------
