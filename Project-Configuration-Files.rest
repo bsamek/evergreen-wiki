@@ -199,6 +199,10 @@ allowing tasks within a build variant to be run on different distros.
 This is useful for optimizing tasks like compilations, that can benefit
 from larger, more powerful machines.
 
+Version Controlled Project Settings
+--------------
+Project configurations can now version control some select project settings (e.g. aliases, plugins) directly within the yaml rather than on the project page UI, for better accessibility and maintainability. Read more `here <https://github.com/evergreen-ci/evergreen/wiki/Project-and-Distro-Settings#version-control>`__. 
+
 Advanced Features
 -----------------
 
@@ -1233,8 +1237,3 @@ Example in a command:
           shell: bash
           script: |
             curl -d '{"status":"failed", "type":"setup", "desc":"this should be set"}' -H "Content-Type: application/json" -X POST localhost:2285/task_status
-
-
-Version Controlled Project Settings
---------------
-Project configurations can now version control some select project settings (e.g. aliases, plugins) directly within the yaml rather than on the project page UI, for better accessibility and maintainability. Read more `here <https://github.com/evergreen-ci/evergreen/wiki/Project-and-Distro-Settings#version-control>`__. 
