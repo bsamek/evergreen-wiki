@@ -139,15 +139,12 @@ List the items on one project's queue.
 * `--project PROJECT, -p PROJECT` list the queue of PROJECT
 
 ## Delete
-`evergreen commit-queue delete --project <project_id> --item <item>`
+`evergreen commit-queue delete --item <item>`
 
 Delete an item from a queue. Must be the user who uploaded the item or a project admin.
 If the item is already picked up by the commit queue it will not be aborted.
 
 ### Options
-* `--project PROJECT, -p PROJECT`
-
-delete from the queue of PROJECT
 
 * `--item ITEM, -i ITEM` 
 
