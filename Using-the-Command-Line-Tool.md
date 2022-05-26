@@ -133,6 +133,35 @@ There is an option to specify a task status for which the sync will run ("succes
 Once the task finishes syncing, the task directory contents can be pulled into a spawn host by requesting it with the host or it can be manually pulled onto the local machine using [evergreen pull](#pull).
 
 
+#### Local Aliases
+Users can define local aliases in their `evergreen.yml` files and even override a patch alias defined by a project admin. Local aliases are defined at the project level. 
+
+```yaml
+api_server_host: #api
+ui_server_host: #ui
+api_key: #apikey
+user: #user
+projects:
+- name: mongodb-mongo-master
+  variants:
+  - windows-64-2k8-debug
+  - enterprise-rhel-62-64-bit
+  - solaris-64-bit
+  - enterprise-osx-108 #and so on...
+  local_aliases:
+  - alias: "alias_name"
+  - variant: ".*"
+  - task: "^compile$,tests$"
+  tasks:
+  - compile
+  - unittests
+```
+Calling the command:
+
+      evergreen patch -a alias_name
+ 
+will use the above local alias.
+
 Operating on existing patches
 --
 
