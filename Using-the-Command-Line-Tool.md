@@ -160,7 +160,7 @@ Calling the command:
 
       evergreen patch -a alias_name
  
-will use the above local alias.
+will use the above local alias and schedule every variant with tasks named "compile" and tasks that end with "tests".
 
 Operating on existing patches
 --
