@@ -2006,10 +2006,10 @@ Get Tasks For A Project
 
 ::
 
- GET /projects/<project_id>/tasks/<task_id>
+ GET /projects/<project_id>/tasks/<task_name>
 
 
-Returns a the last set number of completed tasks that exist for a given project. Parameters should be passed into the JSON body.
+Returns a the last set number of completed tasks that exist for a given project. Parameters should be passed into the JSON body. Ensure that a task name rather than a task ID is passed int the URL.
 
 .. list-table:: **Parameters**
    :widths: 25 10 55
