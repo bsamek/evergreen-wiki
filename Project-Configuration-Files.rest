@@ -358,6 +358,7 @@ You can specify commands to be run in case that the host needs to be unexpectedl
 
 Limiting When a Task Will Run 
 """"""""""""""""""""""""""""""""
+The following can be added to a task definition OR to a task listed under a build variant (so that it will only effect that variant's task).
 
 To cause a task to only run in commit builds, set ``patchable: false``.
 
