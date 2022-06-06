@@ -265,6 +265,17 @@ Instance type can only be changed if the host is stopped. Hosts can be stopped a
 Other Commands
 --
 
+#### Get Update
+
+The command `evergreen get-update` fetches the latest version of the Evergreen CLI binary if the current binary is out of date on a given machine.
+
+Example that downloads the binary:
+```
+evergreen get-update --auto
+```
+
+Specify the optional `--auto` argument to enable automatic CLI upgrades before each command if your current binary is out of date. Once this is done, all future commands will auto update if necessary without the need for specifying this flag.
+
 #### Fetch
 
 The command `evergreen fetch` can automate downloading of the binaries associated with a particular task, or cloning the repo for the task and setting up patches/modules appropriately.
