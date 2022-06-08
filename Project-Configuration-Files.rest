@@ -498,7 +498,7 @@ be self-explanatory and human-readable.
 
      # this task is an integration test of frontend systems using javascript
    - name: web_user_settings
-     tags: ["integration", "frontend", js]
+     tags: ["integration", "frontend", "js"]
      commands:
        - func: "do test"
 
