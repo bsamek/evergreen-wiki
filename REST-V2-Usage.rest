@@ -293,7 +293,7 @@ Restart A Task
 
  POST /tasks/<task_id>/restart
 
-Restarts the task of the given ID. Can only be performed if the task is in progress.
+Restarts the task of the given ID. Can only be performed if the task is finished.
 
 Abort A Task
 ````````````
