@@ -2993,7 +2993,7 @@ Get User Permissions
 
    GET /users/<user_id>/permissions
 
-Retrieves all permissions for the user (ignoring basic permissions that are given to all users). The format of the response is:
+Retrieves all permissions for the user (ignoring basic permissions that are given to all users, unless includeAll=true is included). The format of the response is:
 ::
    [
      {
