@@ -2993,7 +2993,18 @@ Get User Permissions
 
    GET /users/<user_id>/permissions
 
-Retrieves all permissions for the user (ignoring basic permissions that are given to all users, unless includeAll=true is included). The format of the response is:
+.. list-table:: **Parameters**
+   :widths: 25 10 55
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Description
+   * - all
+     - Boolean
+     - Optional. If included, we will not filter out basic permissions.
+
+Retrieves all permissions for the user (ignoring basic permissions that are given to all users, unless all=true is included). The format of the response is:
 ::
    [
      {
