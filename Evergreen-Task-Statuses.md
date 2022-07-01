@@ -1,3 +1,6 @@
+Evergreen's New UI has the following task statuses.  These statuses are described below. 
+> ![image](https://user-images.githubusercontent.com/94386332/176959251-0f71c73a-9c79-4c7b-909a-6869558142ac.png)
+
 * Succeeded - Task completed successfully
 * Failed -  Task has failed. A task can fail either because a test failed or because a task command exited non-zero.
 * Known Issue - This is a subset of Failed, and it means that a failed task contains a task annotation with a non-empty issues list.  Task annotations can be created by external services such as the Build Baron team’s failure triage tool, or can be added manually.  Task annotation permissions are managed through MANA. 
