@@ -379,7 +379,7 @@ Expansions
 Expansions are variables within your config file. They take the form
 ``${key_name}`` within your project, and are defined on a project-wide
 level on the project configuration page or on a build variant level
-within the project. They can be used as inputs to commands, including
+within the project. They can be used **as inputs to commands**, including
 shell scripts.
 
 .. code:: yaml
@@ -413,7 +413,7 @@ string. The flip-side of this is that expansions are not currently
 supported for fields that expect boolean or integer inputs, including
 ``timeout_secs``.
 
-If you find a command that does not accept string expansions, please
+If you find **a command** that does not accept string expansions, please
 file a ticket or issues. That’s a bug.
 
 Default Expansions
