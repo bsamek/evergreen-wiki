@@ -11,8 +11,6 @@ Evergreen's New UI has the following task statuses.  These statuses are describe
 * Will Run - Task is in the task queue and will run in the future. Hasn’t been dispatched. 
 * Pending - Pending tasks have unmet dependencies, but they will be queued to run.
 
-* Unstarted - Unstarted is assigned to a display task after cleaning up one of its execution tasks. This indicates that the display task is pending a rerun. 
-
 * System Unresponsive - System unresponsive means that the task has failed because Evergreen has not heard from the agent on that host in a while. 
 
 * System Timed Out - System timed out means that there was a timeout (exec_timeout_secs or timeout_secs was reached) and the running command was labeled "system" (as opposed to "test" or "setup").
