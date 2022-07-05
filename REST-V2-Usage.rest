@@ -1520,6 +1520,27 @@ Restart a Version
 
 Restarts a single version using its ID then returns the version
 
+Activate or Deactivate a Version
+````````````````````````````````
+
+::
+
+ PATCH /versions/<version_id>
+
+Activate or deactivates a given version.
+Does not return the version.
+
+.. list-table:: **Parameters**
+   :widths: 25 10 55
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Description
+   * - activated
+     - bool
+     - Required. Will activate the version if true and deactivate if false.
+
 Get Builds From A Version
 `````````````````````````
 
