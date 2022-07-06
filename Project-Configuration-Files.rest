@@ -364,6 +364,8 @@ To cause a task to only run in commit builds, set ``patchable: false``.
 
 To cause a task to only run in patches, set ``patch_only: true``.
 
+To cause a task to only run in versions NOT triggered from git tags, set ``allow_for_git_tag: false``.
+
 To cause a task to only run in versions triggered from git tags, set ``git_tag_only: true``.
 
 To cause a task to not run at all, set ``disable: true``.
