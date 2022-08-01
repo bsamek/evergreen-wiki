@@ -1969,7 +1969,7 @@ Returns a paginated list of recent versions for a project. Parameters should be 
      - Optional. The version order number to start after, for pagination.
    * - requester
      - string
-     - Returns versions for this requester only. Defaults to ``gitter_request``.
+     - Returns versions for this requester only. Defaults to ``gitter_request`` (caused by git commit, aka the repotracker requester). Can also be set to ``patch_request``, ``github_pull_request``, ``trigger_request`` (Project Trigger versions) , ``merge_test`` (commit queue patches), and ``ad_hoc`` (periodic builds).
    * - include_builds
      - bool
      - If set, will return some information for each build in the version.
