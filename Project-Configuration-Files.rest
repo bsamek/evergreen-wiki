@@ -1011,6 +1011,9 @@ group and each test. These are instead of the top-level pre and post
 arguments for the yaml file. An additional argument specifies the number
 of hosts on which to run this task_group.
 
+Task groups may also be configured directly inline inside the config's `build
+variants <https://github.com/evergreen-ci/evergreen/wiki/Project-Configuration-Files#build-variants>`_
+
 .. code:: yaml
 
    task_groups:
