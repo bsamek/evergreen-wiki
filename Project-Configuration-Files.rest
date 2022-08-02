@@ -187,6 +187,15 @@ and what expansions it uses.
        patchable: false
      - name: git_tag_release
        git_tag_only: true
+     - name: inline_task_group
+       task_group:
+         share_processes: true
+         max_hosts: 3
+         teardown_group:
+         - command: attach.results
+         tasks:
+         - example_task_1
+         - example_task_2
 
 Fields:
 
