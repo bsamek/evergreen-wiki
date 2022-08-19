@@ -60,16 +60,11 @@ elsewhere, or if they move the config file. The batch time corresponds
 to the interval of time (in minutes) that Evergreen should wait in
 between activating the latest version.
 
-[[images/settings.png]]
-
-Repository Info
-'''''''''''''''
-
 Admins can modify which GitHub repository the project points to and
 change the owner, repository name, or branch that is to be tracked by
 Evergreen.
 
-[[images/repo.png]]
+[[images/settings.png]]
 
 Access and Admin Settings
 '''''''''''''''''''''''''
@@ -113,6 +108,8 @@ Aliases can be used for patch testing, commit queue testing, Github PRs, github 
 
 For most aliases, you must define a variant regex or tags, and a task regex or tags. The matching variants/tasks will be included for the alias. Tags should be listed as they are defined under the task definition (i.e. without the ".") and tag negation is also supported. Multiple tags should be comma-delimited. 
 
+[[images/alias.png]]
+
 GitHub Pull Request Testing
 ''''''''''''''''''''''''''
 
@@ -131,6 +128,8 @@ section.
 For security reasons, commits by users outside of your organization will
 not automatically be run. A patch will still be created and must be
 manually authorized to run by a logged-in user.
+
+[[images/pr_testing.png]]
 
 Trigger Versions With Git Tags
 ''''''''''''''''''''''''''
