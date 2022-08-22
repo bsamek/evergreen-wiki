@@ -9,7 +9,7 @@ With the completion of PM-610, it's now possible to share settings across multip
 
 Once a project is attached, any undefined fields will default to the repo's fields. << add something about defaulting whole page>> Attached projects will be grouped under the owner/repo that they're attached to in the sidebar.
 
-[[images/repo-sidebar.png]]
+[[images/repo_sidebar.png]]
 
 How It Works
 ^^^^^^^^^^
