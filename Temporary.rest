@@ -1,0 +1,43 @@
+This will be moved into Project Settings after the feature is ready, under General Settings.
+
+Using Repo Level Settings
+''''''''''''''''''''''''
+
+With the completion of PM-610, it's now possible to share settings across multiple different branches sharing a repo by "attaching" a project to a repo.
+
+[[images/attached_branch.png]]
+
+Once a project is attached, any undefined fields will default to the repo's fields. << add something about defaulting whole page>> Attached projects will be grouped under the owner/repo that they're attached to in the sidebar.
+
+[[images/repo-sidebar.png]]
+
+How It Works
+^^^^^^^^^^
+Branch projects can either have settings defined individually, or they can be set to default to the repo-level setting (repo-level settings can be defined on the repo project page itself). For example, the below setting indicates that is defaulting to the repo-level setting, which we can see here is true.
+
+[[images/boolean_default.png]]
+
+Similarly, lists can either be defined explicitly for the branch project ("Override") or can be set to default, in which case the repo settings will be available as read-only for convenience. For example, the following patch alias has been set at the repo-level, so it's visible from it's branch pages but cannot be modified.
+
+[[images/repo_alias.png]]
+
+Exceptions: 
+
+- Admins
+
+  Some info about admins.
+
+- Variables
+  
+  It's expected that branches may have many variables in common, with a few variables that are branch specific. Because of this, branches will use both repo-level variables and branch-level variables, however if there's a conflict between variable names then the branch-level definition will take precedent. For example, the following project has ``jiraserver`` defined in both the repo and branch settings, so the branch setting value ``different-jira.mongodb.org`` will be used, as well as the branch-defined ``var1`` and the repo-defined ``num_hosts``. 
+
+[[images/shared_variables.png]]
+
+How to Use PR Testing for Untracked Branches
+^^^^^^^^^^
+
+Questions?
+^^^^^^^^^^
+
+We recognize this is a very new feature and the interactions may be confusing or may have some bugs. Please let us know in #evergreen-users or by filing an EVG ticket if you have questions about this feature.
+
