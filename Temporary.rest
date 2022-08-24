@@ -25,7 +25,7 @@ Exceptions:
 
 - Admins
 
-  Some info about admins.
+  Branch admins and repo admins have slightly different permissions. Repo admins are admins over the whole repo, meaning that they can edit repo settings and branch settings for any attached branch project. Branch admins are only admins over the branches they are listed for, and can _view_ repo settings, but cannot make edits, making their permissions a subset of the repo admin's permissions.
 
 - Variables
   
@@ -35,6 +35,10 @@ Exceptions:
 
 How to Use PR Testing for Untracked Branches
 ^^^^^^^^^^
+
+A highly requested feature is to allow PR testing to be possible for untracked branches (i.e. branches without an explicit project, waterfall, etc). To create PR patches for any Github PR for a repo, simply define PR aliases on the repo project page and set PR testing to Enabled. 
+
+To explicitly disallow this for any individual branch, either override the PR aliases on the branch project page or set PR testing to Disabled for that branch.
 
 Questions?
 ^^^^^^^^^^
