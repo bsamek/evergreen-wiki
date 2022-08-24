@@ -7,13 +7,18 @@ With the completion of PM-610, it's now possible to share settings across multip
 
 [[images/attached_branch.png]]
 
-Once a project is attached, any undefined fields will default to the repo's fields. << add something about defaulting whole page>> Attached projects will be grouped under the owner/repo that they're attached to in the sidebar.
+Once a project is attached, any undefined fields will default to the repo's fields. Attached projects will be grouped under the owner/repo that they're attached to in the sidebar.
 
 [[images/repo_sidebar.png]]
 
+
 How It Works
 ^^^^^^^^^^
-Branch projects can either have settings defined individually, or they can be set to default to the repo-level setting (repo-level settings can be defined on the repo project page itself). For example, the below setting indicates that is defaulting to the repo-level setting, which we can see here is true.
+Branch projects can either have settings defined individually, or they can be set to default to the repo-level setting (repo-level settings can be defined on the repo project page itself). Entire sections of the project settings can be defaulted by clicking Default to Repo on Page at the top corner. 
+
+[[images/default_to_repo.png]]
+
+For example, the below setting indicates that is defaulting to the repo-level setting, which we can see here is true.
 
 [[images/boolean_default.png]]
 
@@ -21,7 +26,11 @@ Similarly, lists can either be defined explicitly for the branch project ("Overr
 
 [[images/repo_alias.png]]
 
-Exceptions: 
+Text box fields can be defaulted simply by leaving them empty, and the default value will be displayed.
+
+[[images/repo_string_default.png]]
+
+Exceptions to this behavior: 
 
 - Admins
 
@@ -38,10 +47,7 @@ How to Use PR Testing for Untracked Branches
 
 A highly requested feature is to allow PR testing to be possible for untracked branches (i.e. branches without an explicit project, waterfall, etc). To create PR patches for any Github PR for a repo, simply define PR aliases on the repo project page and set PR testing to Enabled. 
 
-To explicitly disallow this for any individual branch, either override the PR aliases on the branch project page or set PR testing to Disabled for that branch.
+[[images/repo_pr_testing.png]]
 
-Questions?
-^^^^^^^^^^
-
-We recognize this is a very new feature and the interactions may be confusing or may have some bugs. Please let us know in #evergreen-users or by filing an EVG ticket if you have questions about this feature.
+To explicitly disallow this behavior for any individual branch, either override the PR aliases on the branch project page or set PR testing to Disabled for that branch.
 
