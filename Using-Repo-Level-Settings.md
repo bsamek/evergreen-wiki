@@ -1,6 +1,3 @@
-Using Repo Level Settings
-''''''''''''''''''''''''
-
 With the completion of PM-610, it’s now possible to share settings across multiple different branches by “attaching” projects to the parent repo.
 
 [[images/attach_to_repo.png]]
