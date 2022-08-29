@@ -68,6 +68,9 @@ Evergreen.
 
 [[images/settings.png]]
 
+Admins can also set the branch project to inherit values from a repo-level project settings configuration. 
+This can be learned about at `'Using Repo Level Settings' <https://github.com/evergreen-ci/evergreen/wiki/Using-Repo-Level-Settings>`_.
+
 Access and Admin Settings
 '''''''''''''''''''''''''
 
