@@ -1,4 +1,4 @@
-With the completion of PM-610, it’s now possible to share settings across multiple different branches by “attaching” projects to the parent repo.
+With the completion of [PM-610](https://jira.mongodb.org/browse/PM-610), it’s now possible to share settings across multiple different branches by “attaching” projects to the parent repo.
 
 [[images/attach_to_repo.png]]
 
@@ -11,8 +11,7 @@ An attached branch project is only read-only on the legacy UI, since this UI has
 [[images/detach_from_repo.png]]
 
 
-How It Works
-^^^^^^^^^^
+## How It Works
 Branch projects can either have settings defined individually, or they can be set to default to the repo-level setting (repo-level settings can be defined on the repo project page itself). Entire sections of the project settings can be defaulted by clicking Default to Repo on Page at the top corner. 
 
 [[images/default_to_repo.png]]
@@ -31,18 +30,13 @@ Text box fields can be defaulted simply by leaving them empty, and the default v
 
 Exceptions to this behavior: 
 
-- Admins
+- **Admins**: Branch admins and repo admins have slightly different permissions. Repo admins are admins over the whole repo, meaning that they can edit repo settings and branch settings for any attached branch project. Branch admins are only admins over the branches they are listed for, and can _view_ repo settings, but cannot make edits, making their permissions a subset of the repo admin's permissions.
 
-  Branch admins and repo admins have slightly different permissions. Repo admins are admins over the whole repo, meaning that they can edit repo settings and branch settings for any attached branch project. Branch admins are only admins over the branches they are listed for, and can _view_ repo settings, but cannot make edits, making their permissions a subset of the repo admin's permissions.
-
-- Variables
-  
-  It's expected that branches may have many variables in common, with a few variables that are branch specific. Because of this, branches will use both repo-level variables and branch-level variables, however if there's a conflict between variable names then the branch-level definition will take precedent. For example, the following project has ``jiraserver`` defined in both the repo and branch settings, so the branch setting value ``different-jira.mongodb.org`` will be used, as well as the branch-defined ``var1`` and the repo-defined ``num_hosts``. 
+- **Variables**: It's expected that branches may have many variables in common, with a few variables that are branch specific. Because of this, branches will use both repo-level variables and branch-level variables, however if there's a conflict between variable names then the branch-level definition will take precedent. For example, the following project has ``jiraserver`` defined in both the repo and branch settings, so the branch setting value ``different-jira.mongodb.org`` will be used, as well as the branch-defined ``var1`` and the repo-defined ``num_hosts``. 
 
 [[images/shared_variables.png]]
 
-How to Use PR Testing for Untracked Branches
-^^^^^^^^^^
+## How to Use PR Testing for Untracked Branches
 
 A highly requested feature is to allow PR testing to be possible for untracked branches (i.e. branches without an explicit project, waterfall, etc). To create PR patches for any Github PR for a repo, simply define PR aliases on the repo project page and set PR testing to Enabled. 
 
