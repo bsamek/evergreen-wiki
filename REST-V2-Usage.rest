@@ -243,7 +243,7 @@ List Tasks By Project And Commit
 
  GET /projects/<project_name>/revisions/<commit_hash>/tasks
 
-List all tasks within a commit of a given project
+List all tasks within a mainline commit of a given project (excludes patch tasks)
 
 .. list-table:: **Parameters**
    :widths: 25 10 55
