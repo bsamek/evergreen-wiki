@@ -1148,10 +1148,8 @@ failure stepback.
 Customizing Logging
 """""""""""""""""""""""""""""""""
 
-By default, tasks will log all output to Evergreen's database. You can override this behavior at the project or command level by log type (task, agent, system). The available loggers are:
+By default, tasks will log all output to Cedar buildlogger. You can override this behavior at the project or command level by log type (task, agent, system). The available loggers are:
 
--  ``evergreen`` - Output is sent to Evergreen's database. This is the default. Only with this option will the task page 
-   show the last 100 log lines as a preview.
 -  ``file`` - Output is sent to a local file on the agent, which will be uploaded to S3 at the end of the task. Links to the 
    files will be available on the task page. This option is not available to system logs for security reasons. The ``log_directory`` parameter may be specified to override the default storage directory for log files.
 -  ``logkeeper`` - Output is sent to a Logkeeper instance. Links to the logs will be available on the task page.
