@@ -498,6 +498,14 @@ The following expansions are available if a task was triggered by an inter-proje
 -  ``${trigger_repo_name}`` is Github repo name for the project that initiated this trigger
 -  ``${trigger_branch}`` is git branch for the project that initiated this trigger
 
+The following expansions are available if a task has modules:
+
+``<module_name>`` represents the name defined in the project yaml for a given module
+
+- ``${<module_name>_rev}`` is the revision of the evergreen module associated with this task
+- ``${<module_name>_branch}`` is the branch of the evergreen module associated with this task
+- ``${<module_name>_repo}`` is the Github repo for the evergreen module associated with this task
+- ``${<module_name>_owner}`` is the Github repo owner for the evergreen module associated with this task
 
 Task Tags
 """""""""
