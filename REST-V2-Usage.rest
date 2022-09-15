@@ -1074,7 +1074,7 @@ Patch
 A patch is a manually initiated version submitted to test local changes.
 
 Objects
-~~~~~~~
+~~~~~~~~
 
 .. list-table:: **Patch**
    :widths: 25 10 55
@@ -1107,6 +1107,9 @@ Objects
    * - status
      - string
      - Status of patch
+   * - commit_queue_position
+     - int
+     - Only populated for commit queue patches: returns the 0-indexed position of the patch on the queue, or -1 if not on the queue anymore
    * - create_time
      - time
      - Time patch was created
@@ -1121,7 +1124,7 @@ Objects
      - List of identifiers of builds to run for this patch
    * - tasks
      - string[]
-    - List of identifiers of tasks used in this patch
+     - List of identifiers of tasks used in this patch
    * - variants_tasks
      - variant_task[]
      - List of documents of available tasks and associated build variant
