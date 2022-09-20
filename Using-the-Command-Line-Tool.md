@@ -150,8 +150,8 @@ projects:
   - enterprise-osx-108 #and so on...
   local_aliases:
   - alias: "alias_name"
-  - variant: ".*"
-  - task: "^compile$,tests$"
+    variant: ".*"
+    task: "^compile$,tests$"
   tasks:
   - compile
   - unittests
