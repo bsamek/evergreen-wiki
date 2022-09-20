@@ -6,6 +6,8 @@ This allows projects to maintain non-secret project variables in their project c
 
 Parameters can be defined in multiple different places, and can overwrite existing project variables. This leads to a specific hierarchy (listed from highest priority to lowest):
 
+* Function/command variables.
+
 * Parameters specified from the patch submission page.
 
 * Parameters passed in from the command-line.
