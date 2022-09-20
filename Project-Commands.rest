@@ -273,7 +273,8 @@ Notes:
 
 Parameters:
  
--  ``files``: the JSON file to generate tasks from
+-  ``files``: the JSON file(s) to generate tasks from
+-  ``optional``: default false; if set to true, will not error if the file(s) specified are not found
 
 .. code:: json
 
