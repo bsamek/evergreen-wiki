@@ -1918,7 +1918,7 @@ Copy Variables to an Existing Project
 
  POST /projects/<source_project>/copy/variables
 
-Restricted to admins of the source project and the destination project. Copies variables from projectA to projectB.
+Restricted to admins of the source project/repo and the destination project/repo. Copies variables from projectA to projectB.
 
 .. list-table:: **CopyVariablesOptions**
    :widths: 25 10 55
