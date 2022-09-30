@@ -152,7 +152,7 @@ delete the ITEM specified.
 Item can be either the patch ID or PR number (if applicable)
 
 # Backport
-Trivial backports can be automated with the commit queue. Create a backport patch to test the changes on the target branch, choosing the tasks necessary to validate the changes on the target branch. When the backport patch passes the changes are automatically added to the target branch's commit queue.
+Trivial backports can be automated with the commit queue. Create a backport patch to test the changes on the target branch, choosing the tasks necessary to validate the changes on the target branch. When the backport patch passes the changes are automatically added to the target branch's commit queue. **The backport patch is not added to the commit queue until tasks chosen have passed.**
 
 ## Creating a backport patch
 `evergreen commit-queue backport`
