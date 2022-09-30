@@ -101,6 +101,9 @@ Objects
    * - ``revision``              
      - string         
      - The version control identifier associated with this task
+   * - ``requester``
+     - string
+     - Version created by one of "patch_request", "github_pull_request", "gitter_request" (caused by git commit, aka the repotracker requester), "trigger_request" (Project Trigger versions) , "merge_test" (commit queue patches), "ad_hoc" (periodic builds)
    * - ``priority``              
      - int            
      - The priority of this task to be run
