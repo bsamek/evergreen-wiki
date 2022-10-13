@@ -431,7 +431,7 @@ Expansions can also take default arguments, in the form of
            if [ ${has_pyyaml_installed|false} = false ]; then
            ...
 
-Likewise, the default argument of an expansion can be an expansion itself. Prepending a `*` to the default value
+Likewise, the default argument of an expansion can be an expansion itself. Prepending an asterisk to the default value
 will lookup the expansion value of the default value, rather than the hard coded string.
 
 .. code:: yaml
@@ -443,7 +443,7 @@ will lookup the expansion value of the default value, rather than the hard coded
 
 If an expansion is used in your project file, but is unset, it will be
 replaced with its default value. If there is no default value, the empty
-string will be used. If the default value is prepended with `*` and that expansion
+string will be used. If the default value is prepended with an asterisk and that expansion
 also does not exist, the empty string will also be used.
 
 Usage
