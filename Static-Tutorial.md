@@ -35,13 +35,13 @@ To set up a distro, navigate to the user dropdown in the top right and select `D
 On the distros page, click the big, green button reading `+ NEW DISTRO` and fill in the following fields.
 
 
-[[images/new_distro.png]]
+![new_distro.png](images/new_distro.png)
 
 ###### Identifier
 This field is how project configuration files will tell Evergreen which distro to run a variant on. In this example, set the identifier to `localtestdistro`.
 
 
-[[images/static_id.png]]
+![static_id.png](images/static_id.png)
 
 
 ###### Agent Architecture
@@ -51,7 +51,7 @@ For Working Directory, we need to establish a path that your localhost user has 
 This directory will be created at host startup and is where the Evergreen agent will run and store files.
 
 
-[[images/static_agent.png]]
+![static_agent.png](images/static_agent.png)
 
 
 ###### Provider
@@ -62,7 +62,7 @@ Next, click the `+ ADD HOST` button, and fill in the name of the machine to use.
 In this example, you should fill in `localhost`, `127.0.0.1`, or the name of your local machine.
 
 
-[[images/static_provider.png]]
+![static_provider.png](images/static_provider.png)
 
 ###### User
 Fill this is with your machine user.
@@ -71,7 +71,7 @@ Evergreen will SSH as this user into the machine you listed above in "Provider."
 Now select the SSH Key we set up earlier in the dropdown.
 
 
-[[images/static_user.png]]
+![static_user.png](images/static_user.png)
 
 ###### Finally
 

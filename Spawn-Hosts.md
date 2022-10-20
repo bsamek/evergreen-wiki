@@ -18,7 +18,7 @@ Alternately, for a task that ran on a distro where spawning is enabled, you will
 
 Clicking it will pre-populate the spawn host page with a request to spawn a host of that distro, along with the option to fetch binaries and artifacts associated with the task and any tasks that it depended on.
 
-[[images/spawn_host_modal.png]]
+![spawn_host_modal.png](images/spawn_host_modal.png)
 
 Fetching artifacts can also be performed manually; see [fetch](https://github.com/evergreen-ci/evergreen/wiki/Using-the-Command-Line-Tool#fetch) in the Evergreen command line tool documentation.
 

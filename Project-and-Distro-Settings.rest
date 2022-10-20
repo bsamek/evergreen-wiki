@@ -10,7 +10,7 @@ dropdown on the navigation menu. All users can access the distro
 settings page and Project Admins and Superusers can access the project
 settings page.
 
-[[images/sidebar.png]]
+![sidebar.png](images/sidebar.png)
 
 Types of Special Users
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -66,7 +66,7 @@ Admins can modify which GitHub repository the project points to and
 change the owner, repository name, or branch that is to be tracked by
 Evergreen.
 
-[[images/settings.png]]
+![settings.png](images/settings.png)
 
 Admins can also set the branch project to inherit values from a repo-level project settings configuration. 
 This can be learned about at `'Using Repo Level Settings' <https://github.com/evergreen-ci/evergreen/wiki/Using-Repo-Level-Settings>`_.
@@ -83,7 +83,7 @@ the list and saving the project settings.
 
 Not pictured, the Restricted Project checkbox controls whether logged-in users have basic access to the project (able to view tasks and logs, able to submit patches). If checked, users will by default not have any access, and access must be manually granted through an external system via the REST API. The default for this setting is to allow logged-in users basic access to this project. Note this is different from the Private/Public setting above, which restricts access for users that are not logged in.
 
-[[images/admins.png]]
+![admins.png](images/admins.png)
 
 Scheduling Settings
 '''''''''''''''''''
@@ -91,7 +91,7 @@ Scheduling Settings
 Admins can enable the ability to unschedule old tasks if a more recent
 commit passes.
 
-[[images/schedule.png]]
+![schedule.png](images/schedule.png)
 
 Variables
 '''''''''
@@ -104,7 +104,7 @@ Options:
 - Checking **private** makes the variable redacted so the value won't be visible on the projects page or by API routes.
 - Checking **admin only** ensures that the variable can only be used by admins and mainline commits.
 
-[[images/vars.png]]
+![vars.png](images/vars.png)
 
 Aliases 
 '''''''''
@@ -115,7 +115,7 @@ For most aliases, you must define a variant regex or tags, and a task regex or t
 
 Aliases can also be defined locally as shown `here <https://github.com/evergreen-ci/evergreen/wiki/Using-the-Command-Line-Tool#local-aliases>`_.
 
-[[images/alias.png]]
+![alias.png](images/alias.png)
 
 GitHub Pull Request Testing
 ''''''''''''''''''''''''''
@@ -136,7 +136,7 @@ For security reasons, commits by users outside of your organization will
 not automatically be run. A patch will still be created and must be
 manually authorized to run by a logged-in user.
 
-[[images/pr_testing.png]]
+![pr_testing.png](images/pr_testing.png)
 
 Github Checks
 ''''''''''''''''''''''''''
@@ -346,7 +346,7 @@ The Distros page allows all users to see all available distros a project
 can run tasks on. As a superuser or admin, one can also add new distro
 configurations to be used by other users.
 
-[[images/distros.png]]
+![distros.png](images/distros.png)
 
 Distros describe machine configuration that run tasks as well as the
 worker pools were tasks execute. As a result much of the available
