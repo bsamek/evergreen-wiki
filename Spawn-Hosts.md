@@ -14,7 +14,7 @@ Visit `/spawn` to view the spawn hosts control panel. Click on "Spawn Host" and 
 
 Alternately, for a task that ran on a distro where spawning is enabled, you will see a "Spawn..." or "Spawn Host" link on its task page. 
 
-[[images/task_page_spawn_host.png]]
+![task_page_spawn_host.png](images/task_page_spawn_host.png)
 
 Clicking it will pre-populate the spawn host page with a request to spawn a host of that distro, along with the option to fetch binaries and artifacts associated with the task and any tasks that it depended on.
 
