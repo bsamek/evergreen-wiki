@@ -84,4 +84,4 @@ required directories will be created as normally. The `-distro`
 argument only modifies the path of the directory *if* the distro
 specified workstation. If you specify
 `--distro` and `--directory` the `--directory` creates a prefix
-within the workstation distro's persistant home directory.
+within the workstation distro's persistent home directory.
