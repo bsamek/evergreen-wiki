@@ -27,9 +27,14 @@ Multiple tasks and variants are specified by passing the flags multiple times:
 evergreen patch -v enterprise-suse11-64 -v solaris-64-bit -t compile -t unittest -t jsCore
 ```
 
-And _every_ task or variant can be specified by using the "all" keyword:
+_Every_ task or variant can be specified by using the "all" keyword:
 ```bash
 evergreen patch -v all -t all
+```
+
+Tasks and variants can also be specified using the regex variants(-rv) and regex tasks(-rt) flags:
+```bash
+evergreen patch --regex_variants "enterprise.*" --rt "test-.*"
 ```
 
 To use the same tasks and variants defined for the previous patch created for this project, you can use the `--reuse` flag. If any tasks/variants were defined for the previous patch but do not exist for the new patch, they will not be added. Note also that aliases will not be re-calculated; this is so if an alias had been given to the previous patch but then the user chose to tweak the specific tasks/variants, the final configuration is the one that we reuse.
