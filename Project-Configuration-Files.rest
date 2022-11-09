@@ -1288,3 +1288,30 @@ Example in a command:
           shell: bash
           script: |
             curl -d '{"status":"failed", "type":"setup", "desc":"this should be set"}' -H "Content-Type: application/json" -X POST localhost:2285/task_status
+
+Task Fields Override Hierarchy
+""""""""""""""""""""""""""""""
+
+The tasks' specific fields will be taken into priority in the following order: 
+
+-  The fields in the build variant definition
+-  The fields in the task definition
+-  The fields in the variant task definition 
+
+::
+
+Example:
+
+.. code:: yaml
+
+  buildvariants:
+  - name: build_variant_definition
+    run_on:
+      - lowest_priority
+    tasks: 
+      - name: task_definition
+        run_on: highest_priority
+  tasks:
+  - name: task_definiton
+    run_on: mid_priority
+
