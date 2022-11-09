@@ -220,7 +220,7 @@ Additionally, an item in the ``tasks`` list can be of the form
 
    tasks:
    - name: compile
-     distros: 
+     run_on: 
      - ubuntu1404-build
 
 allowing tasks within a build variant to be run on different distros.
@@ -564,7 +564,7 @@ of tasks.
        - osx-distro
        tasks:
        - name: ".frontend"
-         distros:
+         run_on:
            - osx-distro-test
        - name: ".js"
 
