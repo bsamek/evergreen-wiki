@@ -39,6 +39,7 @@ Evergreen sends a status to the PR when the changes are enqueued, when the merge
 ![github_status_fail.png](images/github_status_fail.png)
 
 ### Set-Module
+NOTE: this feature isn't currently working as expected. Fix is being tracked in [EVG-18256](https://jira.mongodb.org/browse/EVG-18256).
 Add other PRs for repos defined as modules in the project's configuration file with the `--module MODULE:PR` option to the `evergreen merge` comment, where MODULE is the name of a module defined in the evergreen.yml project configuration file and PR is the PR number in the module's repo. When the test passes all the PRs will be merged. The option can be repeated for multiple modules. For instance: 
 
 ![set-module_comment.png](images/set-module_comment.png)
