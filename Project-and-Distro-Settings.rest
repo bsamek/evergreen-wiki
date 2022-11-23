@@ -495,19 +495,11 @@ Task Sync
 
 
 .. code:: yaml
+   
+    task_sync:
+       config_enabled: true
+       patch_enabled: false
 
-   config_enabled: true
-   patch_enabled: false
-
-Performance Plugin
-'''''''''''''''''
-
-`View setting definition <https://github.com/evergreen-ci/evergreen/wiki/Project-and-Distro-Settings#performance-plugin>`_
-
-
-.. code:: yaml
-
-   perf_enabled: true
 
 Build Baron
 '''''''''''''''''
