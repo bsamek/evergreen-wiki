@@ -60,10 +60,10 @@ Notice that tasks contain:
 
 1. A name
 2. A set of dependencies on other tasks
-3. A distro or list of distros to run on (documented more under "Build Variants"). If run_on is set at the task level, it takes precedent over the default set for the buildvariant (unless run_on is explicitly defined for this task under a specific build variant). 
+3. A distro or list of distros to run on (documented more under `"Build Variants" <https://github.com/evergreen-ci/evergreen/wiki/Project-Configuration-Files#build-variants>`__). If run_on is set at the task level, it takes precedent over the default set for the buildvariant (unless run_on is explicitly defined for this task under a specific build variant). 
 4. A list of commands and/or functions that tell Evergreen how to run it.
 
-`Task tags <https://github.com/evergreen-ci/evergreen/wiki/Project-Configuration-Files#task-tags>`__, limiting whether `a task should run on patches/git tags/etc <https://github.com/evergreen-ci/evergreen/wiki/Project-Configuration-Files#limiting-when-a-task-will-run>`__, `test results <https://github.com/evergreen-ci/evergreen/wiki/Project-Configuration-Files#tests>`__, and `timeout <https://github.com/evergreen-ci/evergreen/wiki/Project-Configuration-Files#pre-post-and-timeout>`__ can also be defined for a task, and will apply to all tasks unless overridden at the build variant task level.
+Another useful feature is `task tags <https://github.com/evergreen-ci/evergreen/wiki/Project-Configuration-Files#task-tags>`__, which allows grouping tasks to limit whether `those tasks should run on patches/git tags/etc. <https://github.com/evergreen-ci/evergreen/wiki/Project-Configuration-Files#limiting-when-a-task-will-run>`__.
 
 
 
