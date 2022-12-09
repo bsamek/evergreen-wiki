@@ -298,6 +298,17 @@ Restart A Task
 
 Restarts the task of the given ID. Can only be performed if the task is finished.
 
+.. list-table:: **Parameters**
+   :widths: 25 10 55
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Description
+   * - failed_only
+     - boolean
+     - Optional. For a display task, restarts only failed execution tasks. When used with a non-display task, this parameter has no effect.
+
 Abort A Task
 ````````````
 
