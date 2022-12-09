@@ -2036,7 +2036,7 @@ Get Tasks For A Project
  GET /projects/<project_id>/tasks/<task_name>
 
 
-Returns a the last set number of completed tasks that exist for a given project. Parameters should be passed into the JSON body. Ensure that a task name rather than a task ID is passed int the URL.
+Returns the last set number of completed tasks that exist for a given project. Parameters should be passed into the JSON body. Ensure that a task name rather than a task ID is passed int the URL.
 
 .. list-table:: **Parameters**
    :widths: 25 10 55
@@ -2047,7 +2047,7 @@ Returns a the last set number of completed tasks that exist for a given project.
      - Description
    * - limit
      - int
-     - Optional. The number of versions to be returned. Defaults to 20.
+     - Optional. The number of latest versions to be searched. Defaults to 20.
    * - start_at
      - int
      - Optional. The version order number to start returning results after.
