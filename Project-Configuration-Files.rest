@@ -305,6 +305,10 @@ details on how the modules were parsed from YAML and which git revisions are bei
      repo: https://github.com/deafgoat/sandbox.git
      branch: main
      ref: <some_hash>
+   - name: mci
+     repo: https://github.com/deafgoat/mci.git
+     branch: main
+     auto_update: true
 
 Fields:
 
@@ -313,7 +317,7 @@ Fields:
 * ``repo``: the git repository of the module
 * ``prefix``: the path prefix to use for the module
 * ``ref``: the git commit hash to use for the module in the project (if not specified, defaults to the latest revision that existed at the time of the Evergreen version creation)
-* ``auto_update``: if true, the latest revision for the module will be dynamically retrieved for patch builds
+* ``auto_update``: if true, the latest revision for the module will be dynamically retrieved for each Github PR and CLI patch submission
 
 
 Pre, Post, and Timeout
