@@ -286,6 +286,34 @@ The validation step will check for
    * warning conditions such as referencing a distro pool that does not exist
    * merging errors from include files
 
+Modules
+""""""""""""""
+
+For patches that may need to run tests based off of changes across multiple projects,
+the modules field may be defined to specify other projects and configure the way that changes across them
+are applied within the patch at runtime.
+
+.. code:: yaml
+
+   modules:
+   - name: evergreen
+     repo: https://github.com/deafgoat/mci_test.git
+     prefix: src/mongo/db/modules
+     branch: master
+   - name: sandbox
+     repo: https://github.com/deafgoat/sandbox.git
+     branch: main
+     ref: <some_hash>
+
+Fields:
+
+* ``name``: an identification string for the variant
+* ``branch``: the branch of the module to use in the project
+* ``repo``: the git repository of the module
+* ``prefix``: the path prefix to use for the module
+* ``ref``: the git commit hash to use for the module in the project (if not specified, defaults to the latest revision)
+* ``auto_update``: if true, the latest revision for the module will be dynamically retrieved for patch builds
+
 
 Pre, Post, and Timeout
 """"""""""""""""""""""
