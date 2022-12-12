@@ -351,7 +351,7 @@ even if the module is pinned at a different commit for your version.
 Parameters:
  
 - ``dir``: the directory to clone into
-- ``revisions``: For commit builds, each module should be passed as ``<module_name> : ${<module_name>_rev}``. For patch builds, the hash must be passed directly as ``<module_name> : <hash>``. Note that this means that for patch builds, editing the "modules" section of the project config will not change the checked out hash.
+- ``revisions``: For commit builds, each module should be passed as ``<module_name> : ${<module_name>_rev}``. For patch builds, the hash must be passed directly as ``<module_name> : <hash>``. Note that this means that for patch builds, editing the `"modules" <https://github.com/evergreen-ci/evergreen/wiki/Project-Configuration-Files#modules>`__ section of the project config will not change the checked out hash.
 - ``token``: Use a token to clone instead of the ssh key on the host. Since this is a secret, it should be provided as a project expansion. For example, you could provide an expansion called "github_token" and then set this field to ${github_token}. Evergreen will populate the expansion when it parses the project yaml.
 - ``clone_depth``: Clone with ``git clone --depth <clone_depth>``. For patch builds, Evergreen will ``git fetch --unshallow`` if the base commit is older than ``<clone_depth>`` commits.
 - ``shallow_clone``: Sets ``clone_depth`` to 100. 
