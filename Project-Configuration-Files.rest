@@ -291,7 +291,8 @@ Modules
 
 For patches that run tests based off of changes across multiple projects,
 the modules field may be defined to specify other git projects with configurations specifying the way that changes across them
-are applied within the patch at runtime.
+are applied within the patch at runtime. If configured correctly, the left hand side of the Spruce UI under "Version Metadata" will contain
+details on how the modules were parsed from YAML and which git revisions are being used.  
 
 .. code:: yaml
 
