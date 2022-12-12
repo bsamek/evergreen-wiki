@@ -307,7 +307,7 @@ are applied within the patch at runtime.
 
 Fields:
 
-* ``name``: an identification string for the variant
+* ``name``: alias to refer to the module
 * ``branch``: the branch of the module to use in the project
 * ``repo``: the git repository of the module
 * ``prefix``: the path prefix to use for the module
