@@ -1,3 +1,7 @@
+::: {.contents depth="1" local=""}
+[Supported task commands]{.title-ref}
+:::
+
 # archive.targz_extract
 
 `archive.targz_extract` extracts files from a gzipped tarball.
@@ -40,8 +44,8 @@ Parameters:
 
 In addition to the
 [filepath.Match](https://golang.org/pkg/path/filepath/#Match) syntax,
-`archive.targz_pack` supports using \*\* to indicate that
-it should recurse into subdirectories. With only \*, it
+`archive.targz_pack` supports using [\*\*]{.title-ref} to indicate that
+it should recurse into subdirectories. With only [\*]{.title-ref}, it
 will not recurse.
 
 # attach.artifacts
@@ -122,6 +126,8 @@ logically nonsensical.
 | `exit_code` | int           | The status with which the test command exited. For the most part this does nothing.                                    |
 | `task_id`   | string        | The ID of the task with which this test should be associated. The test will appear on the page for the specified task. |
 | `execution` | int           | The execution of the task above with which this test should be associated.                                             |
+
+: **Parameters**
 
 ``` yaml
 - command: attach.results

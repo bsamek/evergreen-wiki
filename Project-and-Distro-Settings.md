@@ -1,3 +1,6 @@
+::: {.contents depth="3" local=""}
+:::
+
 # Evergreen Project and Distro Settings
 
 The Project and Distro settings pages can be found at the right side

@@ -1,3 +1,6 @@
+::: {.contents depth="3" local=""}
+:::
+
 Project configurations are how you tell Evergreen what to do. They
 contain a set of tasks and variants to run those tasks on, and are
 stored within the repository they test. Project files are written in a
@@ -791,9 +794,8 @@ in the case of a failing task. This can be set or unset at the
 top-level, and for individual tasks (in the task definition or for the
 task within a specific build variant).
 
-## OOM Tracker
-
-This is set to true at the top level if you\'d like to enable the OOM Tracker for your project.
+OOM Tracker \"\"\"\"\"\"\"\"\" This is set to true at the top level if
+you\'d like to enable the OOM Tracker for your project.
 
 ## Matrix Variant Definition
 
@@ -1437,6 +1439,8 @@ is complete (or when the task is complete, if `should_continue` is set).
 | desc            | string  | Provide details on the task failure. This is limited to 500 characters. Will default to the command\'s display name.                                        |
 | should_continue | boolean | Defaults to false. If set, will finish running the task before setting the status.                                                                          |
 
+: **Parameters**
+
 Example in a command:
 
 ``` yaml
@@ -1455,6 +1459,8 @@ order:
 -   The fields in the build variant definition
 -   The fields in the task definition
 -   The fields in the variant task definition
+
+:
 
 Example:
 

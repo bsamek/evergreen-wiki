@@ -1,3 +1,7 @@
+---
+title: Evergreen Degraded Mode
+---
+
 # Overview
 
 This document details the decisions to be made when deciding to degrade
