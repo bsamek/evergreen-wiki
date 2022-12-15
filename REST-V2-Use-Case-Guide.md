@@ -81,13 +81,23 @@ see the modified project, make a request to
 
 For example, to enable the commit queue the body would be:
 
-`` ` {     "commit_queue": {         "enabled": "true"      } } ``\`
+    { "commit_queue": 
+      { "enabled": "true" } 
+    }
 
 To add and delete admins:
-`` ` {    "admins": ["annie.black", "brian.samek"], // does not overwrite existing admins    "delete_admins": ["john.liu"] // deletes existing admin } ``\`
+    { "admins": ["annie.black", "brian.samek"], // does not overwrite existing admins    
+      "delete_admins": ["john.liu"] // deletes existing admin }
 
 To add/delete variables and specify which are private:
-`` ` {     "variables": {         "vars": { // add to existing variables             "banana": "yellow",             "apple": "red",         },         "private_vars": {             "apple": "true", // this cannot be undone         },         "vars_to_delete": ["watermelon"]     } } ``\`
+
+    { "variables": 
+      { "vars": { // add to existing variables
+        "banana": "yellow",             
+        "apple": "red", },         
+      "private_vars": { "apple": "true", // this cannot be undone         
+      },         
+      "vars_to_delete": ["watermelon"] }}
 
 # Copy an Existing Project
 
@@ -100,6 +110,8 @@ To add/delete variables and specify which are private:
 To copy a project to a new project, this is the route you would use. To
 define the new project\'s name (which is required), we would include a
 query parameter, for example:
-`` ` projects/my_first_project/copy?new_project=my_second_project ``\`
+
+    projects/my_first_project/copy?new_project=my_second_project
+
 This route will return the new project but this will not include
 variables/aliases/subscriptions; to see this, GET the new project.
