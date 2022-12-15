@@ -1,3 +1,5 @@
+REST V2 Use Case Guide
+
 # Find all failures of a given build
 
 ## Endpoint
