@@ -1,7 +1,3 @@
-::: {.contents depth="4" local=""}
-[Table of contents]{.title-ref}
-:::
-
 # General Functionality
 
 ## A note on authentication
@@ -64,6 +60,8 @@ comprise a suite of tests or generation of a set of artifacts.
 
 ### Objects
 
+**Task**
+
 | Name                   | Type          | Description                                                                                                                                                                                                                                                          |
 |--------------------|---------|-------------------------------------------|
 | `task_id`              | string        | Unique identifier of this task                                                                                                                                                                                                                                       |
@@ -97,7 +95,7 @@ comprise a suite of tests or generation of a set of artifacts.
 | `previous_executions`  | \[Task\]      | Optional. Contains previous executions of the task if they were requested, and available. May be empty.                                                                                                                                                              |
 | `parent_task_id`       | string        | Optional. The ID of the task\'s parent display task, if requested and available                                                                                                                                                                                      |
 
-: **Task**
+**Logs**
 
 | Name       | Type   | Description                                           |
 |--------------------|---------|-------------------------------------------|
@@ -106,7 +104,7 @@ comprise a suite of tests or generation of a set of artifacts.
 | system_log | string | Link to logs created by the machine running the task  |
 | all_log    | string | Link to logs containing merged copy of all other logs |
 
-: **Logs**
+**Status**
 
 | Name      | Type    | Description                                  |
 |-----------|---------|----------------------------------------------|
@@ -115,7 +113,6 @@ comprise a suite of tests or generation of a set of artifacts.
 | desc      | string  | Description of the final status of this task |
 | timed_out | boolean | Whether this task ended in a timeout         |
 
-: **Status**
 
 ### Endpoints
 
@@ -132,8 +129,6 @@ List all tasks within a specific build.
 | fetch_all_executions | boolean | Optional. Fetches previous executions of tasks if they are available                 |
 | fetch_parent_ids     | boolean | Optional. Fetches the parent display task ID for each returned execution task        |
 
-: **Parameters**
-
 #### List Tasks By Project And Commit
 
     GET /projects/<project_name>/revisions/<commit_hash>/tasks
@@ -148,8 +143,6 @@ patch tasks)
 | variant   | string | Optional. Only return tasks within this variant                                      |
 | task_name | string | Optional. Only return tasks with this display name                                   |
 
-: **Parameters**
-
 #### Get A Single Task
 
     GET /tasks/<task_id>
@@ -159,8 +152,6 @@ Fetch a single task using its ID
 | Name                 | Type | Description                                                             |
 |--------------------|---------|-------------------------------------------|
 | fetch_all_executions | any  | Optional. Fetches previous executions of the task if they are available |
-
-: **Parameters**
 
 #### Restart A Task
 
@@ -172,8 +163,6 @@ finished.
 | Name        | Type    | Description                                                                                                                          |
 |--------------------|---------|-------------------------------------------|
 | failed_only | boolean | Optional. For a display task, restarts only failed execution tasks. When used with a non-display task, this parameter has no effect. |
-
-: **Parameters**
 
 #### Abort A Task
 
@@ -188,12 +177,12 @@ progress.
 
     Change the current execution status of a task. Accepts a JSON body with the new task status to be set.
 
+**Accepted Parameters**
+
 | Name      | Type    | Description                                                               |
 |--------------------|---------|-------------------------------------------|
 | activated | boolean | The activation status of the task to be set to                            |
 | priority  | int     | The priority of this task\'s execution. Limited to 100 for non-superusers |
-
-: **Accepted Parameters**
 
 For example, to set activate the task and set its status priority to
 100, add the following JSON to the request body:
@@ -209,6 +198,8 @@ Task Annotations give users more context about task failures.
 
 ### Objects
 
+**Annotation**
+
 | Name             | Type                     | Description                                                                                                      |
 |--------------------|---------|-------------------------------------------|
 | task_id          | string                   | Identifier of the task that this annotation is for                                                               |
@@ -218,14 +209,14 @@ Task Annotations give users more context about task failures.
 | issues           | \[\]issue_link           | Links to tickets definitely related                                                                              |
 | suspected_issues | \[\]issue_link           | Links to tickets possibly related                                                                                |
 
-: **Annotation**
+**Note**
 
 | Name    | Type          | Description                    |
 |---------|---------------|--------------------------------|
 | message | string        | Comment about the task failure |
 | source  | source_object | The source of the note         |
 
-: **Note**
+**Source**
 
 | Name      | Type   | Description                           |
 |-----------|--------|---------------------------------------|
@@ -233,7 +224,7 @@ Task Annotations give users more context about task failures.
 | time      | time   | The time of the edit                  |
 | requester | string | The source of the request (api or ui) |
 
-: **Source**
+**Issue Link**
 
 | Name             | Type          | Description                       |
 |------------------|---------------|-----------------------------------|
@@ -242,12 +233,19 @@ Task Annotations give users more context about task failures.
 | source           | source_object | The source of the edit            |
 | confidence_score | float32       | The confidence score of the issue |
 
-: **Issue Link**
-
 ### Endpoints
 
-Fetch Task Annotations
-```````` `  ::   GET /tasks/<task_id>/annotations  Returns a list containing the latest annotation for the given task, or null if there are no annotations.  .. list-table:: **Parameters**    :widths: 25 10 55    :header-rows: 1     * - Name              - Type                 - Description    * - fetch_all_executions           - boolean         - Optional. Fetches annotations for all executions of the task if they are available    * - execution             - int         -  Optional. The 0-based number corresponding to the execution of the task the annotation is associated with. Defaults to the latest execution.    Create or Update a New Task Annotation ``````````````\`
+#### Fetch Task Annotations
+    GET /tasks/<task_id>/annotations  
+
+    Returns a list containing the latest annotation for the given task, or null if there are no annotations.  
+
+|Name                          |Type                | Description    
+|------------------------------|--------------------|-----------------------------------------------------
+|fetch_all_executions          |boolean             | Optional. Fetches annotations for all executions of the task if they are available    
+|execution                     |int                 | Optional. The 0-based number corresponding to the execution of the task the annotation is associated with. Defaults to the latest execution.    
+
+Create or Update a New Task Annotation
 
     PUT tasks/{task_id}/annotation
 
@@ -262,11 +260,11 @@ user have security to modify task annotations. The user does not need to
 specify the source, it will be added automatically. Example request
 body:
 
+**Parameters**
+
 | Name      | Type | Description                                                                    |
 |--------------------|---------|-------------------------------------------|
 | execution | int  | Optional. Can be set in lieu of specifying task_execution in the request body. |
-
-: **Parameters**
 
     {
       "task_id": "my_task_id",
@@ -283,7 +281,31 @@ body:
     }
 
 Create or Update a New Task Annotation By Appending
-`````````````` `  ::   PATCH tasks/{task_id}/annotation  Creates a task annotation, or updates an existing task annotation, appending issues and suspected issues that are included in the update. A new annotation is created based if the annotation exists and if upsert is true. Task execution must be provided for this endpoint, either in the request body or set as a url parameter.  If no task_execution is specified in the request body or in the url, a bad status error will be returned. Note that usage of this endpoint requires that the requesting user have security to modify task annotations. The user does not need to specify the source, it will be added automatically. Example request body:    .. list-table:: **Parameters**    :widths: 25 10 55    :header-rows: 1     * - Name              - Type                 - Description    * - execution           - int         - Optional. Can be set in lieu of specifying task_execution in the request body.    * - upsert           - bool         - Optional. Will create a new annotation if task annotation isn't found and upsert is true. ::     {      "task_id": "my_task_id",      "task_execution": 4321,      "upsert": false,      "issues":[          {             "url": "https://link.com",             "issue_key": "link-1234"          },      ]    }   Bulk Create or Update Many Task Annotations ``````````````\`
+
+    PATCH tasks/{task_id}/annotation  
+
+Creates a task annotation, or updates an existing task annotation, appending issues and suspected issues that are included in the update. A new annotation is created based if the annotation exists and if upsert is true. Task execution must be provided for this endpoint, either in the request body or set as a url parameter.  If no task_execution is specified in the request body or in the url, a bad status error will be returned. Note that usage of this endpoint requires that the requesting user have security to modify task annotations. The user does not need to specify the source, it will be added automatically. Example request body:    
+
+|Name             |Type                |Description    
+|-----------------|--------------------|---------------------------------------------
+|execution        |int                 |Optional. Can be set in lieu of specifying task_execution in the request body.
+|upsert           |bool                |Optional. Will create a new annotation if task annotation isn't found and upsert is true. 
+
+    {
+      "task_id": "my_task_id",
+        "task_execution": 4321,
+          "upsert": false,
+          "issues":[
+          {
+                   "url": "https://link.com",
+                            "issue_key": "link-1234"
+                                  
+          }
+          ]
+    }
+
+
+Bulk Create or Update Many Task Annotations
 
     PATCH tasks/annotations
 
@@ -327,31 +349,33 @@ request body:
        }]
     }
 
-List Task Annotations By Build ````````
+List Task Annotations By Build 
 
     GET /builds/<build_id>/annotations
 
 Fetches the annotations for all the tasks in a build.
 
+**Parameters**
+
 | Name                 | Type    | Description                                                                        |
 |--------------------|---------|-------------------------------------------|
 | fetch_all_executions | boolean | Optional. Fetches annotations for all executions of the task if they are available |
 
-: **Parameters**
 
-List Task Annotations By Version ````````
+List Task Annotations By Version 
 
     GET /versions/<version_id>/annotations
 
 Fetches the annotations for all the tasks in a version.
 
+**Parameters**
+
 | Name                 | Type    | Description                                                                        |
 |--------------------|---------|-------------------------------------------|
 | fetch_all_executions | boolean | Optional. Fetches annotations for all executions of the task if they are available |
 
-: **Parameters**
 
-Send a Newly Created Ticket For a Task ````````
+Send a Newly Created Ticket For a Task 
 
     PUT /tasks/<task_id>/created_ticket 
 
@@ -376,6 +400,8 @@ A test is a sub-operation of a task performed by Evergreen.
 
 ### Objects
 
+**Test**
+
 | Name       | Type     | Description                                                |
 |--------------------|---------|-------------------------------------------|
 | task_id    | string   | Identifier of the task this test is a part of              |
@@ -386,7 +412,7 @@ A test is a sub-operation of a task performed by Evergreen.
 | start_time | time     | Time that this test began execution                        |
 | end_time   | time     | Time that this test stopped execution                      |
 
-: **Test**
+**Test Logs**
 
 | Name     | Type   | Description                                                              |
 |--------------------|---------|-------------------------------------------|
@@ -394,8 +420,6 @@ A test is a sub-operation of a task performed by Evergreen.
 | line_num | int    | Line number in the log file corresponding to information about this test |
 | url_raw  | string | URL of the unprocessed version of the logs file for this test            |
 | log_id   | string | Identifier of the logs corresponding to this test                        |
-
-: **Test Logs**
 
 ### Endpoints
 
@@ -409,6 +433,8 @@ filter the tasks, add the following parameters into the query string
 [Pagination](https://github.com/evergreen-ci/evergreen/wiki/REST-V2-Usage#pagination)
 to see this format).
 
+**Parameters**
+
 | Name      | Type   | Description                                                                                                                      |
 |--------------------|---------|-------------------------------------------|
 | start_at  | string | Optional. The identifier of the test to start at in the pagination                                                               |
@@ -418,7 +444,6 @@ to see this format).
 | test_name | string | Optional. Only return the test matching the name.                                                                                |
 | latest    | bool   | Optional. Return tests from the latest execution. Cannot be used with execution.                                                 |
 
-: **Parameters**
 
 #### Get The Test Count From A Task
 
@@ -427,17 +452,20 @@ to see this format).
 Returns an integer representing the number of tests that ran as part of
 the given task.
 
+**Parameters**
+
 | Name      | Type | Description                                                                                                                      |
 |--------------------|---------|-------------------------------------------|
 | execution | int  | Optional. The 0-based number corresponding to the execution of the task. Defaults to 0, meaning the first time the task was run. |
 
-: **Parameters**
 
 Manifest \-\-\--
 
 A manifest is a representation of the modules associated with a version.
 
 ### Objects
+
+**Manifest**
 
 | Name     | Type                  | Description                                                       |
 |--------------------|---------|-------------------------------------------|
@@ -448,7 +476,7 @@ A manifest is a representation of the modules associated with a version.
 | modules  | map\[string\]\*Module | Map from the Github repository name to the module\'s information. |
 | is_base  | bool                  | True if the version is a mainline build.                          |
 
-: **Manifest**
+**Module**
 
 | Name     | Type   | Description                                             |
 |--------------------|---------|-------------------------------------------|
@@ -458,7 +486,6 @@ A manifest is a representation of the modules associated with a version.
 | owner    | string | The owner of the repository.                            |
 | url      | string | The url to the GitHub API call to that specific commit. |
 
-: **Module**
 
 ### Endpoints
 
@@ -474,6 +501,8 @@ The hosts resource defines a running machine instance in Evergreen.
 
 ### Objects
 
+**Host**
+
 | Name         | Type        | Description                                                                          |
 |--------------------|---------|-------------------------------------------|
 | host_id      | string      | Unique identifier of a specific host                                                 |
@@ -484,14 +513,14 @@ The hosts resource defines a running machine instance in Evergreen.
 | status       | string      | The current state of the host                                                        |
 | running_task | task_info   | Object containing information about the task the host is currently running           |
 
-: **Host**
+**Distro Info**
 
 | Name      | Type   | Description                                                                               |
 |--------------------|---------|-------------------------------------------|
 | distro_id | string | Unique Identifier of this distro. Can be used to fetch more informaiton about this distro |
 | provider  | string | The service which provides this type of machine                                           |
 
-: **Distro Info**
+**Task Info**
 
 | Name          | Type   | Description                                                                           |
 |--------------------|---------|-------------------------------------------|
@@ -501,7 +530,6 @@ The hosts resource defines a running machine instance in Evergreen.
 | version_id    | string | Unique identifier for the version of the project that this task is run as part of     |
 | build_id      | string | Unique identifier for the build of the project that this task is run as part of       |
 
-: **Task Info**
 
 ### Endpoints
 
@@ -511,13 +539,14 @@ The hosts resource defines a running machine instance in Evergreen.
 
 Returns a paginated list of all hosts in Evergreen
 
+**Parameters**
+
 | Name     | Type   | Description                                                                          |
 |--------------------|---------|-------------------------------------------|
 | start_at | string | Optional. The identifier of the host to start at in the pagination                   |
 | limit    | int    | Optional. The number of hosts to be returned per page of pagination. Defaults to 100 |
 | status   | string | Optional. A status of host to limit the results to                                   |
 
-: **Parameters**
 
 #### Fetch Hosts Spawned By User
 
@@ -525,13 +554,14 @@ Returns a paginated list of all hosts in Evergreen
 
 Returns a list of hosts spawned by the given user.
 
+**Parameters**
+
 | Name     | Type   | Description                                                                          |
 |--------------------|---------|-------------------------------------------|
 | start_at | string | Optional. The identifier of the host to start at in the pagination                   |
 | limit    | int    | Optional. The number of hosts to be returned per page of pagination. Defaults to 100 |
 | status   | string | Optional. A status of host to limit the results to                                   |
 
-: **Parameters**
 
 #### Fetch Host By ID
 
@@ -546,12 +576,13 @@ Fetches a single host using its ID
 Spawns a host. The host must be of a distro which is spawnable by users
 (see [Distro](#distro)).
 
+**Parameters**
+
 | Name      | Type   | Description                     |
 |-----------|--------|---------------------------------|
 | `distro`  | string | [Distro](#distro) name to spawn |
 | `keyname` | string | [Key](#key) name to use         |
 
-: **Parameters**
 
 #### Terminate Host with Given Host ID
 
@@ -592,11 +623,11 @@ or host that is not running will result in an error.
 All other response codes indicate errors; the response body can be
 parsed as a rest.APIError
 
+**Change Password**
+
 | Name    | Type   | Description                                                                                                                                                                                  |
 |--------------------|---------|-------------------------------------------|
 | rdp_pwd | string | New RDP password; must meet RDP password criteria as provided by Microsoft at: <https://technet.microsoft.com/en-us/library/cc786468(v=ws.10>).aspx and be between 6 and 255 characters long |
-
-: **Change Password**
 
 #### Extend the Expiration of Host with Given Host ID
 
@@ -617,17 +648,20 @@ in an error
 All other response codes indicate errors; the response body can be
 parsed as a rest.APIError
 
+**Extend Expiration**
+
 | Name      | Type | Description                                             |
 |-----------|------|---------------------------------------------------------|
 | add_hours | int  | Number of hours to extend expiration; not to exceed 168 |
 
-: **Extend Expiration**
 
 ## Patch
 
 A patch is a manually initiated version submitted to test local changes.
 
 ### Objects
+
+**Patch**
 
 | Name                  | Type             | Description                                                                                                                          |
 |--------------------|---------|-------------------------------------------|
@@ -648,14 +682,13 @@ A patch is a manually initiated version submitted to test local changes.
 | variants_tasks        | variant_task\[\] | List of documents of available tasks and associated build variant                                                                    |
 | activated             | bool             | Whether the patch has been finalized and activated                                                                                   |
 
-: **Patch**
+**Variant Task**
 
 | Name  | Type       | Description                                      |
 |-------|------------|--------------------------------------------------|
 | name  | string     | Name of build variant                            |
 | tasks | string\[\] | All tasks available to run on this build variant |
 
-: **Variant Task**
 
 ### Endpoints
 
@@ -666,12 +699,13 @@ A patch is a manually initiated version submitted to test local changes.
 Returns a paginated list of all patches associated with a specific
 project
 
+**Parameters**
+
 | Name     | Type   | Description                                                                            |
 |--------------------|---------|-------------------------------------------|
 | start_at | string | Optional. The create_time of the patch to start at in the pagination. Defaults to now  |
 | limit    | int    | Optional. The number of patches to be returned per page of pagination. Defaults to 100 |
 
-: **Parameters**
 
 #### Fetch Patches By User
 
@@ -679,12 +713,13 @@ project
 
 Returns a paginated list of all patches associated with a specific user
 
+**Parameters**
+
 | Name     | Type   | Description                                                                            |
 |--------------------|---------|-------------------------------------------|
 | start_at | string | Optional. The create_time of the patch to start at in the pagination. Defaults to now  |
 | limit    | int    | Optional. The number of patches to be returned per page of pagination. Defaults to 100 |
 
-: **Parameters**
 
 #### Fetch Patch By Id
 
@@ -698,11 +733,11 @@ Fetch a single patch using its ID
 
 Fetch the raw diff for a patch
 
+**Parameters**
+
 | Name   | Type   | Description                                                                                           |
 |--------------------|---------|-------------------------------------------|
 | module | string | Optional. A module to get the diff for. Returns the empty string when no patch exists for the module. |
-
-: **Parameters**
 
 #### Abort a Patch
 
@@ -710,8 +745,36 @@ Fetch the raw diff for a patch
 
 Aborts a single patch using its ID and returns the patch
 
-Configure/Schedule a Patch
-```````` `  ::   POST /patches/<patch_id>/configure  Update the list of tasks that the specified patch will run. This works both for initially specifying a patch's tasks, as well as for adding additional tasks to an already-scheduled patch.  The request body should be in the following format: ::  {    "description": "this is my patch",    "variants": [      {         "id": "variant-1",         "tasks": ["task1", task2"]      },      {         "id": "variant-2",         "tasks": ["task2", task3"]      }    ]  }  .. list-table::    :widths: 25 10 55    :header-rows: 1     * - Name              - Type                 - Description    * - description          - string         - Optional, if sent will update the patch's description    * - variants      - array of variant objects      - Required, these are the variants and tasks that the patch should run. Each variant object is of the format { "variant": "<variant name>", "tasks": ["task name"] }. This field is analogous in syntax and usage to the "buildvariants" field in the project's evergreen.yml file. Names of display tasks can be specified in the tasks array and will work as one would expect. For an already-scheduled patch, any new tasks in this array will be created, and any existing tasks not in this array will be unscheduled.  Restart a Patch ````````\`
+#### Configure/Schedule a Patch
+
+    POST /patches/<patch_id>/configure  
+
+Update the list of tasks that the specified patch will run. This works both for initially specifying a patch's tasks, as well as for adding additional tasks to an already-scheduled patch.  The request body should be in the following format: 
+
+{
+  "description": "this is my patch",
+      "variants": [
+      {
+             "id": "variant-1",
+                    "tasks": ["task1", task2"]
+                        },
+      {
+             "id": "variant-2",
+                    "tasks": ["task2", task3"]
+                        }
+                          ]
+                          }"]
+      }"]
+      }
+      ]
+}
+
+|Name              |Type                           | Description    
+---------------------------------------------------------------------------------------
+|description       |string                         | Optional, if sent will update the patch's description    
+|variants          |array of variant objects       | Required, these are the variants and tasks that the patch should run. Each variant object is of the format { "variant": "\<variant name\>", "tasks": ["task name"] }. This field is analogous in syntax and usage to the "buildvariants" field in the project's evergreen.yml file. Names of display tasks can be specified in the tasks array and will work as one would expect. For an already-scheduled patch, any new tasks in this array will be created, and any existing tasks not in this array will be unscheduled.  
+
+#### Restart a Patch
 
     POST /patches/<patch_id>/restart
 
@@ -724,12 +787,13 @@ Restarts a single patch using its ID then returns the patch
 Sets the priority and activation status of a single patch to the input
 values
 
+**Parameters**
+
 | Name      | Type | Description                                         |
 |-----------|------|-----------------------------------------------------|
 | priority  | int  | Optional. The priority to set the patch to          |
 | activated | bool | Optional. The activation status to set the patch to |
 
-: **Parameters**
 
 ## Build
 
@@ -737,6 +801,8 @@ The build resource represents the combination of a version and a
 buildvariant.
 
 ### Objects
+
+**Build**
 
 | Name                    | Type       | Description                                                                                                                                                                                                                                                                      |
 |--------------------|---------|-------------------------------------------|
@@ -763,7 +829,6 @@ buildvariant.
 | `status_counts`         | Object     | Contains aggregated data about the statuses of tasks in this build. The keys of this object are statuses and the values are the number of tasks within this build in that status. Note that this field provides data that you can get yourself by querying tasks for this build. |
 | `task_cache`            | Object     | Contains a subset of information about tasks for the build; this is not provided/accurate for most routes ([get versions for project](https://github.com/evergreen-ci/evergreen/wiki/REST-V2-Usage#get-versions-for-a-project) is an exception).                                 |
 
-: **Build**
 
 ### Endpoints
 
@@ -792,18 +857,21 @@ Restarts a single build using its ID then returns the build
 Sets the priority and activation status of a single build to the input
 values
 
+**Parameters**
+
 | Name      | Type | Description                                                           |
 |--------------------|---------|-------------------------------------------|
 | priority  | int  | Optional. The priority to set the build to                            |
 | activated | bool | Optional. Set to true to activate, and false to deactivate the build. |
 
-: **Parameters**
 
 ## Version
 
 A version is a commit in a project.
 
 ### Objects
+
+**Version**
 
 | Name                    | Type            | Description                                                                                                                                                                                                                                                          |
 |--------------------|---------|-------------------------------------------|
@@ -821,7 +889,6 @@ A version is a commit in a project.
 | `requester`             | string          | Version created by one of \"patch_request\", \"github_pull_request\", \"gitter_request\" (caused by git commit, aka the repotracker requester), \"trigger_request\" (Project Trigger versions) , \"merge_test\" (commit queue patches), \"ad_hoc\" (periodic builds) |
 | `activated`             | boolean or null | Will be null for versions created before this field was added.                                                                                                                                                                                                       |
 
-: **Version**
 
 ### Endpoints
 
@@ -849,11 +916,12 @@ Restarts a single version using its ID then returns the version
 
 Activate or deactivates a given version. Does not return the version.
 
+**Parameters**
+
 | Name      | Type | Description                                                          |
 |--------------------|---------|-------------------------------------------|
 | activated | bool | Required. Will activate the version if true and deactivate if false. |
 
-: **Parameters**
 
 #### Get Builds From A Version
 
@@ -861,11 +929,12 @@ Activate or deactivates a given version. Does not return the version.
 
 Fetches a list of builds associated with a version
 
+**Parameters**
+
 | Name    | Type   | Description                                                                  |
 |--------------------|---------|-------------------------------------------|
 | variant | string | Optional. Only return the build with this variant (using Distro identifier). |
 
-: **Parameters**
 
 Returns a list of
 [Builds](https://github.com/evergreen-ci/evergreen/wiki/REST-V2-Usage#build).
@@ -878,6 +947,8 @@ Creates a version and optionally runs it, conceptually similar to a
 patch. The main difference is that the config yml file is provided in
 the request, rather than retrieved from the repo.
 
+**Parameters**
+
 | Name       | Type         | Description                                                                                                                                                                         |
 |--------------------|---------|-------------------------------------------|
 | project_id | string       | Required. This is the project with which the version will be associated, and the code to test will be checked out from the project\'s branch.                                       |
@@ -886,7 +957,6 @@ the request, rather than retrieved from the repo.
 | is_adhoc   | boolean      | Optional. If true, the version will be indicated as coming from an ad hoc source and will not display as if it were a patch or commit. If false, it will be assumed to be a commit. |
 | config     | string (yml) | Required. This is the yml config that will be used for defining tasks, variants, and functions.                                                                                     |
 
-: **Parameters**
 
 Returns the version object that was created
 
@@ -895,6 +965,8 @@ Returns the version object that was created
 A project corresponds to a single repository.
 
 ### Objects
+
+**Project**
 
 | Name                 | Type                  | Description                                                                                                        |
 |--------------------|---------|-------------------------------------------|
@@ -922,7 +994,8 @@ A project corresponds to a single repository.
 | subscriptions        | \[\]Subscription      | a list of subscriptions for the project                                                                            |
 | delete_subscriptions | \[\]string            | subscription IDs. Will delete these subscriptions when given.                                                      |
 
-: **Project**
+
+**CommitQueueParams**
 
 | Name         | Type   | Description                               |
 |--------------|--------|-------------------------------------------|
@@ -930,7 +1003,8 @@ A project corresponds to a single repository.
 | merge_method | string | method of merging (squash, merge, rebase) |
 | patch_type   | string | type of patch (PR, CLI)                   |
 
-: **CommitQueueParams**
+
+**TriggersDefinition**
 
 | Name          | Type   | Description                               |
 |---------------|--------|-------------------------------------------|
@@ -943,7 +1017,8 @@ A project corresponds to a single repository.
 | config_file   | string | definition file                           |
 | command       | string | shell command that creates task json file |
 
-: **TriggersDefinition**
+
+**ProjectAlias**
 
 | Name    | Type       | Description                                                                              |
 |--------------------|---------|-------------------------------------------|
@@ -954,7 +1029,8 @@ A project corresponds to a single repository.
 | tags    | \[\]string | Tags for alias. Will use the union of task and tags. Either task or tags required.       |
 | delete  | bool       | If the given alias for the project should be deleted, set this to true.                  |
 
-: **ProjectAlias**
+
+**ProjectVars**
 
 | Name            | Type                | Description                                                                                                                                               |
 |--------------------|---------|-------------------------------------------|
@@ -963,7 +1039,8 @@ A project corresponds to a single repository.
 | restricted_vars | map\[string\]bool   | Indicates whether that variable should be restricted, i.e. only used by commands that are guaranteed to not leak the values (currently s3.put and s3.get) |
 | vars_to_delete  | \[\]string          | Only used to remove existing variables.                                                                                                                   |
 
-: **ProjectVars**
+
+**Subscription**
 
 | Name           | Type                | Description                                   |
 |--------------------|---------|-------------------------------------------|
@@ -977,21 +1054,22 @@ A project corresponds to a single repository.
 | owner          | string              | The project ID                                |
 | trigger_data   | map\[string\]string |                                               |
 
-: **Subscription**
+
+**Selector**
 
 | Name | Type   |
 |------|--------|
 | type | string |
 | data | string |
 
-: **Selector**
+
+**Subscriber**
 
 | Name   | Type        |
 |--------|-------------|
 | type   | string      |
 | target | interface{} |
 
-: **Subscriber**
 
 ### Endpoints
 
@@ -1003,12 +1081,13 @@ Returns a paginated list of all projects. Any authenticated user can
 access this endpoint, so sensitive information such as variables are
 omitted.
 
+**Parameters**
+
 | Name     | Type   | Description                                                                             |
 |--------------------|---------|-------------------------------------------|
 | start_at | string | Optional. The id of the project to start at in the pagination. Defaults to empty string |
 | limit    | int    | Optional. The number of projects to be returned per page of pagination. Defaults to 100 |
 
-: **Parameters**
 
 #### Get A Project
 
@@ -1019,12 +1098,13 @@ variables, aliases, and subscriptions. Note that private variables are
 *always redacted.* If you want to use this to copy project variables,
 see instead the \"Copy Project Variables\" route.
 
+**Parameters**
+
 | Name                 | Type | Description                                                                                                                                 |
 |--------------------|---------|-------------------------------------------|
 | includeRepo          | bool | Optional. Setting to true will return the merged result of project and repo level settings. Defaults to false                               |
 | includeProjectConfig | bool | Optional. Setting to true will return the merged result of the project and the config properties set in the project YAML. Defaults to false |
 
-: **Parameters**
 
 #### Modify A Project
 
@@ -1037,7 +1117,7 @@ the commit queue if specified. For lists, if there is a complementary
 while the \"delete\" field indicates items to be deleted. Otherwise, the
 given list will overwrite the original list.
 
-Copy a Project ``````\`
+Copy a Project 
 
     POST /projects/<project_id>/copy?new_project=<new_project_id>
 
@@ -1057,6 +1137,8 @@ new project (but not variables/aliases/subscriptions).
 Restricted to admins of the source project/repo and the destination
 project/repo. Copies variables from projectA to projectB.
 
+**CopyVariablesOptions**
+
 | Name            | Type   | Description                                                                                                                       |
 |--------------------|---------|-------------------------------------------|
 | copy_to         | string | Required. ProjectID to copy `source_project` variables to.                                                                        |
@@ -1064,7 +1146,6 @@ project/repo. Copies variables from projectA to projectB.
 | overwrite       | bool   | If set to true, will remove variables from the `copy_to` project that are not in `source_project`.                                |
 | dry_run         | bool   | If set to true, route returns the variables from `source_project` that will be copied. (If private, the values will be redacted.) |
 
-: **CopyVariablesOptions**
 
 If `dry_run` is set, then the route does not complete the copy, but
 returns OK if no project variables in the source project will be
@@ -1084,6 +1165,8 @@ Returns a paginated list of recent versions for a project. Parameters
 should be passed into the JSON body (the route still accepts limit and
 start as query parameters to support legacy behavior).
 
+**Parameters**
+
 | Name             | Type   | Description                                                                                                                                                                                                                                                                                                  |
 |--------------------|---------|-------------------------------------------|
 | skip             | int    | Optional. Number of versions to skip.                                                                                                                                                                                                                                                                        |
@@ -1095,7 +1178,8 @@ start as query parameters to support legacy behavior).
 | include_tasks    | bool   | If set, will return some information for each task in the included builds. This is only allowed if `include_builds` is set.                                                                                                                                                                                  |
 | by_task          | string | If set, will only include information for this task, and will only return versions with this task activated. Must have `include_tasks` set.                                                                                                                                                                  |
 
-: **Parameters**
+
+**Response**
 
 | Name                    | Type            | Description                                                                                                                          |
 |--------------------|---------|-------------------------------------------|
@@ -1110,7 +1194,6 @@ start as query parameters to support legacy behavior).
 | `build_variants_status` | \[\]buildDetail | List of documents of the associated build variant and the build id (this won\'t be populated if include_builds is set)               |
 | `builds`                | \[\]APIBuild    | List of builds for the version (only populated if include_builds is set). If include_tasks is set, then the task_cache is populated. |
 
-: **Response**
 
 #### Get Tasks For A Project
 
@@ -1120,13 +1203,14 @@ Returns the last set number of completed tasks that exist for a given
 project. Parameters should be passed into the JSON body. Ensure that a
 task name rather than a task ID is passed int the URL.
 
+**Parameters**
+
 | Name          | Type   | Description                                                             |
 |--------------------|---------|-------------------------------------------|
 | limit         | int    | Optional. The number of latest versions to be searched. Defaults to 20. |
 | start_at      | int    | Optional. The version order number to start returning results after.    |
 | build_variant | string | If set, will only include tasks that have run on this build variant.    |
 
-: **Parameters**
 
 #### Rotate Variables
 
@@ -1134,13 +1218,14 @@ task name rather than a task ID is passed int the URL.
 
 Restricted to superusers due to the fact it modifies ALL projects.
 
+**RotateVariablesOptions**
+
 | Name        | Type   | Description                                                       |
 |--------------------|---------|-------------------------------------------|
 | to_replace  | string | Required. Variable value to search and replace.                   |
 | replacement | string | Required. Value to replace the variables that match `to_replace`. |
 | dry_run     | bool   | If set to true, we don\'t complete the update                     |
 
-: **RotateVariablesOptions**
 
 If `dry_run` is set, the route doesn\'t update but returns a map of
 `projectId` to a list of keys that will be replaced.
@@ -1148,19 +1233,22 @@ If `dry_run` is set, the route doesn\'t update but returns a map of
 if `dry_run` is not set, route returns a map of `projectId` to a list of
 keys that were replaced.
 
-Get Recent Versions For A Project (legacy) ````````````````\`
+Get Recent Versions For A Project (legacy) 
 
     GET /projects/<project_id>/recent_versions
 
 Returns a paginated list of recent versions for a project. NOTE that
 this route is legacy, and is no longer supported.
 
+**Parameters**
+
 | Name   | Type | Description                                                                            |
 |--------------------|---------|-------------------------------------------|
 | offset | int  | Optional. Zero-based offset to return results from.                                    |
 | limit  | int  | Optional. The number of versions to be returned per page of pagination. Defaults to 10 |
 
-: **Parameters**
+
+**Response**
 
 | Name           | Type                         | Description                                                                                                                                                                                                  |
 |--------------------|---------|-------------------------------------------|
@@ -1168,36 +1256,38 @@ this route is legacy, and is no longer supported.
 | versions       | Array of APIVersions objects | This array contains the recent versions for the requested project, in reverse chronological order.                                                                                                           |
 | build_variants | Array of strings             | The deduplicated display names for all the build variants in the rows parameter                                                                                                                              |
 
-: **Response**
 
 ### Objects
+
+**BuildList**
 
 | Name            | Type   | Description                                                                                                                                       |
 |--------------------|---------|-------------------------------------------|
 | `build_variant` | string | the identifier of each of the build variant objects below (all are the same variant)                                                              |
 | `builds`        | object | The keys of this object are build IDs. The values are the full build objects: <https://github.com/evergreen-ci/evergreen/wiki/REST-V2-Usage#id12> |
 
-: **BuildList**
+
+**APIVersions**
 
 | Name        | Type                     | Description                                                                                                                                                                       |
 |--------------------|---------|-------------------------------------------|
 | `rolled_up` | boolean                  | if true, these are inactive versions                                                                                                                                              |
 | `versions`  | Array of Version objects | If rolled_up is true, this will contain multiple version objects, none of which ran any tasks. Otherwise, this will contain a single version object, of which at least 1 task ran |
 
-: **APIVersions**
 
-Get Current Parameters For a Project ````````````````\`
+Get Current Parameters For a Project 
 
     GET /projects/<project_id>/parameters
 
 Returns a list of parameters for the project.
+
+**Parameter**
 
 | Name  | Type   | Description                         |
 |-------|--------|-------------------------------------|
 | key   | string | The name of the parameter.          |
 | value | string | The default value of the parameter. |
 
-: **Parameter**
 
 #### Put A Project
 
@@ -1206,8 +1296,26 @@ Returns a list of parameters for the project.
 Create a new project with the given project ID. Restricted to super
 users.
 
-Check Project Alias Results
-`````````::   GET /projects/test_alias?version=<version_id>&alias=<alias>&include_deps=<true|false>  Checks a specified project alias in a specified project against an Evergreen configuration, returning the tasks and variants that alias would select. Currently only supports passing in the configuration via an already-created version.  .. list-table:: **Parameters**    :widths: 25 10 55    :header-rows: 1     * - Name      - Type      - Description    * - version      - string      - Required. The ID of the version (commit or patch) from which to retrieve the configuration as well as the project ID    * - alias      - string      - Required. The name of the alias to test against the configuration. The special aliases __commit_queue, __github, and __git_tag can be used here    * - include_deps      - boolean      - Optional. If true, will also select the tasks that are dependencies of the selected tasks, even if they do not match the alias definition. Defaults to false.    Distro ------  A distro is an Evergreen host type. This isn't necessarily a Linux distribution - Mac and Windows host types are other possibilities.  Objects ~~~~~~~  .. list-table:: **Distro**    :widths: 25 10 55   :header-rows: 1        * - Name      - Type      - Description    * -`name`- string      - Evergreen distro name    * -`user_spawn_allowed`- bool      - Whether hosts of this distro can be spawned by users  Endpoints ~~~~~~~~~  Get Defined Distros`````````\`
+#### Check Project Alias Results
+
+    GET /projects/test_alias?version=<version_id>&alias=<alias>&include_deps=<true|false>  
+
+Checks a specified project alias in a specified project against an Evergreen configuration, returning the tasks and variants that alias would select. Currently only supports passing in the configuration via an already-created version. 
+
+**Parameters**
+
+|Name             |Type     |Description    
+|-----------------|---------|-----------------------------
+|version          |string   |Required. The ID of the version (commit or patch) from which to retrieve the configuration as well as the project ID    
+|alias            |string   |Required. The name of the alias to test against the configuration. The special aliases \__commit_queue, \__github, and \__git_tag can be used here    
+|include_deps     |boolean  |Optional. If true, will also select the tasks that are dependencies of the selected tasks, even if they do not match the alias definition. Defaults to false.    
+
+
+### Distro 
+
+A distro is an Evergreen host type. This isn't necessarily a Linux distribution - Mac and Windows host types are other possibilities.  
+
+#### Objects
 
     GET /distros
 
@@ -1217,12 +1325,13 @@ Fetches distros defined in the system.
 
 ### Objects
 
+**Key**
+
 | Name | Type   | Description                             |
 |------|--------|-----------------------------------------|
 | name | string | The unique name of the public key       |
 | key  | string | The public key, (e.g: \'ssh-rsa \...\') |
 
-: **Key**
 
 ### Endpoints
 
@@ -1275,19 +1384,23 @@ Status
 
 ### Objects
 
+**APICLIUpdate**
+
 | Name            | Type            | Description                                                                                            |
 |--------------------|---------|-------------------------------------------|
 | `client_config` | APIClientConfig | Client version/URLs                                                                                    |
 | `ignore_update` | bool            | If true, degraded mode for clients is enabled, and the client should treat their version as up-to date |
 
-: **APICLIUpdate**
+
+**APIClientConfig**
 
 | Name            | Type                | Description                              |
 |--------------------|---------|-------------------------------------------|
 | latest_revision | string              | a string representing the client version |
 | client_binaries | \[APIClientBinary\] | Array of APIClientBinary objects         |
 
-: **APIClientConfig**
+
+**APIClientBinary**
 
 | Name | Type   | Description                                        |
 |------|--------|----------------------------------------------------|
@@ -1295,7 +1408,6 @@ Status
 | os   | string | OS of the binary; must be a valid GOOS             |
 | url  | string | URL where the binary can be fetched                |
 
-: **APIClientBinary**
 
 ### Endpoints
 
@@ -1326,6 +1438,8 @@ distro combinations.
 
 ### Objects
 
+**TaskStats**
+
 | Name                   | Type   | Description                                                                                               |
 |--------------------|---------|-------------------------------------------|
 | `task_name`            | string | Name of the task the test ran under.                                                                      |
@@ -1341,17 +1455,61 @@ distro combinations.
 | `num_setup_failed`     | int    | The number of times the task failed with a failure of type [setup]{.title-ref} during the target period.  |
 | `avg_duration_success` | float  | The average duration, in seconds, of the tasks that passed during the target period.                      |
 
-: **TaskStats**
 
 ### Endpoints
 
-Fetch the Task Stats for a project
-```````````````::   GET /projects/<project_id>/task_stats  Returns a paginated list of task stats associated with a specific project filtered and grouped according to the query parameters.  .. list-table:: **Parameters**    :widths: 15 20 55    :header-rows: 1     * - Name      - Type      - Description    * -`after_date`- string      - The start date (included) of the targeted time interval. The format is "YYYY-MM-DD". The date is UTC.    * -`before_date`- string      - The end date (excluded) of the targeted time interval. The format is "YYYY-MM-DD". The date is UTC.    * -`group_num_days`- int      - Optional. Indicates that the statistics should be aggregated by groups of`group_num_days`days. The first group will start on`after_date`, the last group will end on the day preceding`before_date`and may have less than`group_num_days`days. Defaults to 1.    * -`requesters`- []string or comma separated strings      - Optional. The requesters that triggered the task execution. Accepted values are`mainline`,`patch`,`trigger`, and`adhoc`. Defaults to`mainline`.    * -`tasks`- []string or comma separated strings      - The tasks to include in the statistics.    * -`variants`- []string or comma separated strings      - Optional. The build variants to include in the statistics.    * -`distros`- []string or comma separated strings      - Optional. The distros to include in the statistics.    * -`group_by`- string      - Optional. How to group the results. Accepted values are`task_variant`,`task`. By default the results are not grouped, i.e. are returned by combination of task + variant + distro.    * -`sort`- string      - Optional. The order in which the results are returned. Accepted values are`earliest`and`latest`. Defaults to`earliest`.    * -`start_at`- string      - Optional. The identifier of the task stats to start at in the pagination    * -`limit`` - int         - Optional. The number of task stats to be returned per page of pagination. Defaults to 1000.  TaskReliability ----------  Task Reliability success scores are aggregated task execution statistics for a given project. Statistics can be grouped by time period (days) and by task, variant, distro combinations.  The score is based on the lower bound value of a `Binomial proportion confidence interval <https://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval>`_.  In this case, the equation is a `Wilson score interval <https://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval#Wilson%20score%20interval%20with%20continuity%20correction>`_:  |Wilson score interval with continuity correction|   In statistics, a binomial proportion confidence interval is a confidence interval for the probability of success calculated from the outcome of a series of success–failure experiments (Bernoulli trials). In other words, a binomial proportion confidence interval is an interval estimate of a success probability p when only the number of experiments n and the number of successes nS are known.  The advantage of using a confidence interval of this sort is that the computed value takes the number of test into account. The lower the number of test, the greater the margin of error. This results in a lower success rate score for the cases where there are fewer test results.  During the evaluation of this algorithm, 22 consecutive test passes are required before a success  score of .85 is reached (with a significance level / α of ``0.05`).  Objects ~~~~~~~  .. list-table:: **TaskReliability**    :widths: 25 10 55    :header-rows: 1     * - Name      - Type      - Description    * -`task_name`- string      - Name of the task the test ran under.    * -`variant`- string               - Name of the build variant the task ran on. Omitted if the grouping does not include the build variant.    * -`distro`- string               - Identifier of the distro that the task ran on. Omitted if the grouping does not include the distro.    * -`date`- string      - The start date ("YYYY-MM-DD" UTC day) of the period the statistics cover.    * -`num_success`- int      - The number of times the task was successful during the target period.    * -`num_failed`- int      - The number of times the task failed during the target period.    * -`num_total`- int      - The number of times the task ran during the target period.    * -`num_timeout`- int      - The number of times the task ended on a timeout during the target period.    * -`num_test_failed`` - int      - The number of times the task failed with a failure of type `test` during the target period.    * - ``num_system_failed`` - int      - The number of times the task failed with a failure of type `system` during the target period.    * - ``num_setup_failed`` - int      - The number of times the task failed with a failure of type `setup` during the target period.    * - ``avg_duration_success`- float      - The average duration, in seconds, of the tasks that passed during the target period.    * -`success_rate`- float      - The success rate score calculated over the time span, grouped by time period and distro, variant or task. The value ranges from 0.0 (total failure) to 1.0 (total success).  Endpoints ~~~~~~~~~  Fetch the Task Reliability score for a project```````````````
+#### Fetch the Task Stats for a project
+
+    GET /projects/<project_id>/task_stats  
+
+Returns a paginated list of task stats associated with a specific project filtered and grouped according to the query parameters.  
+
+|Name            |Type                                  |Description    
+|----------------|--------------------------------------|------------------------------
+|after_date      |string                                |The start date (included) of the targeted time interval. The format is "YYYY-MM-DD". The date is UTC.
+|before_dates    |string                                |The end date (excluded) of the targeted time interval. The format is "YYYY-MM-DD". The date is UTC.    
+|group_num_days  |int                                   |Optional. Indicates that the statistics should be aggregated by groups of`group_num_days`days. The first group will start on`after_date`, the last group will end on the day preceding`before_date`and may have less than`group_num_days`days. Defaults to 1.    
+|requesters      |[]string or comma separated strings   |Optional. The requesters that triggered the task execution. Accepted values are`mainline`,`patch`,`trigger`, and`adhoc`. Defaults to`mainline`.    
+|tasks           |[]string or comma separated strings   |The tasks to include in the statistics.    
+|variants        |[]string or comma separated strings   |Optional. The build variants to include in the statistics.    
+|distros         |[]string or comma separated strings   |Optional. The distros to include in the statistics.    
+|group_by        |string                                |Optional. How to group the results. Accepted values are`task_variant`,`task`. By default the results are not grouped, i.e. are returned by combination of task + variant + distro.    
+|sort            |string                                |Optional. The order in which the results are returned. Accepted values are`earliest`and`latest`. Defaults to`earliest`.    
+|start_at        |string                                |Optional. The identifier of the task stats to start at in the pagination    
+|limit           |int                                   |Optional. The number of task stats to be returned per page of pagination. Defaults to 1000.  
+
+### TaskReliability 
+
+Task Reliability success scores are aggregated task execution statistics for a given project. Statistics can be grouped by time period (days) and by task, variant, distro combinations.  The score is based on the lower bound value of a `Binomial proportion confidence interval <https://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval>`_.  In this case, the equation is a `Wilson score interval <https://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval#Wilson%20score%20interval%20with%20continuity%20correction>`_:  |Wilson score interval with continuity correction|   In statistics, a binomial proportion confidence interval is a confidence interval for the probability of success calculated from the outcome of a series of success–failure experiments (Bernoulli trials). In other words, a binomial proportion confidence interval is an interval estimate of a success probability p when only the number of experiments n and the number of successes nS are known.  The advantage of using a confidence interval of this sort is that the computed value takes the number of test into account. The lower the number of test, the greater the margin of error. This results in a lower success rate score for the cases where there are fewer test results.  During the evaluation of this algorithm, 22 consecutive test passes are required before a success  score of .85 is reached (with a significance level / α of ``0.05`).  
+
+#### Objects
+
+|Name                 |Type       |Description    
+|---------------------|-----------|-----------------------------------------------------
+|task_name            |string     |Name of the task the test ran under.    
+|variant              |string     |Name of the build variant the task ran on. Omitted if the grouping does not include the build variant.    
+|distro               |string     |Identifier of the distro that the task ran on. Omitted if the grouping does not include the distro.    
+|date                 |string     |The start date ("YYYY-MM-DD" UTC day) of the period the statistics cover.    
+|num_success          |int        |The number of times the task was successful during the target period.    
+|num_failed           |int        |The number of times the task failed during the target period.    
+|num_total            |int        |The number of times the task ran during the target period.    
+|num_timeout          |int        |The number of times the task ended on a timeout during the target period.    
+|num_test_failed      |int        |The number of times the task failed with a failure of type `test` during the target period.    
+|num_system_failed    |int        |The number of times the task failed with a failure of type `system` during the target period.    
+|num_setup_failed     |int        |The number of times the task failed with a failure of type `setup` during the target period.    
+|avg_duration_success |float      |The average duration, in seconds, of the tasks that passed during the target period.    
+|success_rate         |float      |The success rate score calculated over the time span, grouped by time period and distro, variant or task. The value ranges from 0.0 (total failure) to 1.0 (total success).  
+
+#### Endpoints 
+
+##### Fetch the Task Reliability score for a project
 
     GET /projects/<project_id>/task_reliability
 
 Returns a paginated list of task reliability scores associated with a
 specific project filtered and grouped according to the query parameters.
+
+**Parameters**
 
 | Name             | Type                                  | Description                                                                                                                                                                                                                                                           |
 |-------------|-----------------|-------------------------------------------|
@@ -1367,11 +1525,10 @@ specific project filtered and grouped according to the query parameters.
 | `start_at`       | string                                | Optional. The identifier of the task stats to start at in the pagination                                                                                                                                                                                              |
 | `limit`          | int                                   | Optional. The number of task stats to be returned per page of pagination. Defaults to 1000.                                                                                                                                                                           |
 
-: **Parameters**
 
 #### Examples
 
-Get the current daily task reliability score. ```` :
+Get the current daily task reliability score.
 
     GET /projects/mongodb-mongo-master/task_reliability?tasks=lint
 
@@ -1408,6 +1565,8 @@ issues.
 
 ### Objects
 
+**Email**
+
 | Name            | Type                    | Description                                                                                                           |
 |--------------------|---------|-------------------------------------------|
 | `from`          | string                  | Optional. The email sender.                                                                                           |
@@ -1417,7 +1576,8 @@ issues.
 | `is_plain_text` | string                  | Optional. Specifies the Content-Type of the email. If true, it will be \"text/plain\"; otherwise it is \"text/html\". |
 | `headers`       | map\[string\]\[\]string | Optional. Email headers.                                                                                              |
 
-: **Email**
+
+**Slack**
 
 | Name          | Type                | Description                                  |
 |--------------------|---------|-------------------------------------------|
@@ -1425,7 +1585,8 @@ issues.
 | `msg`         | string              | Required. The message for the notification.  |
 | `attachments` | \[\]SlackAttachment | Optional. Array of attachments to a message. |
 
-: **Slack**
+
+**SlackAttachment**
 
 | Name          | Type                     | Description                                                                                                                                              |
 |--------------------|---------|-------------------------------------------|
@@ -1439,7 +1600,8 @@ issues.
 | `author_icon` | string                   | Optional. A URL that displays the author icon. Will only work if `author_name` is present.                                                               |
 | `fields`      | \[\]SlackAttachmentField | Optional. Array of SlackAttachmentFields that get displayed in a table-like format.                                                                      |
 
-: **SlackAttachment**
+
+**SlackAttachmentField**
 
 | Name    | Type   | Description                                                                                                         |
 |--------------------|---------|-------------------------------------------|
@@ -1447,10 +1609,11 @@ issues.
 | `value` | string | Optional. The field text. It can be formatted as plain text or with markdown by using `mrkdwn_in`.                  |
 | `short` | string | Optional. Indicates whether the field object is short enough to be displayed side-by-side with other field objects. |
 
-: **SlackAttachmentField**
 
 This corresponds with documentation for the [Slack API for
 attachments](https://api.slack.com/reference/messaging/attachments).
+
+**JIRA Issue**
 
 | Name          | Type                     | Description                                     |
 |--------------------|---------|-------------------------------------------|
@@ -1465,17 +1628,17 @@ attachments](https://api.slack.com/reference/messaging/attachments).
 | `labels`      | string                   | Optional. The issue labels.                     |
 | `fields`      | map\[string\]interface{} | Optional. Arbitrary map of custom field values. |
 
-: **JIRA Issue**
 
 This corresponds with the documentation in the [JIRA API for creating
 issues](https://docs.atlassian.com/software/jira/docs/api/REST/7.6.1/#api/2/issue-createIssue).
+
+**JIRA Comment**
 
 | Name       | Type   | Description                                                       |
 |--------------------|---------|-------------------------------------------|
 | `issue_id` | string | Optional. The ID of the issue where the comment should be posted. |
 | `body`     | string | Optional. The comment text.                                       |
 
-: **JIRA Comment**
 
 This corresponds with the documentation in the [JIRA API for adding
 comments](https://docs.atlassian.com/software/jira/docs/api/REST/7.6.1/#api/2/issue-addComment).
@@ -1526,15 +1689,21 @@ granted to users. The format is :
 ### Endpoints
 
 Give Permissions to User
-`````````` `  ::     POST /users/<user_id>/permissions  Grants the user specified by user_id the permissions in the request body. Note that usage of this endpoint requires that the requesting user have security to modify roles. The format of the body is:  ::     {      "resource_type": "project",      "resources": ["project1", "project2"],      "permissions": {         "project_tasks: 30,         "project_patches": 10      }    }  * resource_type - the type of resources for which permission is granted. Must be one of "project", "distro", or "superuser" * resources - an array of strings representing what resources the access is for. For a resource_type of project, this will be a list of projects. For a resource_type of distro, this will be a list of distros. * permissions - an object whose keys are the permission keys returned by the /permissions endpoint above, and whose values are the levels of access to grant for that permission (also returned by the /permissions endpoint)  Get User Permissions ``````````\`
+
+    POST /users/<user_id>/permissions  Grants the user specified by user_id the permissions in the request body. 
+
+Note that usage of this endpoint requires that the requesting user have security to modify roles. The format of the body is:  ::     {      "resource_type": "project",      "resources": ["project1", "project2"],      "permissions": {         "project_tasks: 30,         "project_patches": 10      }    }  * resource_type - the type of resources for which permission is granted. Must be one of "project", "distro", or "superuser" * resources - an array of strings representing what resources the access is for. For a resource_type of project, this will be a list of projects. For a resource_type of distro, this will be a list of distros. * permissions - an object whose keys are the permission keys returned by the /permissions endpoint above, and whose values are the levels of access to grant for that permission (also returned by the /permissions endpoint)  
+
+Get User Permissions
 
     GET /users/<user_id>/permissions
+
+**Parameters**
 
 | Name | Type    | Description                                                      |
 |--------------------|---------|-------------------------------------------|
 | all  | Boolean | Optional. If included, we will not filter out basic permissions. |
 
-: **Parameters**
 
 Retrieves all permissions for the user (ignoring basic permissions that
 are given to all users, unless all=true is included). The format of the
@@ -1555,7 +1724,25 @@ response is: :: \[ { \"type\": \"project\", \"permissions\": {
     /users/\<user_id\>/permissions API.
 
 Get All User Permissions For Resource
-`````````` `  ::     GET /users/permissions  Retrieves all users with permissions for the resource, and their highest permissions, and returns this as a mapping. This ignores basic permissions that are given to all users.  The format of the body is: ::     {      "resource_type": "project",      "resource_id": "project_id"     }   The format of the response is: ::  {        "username_1": {           "project_tasks": 30,           "project_patches": 10          },        "username_2": {           "project_settings": 20,           "project_patches": 10        }      }  Delete User Permissions ``````````\`
+
+    GET /users/permissions  
+
+Retrieves all users with permissions for the resource, and their highest permissions, and returns this as a mapping. This ignores basic permissions that are given to all users.  
+
+The format of the body is: 
+
+    {
+      "resource_type": "project",
+        "resources": ["project1", "project2"],
+        "permissions": {
+             "project_tasks: 30,
+                  "project_patches": 10
+                    }
+                    }"
+        }
+    }
+
+#### Delete User Permissions ``````````\`
 
     DELETE /users/<user_id>/permissions
 
@@ -1604,8 +1791,6 @@ user have security to modify roles. The format of the body is: :
     the user. By default, specifying a user that does not exist will
     error
 
-:
-
 #### Offboard User
 
     POST /users/offboard_user
@@ -1631,8 +1816,9 @@ The format of the response is: :
       "terminated_volumes": ["volume-1"],
     }
 
+**Query Parameters**
+
 | Name    | Type | Description                                                                          |
 |--------------------|---------|-------------------------------------------|
 | dry_run | bool | If set to true, route returns the IDs of the hosts/volumes that *would* be modified. |
 
-: **Query Parameters**
